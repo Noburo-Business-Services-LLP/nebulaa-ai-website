@@ -7,12 +7,12 @@ import { fadeUpVariant, staggerContainer } from '@/lib/animations'
 
 export default function Hero() {
   return (
-    <section className="relative bg-[#0A0A0A] py-32 px-6 md:px-12 lg:px-30">
+    <section className="relative bg-[#0A0A0A] py-32 px-6 md:px-12 lg:px-[120px]">
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="grid lg:grid-cols-2 gap-15 items-center"
+        className="grid lg:grid-cols-2 gap-[60px] items-center"
       >
         {/* Left — copy */}
         <div>

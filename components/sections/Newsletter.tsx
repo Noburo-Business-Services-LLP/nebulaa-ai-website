@@ -123,7 +123,7 @@ export default function Newsletter() {
                   </div>
                   {state === 'error' && <p className="font-body text-xs text-red-400 pl-1">{error}</p>}
                   <p className="font-body text-[11px] text-brand-muted-2 dark:text-white/25 text-center">
-                    No spam. Unsubscribe anytime. Join 500+ founders.
+                    No spam. Unsubscribe anytime.
                   </p>
                 </form>
               </div>

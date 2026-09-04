@@ -7,7 +7,6 @@ import { X } from 'lucide-react'
 const DISMISSED_KEY = 'nebulaa_nl_popup_dismissed'
 
 const socialProofs = [
-  '500+ founders already in',
   'Sent every Monday, 8 AM IST',
   'Real data. Zero fluff.',
 ]

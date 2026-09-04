@@ -75,11 +75,11 @@ export default function GravitySection() {
                 LIVE
               </span>
             </div>
-            <SectionLabel>This week</SectionLabel>
+            <SectionLabel tone="muted">This week</SectionLabel>
           </div>
 
           <div className="bg-[#1A1A1A] border border-white/[0.06] rounded-[14px] p-5 mb-[14px]">
-            <SectionLabel className="mb-3 block">Tuesday · LinkedIn</SectionLabel>
+            <SectionLabel tone="muted" className="mb-3 block">Tuesday · LinkedIn</SectionLabel>
             <p className="font-body text-[14.5px] leading-[1.6] text-white/85 mb-4">
               Most of our customers don&rsquo;t compare us to other jewellers. They compare us to the shop their mother trusted for thirty years. That&rsquo;s the bar.
             </p>
@@ -92,7 +92,7 @@ export default function GravitySection() {
           <div className="grid grid-cols-3 gap-[10px]">
             {stats.map((stat) => (
               <div key={stat.label} className="bg-[#1A1A1A] border border-white/[0.06] rounded-xl p-[15px]">
-                <SectionLabel className="mb-[7px] block">{stat.label}</SectionLabel>
+                <SectionLabel tone="muted" className="mb-[7px] block">{stat.label}</SectionLabel>
                 <div className="font-heading text-[27px]">
                   {stat.value}
                   {stat.suffix && <span className="text-[15px] text-white/45">{stat.suffix}</span>}

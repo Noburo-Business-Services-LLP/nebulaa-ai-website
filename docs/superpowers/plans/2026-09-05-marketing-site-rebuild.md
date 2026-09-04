@@ -38,6 +38,8 @@ Copy these exactly; every task inherits them.
 
 **Dark only.** The site has no light mode as of Task 1B. Write dark values directly; do not add `dark:` variants to new code, and never add a light fallback "just in case". The `.dark` class stays permanently on `<html>` so pre-existing `dark:` variants in untouched files keep resolving — do not strip those in bulk.
 
+**Tailwind spacing — use arbitrary values for artboard numbers.** The default scale has no `15`, `30`, `13`, `18`, `22`, `26` … step. A class like `gap-15` or `px-30` compiles to NOTHING and fails silently — no error, no gap, no padding. When porting a pixel value from an artboard, write it as an arbitrary value: `gap-[60px]`, `lg:px-[120px]`, `p-[38px]`. Verify anything unusual actually landed by grepping the served stylesheet.
+
 **Type:**
 - Headings: `font-heading` = Playfair Display, weight 400–500, `tracking-[-0.02em]`. **Never `font-bold` on Playfair** — it reads heavy and wrong; use `font-semibold` at most.
 - Body/UI: `font-body` = Inter.
@@ -427,7 +429,7 @@ Required exact copy:
   - `Customers — retail buyers, 25–45, Tamil Nadu`
   - `3 competitors tracked`
 
-Layout: `grid lg:grid-cols-2 gap-15 items-center`, section padding `py-32 px-6 md:px-12 lg:px-30`, headline `font-heading text-[52px] md:text-[74px] leading-[1.04] tracking-[-0.02em] font-medium`. Keep the existing framer-motion `fadeUpVariant`/`staggerContainer` entrance. Hide the ParticleField below `lg` (the mobile artboard puts it below the copy instead — see Task 12 note).
+Layout: `grid lg:grid-cols-2 gap-[60px] items-center`, section padding `py-32 px-6 md:px-12 lg:px-[120px]`, headline `font-heading text-[52px] md:text-[74px] leading-[1.04] tracking-[-0.02em] font-medium`. Keep the existing framer-motion `fadeUpVariant`/`staggerContainer` entrance. Hide the ParticleField below `lg` (the mobile artboard puts it below the copy instead — see Task 12 note).
 
 - [ ] **Step 2: Verify the hero renders with the new copy**
 
@@ -468,7 +470,7 @@ Replaces `SocialProof` on the homepage. Honest client naming, no counters.
 
 - [ ] **Step 1: Create the component**
 
-Port the `<!-- ─────────── CLIENTS ─────────── -->` block from `Main.dc.html`. Structure: a hairline-bordered row, `py-12 px-6 md:px-12 lg:px-30`, `flex items-center gap-11`, eyebrow `Working with` then the names.
+Port the `<!-- ─────────── CLIENTS ─────────── -->` block from `Main.dc.html`. Structure: a hairline-bordered row, `py-12 px-6 md:px-12 lg:px-[120px]`, `flex items-center gap-11`, eyebrow `Working with` then the names.
 
 Client list — exact, with exact stage treatment:
 
@@ -1071,7 +1073,7 @@ Port the `<!-- ─────────── NAV ─────────
 - Logo: keep the existing `next/image` logo.
 - Links: `Product` (dropdown → Gravity `#gravity`, Pulsar `#pulsar`), `Services` (dropdown → Enterprise `/services/enterprise`, MSME `/services/msme`), then plain links `Free tools` `/tools`, `Pricing` `#pricing`, `Journal` `/blog`.
 - Right: `Sign in` (text) + `Start free` (gold pill, `href="#pricing"`).
-- Nav row: `py-7 px-6 md:px-12 lg:px-30`, hairline bottom border `border-white/[0.06]`, links `font-body text-sm text-white/55`.
+- Nav row: `py-7 px-6 md:px-12 lg:px-[120px]`, hairline bottom border `border-white/[0.06]`, links `font-body text-sm text-white/55`.
 - Replace the dropdown emoji (`🌀`, `📞`, `🏢`, `🏪`) with the small gold gradient dot used in the artboard — no emoji in nav.
 
 Keep both dropdown state hooks (`productDropdownOpen`, `servicesDropdownOpen`) already present.

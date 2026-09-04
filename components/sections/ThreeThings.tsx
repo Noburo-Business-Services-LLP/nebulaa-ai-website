@@ -1,0 +1,67 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import SectionLabel from '@/components/ui/SectionLabel'
+import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animations'
+
+const steps = [
+  {
+    n: '01',
+    title: 'It learns how you talk',
+    body: 'Paste your website. A minute later it knows your tone, who buys from you, and what your three closest rivals put out this week. No brief to write. No onboarding call to sit through.',
+  },
+  {
+    n: '02',
+    title: 'It shows up every morning',
+    body: 'Posts in your voice, on your channels, before you’ve had your first coffee. Diwali and Pongal are already in the calendar — it plans around them, so you never wake up on the day with nothing ready.',
+  },
+  {
+    n: '03',
+    title: 'It answers before they cool',
+    body: 'An enquiry at nine on a Sunday night doesn’t wait for Monday. Pulsar replies in minutes, asks what you’d have asked, and brings you in once there’s a real buyer on the other end.',
+  },
+]
+
+export default function ThreeThings() {
+  return (
+    <section className="py-[130px] px-6 md:px-12 lg:px-[120px]">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOptions}
+        className="max-w-[640px] mb-[78px]"
+      >
+        <motion.div variants={fadeUpVariant}>
+          <SectionLabel className="mb-[22px] block">What actually happens</SectionLabel>
+        </motion.div>
+        <motion.h2
+          variants={fadeUpVariant}
+          className="font-heading text-[50px] leading-[1.12] tracking-[-0.02em] font-medium"
+        >
+          It does the three things you <span className="italic text-brand-gold">keep meaning to do.</span>
+        </motion.h2>
+      </motion.div>
+
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOptions}
+        className="grid md:grid-cols-3 gap-6"
+      >
+        {steps.map((step) => (
+          <motion.div
+            key={step.n}
+            variants={fadeUpVariant}
+            className="bg-brand-dark-surface border border-white/[0.06] rounded-[18px] p-9"
+          >
+            <div className="font-heading text-[46px] text-brand-gold/35 leading-none mb-7">{step.n}</div>
+            <h3 className="font-heading text-[25px] font-medium mb-3.5">{step.title}</h3>
+            <p className="font-body text-[15px] leading-[1.68] text-white/55">{step.body}</p>
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
+  )
+}

@@ -56,7 +56,7 @@ export default function TransformationTable() {
         </div>
 
         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={viewportOptions} transition={{ delay: 0.5 }} className="text-center font-body text-sm text-brand-muted dark:text-white/50 mt-10">
-          This is what 40+ founders experienced in their first 30 days.
+          This is what founders experience in their first 30 days.
         </motion.p>
       </div>
     </section>

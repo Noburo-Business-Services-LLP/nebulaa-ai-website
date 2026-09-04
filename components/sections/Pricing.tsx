@@ -10,7 +10,7 @@ const plans = [
     name: 'Gravity',
     emoji: '🌀',
     tagline: 'AI Marketing Agent',
-    price: '₹7,500',
+    price: '₹10,000',
     description: 'Automate your entire social media presence. Posts, scheduling, competitor tracking — on autopilot.',
     features: [
       'Daily AI-written posts',
@@ -29,7 +29,7 @@ const plans = [
     name: 'Both Agents',
     emoji: '⚡',
     tagline: 'Marketing + Outreach',
-    price: '₹10,000',
+    price: '₹15,000',
     description: 'Your complete GTM team. Gravity handles marketing, Pulsar closes leads. Two agents, one plan.',
     features: [
       'Everything in Gravity',
@@ -38,7 +38,7 @@ const plans = [
       'Lead scoring & qualification',
       'Email follow-up sequences',
       'Priority onboarding',
-      'Save ₹5,000/month vs separate',
+      'Save ₹10,000/month vs separate',
     ],
     cta: 'Start with Both →',
     highlight: true,
@@ -48,7 +48,7 @@ const plans = [
     name: 'Pulsar',
     emoji: '📞',
     tagline: 'AI Outreach Agent',
-    price: '₹7,500',
+    price: '₹15,000',
     description: 'Automated calls, WhatsApp follow-ups, and email sequences. Never let a lead go cold again.',
     features: [
       'AI voice calling',

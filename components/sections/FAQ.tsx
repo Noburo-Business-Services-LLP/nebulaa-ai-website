@@ -7,9 +7,9 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animations'
 
 const faqs = [
-  { q: 'What happens after the 7-day free trial?', a: "You choose to continue at ₹10,000/month. No auto-charge. No surprise invoices. We'll remind you before the trial ends." },
+  { q: 'What happens after the 7-day free trial?', a: "You choose to continue on the plan you started — ₹10,000/month for Gravity, ₹15,000/month for Pulsar, or ₹15,000/month for both. No auto-charge. No surprise invoices. We'll remind you before the trial ends." },
   { q: 'Do I need a tech team to set this up?', a: 'No. Our onboarding team sets everything up with you. You\'ll be live in under 24 hours. No technical skills required.' },
-  { q: 'Can I use just Gravity or just Pulsar?', a: 'Yes! You can choose Gravity (marketing) or Pulsar (outreach) at ₹7,500/month each, or get both together at ₹10,000/month — saving ₹5,000 every month.' },
+  { q: 'Can I use just Gravity or just Pulsar?', a: 'Yes! You can choose Gravity (marketing) at ₹10,000/month or Pulsar (outreach) at ₹15,000/month, or get both together at ₹15,000/month — saving ₹10,000 every month.' },
   { q: 'What channels does Pulsar support?', a: 'Voice calls, WhatsApp (via API), email, and SMS — all from a single setup.' },
   { q: 'How does Gravity learn my brand voice?', a: 'Give it your website URL. It reads your content, extracts your tone, ICP, and competitive landscape — in about 60 seconds.' },
   { q: 'Is this useful for businesses with no online presence yet?', a: 'Yes — Gravity helps you build that presence from scratch. Even if you have zero followers, it starts posting for you on day one.' },

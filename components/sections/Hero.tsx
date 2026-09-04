@@ -228,7 +228,7 @@ export default function Hero() {
 
           <motion.p variants={fadeUpVariant} initial="hidden" animate="visible" className="mt-5 font-body text-xs text-brand-muted-2 dark:text-white/30 flex items-center gap-2">
             <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />Live</span>
-            <span>·</span><span>40+ founders automated</span><span>·</span><span>No card required</span>
+            <span>·</span><span>No card required</span>
           </motion.p>
         </motion.div>
 

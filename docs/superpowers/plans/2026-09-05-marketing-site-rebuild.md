@@ -36,6 +36,8 @@ Copy these exactly; every task inherits them.
 - Hairline border: `rgba(255,255,255,0.06)`; stronger: `rgba(255,255,255,0.10)`
 - Success green (status dots only): `#4ADE80`
 
+**Dark only.** The site has no light mode as of Task 1B. Write dark values directly; do not add `dark:` variants to new code, and never add a light fallback "just in case". The `.dark` class stays permanently on `<html>` so pre-existing `dark:` variants in untouched files keep resolving — do not strip those in bulk.
+
 **Type:**
 - Headings: `font-heading` = Playfair Display, weight 400–500, `tracking-[-0.02em]`. **Never `font-bold` on Playfair** — it reads heavy and wrong; use `font-semibold` at most.
 - Body/UI: `font-body` = Inter.
@@ -189,6 +191,116 @@ Expected: at least one `neb-label neb-label-gold` match.
 ```bash
 git add app/globals.css components/ui/SectionLabel.tsx
 git commit -m "Add Nebulaa design-system CSS primitives and label recipe
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+```
+
+---
+
+### Task 1B: Remove light mode
+
+DK's decision: the brand is black and gold, so the site is dark-only. This removes the toggle rather than maintaining two themes.
+
+**Files:**
+- Modify: `components/providers/ThemeProvider.tsx`
+- Delete: `components/ui/ThemeToggle.tsx`
+- Modify: `components/layout/Navbar.tsx` (drop both ThemeToggle usages)
+- Modify: `app/globals.css` (light `body` defaults → dark)
+
+**Approach:** keep `.dark` permanently on `<html>` (it is already hardcoded in `app/layout.tsx:54`) so the hundreds of existing `dark:` variants across untouched files keep resolving. Do **not** sweep `dark:` prefixes out of the codebase — that is a large, risky diff for zero user-visible gain.
+
+- [ ] **Step 1: Strip theme switching from the provider**
+
+`ThemeProvider` currently holds theme state, reads `localStorage`, and listens to `prefers-color-scheme`. Remove all of that. It still needs to exist because it renders `AnalyticsTracker`, `NewsletterPopup` and `CookieConsent`. Replace its contents with:
+
+```tsx
+'use client'
+
+import NewsletterPopup from '@/components/ui/NewsletterPopup'
+import CookieConsent from '@/components/ui/CookieConsent'
+import AnalyticsTracker from '@/components/ui/AnalyticsTracker'
+
+export default function ThemeProvider({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      {children}
+      <AnalyticsTracker />
+      <NewsletterPopup />
+      <CookieConsent />
+    </>
+  )
+}
+```
+
+Note the `useTheme` export is being removed. Step 2 finds every consumer.
+
+- [ ] **Step 2: Find and fix every `useTheme` consumer**
+
+```bash
+cd "/Users/dineshkannaa/Documents/0 CONTENT/Claude Agents/nebulaa-ai-website"
+grep -rn "useTheme\|ThemeToggle" --include="*.tsx" app components
+```
+
+Expected consumers: `components/ui/ThemeToggle.tsx` (being deleted) and `components/layout/Navbar.tsx` (two usages — desktop and mobile). If any other file appears, fix it in this task; leaving a dangling import breaks the build.
+
+```bash
+git rm components/ui/ThemeToggle.tsx
+```
+
+Then remove the `import ThemeToggle` line and both `<ThemeToggle />` usages from `Navbar.tsx`.
+
+- [ ] **Step 3: Make the CSS base dark**
+
+In `app/globals.css`, the base `body` rule currently sets a white background and dark text, with `.dark body` overriding it. Collapse to one dark rule — change the base `body` block to:
+
+```css
+body {
+  background: #0A0A0A;
+  color: #F5F4F1;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+```
+
+Leave the existing `.dark body` rule in place (it now agrees rather than overrides). Also update the `.prose-nebulaa` rules, which hardcode light-mode colours (`color: #1A1815`, `background: #F2F0EB`) and will be unreadable on black — set prose text to `#F5F4F1`, muted to `rgba(255,255,255,0.55)`, code/pre backgrounds to `#151515`, and the link colour to `#F5A623`.
+
+- [ ] **Step 4: Verify no toggle remains and the build passes**
+
+```bash
+npm run build
+```
+Expected: exits 0, no "useTheme is not exported" errors.
+
+```bash
+grep -rn "useTheme\|ThemeToggle" --include="*.tsx" app components | wc -l
+```
+Expected: `0`.
+
+```bash
+curl -s http://localhost:3899 | grep -ci "Toggle theme"
+```
+Expected: `0`.
+
+- [ ] **Step 5: Check the blog still reads correctly**
+
+The prose changes affect `/blog`. Load a post in the browser and confirm body text is light-on-dark and readable:
+
+```bash
+curl -s http://localhost:3899/blog | grep -o 'href="/blog/[a-z0-9-]*"' | head -1
+```
+Open that post in the browser pane. Expected: readable light text on the dark ground, no white-on-white.
+
+- [ ] **Step 6: Commit**
+
+```bash
+git add -A
+git commit -m "Remove light mode; the site is dark-only
+
+Black and gold is the brand, and maintaining two themes bought us
+nothing. The .dark class stays on <html> so existing dark: variants
+keep resolving.
 
 Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 ```
@@ -605,6 +717,102 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 
 ---
 
+### Task 8B: MadeByGravity gallery
+
+The proof section the old `AgentGallery` pretended to be. That file showed *invented* sample posts and fake lead names; this one shows real Gravity output — with visibly empty, correctly-sized slots until DK supplies it.
+
+**Files:**
+- Create: `components/sections/MadeByGravity.tsx`
+- Create: `lib/galleryData.ts`
+
+**Interfaces:**
+- Produces: `GalleryItem` type and `galleryItems` array from `lib/galleryData.ts`; default-export `MadeByGravity`.
+
+- [ ] **Step 1: Create the data file with empty slots**
+
+Create `lib/galleryData.ts`. Every field that would be a fabricated claim is `null` until DK fills it — the component renders a labelled empty slot for those, and a real card once populated.
+
+```ts
+export interface GalleryItem {
+  /** Which client/brand this went out for. null = awaiting real example. */
+  brand: string | null
+  /** Industry label, always safe to show even before we have the real post. */
+  industryLabel: string
+  platform: 'LinkedIn' | 'Instagram' | 'X'
+  /** The actual post text Gravity produced. null = empty slot. */
+  post: string | null
+  /** Path under /public to a real screenshot, once supplied. null = empty slot. */
+  image: string | null
+}
+
+/**
+ * Real Gravity output only. Do NOT write sample posts here to fill space —
+ * an empty slot is honest, an invented post is the exact problem we removed
+ * from the testimonials. DK supplies these.
+ */
+export const galleryItems: GalleryItem[] = [
+  { brand: null, industryLabel: 'Jewellery retail', platform: 'Instagram', post: null, image: null },
+  { brand: null, industryLabel: 'Textiles', platform: 'LinkedIn', post: null, image: null },
+  { brand: null, industryLabel: 'FMCG', platform: 'Instagram', post: null, image: null },
+  { brand: null, industryLabel: 'Financial services', platform: 'LinkedIn', post: null, image: null },
+]
+```
+
+- [ ] **Step 2: Create the component**
+
+Create `components/sections/MadeByGravity.tsx`, matching the card language of `Main.dc.html` (`bg-brand-dark-surface`, `border-white/[0.06]`, `rounded-[18px]`).
+
+- Eyebrow: `Made by Gravity`
+- Headline: `Not mockups. ` + italic-gold `Actual posts, actually published.`
+- Sub: `Every post below was written by Gravity for a real client and went out on their channels.`
+
+A 4-up grid (`grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4`). For each item:
+- **Populated** (`post` or `image` present): render the platform label + brand (or `industryLabel` when `brand` is null) and the post text or `next/image`.
+- **Empty slot**: dashed border `border-dashed border-white/[0.14]`, a `neb-label` reading the `industryLabel`, and dimmed italic text `[Real post — awaiting export]`. Keep the card the same height as a populated one (`min-h-[280px]`) so the layout doesn't jump when real content lands.
+
+**Critical:** if *every* item is an empty slot, the section must not render the "Not mockups. Actual posts, actually published." headline — claiming published output while showing four empty boxes is worse than showing nothing. Guard it:
+
+```tsx
+const populated = galleryItems.filter(i => i.post || i.image)
+if (populated.length === 0) return null
+```
+
+This means the section is invisible on the live site until DK adds the first real example, which is the correct behaviour. It still renders in development for layout work — verify via Step 3 by temporarily populating one item.
+
+- [ ] **Step 3: Verify both states**
+
+With all slots empty, the section renders nothing:
+
+```bash
+npx tsc --noEmit && curl -s http://localhost:3899 | grep -c "Actual posts, actually published"
+```
+Expected: no type errors; grep returns `0`.
+
+Now temporarily populate one item locally (do not commit this):
+```ts
+{ brand: null, industryLabel: 'Jewellery retail', platform: 'Instagram', post: 'TEMP layout check', image: null },
+```
+
+```bash
+curl -s http://localhost:3899 | grep -c "Actual posts, actually published"
+```
+Expected: `1`, with one populated card and three dashed empty slots at equal height. Screenshot to confirm the grid doesn't jump. **Then revert the temporary edit** — confirm with `git diff lib/galleryData.ts` showing no `post:` string before committing.
+
+- [ ] **Step 4: Commit**
+
+```bash
+git diff lib/galleryData.ts   # must show NO temporary post text
+git add components/sections/MadeByGravity.tsx lib/galleryData.ts
+git commit -m "Add Made by Gravity proof gallery, hidden until real output lands
+
+Replaces the old AgentGallery, which showed invented sample posts and
+fake lead names. This renders nothing until DK supplies real exports.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+```
+
+---
+
 ### Task 9: ToolsTeaser component
 
 **Files:**
@@ -765,6 +973,7 @@ import ClientStrip from '@/components/sections/ClientStrip'
 import ThreeThings from '@/components/sections/ThreeThings'
 import GravitySection from '@/components/sections/GravitySection'
 import PulsarSection from '@/components/sections/PulsarSection'
+import MadeByGravity from '@/components/sections/MadeByGravity'
 import EntryFork from '@/components/sections/EntryFork'
 import ToolsTeaser from '@/components/sections/ToolsTeaser'
 import Pricing from '@/components/sections/Pricing'
@@ -781,6 +990,7 @@ export default function Home() {
       <ThreeThings />
       <GravitySection />
       <PulsarSection />
+      <MadeByGravity />
       <EntryFork />
       <ToolsTeaser />
       <Pricing />
@@ -1120,9 +1330,17 @@ Fix what breaks, in the section file responsible.
 
 - [ ] **Step 2: Light-mode audit**
 
-The site's `ThemeProvider` still offers a light toggle. Toggle to light on `/` and confirm nothing is unreadable — in particular any element where the rebuild hardcoded `text-white/55` or `bg-[#111111]` without a light counterpart. For each, add the light-mode class (`text-brand-muted dark:text-white/55`, `bg-white dark:bg-[#111111]`).
+Light mode was removed in Task 1B. Verify no rebuilt section quietly assumes a white ground:
 
-If light mode proves to be a large amount of extra work, **stop and report** rather than guessing — dropping light mode entirely is a product decision for DK, not one to make mid-task.
+```bash
+grep -rn "bg-white\b" --include="*.tsx" components/sections components/layout | grep -v "dark:"
+```
+Expected: `0` matches. Any hit renders a white block on the black page — fix it to the dark surface token.
+
+```bash
+grep -rn "useTheme\|ThemeToggle" --include="*.tsx" app components | wc -l
+```
+Expected: `0`.
 
 - [ ] **Step 3: Full-site route check**
 
@@ -1169,7 +1387,9 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 ## Out of scope (explicitly deferred)
 
 - Improving the 31 tools themselves — DK said these stay as-is for now.
-- Real product screenshots — DK is supplying assets later; the mock panels stand in.
+- Real product screenshots — DK is supplying assets later; the mock panels stand in, and the Task 8B gallery stays hidden until real exports land.
+- `UseCaseSimulator` — DK decided to drop it; `/for/[industry]` pages already cover that ground for SEO.
+- Removing `dark:` variants from untouched files, and removing the now-unused `@react-three/*` and `three` packages — both are large mechanical diffs with no user-visible gain.
 - Real illustrative-example copy on Services — DK is writing it.
 - A real contact email — placeholder until confirmed.
 - Search wiring on the tools hub (visual affordance only in Task 16).

@@ -878,7 +878,16 @@ Numbers are already correct from the earlier fix — this is purely visual, plus
 
 - [ ] **Step 1: Restyle**
 
-Port `<!-- ─────────── PRICING ─────────── -->` from `Main.dc.html`. Keep the existing `plans` array's prices and feature lists; change presentation and these three description strings:
+Port `<!-- ─────────── PRICING ─────────── -->` from `Main.dc.html`. Keep the existing `plans` array's **prices**; change presentation, the three description strings below, and — for Pulsar only — the feature list.
+
+**The Pulsar card currently violates the voice guardrail and must be corrected here.** Its existing first bullet is `AI voice calling` and its description opens with `Automated calls`. Voice must never lead. Replace the Pulsar feature list with the artboard's, in this order:
+```
+'WhatsApp, email & SMS',
+'Lead scoring',
+'Unlimited contacts',
+'CRM-ready exports',
+```
+Gravity's and Both Agents' feature lists stay as they are.
 
 - Heading: `Cheaper than the hire. ` + italic-gold `Faster than the agency.`
 - Sub: `A marketing executive costs ₹30,000–50,000 a month, plus tools, plus six weeks of interviews, plus the morning they hand in their notice. This starts working on Thursday.`

@@ -1,4 +1,13 @@
-interface Props { children: string; className?: string }
-export default function SectionLabel({ children, className = '' }: Props) {
-  return <span className={`font-body text-xs font-semibold tracking-widest uppercase text-brand-gold ${className}`}>{children}</span>
+interface Props {
+  children: string
+  className?: string
+  tone?: 'gold' | 'muted'
+}
+
+export default function SectionLabel({ children, className = '', tone = 'gold' }: Props) {
+  return (
+    <span className={`neb-label ${tone === 'gold' ? 'neb-label-gold' : ''} ${className}`}>
+      {children}
+    </span>
+  )
 }

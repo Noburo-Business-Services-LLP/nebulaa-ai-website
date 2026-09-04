@@ -113,10 +113,10 @@ export default function ServiceTierPage({ params }: { params: { tier: string } }
         {/* CTA */}
         <div id="contact" className="text-center bg-brand-warm-gray dark:bg-[#111110] rounded-3xl p-12 border border-brand-border dark:border-white/5">
           <h2 className="font-heading font-bold text-3xl text-brand-text dark:text-white mb-4">
-            Let's talk about your marketing.
+            Let&apos;s talk about your marketing.
           </h2>
           <p className="font-body text-base text-brand-muted dark:text-white/60 mb-8 max-w-lg mx-auto">
-            Tell us about your business and we'll get back to you with how this could work.
+            Tell us about your business and we&apos;ll get back to you with how this could work.
           </p>
           <a
             href="mailto:hello@nebulaa.ai"

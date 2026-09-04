@@ -120,6 +120,67 @@ body {
   to { stroke-dashoffset: 0; }
 }
 
+/* ─── Nebulaa design-system primitives ───── */
+/* Label recipe, lifted from the Gravity app's .gravity-label */
+.neb-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+.neb-label-gold { color: #F5A623; }
+
+/* Particle field — the dot-matrix motif the Gravity app uses while generating */
+.neb-field {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.13) 1.1px, transparent 1.1px);
+  background-size: 16px 16px;
+}
+.neb-field-hot {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,214,150,0.95) 1.4px, transparent 1.4px);
+  background-size: 16px 16px;
+  -webkit-mask-image: radial-gradient(closest-side, #000 0%, rgba(0,0,0,0.30) 58%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 0%, rgba(0,0,0,0.30) 58%, transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 62% 62%;
+  mask-size: 62% 62%;
+  -webkit-mask-position: 50% 50%;
+  mask-position: 50% 50%;
+  animation: nebDrift 14s ease-in-out infinite;
+}
+@keyframes nebDrift {
+  0%, 100% { -webkit-mask-position: 46% 46%; mask-position: 46% 46%; -webkit-mask-size: 60% 60%; mask-size: 60% 60%; }
+  50%      { -webkit-mask-position: 56% 54%; mask-position: 56% 54%; -webkit-mask-size: 70% 66%; mask-size: 70% 66%; }
+}
+.neb-halo {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(245,166,35,0.20) 0%, rgba(245,166,35,0) 58%);
+  animation: nebBreathe 6s ease-in-out infinite;
+}
+@keyframes nebBreathe {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+
+/* Ambient top-right gold wash, lifted from the app shell */
+.neb-glow-wash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(60% 40% at 78% 6%, rgba(245,166,35,0.10) 0%, rgba(245,166,35,0) 60%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neb-field-hot, .neb-halo { animation: none; }
+}
+
 /* ─── Prose styles for MDX blog ──────────── */
 .prose-nebulaa h1,
 .prose-nebulaa h2,

@@ -191,7 +191,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen bg-white dark:bg-brand-black overflow-hidden flex items-center">
       {/* Subtle bg gradient */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 60% at 60% 40%, rgba(245,184,0,0.06) 0%, transparent 70%)' }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 60% at 60% 40%, rgba(245,166,35,0.06) 0%, transparent 70%)' }} />
       <div className="dark:hidden absolute inset-0 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 lg:px-12 py-28 grid grid-cols-1 lg:grid-cols-[45%_55%] gap-12 items-center w-full">
@@ -201,15 +201,9 @@ export default function Hero() {
             <SectionLabel className="mb-4 block">Agentic AI for Founders &amp; SMEs</SectionLabel>
           </motion.div>
 
-          <h1 className="font-heading font-bold text-[52px] md:text-[72px] leading-[0.95] tracking-tight text-brand-text dark:text-white mb-6">
-            <motion.span variants={fadeUpVariant} initial="hidden" animate="visible" className="block">Your pipeline</motion.span>
-            <motion.span variants={fadeUpVariant} initial="hidden" animate="visible" className="block" style={{ animationDelay: '100ms' }}>fills while</motion.span>
-            <motion.span variants={fadeUpVariant} initial="hidden" animate="visible" className="block relative" style={{ animationDelay: '200ms' }}>
-              you sleep.
-              <svg className="absolute -bottom-2 left-0 w-full" height="6" viewBox="0 0 300 6" fill="none" preserveAspectRatio="none">
-                <path d="M0 3 Q75 0 150 3 Q225 6 300 3" stroke="#F5B800" strokeWidth="2.5" fill="none" strokeLinecap="round" className="svg-underline" />
-              </svg>
-            </motion.span>
+          <h1 className="font-heading text-[52px] md:text-[72px] leading-[1.02] tracking-[-0.02em] text-brand-text dark:text-brand-dark-text mb-6">
+            <motion.span variants={fadeUpVariant} initial="hidden" animate="visible" className="block font-semibold">Your pipeline fills while</motion.span>
+            <motion.span variants={fadeUpVariant} initial="hidden" animate="visible" className="block italic text-brand-gold" style={{ animationDelay: '100ms' }}>you sleep.</motion.span>
           </h1>
 
           <motion.p variants={fadeUpVariant} initial="hidden" animate="visible" className="font-body text-lg text-brand-muted dark:text-white/60 mb-8 max-w-sm">

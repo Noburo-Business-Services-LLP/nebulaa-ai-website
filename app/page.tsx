@@ -1,4 +1,5 @@
 import Hero from '@/components/sections/Hero'
+import EntryFork from '@/components/sections/EntryFork'
 import SocialProof from '@/components/sections/SocialProof'
 import HowItWorks from '@/components/sections/HowItWorks'
 import GravitySection from '@/components/sections/GravitySection'
@@ -15,6 +16,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <EntryFork />
       <SocialProof />
       <HowItWorks />
       <GravitySection />

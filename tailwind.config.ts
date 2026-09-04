@@ -11,7 +11,8 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          gold:        '#F5B800',
+          gold:        '#F5A623',
+          'gold-soft': 'rgba(245,166,35,0.15)',
           'gold-light':'#FFF3B0',
           'gold-dim':  '#C49200',
           'gold-pale': '#FFFBEB',
@@ -23,12 +24,17 @@ const config: Config = {
           text:        '#1A1815',
           muted:       '#6B6560',
           'muted-2':   '#9E9890',
+          // Gravity product dark-mode tokens (parity with the app, not the light palette)
+          'dark-bg':      '#0A0A0A',
+          'dark-surface': '#151515',
+          'dark-surface2':'#1A1A1A',
+          'dark-text':    '#F5F4F1',
         },
       },
       fontFamily: {
-        heading: ['Clash Display', 'Plus Jakarta Sans', 'sans-serif'],
-        body:    ['Satoshi', 'DM Sans', 'sans-serif'],
-        sans:    ['Satoshi', 'DM Sans', 'sans-serif'],
+        heading: ['Playfair Display', 'Georgia', 'serif'],
+        body:    ['Inter', 'DM Sans', 'sans-serif'],
+        sans:    ['Inter', 'DM Sans', 'sans-serif'],
       },
       fontSize: {
         'display-xl': ['80px', { lineHeight: '0.95', letterSpacing: '-0.03em' }],
@@ -37,9 +43,9 @@ const config: Config = {
         'display-sm': ['36px', { lineHeight: '1.15', letterSpacing: '-0.015em' }],
       },
       boxShadow: {
-        'gold-sm':    '0 2px 16px rgba(245,184,0,0.15)',
-        'gold-md':    '0 4px 32px rgba(245,184,0,0.2)',
-        'gold-lg':    '0 8px 64px rgba(245,184,0,0.25)',
+        'gold-sm':    '0 2px 16px rgba(245,166,35,0.15)',
+        'gold-md':    '0 4px 32px rgba(245,166,35,0.2)',
+        'gold-lg':    '0 8px 64px rgba(245,166,35,0.25)',
         card:         '0 1px 3px rgba(26,24,21,0.06), 0 4px 16px rgba(26,24,21,0.04)',
         'card-hover': '0 4px 24px rgba(26,24,21,0.1), 0 12px 48px rgba(26,24,21,0.06)',
       },
@@ -59,7 +65,7 @@ const config: Config = {
       },
       keyframes: {
         float:     { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-12px)' } },
-        pulseGold: { '0%,100%': { boxShadow: '0 0 0 0 rgba(245,184,0,0.3)' }, '50%': { boxShadow: '0 0 0 16px rgba(245,184,0,0)' } },
+        pulseGold: { '0%,100%': { boxShadow: '0 0 0 0 rgba(245,166,35,0.3)' }, '50%': { boxShadow: '0 0 0 16px rgba(245,166,35,0)' } },
         marquee:   { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
         shimmer:   { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
         fadeUp:    { '0%': { opacity: '0', transform: 'translateY(28px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },

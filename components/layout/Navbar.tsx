@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion, AnimatePresence, useScroll } from 'framer-motion'
 import { ChevronDown, Menu, X } from 'lucide-react'
 import ThemeToggle from '@/components/ui/ThemeToggle'
@@ -9,7 +10,8 @@ import ThemeToggle from '@/components/ui/ThemeToggle'
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [productDropdownOpen, setProductDropdownOpen] = useState(false)
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false)
   const { scrollY } = useScroll()
 
   useEffect(() => {
@@ -45,14 +47,14 @@ export default function Navbar() {
 
           {/* Center links — desktop */}
           <div className="hidden md:flex items-center gap-7">
-            {/* Products dropdown */}
-            <div className="relative" onMouseEnter={() => setDropdownOpen(true)} onMouseLeave={() => setDropdownOpen(false)}>
+            {/* Product dropdown */}
+            <div className="relative" onMouseEnter={() => setProductDropdownOpen(true)} onMouseLeave={() => setProductDropdownOpen(false)}>
               <button className="flex items-center gap-1 font-body text-sm text-brand-muted dark:text-white/60 hover:text-brand-text dark:hover:text-white transition-colors">
-                Products
-                <ChevronDown size={14} className={`transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
+                Product
+                <ChevronDown size={14} className={`transition-transform duration-200 ${productDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
               <AnimatePresence>
-                {dropdownOpen && (
+                {productDropdownOpen && (
                   <motion.div
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -71,6 +73,38 @@ export default function Navbar() {
                           <p className="font-body text-xs text-brand-muted dark:text-white/40 mt-0.5">{item.desc}</p>
                         </div>
                       </a>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Services dropdown */}
+            <div className="relative" onMouseEnter={() => setServicesDropdownOpen(true)} onMouseLeave={() => setServicesDropdownOpen(false)}>
+              <button className="flex items-center gap-1 font-body text-sm text-brand-muted dark:text-white/60 hover:text-brand-text dark:hover:text-white transition-colors">
+                Services
+                <ChevronDown size={14} className={`transition-transform duration-200 ${servicesDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              <AnimatePresence>
+                {servicesDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 6 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-[#1A1815] border border-brand-border dark:border-white/10 rounded-2xl shadow-card dark:shadow-none overflow-hidden p-2"
+                  >
+                    {[
+                      { icon: '🏢', name: 'Enterprise', desc: 'Managed marketing for established brands', href: '/services/enterprise' },
+                      { icon: '🏪', name: 'MSME', desc: 'Your outsourced marketing team, AI-accelerated', href: '/services/msme' },
+                    ].map(item => (
+                      <Link key={item.name} href={item.href} className="flex items-start gap-3 p-3 rounded-xl hover:bg-brand-warm-gray dark:hover:bg-white/5 border-l-2 border-transparent hover:border-l-brand-gold transition-all group">
+                        <span className="text-xl mt-0.5">{item.icon}</span>
+                        <div>
+                          <p className="font-body font-semibold text-sm text-brand-text dark:text-white/90 group-hover:text-brand-gold transition-colors">{item.name}</p>
+                          <p className="font-body text-xs text-brand-muted dark:text-white/40 mt-0.5">{item.desc}</p>
+                        </div>
+                      </Link>
                     ))}
                   </motion.div>
                 )}
@@ -122,6 +156,8 @@ export default function Navbar() {
               {[
                 { label: '🌀 Gravity', href: '#gravity' },
                 { label: '📞 Pulsar', href: '#pulsar' },
+                { label: '🏢 Enterprise Services', href: '/services/enterprise' },
+                { label: '🏪 MSME Services', href: '/services/msme' },
                 { label: 'How It Works', href: '#how-it-works' },
                 { label: 'Pricing', href: '#pricing' },
                 { label: '🛠 Free Tools', href: '/tools' },

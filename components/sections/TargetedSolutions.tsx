@@ -39,7 +39,7 @@ export default function TargetedSolutions() {
             variants={fadeUpVariant}
             className="group relative bg-[#111111] border-t-2 border-t-brand-gold border border-[#2A2A2A] rounded-3xl p-10 transition-all duration-300 cursor-pointer"
             whileHover={{
-              boxShadow: '0 0 40px rgba(245,184,0,0.1)',
+              boxShadow: '0 0 40px rgba(245,166,35,0.1)',
             }}
           >
             <div className="flex items-center gap-3 mb-2">
@@ -70,7 +70,7 @@ export default function TargetedSolutions() {
             variants={fadeUpVariant}
             className="group relative bg-[#111111] border-t-2 border-t-brand-gold/60 border border-[#2A2A2A] rounded-3xl p-10 transition-all duration-300 cursor-pointer"
             whileHover={{
-              boxShadow: '0 0 40px rgba(245,184,0,0.08)',
+              boxShadow: '0 0 40px rgba(245,166,35,0.08)',
             }}
           >
             <div className="flex items-center gap-3 mb-2">

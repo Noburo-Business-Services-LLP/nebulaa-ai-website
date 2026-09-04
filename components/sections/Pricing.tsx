@@ -88,7 +88,7 @@ export default function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportOptions}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              whileHover={plan.highlight ? { boxShadow: '0 8px 64px rgba(245,184,0,0.3)' } : { boxShadow: '0 4px 32px rgba(0,0,0,0.08)' }}
+              whileHover={plan.highlight ? { boxShadow: '0 8px 64px rgba(245,166,35,0.3)' } : { boxShadow: '0 4px 32px rgba(0,0,0,0.08)' }}
               className={`relative rounded-4xl p-8 transition-all duration-300 ${
                 plan.highlight
                   ? 'bg-white dark:bg-[#1A1815] border-2 border-brand-gold shadow-gold-md'

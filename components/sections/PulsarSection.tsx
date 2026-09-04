@@ -98,7 +98,7 @@ const pulsarFeatures = [
         <div className="flex items-center gap-2 overflow-x-auto pb-2">
           {[{ day: 'Day 1', action: 'Call', icon: '📞' }, { day: 'Day 2', action: 'WhatsApp', icon: '💬' }, { day: 'Day 4', action: 'Email', icon: '📧' }, { day: 'Day 7', action: 'Follow-up', icon: '🔔' }].map((step, i) => (
             <div key={i} className="flex items-center gap-2 flex-shrink-0">
-              <motion.div animate={{ boxShadow: ['0 0 0 0 rgba(245,184,0,0.4)', '0 0 0 8px rgba(245,184,0,0)', '0 0 0 0 rgba(245,184,0,0)'] }} transition={{ duration: 2, repeat: Infinity, delay: i * 0.5 }} className="bg-white dark:bg-[#1A1815] border-2 border-brand-gold rounded-xl p-3 text-center min-w-[70px]">
+              <motion.div animate={{ boxShadow: ['0 0 0 0 rgba(245,166,35,0.4)', '0 0 0 8px rgba(245,166,35,0)', '0 0 0 0 rgba(245,166,35,0)'] }} transition={{ duration: 2, repeat: Infinity, delay: i * 0.5 }} className="bg-white dark:bg-[#1A1815] border-2 border-brand-gold rounded-xl p-3 text-center min-w-[70px]">
                 <span className="text-xl">{step.icon}</span>
                 <p className="font-body text-[10px] font-bold text-brand-gold mt-1">{step.day}</p>
                 <p className="font-body text-[10px] text-brand-muted dark:text-white/50">{step.action}</p>

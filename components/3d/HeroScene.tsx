@@ -17,7 +17,7 @@ function GoldTorusKnot() {
   return (
     <mesh ref={meshRef}>
       <torusKnotGeometry args={[1, 0.35, 128, 32]} />
-      <meshStandardMaterial color="#F5B800" metalness={0.75} roughness={0.25} />
+      <meshStandardMaterial color="#F5A623" metalness={0.75} roughness={0.25} />
     </mesh>
   )
 }
@@ -41,7 +41,7 @@ function Particles() {
 
   return (
     <Points ref={pointsRef} positions={positions} stride={3}>
-      <PointMaterial color="#F5B800" size={0.015} sizeAttenuation transparent opacity={0.4} />
+      <PointMaterial color="#F5A623" size={0.015} sizeAttenuation transparent opacity={0.4} />
     </Points>
   )
 }
@@ -58,7 +58,7 @@ function FloatingCards() {
             </div>
             <p className="text-[#6B6560]">12 posts scheduled</p>
             <div className="mt-1.5 h-1 bg-[#F2F0EB] rounded-full overflow-hidden">
-              <div className="h-full bg-[#F5B800] rounded-full" style={{ width: '75%' }} />
+              <div className="h-full bg-[#F5A623] rounded-full" style={{ width: '75%' }} />
             </div>
           </div>
         </Html>
@@ -74,7 +74,7 @@ function FloatingCards() {
             <p className="text-[#6B6560]">3 calls in progress</p>
             <div className="flex gap-0.5 mt-1.5 items-end h-4">
               {[4,7,3,8,5,9,6,4,7,3].map((h, i) => (
-                <div key={i} className="flex-1 rounded-sm" style={{ height: `${h * 4}px`, background: '#F5B800', opacity: 0.7 }} />
+                <div key={i} className="flex-1 rounded-sm" style={{ height: `${h * 4}px`, background: '#F5A623', opacity: 0.7 }} />
               ))}
             </div>
           </div>
@@ -85,7 +85,7 @@ function FloatingCards() {
         <Html center transform>
           <div className="rounded-xl p-3 text-xs font-body w-40 pointer-events-none" style={{ background: 'rgba(255,255,255,0.92)', border: '1px solid rgba(232,228,220,0.8)', backdropFilter: 'blur(16px)' }}>
             <div className="flex items-center gap-1.5">
-              <span className="text-[#F5B800]">✓</span>
+              <span className="text-[#F5A623]">✓</span>
               <span className="font-semibold text-[#1A1815]">New lead qualified</span>
             </div>
             <p className="text-[#6B6560] mt-1">Arjun M. · B2B SaaS</p>

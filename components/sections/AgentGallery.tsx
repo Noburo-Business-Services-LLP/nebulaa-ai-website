@@ -60,7 +60,7 @@ function GravityMockup() {
   return (
     <motion.div
       className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl overflow-hidden animate-float"
-      style={{ boxShadow: 'inset 0 0 60px rgba(245,184,0,0.04)' }}
+      style={{ boxShadow: 'inset 0 0 60px rgba(245,166,35,0.04)' }}
     >
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-[#2A2A2A]">
@@ -121,7 +121,7 @@ function PulsarMockup() {
       className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl overflow-hidden"
       animate={{ y: [0, -6, 0] }}
       transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-      style={{ boxShadow: 'inset 0 0 60px rgba(245,184,0,0.04)' }}
+      style={{ boxShadow: 'inset 0 0 60px rgba(245,166,35,0.04)' }}
     >
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-[#2A2A2A]">

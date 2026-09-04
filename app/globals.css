@@ -1,7 +1,4 @@
-/* Clash Display + Satoshi from fontshare */
-@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,600&display=swap');
-/* Fallback from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+/* Playfair Display (headings) + Inter (body) — matches the Gravity product's own design system. Loaded via <link> in app/layout.tsx <head>. */
 
 @tailwind base;
 @tailwind components;
@@ -19,7 +16,7 @@ html {
 body {
   background: #FFFFFF;
   color: #1A1815;
-  font-family: 'Satoshi', 'DM Sans', sans-serif;
+  font-family: 'Inter', 'DM Sans', sans-serif;
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
@@ -37,12 +34,12 @@ body {
 }
 
 /* ─── Gold text selection ─────────────────── */
-::selection { background: #F5B800; color: #0A0A0A; }
+::selection { background: #F5A623; color: #0A0A0A; }
 
 /* ─── Custom scrollbar ────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #FAFAF8; }
-::-webkit-scrollbar-thumb { background: #F5B800; border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: #F5A623; border-radius: 2px; }
 
 /* ─── Scroll progress bar ─────────────────── */
 #scroll-progress {
@@ -51,7 +48,7 @@ body {
   left: 0;
   right: 0;
   height: 2px;
-  background: #F5B800;
+  background: #F5A623;
   transform-origin: left;
   z-index: 9999;
 }
@@ -61,7 +58,7 @@ body {
 
 /* ─── Gold shimmer utility ─────────────────── */
 .shimmer-gold {
-  background: linear-gradient(90deg, transparent 0%, rgba(245,184,0,0.3) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(245,166,35,0.3) 50%, transparent 100%);
   background-size: 200% 100%;
   animation: shimmer 2s linear infinite;
 }
@@ -96,7 +93,7 @@ body {
 
 /* ─── Gradient text ──────────────────────── */
 .text-gradient-gold {
-  background: linear-gradient(135deg, #F5B800 0%, #C49200 50%, #F5B800 100%);
+  background: linear-gradient(135deg, #F5A623 0%, #C49200 50%, #F5A623 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -110,7 +107,7 @@ body {
 
 /* ─── Heading font utility ───────────────── */
 .font-heading {
-  font-family: 'Clash Display', 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
 /* ─── SVG underline animation ────────────── */
@@ -127,14 +124,14 @@ body {
 .prose-nebulaa h1,
 .prose-nebulaa h2,
 .prose-nebulaa h3 {
-  font-family: 'Clash Display', 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   color: #1A1815;
   letter-spacing: -0.02em;
 }
 .prose-nebulaa p { color: #1A1815; line-height: 1.75; }
-.prose-nebulaa a { color: #F5B800; text-decoration: underline; }
+.prose-nebulaa a { color: #F5A623; text-decoration: underline; }
 .prose-nebulaa blockquote {
-  border-left: 4px solid #F5B800;
+  border-left: 4px solid #F5A623;
   padding-left: 1rem;
   font-style: italic;
   color: #6B6560;

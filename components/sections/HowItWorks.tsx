@@ -55,7 +55,7 @@ function GravityOrbit2D() {
       <motion.div
         animate={{ scale: [1, 1.07, 1] }}
         transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-        className="relative z-20 w-20 h-20 rounded-full bg-gradient-to-br from-brand-gold to-[#C49200] flex flex-col items-center justify-center shadow-[0_0_32px_rgba(245,184,0,0.4)]"
+        className="relative z-20 w-20 h-20 rounded-full bg-gradient-to-br from-brand-gold to-[#C49200] flex flex-col items-center justify-center shadow-[0_0_32px_rgba(245,166,35,0.4)]"
       >
         <span className="text-2xl">🌀</span>
         <span className="font-heading text-[9px] font-bold text-brand-black mt-0.5 tracking-wider">GRAVITY</span>

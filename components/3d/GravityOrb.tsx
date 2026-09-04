@@ -17,7 +17,7 @@ function Orb() {
     <Float speed={2} rotationIntensity={0.3} floatIntensity={0.5}>
       <mesh ref={ref}>
         <sphereGeometry args={[1.2, 64, 64]} />
-        <MeshWobbleMaterial color="#F5B800" metalness={0.6} roughness={0.3} factor={0.3} speed={1.5} />
+        <MeshWobbleMaterial color="#F5A623" metalness={0.6} roughness={0.3} factor={0.3} speed={1.5} />
       </mesh>
     </Float>
   )

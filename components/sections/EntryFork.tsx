@@ -2,56 +2,97 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import SectionLabel from '@/components/ui/SectionLabel'
 import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animations'
 
-const paths = [
+const cards = [
   {
-    label: 'I want to run it myself',
-    desc: 'Self-serve Gravity and Pulsar. Set up in 60 seconds, no team needed.',
-    cta: 'See product & pricing →',
+    label: 'The software',
+    labelGold: false,
+    title: "I'll run it myself",
+    body: "You drive. Set up in an afternoon, approve the week's posts from your phone in about nine minutes, cancel the month it stops earning its keep.",
+    metaPrimary: 'From ₹10,000/month',
+    metaSecondary: '7-day trial, no card',
+    cta: 'See pricing',
     href: '#pricing',
+    gold: false,
   },
   {
-    label: 'I want a team to run it for me',
-    desc: 'Done-for-you marketing, AI-accelerated, delivered by Nebulaa\'s team.',
-    cta: 'See managed services →',
+    label: 'The team',
+    labelGold: true,
+    title: 'Someone else runs it',
+    body: 'We drive. Our team plans, writes, ships and chases — with the same agents carrying the volume, which is why we come in under the agency quoting you now. You approve. You never log in.',
+    metaPrimary: 'Enterprise & MSME engagements',
+    metaSecondary: 'Scoped per business',
+    cta: 'Talk to us',
     href: '/services/enterprise',
+    gold: true,
   },
 ]
 
 export default function EntryFork() {
   return (
-    <section className="bg-white dark:bg-brand-black py-16 border-b border-brand-border dark:border-white/5">
-      <div className="max-w-5xl mx-auto px-4 md:px-8">
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={viewportOptions}
-          className="text-center font-body text-sm text-brand-muted dark:text-white/50 mb-6"
-        >
-          Looking for a self-serve AI tool, or a team to run this for you?
-        </motion.p>
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOptions}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4"
-        >
-          {paths.map((p) => (
-            <motion.div key={p.label} variants={fadeUpVariant}>
-              <Link
-                href={p.href}
-                className="block bg-brand-off-white dark:bg-[#111110] border border-brand-border dark:border-white/8 rounded-2xl p-6 hover:border-brand-gold transition-all h-full"
-              >
-                <p className="font-heading font-bold text-lg text-brand-text dark:text-white mb-1.5">{p.label}</p>
-                <p className="font-body text-sm text-brand-muted dark:text-white/50 mb-3">{p.desc}</p>
-                <span className="font-body text-sm font-semibold text-brand-gold">{p.cta}</span>
-              </Link>
-            </motion.div>
-          ))}
+    <section className="py-[130px] px-6 md:px-12 lg:px-[120px]">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOptions}
+        className="max-w-[660px] mb-[62px]"
+      >
+        <motion.div variants={fadeUpVariant}>
+          <SectionLabel className="mb-[22px] block">Two ways in</SectionLabel>
         </motion.div>
-      </div>
+        <motion.h2
+          variants={fadeUpVariant}
+          className="font-heading text-[50px] leading-[1.12] tracking-[-0.02em] font-medium mb-5"
+        >
+          Run it yourself, or <span className="italic text-brand-gold">hand us the keys.</span>
+        </motion.h2>
+        <motion.p variants={fadeUpVariant} className="font-body text-[17px] leading-[1.68] text-white/55">
+          Same agents underneath. The only question is whose evening it takes.
+        </motion.p>
+      </motion.div>
+
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOptions}
+        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+      >
+        {cards.map((card) => (
+          <motion.div
+            key={card.label}
+            variants={fadeUpVariant}
+            className={`bg-brand-dark-surface rounded-[20px] pt-[46px] px-[42px] pb-11 ${
+              card.gold
+                ? 'border border-brand-gold/[0.18] shadow-[inset_0_1px_0_0_rgba(255,214,150,0.07)]'
+                : 'border border-white/[0.06]'
+            }`}
+          >
+            <SectionLabel tone={card.labelGold ? 'gold' : 'muted'} className="mb-[26px] block">
+              {card.label}
+            </SectionLabel>
+            <h3 className="font-heading text-[32px] font-medium tracking-[-0.015em] mb-4">{card.title}</h3>
+            <p className="font-body text-[15.5px] leading-[1.68] text-white/55 mb-[30px]">{card.body}</p>
+            <div className="flex flex-col gap-3 mb-[34px]">
+              <div className="text-[14.5px] text-white/70">{card.metaPrimary}</div>
+              <div className="text-[14.5px] text-white/45">{card.metaSecondary}</div>
+            </div>
+            <Link
+              href={card.href}
+              className={`inline-block text-[14.5px] font-semibold px-[26px] py-[13px] rounded-full transition-colors ${
+                card.gold
+                  ? 'bg-brand-gold text-[#1A1208] hover:bg-brand-gold-dim'
+                  : 'border border-white/[0.14] text-white/80 hover:border-brand-gold hover:text-brand-gold'
+              }`}
+            >
+              {card.cta}
+            </Link>
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   )
 }

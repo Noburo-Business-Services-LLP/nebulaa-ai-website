@@ -1,153 +1,106 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import SectionLabel from '@/components/ui/SectionLabel'
+import { fadeUpVariant, slideInLeft, staggerContainer, viewportOptions } from '@/lib/animations'
 
+const bullets = [
+  'Daily posts for LinkedIn, Instagram and X, in your voice',
+  'Festivals planned weeks ahead, not the night before',
+  'See what rivals shipped this week, before you write',
+  'Nothing publishes until you tap approve',
+]
 
-const features = [
-  {
-    id: 'ingest',
-    heading: 'Reads your website. Understands your brand in 60 seconds.',
-    visual: (
-      <div className="bg-brand-warm-gray dark:bg-white/5 rounded-2xl p-6 border border-brand-border dark:border-white/10">
-        <p className="font-body text-xs font-semibold text-brand-muted dark:text-white/50 mb-4">Brand Ingestion</p>
-        <div className="flex gap-2 mb-4">
-          <input className="flex-1 border border-brand-border dark:border-white/10 dark:bg-white/5 dark:text-white rounded-xl px-3 py-2 font-body text-sm" defaultValue="yoursite.com" readOnly />
-          <span className="bg-brand-gold text-brand-black font-body font-semibold text-xs rounded-xl px-3 py-2 flex items-center">Scanning...</span>
-        </div>
-        <div className="space-y-2">
-          {[{ k: 'Tone', v: 'Confident & direct' }, { k: 'ICP', v: 'Indian founders, 25-45' }, { k: 'Rivals', v: '3 identified' }].map((r, i) => (
-            <motion.div key={i} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: i * 0.3 }} className="flex justify-between bg-white dark:bg-[#1A1815] rounded-lg px-3 py-2 border border-brand-border dark:border-white/8">
-              <span className="font-body text-xs text-brand-muted dark:text-white/50">{r.k}</span>
-              <span className="font-body text-xs font-semibold text-brand-gold">{r.v}</span>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: 'schedule',
-    heading: 'Writes and schedules posts across every platform. Daily.',
-    visual: (
-      <div className="bg-brand-warm-gray dark:bg-white/5 rounded-2xl p-6 border border-brand-border dark:border-white/10">
-        <p className="font-body text-xs font-semibold text-brand-muted dark:text-white/50 mb-4">Content Queue — This Week</p>
-        <div className="grid grid-cols-5 gap-2">
-          {['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].map((day, di) => (
-            <div key={day} className="text-center">
-              <p className="font-body text-xs text-brand-muted dark:text-white/50 mb-2">{day}</p>
-              {['LI', 'IG', 'TW'].map((p, pi) => (
-                <motion.div key={p} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: (di * 3 + pi) * 0.05 }} className="mb-1.5 rounded-lg text-[9px] font-bold py-1 text-center" style={{ background: p === 'LI' ? '#0A66C2' : p === 'IG' ? '#E1306C' : '#1DA1F2', color: 'white' }}>{p}</motion.div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: 'rival',
-    heading: 'Watches your rivals. Alerts you when they move.',
-    visual: (
-      <div className="bg-brand-warm-gray dark:bg-white/5 rounded-2xl p-6 border border-brand-border dark:border-white/10">
-        <p className="font-body text-xs font-semibold text-brand-muted dark:text-white/50 mb-4">Competitor Tracker</p>
-        <div className="space-y-3">
-          {[{ name: 'rival1.com', posts: 3, time: '2h ago' }, { name: 'competitor2.io', posts: 1, time: '5h ago' }, { name: 'brand3.in', posts: 5, time: 'Today' }].map((r, i) => (
-            <div key={i} className="bg-white dark:bg-[#1A1815] rounded-xl p-3 border border-brand-border dark:border-white/8 flex items-center justify-between">
-              <div>
-                <p className="font-body text-xs font-semibold text-brand-text dark:text-white">{r.name}</p>
-                <p className="font-body text-xs text-brand-muted dark:text-white/50">{r.posts} new posts · {r.time}</p>
-              </div>
-              <span className="font-body text-xs bg-brand-gold-pale text-brand-gold border border-brand-gold/20 rounded-full px-2.5 py-1">Alert !</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: 'calendar',
-    heading: 'Never misses a cultural moment that could go viral.',
-    visual: (
-      <div className="bg-brand-warm-gray dark:bg-white/5 rounded-2xl p-6 border border-brand-border dark:border-white/10">
-        <p className="font-body text-xs font-semibold text-brand-muted dark:text-white/50 mb-4">Festival Calendar</p>
-        <div className="space-y-2.5">
-          {[{ event: 'Diwali', days: '3 days away', status: 'Draft ready ✓' }, { event: 'IPL Final', days: '1 week away', status: 'Drafting...' }, { event: 'Budget Day', days: '2 weeks', status: 'Scheduled ✓' }].map((e, i) => (
-            <div key={i} className="bg-white dark:bg-[#1A1815] rounded-xl p-3 border border-brand-border dark:border-white/8 flex items-center justify-between">
-              <div>
-                <p className="font-body text-xs font-semibold text-brand-text dark:text-white">{e.event}</p>
-                <p className="font-body text-xs text-brand-muted dark:text-white/50">{e.days}</p>
-              </div>
-              <span className="font-body text-xs font-semibold text-brand-gold">{e.status}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    ),
-  },
+const stats = [
+  { label: 'Queued', value: '18', suffix: '' },
+  { label: 'Platforms', value: '3', suffix: '' },
+  { label: 'Your time', value: '9', suffix: 'min' },
 ]
 
 export default function GravitySection() {
-  const [activeIdx, setActiveIdx] = useState(0)
-  const sectionRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const el = sectionRef.current
-      if (!el) return
-      const { top, height } = el.getBoundingClientRect()
-      const progress = Math.max(0, Math.min(1, -top / (height - window.innerHeight)))
-      setActiveIdx(Math.min(features.length - 1, Math.floor(progress * features.length)))
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <section id="gravity" ref={sectionRef} className="bg-white dark:bg-brand-black" style={{ minHeight: `${features.length * 100}vh` }}>
-      <div className="sticky top-0 h-screen overflow-hidden flex items-center">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left — sticky copy */}
-          <div>
-            <SectionLabel className="mb-4 block">🌀 Gravity</SectionLabel>
-            <h2 className="font-heading font-bold text-4xl md:text-5xl text-brand-text dark:text-white tracking-tight leading-tight mb-3">
-              Your brand<br />never goes<br />quiet.
-            </h2>
-            <p className="font-body text-sm font-semibold text-brand-gold tracking-wide mb-5">Gravity posts while you build.</p>
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={activeIdx}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.35 }}
-                className="font-body text-base text-brand-muted dark:text-white/50 leading-relaxed mb-8 max-w-sm"
-              >
-                {features[activeIdx].heading}
-              </motion.p>
-            </AnimatePresence>
-            {/* Progress dots */}
+    <section id="gravity" className="py-[130px] px-6 md:px-12 lg:px-[120px]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-[90px] items-center">
+        {/* Left — copy */}
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+        >
+          <motion.div variants={fadeUpVariant}>
+            <SectionLabel className="mb-[22px] block">Gravity — the marketing half</SectionLabel>
+          </motion.div>
+          <motion.h2
+            variants={fadeUpVariant}
+            className="font-heading text-[50px] leading-[1.12] tracking-[-0.02em] font-medium mb-[26px]"
+          >
+            You meant to post something. <span className="italic text-brand-gold">That was March.</span>
+          </motion.h2>
+          <motion.p
+            variants={fadeUpVariant}
+            className="font-body text-[17px] leading-[1.68] text-white/55 max-w-[480px] mb-[34px]"
+          >
+            Not laziness — there&rsquo;s a business to run. But the shop that shows up every day is the shop people think of first. Gravity writes in your voice, queues a week ahead, and waits for your yes before a single word goes out.
+          </motion.p>
+          <motion.div variants={fadeUpVariant} className="flex flex-col gap-4">
+            {bullets.map((bullet) => (
+              <div key={bullet} className="flex gap-[13px] items-start">
+                <span className="text-brand-gold text-sm leading-[1.6]">—</span>
+                <span className="font-body text-[15px] leading-[1.6] text-white/70">{bullet}</span>
+              </div>
+            ))}
+          </motion.div>
+          <motion.div variants={fadeUpVariant} className="mt-[38px] text-[15px] text-brand-gold">
+            See how Gravity works →
+          </motion.div>
+        </motion.div>
+
+        {/* Right — product panel */}
+        <motion.div
+          variants={slideInLeft}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          className="bg-[#111111] border border-white/[0.06] rounded-[20px] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.45)]"
+        >
+          <div className="flex items-center justify-between mb-5">
+            <div className="flex items-center gap-[9px]">
+              <div
+                className="w-[13px] h-[13px] rounded-full"
+                style={{ background: 'radial-gradient(circle at 34% 32%, #FFD48A 0%, #F5A623 46%, #A4650B 100%)' }}
+              />
+              <span className="font-heading text-[13.5px] font-medium">Gravity</span>
+              <span className="text-[10px] font-semibold tracking-[0.06em] text-[#4ADE80] border border-[#4ADE80]/30 rounded-full px-2 py-0.5">
+                LIVE
+              </span>
+            </div>
+            <SectionLabel>This week</SectionLabel>
+          </div>
+
+          <div className="bg-[#1A1A1A] border border-white/[0.06] rounded-[14px] p-5 mb-[14px]">
+            <SectionLabel className="mb-3 block">Tuesday · LinkedIn</SectionLabel>
+            <p className="font-body text-[14.5px] leading-[1.6] text-white/85 mb-4">
+              Most of our customers don&rsquo;t compare us to other jewellers. They compare us to the shop their mother trusted for thirty years. That&rsquo;s the bar.
+            </p>
             <div className="flex gap-2">
-              {features.map((_, i) => (
-                <div key={i} className={`h-1.5 rounded-full transition-all duration-300 ${i === activeIdx ? 'bg-brand-gold w-8' : 'bg-brand-border w-4'}`} />
-              ))}
+              <span className="text-[11px] text-white/45 border border-white/10 rounded-full px-[11px] py-1">Approve</span>
+              <span className="text-[11px] text-white/45 border border-white/10 rounded-full px-[11px] py-1">Rewrite</span>
             </div>
           </div>
 
-          {/* Right — animated visual */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeIdx}
-              initial={{ opacity: 0, x: 24 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -24 }}
-              transition={{ duration: 0.4 }}
-            >
-              {features[activeIdx].visual}
-            </motion.div>
-          </AnimatePresence>
-        </div>
+          <div className="grid grid-cols-3 gap-[10px]">
+            {stats.map((stat) => (
+              <div key={stat.label} className="bg-[#1A1A1A] border border-white/[0.06] rounded-xl p-[15px]">
+                <SectionLabel className="mb-[7px] block">{stat.label}</SectionLabel>
+                <div className="font-heading text-[27px]">
+                  {stat.value}
+                  {stat.suffix && <span className="text-[15px] text-white/45">{stat.suffix}</span>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   )

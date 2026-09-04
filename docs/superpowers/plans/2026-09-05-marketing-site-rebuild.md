@@ -1310,9 +1310,9 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 
 ---
 
-### Task 18: Responsive, light-mode and final audit
+### Task 18: Responsive and final audit
 
-The design canvas is dark-only and desktop-first. The site ships a light mode and real phone traffic, so both need a pass.
+The design canvas is desktop-first, and most Indian SMB traffic arrives on a phone — so the phone pass is the one that matters here.
 
 **Files:**
 - Modify: whichever section files the audit finds broken.

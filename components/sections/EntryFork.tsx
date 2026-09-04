@@ -15,7 +15,8 @@ const cards = [
     metaSecondary: '7-day trial, no card',
     cta: 'See pricing',
     href: '#pricing',
-    gold: false,
+    goldBorder: false,
+    goldCta: true,
   },
   {
     label: 'The team',
@@ -26,7 +27,8 @@ const cards = [
     metaSecondary: 'Scoped per business',
     cta: 'Talk to us',
     href: '/services/enterprise',
-    gold: true,
+    goldBorder: true,
+    goldCta: false,
   },
 ]
 
@@ -66,7 +68,7 @@ export default function EntryFork() {
             key={card.label}
             variants={fadeUpVariant}
             className={`bg-brand-dark-surface rounded-[20px] pt-[46px] px-[42px] pb-11 ${
-              card.gold
+              card.goldBorder
                 ? 'border border-brand-gold/[0.18] shadow-[inset_0_1px_0_0_rgba(255,214,150,0.07)]'
                 : 'border border-white/[0.06]'
             }`}
@@ -83,7 +85,7 @@ export default function EntryFork() {
             <Link
               href={card.href}
               className={`inline-block text-[14.5px] font-semibold px-[26px] py-[13px] rounded-full transition-colors ${
-                card.gold
+                card.goldCta
                   ? 'bg-brand-gold text-[#1A1208] hover:bg-brand-gold-dim'
                   : 'border border-white/[0.14] text-white/80 hover:border-brand-gold hover:text-brand-gold'
               }`}

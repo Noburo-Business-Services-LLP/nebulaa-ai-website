@@ -86,7 +86,8 @@ function FooterNewsletter() {
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/[0.06] pt-[60px] pb-[70px] px-6 md:px-12 lg:px-[120px] flex flex-col lg:flex-row items-start justify-between gap-[50px] lg:gap-[70px]">
+    <footer className="relative border-t border-white/[0.06] pt-[60px] pb-[50px] px-6 md:px-12 lg:px-[120px]">
+      <div className="flex flex-col lg:flex-row items-start justify-between gap-[50px] lg:gap-[70px]">
       <div>
         <div className="flex items-center gap-[10px] mb-4">
           <div className="w-[17px] h-[17px] rounded-full flex-shrink-0" style={GOLD_DOT_STYLE} />
@@ -139,6 +140,15 @@ export default function Footer() {
 
         <div className="w-full sm:w-[220px]">
           <FooterNewsletter />
+        </div>
+      </div>
+      </div>
+
+      <div className="mt-[50px] pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <span className="font-body text-[12px] text-white/35">&copy; 2026 Nebulaa. All rights reserved.</span>
+        <div className="flex items-center gap-5">
+          <a href="/privacy-policy" className="font-body text-[12px] text-white/35 hover:text-white/60 transition-colors">Privacy</a>
+          <a href="/terms" className="font-body text-[12px] text-white/35 hover:text-white/60 transition-colors">Terms</a>
         </div>
       </div>
     </footer>

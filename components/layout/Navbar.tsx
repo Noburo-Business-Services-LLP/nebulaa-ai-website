@@ -5,7 +5,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence, useScroll } from 'framer-motion'
 import { ChevronDown, Menu, X } from 'lucide-react'
-import ThemeToggle from '@/components/ui/ThemeToggle'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -124,7 +123,6 @@ export default function Navbar() {
 
           {/* Right CTAs — desktop */}
           <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle />
             <a href="#" className="font-body text-sm text-brand-muted dark:text-white/60 border border-brand-border dark:border-white/10 rounded-full px-5 py-2 hover:border-brand-gold hover:text-brand-text dark:hover:text-white dark:hover:border-brand-gold transition-all">
               Book a Demo
             </a>
@@ -135,7 +133,6 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <div className="md:hidden flex items-center gap-2">
-            <ThemeToggle />
             <button className="text-brand-text dark:text-white" onClick={() => setMobileOpen(!mobileOpen)}>
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}
             </button>

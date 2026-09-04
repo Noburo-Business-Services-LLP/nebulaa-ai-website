@@ -14,8 +14,8 @@ html {
 }
 
 body {
-  background: #FFFFFF;
-  color: #1A1815;
+  background: #0A0A0A;
+  color: #F5F4F1;
   font-family: 'Inter', 'DM Sans', sans-serif;
   font-size: 16px;
   line-height: 1.6;
@@ -186,25 +186,25 @@ body {
 .prose-nebulaa h2,
 .prose-nebulaa h3 {
   font-family: 'Playfair Display', Georgia, serif;
-  color: #1A1815;
+  color: #F5F4F1;
   letter-spacing: -0.02em;
 }
-.prose-nebulaa p { color: #1A1815; line-height: 1.75; }
+.prose-nebulaa p { color: #F5F4F1; line-height: 1.75; }
 .prose-nebulaa a { color: #F5A623; text-decoration: underline; }
 .prose-nebulaa blockquote {
   border-left: 4px solid #F5A623;
   padding-left: 1rem;
   font-style: italic;
-  color: #6B6560;
+  color: rgba(255,255,255,0.55);
 }
 .prose-nebulaa code {
-  background: #F2F0EB;
+  background: #151515;
   border-radius: 0.375rem;
   padding: 0.125rem 0.375rem;
   font-size: 0.875em;
 }
 .prose-nebulaa pre {
-  background: #F2F0EB;
+  background: #151515;
   border-radius: 0.75rem;
   padding: 1rem;
   overflow-x: auto;

@@ -8,7 +8,6 @@ const plans = [
   {
     name: 'Gravity',
     label: 'Gravity',
-    emoji: '🌀',
     tagline: 'AI Marketing Agent',
     price: '₹10,000',
     description: 'Content, out the door daily.',
@@ -27,14 +26,13 @@ const plans = [
   {
     name: 'Both Agents',
     label: 'Both agents · best value',
-    emoji: '⚡',
     tagline: 'Marketing + Outreach',
     price: '₹15,000',
     description: 'The whole loop — content in, customers out. ₹10,000 less than buying the two separately.',
     features: [
       'Everything in Gravity',
       'Everything in Pulsar',
-      'WhatsApp + voice campaigns',
+      'WhatsApp, email & SMS campaigns',
       'Lead scoring & qualification',
       'Email follow-up sequences',
       'Priority onboarding',
@@ -46,7 +44,6 @@ const plans = [
   {
     name: 'Pulsar',
     label: 'Pulsar',
-    emoji: '📞',
     tagline: 'AI Outreach Agent',
     price: '₹15,000',
     description: 'Every enquiry, answered.',

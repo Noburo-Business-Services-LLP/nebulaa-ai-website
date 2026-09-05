@@ -75,7 +75,10 @@ export default function Navbar() {
               onMouseEnter={() => setProductDropdownOpen(true)}
               onMouseLeave={() => setProductDropdownOpen(false)}
             >
-              <button className="flex items-center gap-1 font-body text-sm text-white/55 hover:text-white transition-colors">
+              <button
+                className="flex items-center gap-1 font-body text-sm text-white/55 hover:text-white transition-colors"
+                aria-expanded={productDropdownOpen}
+              >
                 Product
                 <ChevronDown
                   size={14}
@@ -117,7 +120,10 @@ export default function Navbar() {
               onMouseEnter={() => setServicesDropdownOpen(true)}
               onMouseLeave={() => setServicesDropdownOpen(false)}
             >
-              <button className="flex items-center gap-1 font-body text-sm text-white/55 hover:text-white transition-colors">
+              <button
+                className="flex items-center gap-1 font-body text-sm text-white/55 hover:text-white transition-colors"
+                aria-expanded={servicesDropdownOpen}
+              >
                 Services
                 <ChevronDown
                   size={14}
@@ -191,7 +197,11 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <div className="md:hidden flex items-center gap-2">
-            <button className="text-white" onClick={() => setMobileOpen(!mobileOpen)}>
+            <button
+              className="text-white"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            >
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>

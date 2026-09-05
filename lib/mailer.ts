@@ -58,7 +58,8 @@ export function buildNewsletterHTML(subject: string, content: string): string {
   </div>
   <div class="footer">
     <p>You're getting this because you signed up for Nebulaa or expressed interest in our agents.</p>
-    <p><a href="https://nebulaa.ai">nebulaa.ai</a> · <a href="mailto:hello@nebulaa.ai">hello@nebulaa.ai</a></p>
+    <!-- TODO: add a real contact email here once the owner confirms one -->
+    <p><a href="https://nebulaa.ai">nebulaa.ai</a></p>
   </div>
 </div>
 </body>

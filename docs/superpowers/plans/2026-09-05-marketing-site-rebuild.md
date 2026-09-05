@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Rebuild the Nebulaa.ai marketing pages (homepage, services, tools hub, nav, footer) to match the approved design canvas, keeping all 31 free tools and the blog working untouched.
+**Goal:** Rebuild the Nebulaa.ai marketing pages (homepage, services, tools hub, nav, footer) to match the approved design canvas, keeping all 30 free tools and the blog working untouched.
 
 **Architecture:** Next.js 14 App Router with Tailwind. The marketing surface is composed of section components in `components/sections/`, assembled by `app/page.tsx`. We replace/rewrite those section components one at a time, each independently renderable, then recompose the homepage. Tool pages (`app/tools/[slug]`), blog (`app/blog`), admin, API routes and legal pages are **not touched**.
 
@@ -55,7 +55,7 @@ Copy these exactly; every task inherits them.
 - Illustrative examples on Services stay visibly bracketed placeholders (`[Copy from DK]`) until DK supplies real copy. Do not write them.
 - Contact email is `[YOUR CONTACT EMAIL]` until DK confirms one. Do not invent an address.
 
-**Do not touch:** `app/tools/[slug]/`, `components/tools/` (31 tool components), `app/blog/`, `app/admin/`, `app/api/`, `app/privacy-policy/`, `app/terms/`, `app/compare/`, `app/for/`, `lib/toolsData.ts` (except the one scrub in Task 16), `lib/blogData.ts`.
+**Do not touch:** `app/tools/[slug]/`, `components/tools/` (30 tools plus the shared GenericTool base), `app/blog/`, `app/admin/`, `app/api/`, `app/privacy-policy/`, `app/terms/`, `app/compare/`, `app/for/`, `lib/toolsData.ts` (except the one scrub in Task 16), `lib/blogData.ts`.
 
 **Verification loop.** This project has no test runner configured (`package.json` scripts are dev/build/start/lint only). Do not invent one or add a test framework. Every task verifies by:
 1. `npm run build` — must exit 0 with no type errors.
@@ -1242,14 +1242,14 @@ Bridge card at the bottom (gold-bordered):
 - Body: `A tool forgets you the moment you close the tab. The product remembers your voice, your customers and your calendar — and it doesn't wait to be asked.`
 - CTAs: `Start free — no card` → `#pricing` on `/`; `See what Gravity does` → `/#gravity`
 
-Keep every existing `Link href={/tools/${tool.slug}}` card — all 31 must still be reachable.
+Keep every existing `Link href={/tools/${tool.slug}}` card — all 30 must still be reachable.
 
 - [ ] **Step 3: Verify all 31 tools still link and still render**
 
 ```bash
 curl -s http://localhost:3899/tools | grep -o 'href="/tools/[a-z0-9-]*"' | sort -u | wc -l
 ```
-Expected: `31`.
+Expected: `30`.
 
 Spot-check three tool pages still work:
 ```bash

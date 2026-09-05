@@ -37,7 +37,7 @@ export default function ThreeThings() {
         </motion.div>
         <motion.h2
           variants={fadeUpVariant}
-          className="font-heading text-[50px] leading-[1.12] tracking-[-0.02em] font-medium"
+          className="font-heading text-[33px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium"
         >
           It does the three things you <span className="italic text-brand-gold">keep meaning to do.</span>
         </motion.h2>

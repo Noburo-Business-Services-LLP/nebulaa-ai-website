@@ -72,7 +72,7 @@ export default function Pricing() {
         className="max-w-[620px] mb-[62px]"
       >
         <motion.div variants={fadeUpVariant}><SectionLabel className="mb-[22px] block">Pricing</SectionLabel></motion.div>
-        <motion.h2 variants={fadeUpVariant} className="font-heading font-medium text-[50px] leading-[1.12] tracking-[-0.02em] mb-5">
+        <motion.h2 variants={fadeUpVariant} className="font-heading font-medium text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] mb-5">
           Cheaper than the hire. <span className="italic text-brand-gold">Faster than the agency.</span>
         </motion.h2>
         <motion.p variants={fadeUpVariant} className="font-body text-[17px] leading-[1.68] text-white/55">
@@ -89,7 +89,7 @@ export default function Pricing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={viewportOptions}
             transition={{ duration: 0.6, delay: i * 0.1 }}
-            className={`relative bg-brand-dark-surface rounded-[20px] p-10 ${
+            className={`relative bg-brand-dark-surface rounded-[20px] p-6 md:p-10 ${
               plan.highlight
                 ? 'border border-brand-gold/[0.22] shadow-[inset_0_1px_0_0_rgba(255,214,150,0.07),0_18px_60px_rgba(245,166,35,0.07)]'
                 : 'border border-white/[0.06]'
@@ -119,7 +119,7 @@ export default function Pricing() {
             {/* CTA */}
             <a
               href="#"
-              className={`w-full text-center font-body font-semibold text-[14.5px] rounded-full py-[13px] block transition-all hover:scale-[1.02] active:scale-[0.98] ${
+              className={`w-full text-center font-body font-semibold text-[14.5px] rounded-full py-[15px] block transition-all hover:scale-[1.02] active:scale-[0.98] ${
                 plan.highlight
                   ? 'bg-brand-gold text-[#1A1208] shadow-[0_6px_22px_rgba(245,166,35,0.22)]'
                   : 'border border-white/[0.14] text-white/80 hover:border-brand-gold hover:text-brand-gold'

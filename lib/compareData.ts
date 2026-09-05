@@ -110,7 +110,7 @@ export const compareData: Record<string, CompareData> = {
       { feature: 'Competitor tracking', nebulaa: '✅', competitor: '✅' },
       { feature: 'WhatsApp outreach', nebulaa: '✅', competitor: '❌' },
       { feature: 'Enterprise features', nebulaa: '❌', competitor: '✅' },
-      { feature: 'Price (entry)', nebulaa: '₹7,500/mo', competitor: '$99/mo' },
+      { feature: 'Price (entry)', nebulaa: '₹10,000/mo', competitor: '$99/mo' },
     ],
     verdict: 'Hootsuite is ideal for agencies and enterprise teams managing multiple brands. Nebulaa is built for a single founder who needs content creation + lead generation without a team.',
     bestFor: {

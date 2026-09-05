@@ -43,7 +43,7 @@ export default function FAQ() {
         <motion.div variants={fadeUpVariant}>
           <SectionLabel className="mb-[22px] block">FAQ</SectionLabel>
         </motion.div>
-        <motion.h2 variants={fadeUpVariant} className="font-heading text-[50px] leading-[1.12] tracking-[-0.02em] font-medium">
+        <motion.h2 variants={fadeUpVariant} className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium">
           The questions you&apos;re <span className="italic text-brand-gold">actually asking.</span>
         </motion.h2>
       </motion.div>

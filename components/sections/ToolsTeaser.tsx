@@ -33,7 +33,7 @@ export default function ToolsTeaser() {
           </motion.div>
           <motion.h2
             variants={fadeUpVariant}
-            className="font-heading text-[50px] leading-[1.12] tracking-[-0.02em] font-medium mb-5"
+            className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium mb-5"
           >
             Take thirty tools. <span className="italic text-brand-gold">Pay nothing. Ever.</span>
           </motion.h2>

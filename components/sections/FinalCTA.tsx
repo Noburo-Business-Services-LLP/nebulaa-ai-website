@@ -23,7 +23,7 @@ export default function FinalCTA() {
       >
         <motion.h2
           variants={fadeUpVariant}
-          className="font-heading text-[62px] leading-[1.08] tracking-[-0.02em] font-medium mb-[26px]"
+          className="font-heading text-[36px] md:text-[62px] leading-[1.12] md:leading-[1.08] tracking-[-0.02em] font-medium mb-[26px]"
         >
           Start with your URL.
           <br />
@@ -37,7 +37,7 @@ export default function FinalCTA() {
           A minute to your first brand read. A week to decide whether any of this deserves your money. No card until you&apos;ve seen it work.
         </motion.p>
 
-        <motion.div variants={fadeUpVariant} className="flex justify-center gap-[14px]">
+        <motion.div variants={fadeUpVariant} className="flex flex-col sm:flex-row justify-center gap-[14px]">
           <a
             href="#pricing"
             className="inline-flex items-center justify-center bg-brand-gold text-[#1A1208] text-[15px] font-semibold px-[34px] py-4 rounded-full shadow-[0_6px_26px_rgba(245,166,35,0.24)] hover:bg-brand-gold-dim transition-colors"

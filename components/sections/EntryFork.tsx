@@ -47,7 +47,7 @@ export default function EntryFork() {
         </motion.div>
         <motion.h2
           variants={fadeUpVariant}
-          className="font-heading text-[50px] leading-[1.12] tracking-[-0.02em] font-medium mb-5"
+          className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium mb-5"
         >
           Run it yourself, or <span className="italic text-brand-gold">hand us the keys.</span>
         </motion.h2>
@@ -67,7 +67,7 @@ export default function EntryFork() {
           <motion.div
             key={card.label}
             variants={fadeUpVariant}
-            className={`bg-brand-dark-surface rounded-[20px] pt-[46px] px-[42px] pb-11 ${
+            className={`bg-brand-dark-surface rounded-[20px] pt-[46px] px-6 md:px-[42px] pb-11 ${
               card.goldBorder
                 ? 'border border-brand-gold/[0.18] shadow-[inset_0_1px_0_0_rgba(255,214,150,0.07)]'
                 : 'border border-white/[0.06]'
@@ -84,7 +84,7 @@ export default function EntryFork() {
             </div>
             <Link
               href={card.href}
-              className={`inline-block text-[14.5px] font-semibold px-[26px] py-[13px] rounded-full transition-colors ${
+              className={`inline-block text-[14.5px] font-semibold px-[26px] py-[15px] rounded-full transition-colors ${
                 card.goldCta
                   ? 'bg-brand-gold text-[#1A1208] hover:bg-brand-gold-dim'
                   : 'border border-white/[0.14] text-white/80 hover:border-brand-gold hover:text-brand-gold'

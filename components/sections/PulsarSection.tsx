@@ -82,7 +82,7 @@ export default function PulsarSection() {
           </motion.div>
           <motion.h2
             variants={fadeUpVariant}
-            className="font-heading text-[50px] leading-[1.12] tracking-[-0.02em] font-medium mb-[26px]"
+            className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium mb-[26px]"
           >
             Someone messaged you on WhatsApp. <span className="italic text-brand-gold">Nobody replied.</span>
           </motion.h2>

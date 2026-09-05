@@ -18,9 +18,9 @@ const faqs = [
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false)
   return (
-    <div className={`border-b border-brand-border dark:border-white/10 transition-all duration-200 ${open ? 'border-l-4 border-l-brand-gold pl-4' : ''}`}>
-      <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between py-5 text-left cursor-pointer group">
-        <span className="font-body font-semibold text-sm md:text-base text-brand-text dark:text-white pr-4 group-hover:text-brand-gold transition-colors">{q}</span>
+    <div className={`border-b border-white/[0.06] transition-all duration-200 ${open ? 'border-l-2 border-l-brand-gold pl-5' : 'pl-0'}`}>
+      <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between py-6 text-left cursor-pointer group">
+        <span className="font-heading text-[19px] font-medium text-white pr-4 group-hover:text-brand-gold transition-colors">{q}</span>
         <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ type: 'spring', stiffness: 300, damping: 25 }} className="flex-shrink-0">
           <ChevronDown size={18} className="text-brand-gold" />
         </motion.div>
@@ -28,7 +28,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
       <AnimatePresence initial={false}>
         {open && (
           <motion.div key="content" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }} className="overflow-hidden">
-            <p className="font-body text-sm md:text-base text-brand-muted dark:text-white/60 leading-relaxed pb-5">{a}</p>
+            <p className="font-body text-[15px] leading-[1.68] text-white/55 pb-6">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -38,16 +38,24 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 export default function FAQ() {
   return (
-    <section className="bg-brand-off-white dark:bg-[#0F0E0C] py-24">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOptions} className="text-center mb-14">
-          <motion.div variants={fadeUpVariant}><SectionLabel className="mb-4 block">FAQ</SectionLabel></motion.div>
-          <motion.h2 variants={fadeUpVariant} className="font-heading font-bold text-4xl md:text-5xl text-brand-text dark:text-white tracking-tight">Questions we get asked a lot</motion.h2>
+    <section className="py-[130px] px-6 md:px-12 lg:px-[120px]">
+      <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOptions} className="max-w-[640px] mb-[62px]">
+        <motion.div variants={fadeUpVariant}>
+          <SectionLabel className="mb-[22px] block">FAQ</SectionLabel>
         </motion.div>
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={viewportOptions} className="max-w-3xl mx-auto">
-          {faqs.map((faq, i) => <FAQItem key={i} q={faq.q} a={faq.a} />)}
-        </motion.div>
-      </div>
+        <motion.h2 variants={fadeUpVariant} className="font-heading text-[50px] leading-[1.12] tracking-[-0.02em] font-medium">
+          The questions you&apos;re <span className="italic text-brand-gold">actually asking.</span>
+        </motion.h2>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={viewportOptions}
+        className="max-w-[760px] bg-brand-dark-surface border border-white/[0.06] rounded-[18px] px-8"
+      >
+        {faqs.map((faq, i) => <FAQItem key={i} q={faq.q} a={faq.a} />)}
+      </motion.div>
     </section>
   )
 }

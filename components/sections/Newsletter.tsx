@@ -2,13 +2,8 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import SectionLabel from '@/components/ui/SectionLabel'
 import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animations'
-
-const perks = [
-  { emoji: '🧪', text: 'Real GTM experiments' },
-  { emoji: '📊', text: 'Actual founder data' },
-  { emoji: '⚡', text: 'Every Monday, 8 AM' },
-]
 
 export default function Newsletter() {
   const [email, setEmail] = useState('')
@@ -37,100 +32,88 @@ export default function Newsletter() {
   }
 
   return (
-    <section id="newsletter" className="bg-brand-warm-gray dark:bg-[#0D0C0A] py-20 relative overflow-hidden">
-      {/* Ambient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-brand-gold/5 blur-3xl rounded-full pointer-events-none" />
+    <section id="newsletter" className="relative py-[130px] px-6 md:px-12 lg:px-[120px] text-center border-t border-white/[0.06] overflow-hidden">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(50% 70% at 50% 100%, rgba(245,166,35,0.10) 0%, rgba(245,166,35,0) 62%)',
+        }}
+      />
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOptions}
-          className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 items-start"
-        >
-          {/* Left: heading + perks */}
-          <motion.div variants={fadeUpVariant}>
-            <div className="inline-flex items-center gap-2 bg-brand-gold/10 border border-brand-gold/20 rounded-full px-3 py-1 mb-4">
-              <span className="text-brand-gold text-xs">⚡</span>
-              <span className="text-brand-gold font-body text-xs font-bold tracking-widest uppercase">Weekly GTM Intel</span>
-            </div>
-            <h3 className="font-heading font-bold text-2xl md:text-3xl text-brand-text dark:text-white mb-3 leading-tight">
-              GTM tips. Weekly.<br className="hidden sm:block" /> No fluff.
-            </h3>
-            <p className="font-body text-base text-brand-muted dark:text-white/50 mb-5 max-w-md">
-              What founders using Nebulaa are learning right now — experiments, data, and what&apos;s actually working.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              {perks.map(p => (
-                <div key={p.text} className="flex items-center gap-2">
-                  <span className="text-base">{p.emoji}</span>
-                  <span className="font-body text-sm text-brand-muted dark:text-white/40">{p.text}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Right: form */}
-          <motion.div variants={fadeUpVariant} className="w-full md:w-[360px]">
-            {state === 'success' ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="bg-brand-gold/10 border border-brand-gold/20 rounded-2xl p-6 text-center"
-              >
-                <div className="text-4xl mb-3">🎉</div>
-                <p className="font-body font-bold text-brand-gold text-lg mb-1">You&apos;re in!</p>
-                <p className="font-body text-sm text-brand-muted dark:text-white/50">
-                  {name ? `Hey ${name}! ` : ''}Expect GTM gold in your inbox every Monday at 8 AM.
-                </p>
-              </motion.div>
-            ) : state === 'duplicate' ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="bg-white/5 dark:bg-white/3 border border-brand-border dark:border-white/10 rounded-2xl p-6 text-center"
-              >
-                <div className="text-4xl mb-3">😄</div>
-                <p className="font-body text-sm text-brand-muted dark:text-white/60">You&apos;re already on the list! See you Monday.</p>
-              </motion.div>
-            ) : (
-              <div className="bg-white dark:bg-white/3 border border-brand-border dark:border-white/10 rounded-2xl p-5 shadow-sm dark:shadow-none">
-                <form onSubmit={submit} className="space-y-3">
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={e => setName(e.target.value)}
-                    placeholder="First name (optional)"
-                    className="w-full font-body text-sm bg-brand-warm-gray dark:bg-white/5 border border-brand-border dark:border-white/10 rounded-xl px-4 py-3 outline-none focus:border-brand-gold transition-colors text-brand-text dark:text-white placeholder:text-brand-muted-2 dark:placeholder:text-white/30"
-                  />
-                  <div className="flex gap-2">
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={e => setEmail(e.target.value)}
-                      placeholder="your@email.com"
-                      required
-                      className="flex-1 font-body text-sm bg-brand-warm-gray dark:bg-white/5 border border-brand-border dark:border-white/10 rounded-xl px-4 py-3 outline-none focus:border-brand-gold transition-colors text-brand-text dark:text-white placeholder:text-brand-muted-2 dark:placeholder:text-white/30"
-                    />
-                    <button
-                      type="submit"
-                      disabled={state === 'loading'}
-                      className="bg-brand-gold text-brand-black font-body font-bold text-sm rounded-xl px-5 py-3 hover:bg-brand-gold-dim transition-all whitespace-nowrap cursor-pointer hover:scale-[1.03] active:scale-[0.97] disabled:opacity-60"
-                    >
-                      {state === 'loading' ? '⏳' : 'Join →'}
-                    </button>
-                  </div>
-                  {state === 'error' && <p className="font-body text-xs text-red-400 pl-1">{error}</p>}
-                  <p className="font-body text-[11px] text-brand-muted-2 dark:text-white/25 text-center">
-                    No spam. Unsubscribe anytime.
-                  </p>
-                </form>
-              </div>
-            )}
-          </motion.div>
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOptions}
+        className="relative max-w-[540px] mx-auto"
+      >
+        <motion.div variants={fadeUpVariant}>
+          <SectionLabel className="mb-[22px] block">Weekly GTM Intel</SectionLabel>
         </motion.div>
-      </div>
+        <motion.h2 variants={fadeUpVariant} className="font-heading text-[42px] leading-[1.12] tracking-[-0.02em] font-medium mb-5">
+          GTM tips. Weekly. <span className="italic text-brand-gold">No fluff.</span>
+        </motion.h2>
+        <motion.p variants={fadeUpVariant} className="font-body text-[16px] leading-[1.68] text-white/55 mb-10 max-w-[440px] mx-auto">
+          What founders using Nebulaa are learning right now — experiments, data, and what&apos;s actually working.
+        </motion.p>
+
+        <motion.div variants={fadeUpVariant} className="max-w-[420px] mx-auto">
+          {state === 'success' ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-brand-dark-surface border border-brand-gold/[0.18] rounded-[18px] p-7 text-center"
+            >
+              <p className="font-heading text-[19px] font-medium text-brand-gold mb-1">You&apos;re in!</p>
+              <p className="font-body text-[14.5px] text-white/55">
+                {name ? `Hey ${name}! ` : ''}Expect GTM gold in your inbox every Monday at 8 AM.
+              </p>
+            </motion.div>
+          ) : state === 'duplicate' ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-brand-dark-surface border border-white/[0.06] rounded-[18px] p-7 text-center"
+            >
+              <p className="font-body text-[14.5px] text-white/55">You&apos;re already on the list! See you Monday.</p>
+            </motion.div>
+          ) : (
+            <div className="bg-brand-dark-surface border border-white/[0.06] rounded-[18px] p-6">
+              <form onSubmit={submit} className="space-y-3">
+                <input
+                  type="text"
+                  value={name}
+                  onChange={e => setName(e.target.value)}
+                  placeholder="First name (optional)"
+                  className="w-full font-body text-[14.5px] bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 outline-none focus:border-brand-gold transition-colors text-white placeholder:text-white/30"
+                />
+                <div className="flex gap-2">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    placeholder="your@email.com"
+                    required
+                    className="flex-1 font-body text-[14.5px] bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 outline-none focus:border-brand-gold transition-colors text-white placeholder:text-white/30"
+                  />
+                  <button
+                    type="submit"
+                    disabled={state === 'loading'}
+                    className="bg-brand-gold text-[#1A1208] font-body font-semibold text-[14.5px] rounded-xl px-5 py-3 hover:bg-brand-gold-dim transition-colors whitespace-nowrap disabled:opacity-60"
+                  >
+                    {state === 'loading' ? '…' : 'Join →'}
+                  </button>
+                </div>
+                {state === 'error' && <p className="font-body text-[12.5px] text-red-400 pl-1">{error}</p>}
+                <p className="font-body text-[12px] text-white/35 text-center">
+                  No spam. Unsubscribe anytime.
+                </p>
+              </form>
+            </div>
+          )}
+        </motion.div>
+      </motion.div>
     </section>
   )
 }

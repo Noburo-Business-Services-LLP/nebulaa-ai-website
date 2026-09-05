@@ -5,7 +5,12 @@ export interface ServiceClient {
 
 export interface IllustrativeExample {
   industryLabel: string
-  copy: string | null // null = placeholder, waiting on real copy
+  copy: string | null // null = placeholder, waiting on real copy from DK — do not invent
+}
+
+export interface Differentiator {
+  title: string
+  body: string
 }
 
 export interface ServiceTierData {
@@ -13,68 +18,96 @@ export interface ServiceTierData {
   name: string
   eyebrow: string
   headline: string
+  headlineEmphasis: string
   subheadline: string
   seoTitle: string
   seoDescription: string
-  whoFor: string
+  engagementTitle: string
+  engagementBlurb: string
   whatYouGet: string[]
   clients: ServiceClient[]
   illustrativeExamples: IllustrativeExample[]
   ctaLabel: string
 }
 
+export const differentiators: Differentiator[] = [
+  {
+    title: 'One team, one number',
+    body: 'Not a rotating cast of account managers, and not a junior learning your business on your retainer. Whoever learns it, keeps it.',
+  },
+  {
+    title: 'The machines do the volume',
+    body: "Drafting, scheduling, follow-up, reporting — all agent work. Our people spend their hours on the judgement calls, which is the part you're actually paying for.",
+  },
+  {
+    title: 'You keep everything',
+    body: 'Accounts, content and lead data, all in your name. Take it in-house whenever you like and the whole system walks with you. No hostages.',
+  },
+]
+
 export const serviceTiers: Record<string, ServiceTierData> = {
   enterprise: {
     slug: 'enterprise',
     name: 'Enterprise',
-    eyebrow: 'Managed Marketing',
-    headline: 'A marketing team, fully managed, backed by AI.',
-    subheadline: 'For established brands entering new markets or scaling regional presence. Strategy, content, distribution, and sales enablement — Nebulaa\'s team owns execution end to end.',
+    eyebrow: 'Managed services',
+    headline: "You don't want software.",
+    headlineEmphasis: 'You want it handled.',
+    subheadline:
+      "We plan it, write it, ship it and chase it — with the same agents doing the heavy lifting behind our team. That's why we come in under the agency quoting you now, and move while they're still building the deck. You approve. You never log in.",
     seoTitle: 'Enterprise Managed Marketing — Nebulaa',
-    seoDescription: 'End-to-end managed marketing for established brands entering new markets — strategy, content, distribution, and sales enablement, delivered by Nebulaa\'s team.',
-    whoFor: 'Established brands entering new markets or scaling regional presence.',
+    seoDescription:
+      'End-to-end managed marketing for established brands entering new markets — strategy, content, distribution, and sales enablement, delivered by Nebulaa’s team.',
+    engagementTitle: 'Entering a market, or scaling a region',
+    engagementBlurb:
+      "Distribution is the hard part, not the deck. We build the go-to-market, the content engine behind it, and the material your dealers will actually use — then report against numbers you agreed to, every month.",
     whatYouGet: [
-      'Dedicated account team, one point of contact',
-      'Strategy, content, and distribution — planned and executed for you',
-      'Sales enablement material built alongside your team',
-      'AI-accelerated production — Gravity and Pulsar run underneath, you never touch the software',
+      'Go-to-market and positioning for the new region',
+      'Content built once, localised across channels',
+      'Sales enablement for your retail or dealer network',
+      'Monthly reporting against agreed targets',
     ],
     clients: [
-      { name: 'Bosch', stage: 'proposal' },
       { name: 'Gandhimathi Jewellers', stage: 'active' },
       { name: 'JKR Tex', stage: 'active' },
       { name: 'TNV Chits', stage: 'active' },
+      { name: 'Bosch', stage: 'proposal' },
     ],
     illustrativeExamples: [
-      { industryLabel: 'a jewellery retail brand', copy: null },
-      { industryLabel: 'a regional appliance retailer', copy: null },
-      { industryLabel: 'a textile manufacturer', copy: null },
+      { industryLabel: 'A jewellery retail brand', copy: null },
+      { industryLabel: 'An FMCG brand entering a new city', copy: null },
+      { industryLabel: 'A textile manufacturer', copy: null },
     ],
-    ctaLabel: 'Talk to us about managed marketing',
+    ctaLabel: 'Book a 20-min call',
   },
   msme: {
     slug: 'msme',
     name: 'MSME',
-    eyebrow: 'AI-Native Services',
-    headline: 'Your outsourced marketing team, powered by AI.',
-    subheadline: 'For small and mid-size businesses who need marketing done, not a tool to learn. Nebulaa\'s team delivers it, using Gravity and Pulsar internally as force-multipliers — you never touch the software.',
+    eyebrow: 'Managed services',
+    headline: "You don't want software.",
+    headlineEmphasis: 'You want it handled.',
+    subheadline:
+      "We plan it, write it, ship it and chase it — with the same agents doing the heavy lifting behind our team. That's why we come in under the agency quoting you now, and move while they're still building the deck. You approve. You never log in.",
     seoTitle: 'AI-Native Marketing Services for MSMEs — Nebulaa',
-    seoDescription: 'Done-for-you digital marketing for small and mid-size businesses, delivered by Nebulaa\'s team and accelerated by AI — scoped to MSME budgets.',
-    whoFor: 'Small and mid-size businesses who want marketing handled, not another tool to learn.',
+    seoDescription:
+      'Done-for-you digital marketing for small and mid-size businesses, delivered by Nebulaa’s team and accelerated by AI — scoped to MSME budgets.',
+    engagementTitle: "A marketing team you couldn't otherwise afford",
+    engagementBlurb:
+      'The same work, cut to a smaller shape. Priced like a retainer, delivered faster because the agents carry the volume. One call a month, in plain language, no jargon tax.',
     whatYouGet: [
-      'A human team running your marketing day to day',
-      'Content, posting, and lead follow-up handled for you',
-      'Scoped to MSME budgets — priced like an agency, faster because of AI',
-      'No dashboards to learn, no software to manage',
+      'Your social channels, posted and managed',
+      'Enquiries answered and qualified on WhatsApp',
+      'Festival and season campaigns planned ahead',
+      'A monthly call, in plain language',
     ],
     clients: [
-      { name: 'Rajaram\'s', stage: 'proposal' },
+      { name: "Rajaram's", stage: 'proposal' },
       { name: 'Nellai Kuttam Snacks', stage: 'proposal' },
     ],
     illustrativeExamples: [
-      { industryLabel: 'an FMCG brand entering a new city', copy: null },
-      { industryLabel: 'a local retail chain', copy: null },
+      { industryLabel: 'A jewellery retail brand', copy: null },
+      { industryLabel: 'An FMCG brand entering a new city', copy: null },
+      { industryLabel: 'A textile manufacturer', copy: null },
     ],
-    ctaLabel: 'Talk to us about your marketing',
+    ctaLabel: 'Book a 20-min call',
   },
 }

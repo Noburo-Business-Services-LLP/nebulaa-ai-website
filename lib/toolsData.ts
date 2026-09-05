@@ -19,7 +19,7 @@ export const tools: Tool[] = [
     icon: '💼',
     category: 'Content',
     seoTitle: 'Free LinkedIn Post Generator — AI-powered posts in 30 seconds',
-    seoDescription: 'Generate scroll-stopping LinkedIn posts for free. Enter your topic and get a hook, body, and CTA instantly. Used by 1,000+ founders.',
+    seoDescription: 'Generate scroll-stopping LinkedIn posts for free. Enter your topic and get a hook, body, and CTA instantly.',
     keywords: ['linkedin post generator', 'free linkedin post tool', 'linkedin content generator', 'ai linkedin post'],
   },
   {

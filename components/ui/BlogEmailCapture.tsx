@@ -77,7 +77,7 @@ export default function BlogEmailCapture() {
             <p className="font-body text-xs text-red-400 mt-2">Something went wrong — try again or email us directly.</p>
           )}
           <p className="font-body text-xs text-brand-muted dark:text-white/30 mt-2">
-            Join 2,000+ founders. Unsubscribe anytime.
+            Unsubscribe anytime.
           </p>
         </div>
       </div>

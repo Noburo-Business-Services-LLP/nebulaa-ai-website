@@ -143,7 +143,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'nebulaa-vs-clay-lead-enrichment',
     title: 'Nebulaa vs Clay: Two Approaches to AI-Powered Lead Generation',
-    excerpt: 'Clay enriches and sequences leads. Nebulaa calls them, qualifies them, and handles the entire conversation. Here\'s when to use each.',
+    excerpt: 'Clay enriches and sequences leads. Nebulaa messages them on WhatsApp, qualifies them, and handles the entire conversation. Here\'s when to use each.',
     category: 'Comparisons',
     readTime: '7 min read',
     date: 'January 25, 2026',

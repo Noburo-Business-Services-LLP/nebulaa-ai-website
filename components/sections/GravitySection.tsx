@@ -36,13 +36,13 @@ export default function GravitySection() {
             variants={fadeUpVariant}
             className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium mb-[26px]"
           >
-            You meant to post something. <span className="italic text-brand-gold">That was March.</span>
+            Stop planning content. <span className="italic text-brand-gold">Start approving it.</span>
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}
             className="font-body text-[17px] leading-[1.68] text-white/55 max-w-[480px] mb-[34px]"
           >
-            Not laziness — there&rsquo;s a business to run. Gravity starts by understanding you: your customers, your channels, what actually works. Then it plans the month and drafts the posts, carousels and reels to fill it, watching your rivals so your content never plays catch-up. You approve; it ships.
+            Gravity starts by understanding you: your customers, your channels, what actually works. Then it plans the month and drafts the posts, carousels and reels to fill it, watching your rivals so your content never plays catch-up. Your part is the last step — tap approve.
           </motion.p>
           <motion.div variants={fadeUpVariant} className="flex flex-col gap-4">
             {bullets.map((bullet) => (

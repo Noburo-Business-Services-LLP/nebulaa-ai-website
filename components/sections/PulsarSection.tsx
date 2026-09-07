@@ -84,13 +84,13 @@ export default function PulsarSection() {
             variants={fadeUpVariant}
             className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium mb-[26px]"
           >
-            Someone messaged you on WhatsApp. <span className="italic text-brand-gold">Nobody replied.</span>
+            Whoever replies first <span className="italic text-brand-gold">wins the sale.</span>
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}
             className="font-body text-[17px] leading-[1.68] text-white/55 max-w-[480px] mb-[34px]"
           >
-            It happens mid-billing, mid-invoice, mid-everything. By Tuesday they&rsquo;ve bought from whoever answered first. Pulsar answers in minutes, asks the questions you&rsquo;d ask, and hands you the ones worth your afternoon.
+            It happens mid-billing, mid-invoice, mid-everything — and by the time you&rsquo;re free, they&rsquo;ve already messaged someone else. Pulsar replies in minutes, asks the questions you&rsquo;d ask, and hands you only the ones worth your afternoon.
           </motion.p>
           <motion.div variants={fadeUpVariant} className="flex flex-col gap-4">
             {bullets.map((bullet) => (

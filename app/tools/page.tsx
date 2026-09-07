@@ -28,9 +28,9 @@ export default function ToolsPage() {
         <div className="relative">
           <SectionLabel className="mb-[26px] block">Free tools · no signup</SectionLabel>
           <h1 className="font-heading font-medium text-[42px] md:text-[64px] leading-[1.06] tracking-[-0.02em] mb-7" style={{ textWrap: 'pretty' }}>
-            Take the tools.
+            Every free tool we&apos;ve got,
             <br />
-            <span className="italic text-brand-gold">Keep them. Pay nothing.</span>
+            <span className="italic text-brand-gold">one page, no catch.</span>
           </h1>
           <p className="text-[17px] md:text-[18px] leading-[1.65] text-white/55 max-w-[600px]">
             Each one runs on the same model that writes for Gravity. No signup, no card, no follow-up sequence afterwards — given what Pulsar does for a living, that would be a bit much. Use them forever and never speak to us. But if you&apos;re opening four of them every Monday, you already know what the product is for.

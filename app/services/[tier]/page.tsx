@@ -151,7 +151,7 @@ export default function ServiceTierPage({ params }: { params: { tier: string } }
             Twenty minutes, no deck, no pitch. If we&apos;re the wrong fit we&apos;ll say so on the call and point you somewhere better.
           </p>
           <a
-            href={`mailto:support@nebulaa.ai?subject=${encodeURIComponent(`${data.name} services — let's talk`)}`}
+            href={`mailto:hello@nebulaa.ai?subject=${encodeURIComponent(`${data.name} services — let's talk`)}`}
             className="inline-block bg-brand-gold text-[#1A1208] text-[15px] font-semibold px-[34px] py-4 rounded-full shadow-[0_6px_26px_rgba(245,166,35,0.24)] hover:brightness-105 transition"
           >
             {data.ctaLabel}

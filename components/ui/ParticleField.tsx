@@ -17,7 +17,7 @@ interface Props {
 export default function ParticleField({ height = 520, readout, className = '', variant = 'boxed' }: Props) {
   return (
     <div
-      className={`relative overflow-hidden ${variant === 'boxed' ? 'rounded-3xl bg-[#0C0C0F] border border-white/[0.06]' : ''} ${className}`}
+      className={`overflow-hidden ${variant === 'boxed' ? 'relative rounded-3xl bg-[#0C0C0F] border border-white/[0.06]' : ''} ${className}`}
       style={variant === 'boxed' ? { height } : undefined}
     >
       <div className="neb-field" />

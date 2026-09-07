@@ -37,7 +37,7 @@ export const differentiators: Differentiator[] = [
   },
   {
     title: 'The machines do the volume',
-    body: "Drafting, scheduling, follow-up, reporting — all agent work. Our people spend their hours on the judgement calls, which is the part you're actually paying for.",
+    body: "Gravity plans the month and drafts every post, carousel and reel against it. Pulsar scores and chases every lead. Our people review, refine, and make the judgement calls — the part you're actually paying for.",
   },
   {
     title: 'You keep everything',
@@ -59,11 +59,11 @@ export const serviceTiers: Record<string, ServiceTierData> = {
       'End-to-end managed marketing for established brands entering new markets — strategy, content, distribution, and sales enablement, delivered by Nebulaa’s team.',
     engagementTitle: 'Entering a market, or scaling a region',
     engagementBlurb:
-      "Distribution is the hard part, not the deck. We build the go-to-market, the content engine behind it, and the material your dealers will actually use — then report against numbers you agreed to, every month.",
+      "Distribution is the hard part, not the deck. Gravity builds the market-entry content plan — posts, carousels, reels — and tracks what's already working for competitors in the region. Pulsar follows up every retail and dealer enquiry the same day. Our team directs it and reports against the numbers you agreed to, every month.",
     whatYouGet: [
-      'Go-to-market and positioning for the new region',
-      'Content built once, localised across channels',
-      'Sales enablement for your retail or dealer network',
+      'Market-entry strategy and a content plan built from it',
+      'Posts, carousels and reels, localised per region',
+      'Every dealer and retail enquiry followed up same-day',
       'Monthly reporting against agreed targets',
     ],
     clients: [
@@ -92,10 +92,10 @@ export const serviceTiers: Record<string, ServiceTierData> = {
       'Done-for-you digital marketing for small and mid-size businesses, delivered by Nebulaa’s team and accelerated by AI — scoped to MSME budgets.',
     engagementTitle: "A marketing team you couldn't otherwise afford",
     engagementBlurb:
-      'The same work, cut to a smaller shape. Priced like a retainer, delivered faster because the agents carry the volume. One call a month, in plain language, no jargon tax.',
+      "The same engine, sized for you. Gravity plans your month and drafts the posts; Pulsar answers every WhatsApp enquiry before it goes cold. Our team runs it, checks it, and calls you once a month to say what's working — no jargon, no surprise invoice.",
     whatYouGet: [
-      'Your social channels, posted and managed',
-      'Enquiries answered and qualified on WhatsApp',
+      'A month of content, planned and drafted for you',
+      'Every WhatsApp enquiry answered and scored',
       'Festival and season campaigns planned ahead',
       'A monthly call, in plain language',
     ],

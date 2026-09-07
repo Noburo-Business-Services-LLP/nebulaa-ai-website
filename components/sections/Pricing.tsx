@@ -6,7 +6,9 @@ import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animatio
 
 const replaces = [
   { item: 'A marketing hire', cost: '₹30,000–50,000/mo' },
-  { item: 'Scheduling & design tools', cost: '₹3,000–5,000/mo' },
+  { item: 'A designer for creatives', cost: '₹12,000–20,000/mo' },
+  { item: 'Scheduling & content tools', cost: '₹3,000–5,000/mo' },
+  { item: 'WhatsApp Business API / CRM', cost: '₹5,000–10,000/mo' },
   { item: 'Someone to answer leads fast', cost: '₹8,000–12,000/mo' },
   { item: 'Weeks spent interviewing', cost: '4–6 weeks, before they start' },
 ]
@@ -34,8 +36,8 @@ const plans = [
     name: 'Both Agents',
     label: 'Both agents · best value',
     tagline: 'Marketing + Outreach',
-    price: '₹15,000',
-    description: 'The whole loop — content in, customers out. ₹10,000 less than buying the two separately.',
+    price: '₹20,000',
+    description: 'The whole loop — content in, customers out. ₹5,000 less than buying the two separately.',
     features: [
       'Strategy, monthly plan & content — Gravity',
       'WhatsApp, email & SMS outreach — Pulsar',
@@ -43,7 +45,7 @@ const plans = [
       'Competitor tracking → counter-content',
       'Lead scoring & qualification',
       'Priority onboarding',
-      'Save ₹10,000/month vs separate',
+      'Save ₹5,000/month vs separate',
     ],
     cta: 'Start with Both →',
     highlight: true,
@@ -105,7 +107,7 @@ export default function Pricing() {
         </div>
         <div className="flex items-center justify-between gap-4 px-6 md:px-9 py-6 border-t border-white/[0.10] bg-white/[0.02]">
           <span className="font-heading text-[20px] md:text-[22px] font-medium">Doing it yourself</span>
-          <span className="font-heading text-[20px] md:text-[22px] font-medium text-white/45">₹41,000–67,000+/mo</span>
+          <span className="font-heading text-[20px] md:text-[22px] font-medium text-white/45">₹58,000–97,000+/mo</span>
         </div>
         <div className="flex items-center justify-between gap-4 px-6 md:px-9 py-6 border-t border-brand-gold/[0.18] bg-brand-gold/[0.06]">
           <span className="font-heading text-[20px] md:text-[22px] font-medium text-brand-gold">With Nebulaa</span>

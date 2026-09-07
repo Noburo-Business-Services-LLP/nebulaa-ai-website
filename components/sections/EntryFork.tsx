@@ -49,7 +49,7 @@ export default function EntryFork() {
           variants={fadeUpVariant}
           className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium mb-5"
         >
-          Run it yourself, or <span className="italic text-brand-gold">hand us the keys.</span>
+          Who should be running this — <span className="italic text-brand-gold">you, or us?</span>
         </motion.h2>
         <motion.p variants={fadeUpVariant} className="font-body text-[17px] leading-[1.68] text-white/55">
           Same agents underneath. The only question is whose evening it takes.

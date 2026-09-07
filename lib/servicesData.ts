@@ -32,7 +32,7 @@ export interface ServiceTierData {
 
 export const differentiators: Differentiator[] = [
   {
-    title: 'One team, one number',
+    title: 'One team, one contact',
     body: 'Not a rotating cast of account managers, and not a junior learning your business on your retainer. Whoever learns it, keeps it.',
   },
   {

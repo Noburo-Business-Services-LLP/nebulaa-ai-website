@@ -150,9 +150,12 @@ export default function ServiceTierPage({ params }: { params: { tier: string } }
           <p className="text-[17px] leading-[1.65] text-white/55 max-w-[480px] mx-auto mb-10">
             Twenty minutes, no deck, no pitch. If we&apos;re the wrong fit we&apos;ll say so on the call and point you somewhere better.
           </p>
-          <span className="inline-block bg-brand-gold text-[#1A1208] text-[15px] font-semibold px-[34px] py-4 rounded-full shadow-[0_6px_26px_rgba(245,166,35,0.24)]">
-            [YOUR CONTACT EMAIL] &mdash; {data.ctaLabel}
-          </span>
+          <a
+            href={`mailto:support@nebulaa.ai?subject=${encodeURIComponent(`${data.name} services — let's talk`)}`}
+            className="inline-block bg-brand-gold text-[#1A1208] text-[15px] font-semibold px-[34px] py-4 rounded-full shadow-[0_6px_26px_rgba(245,166,35,0.24)] hover:brightness-105 transition"
+          >
+            {data.ctaLabel}
+          </a>
         </div>
       </section>
     </main>

@@ -24,7 +24,7 @@ const steps = [
 
 export default function ThreeThings() {
   return (
-    <section className="py-[130px] px-6 md:px-12 lg:px-[120px]">
+    <section id="how-it-works" className="py-[130px] px-6 md:px-12 lg:px-[120px]">
       <motion.div
         variants={staggerContainer}
         initial="hidden"

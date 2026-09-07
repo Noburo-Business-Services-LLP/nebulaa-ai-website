@@ -52,9 +52,9 @@ export default function GravitySection() {
               </div>
             ))}
           </motion.div>
-          <motion.div variants={fadeUpVariant} className="mt-[38px] text-[15px] text-brand-gold">
+          <motion.a variants={fadeUpVariant} href="#how-it-works" className="mt-[38px] inline-block text-[15px] text-brand-gold hover:underline">
             See how Gravity works →
-          </motion.div>
+          </motion.a>
         </motion.div>
 
         {/* Right — product panel */}

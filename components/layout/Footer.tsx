@@ -94,7 +94,7 @@ export default function Footer() {
           <span className="font-heading text-[17px] font-normal text-white">Nebulaa</span>
         </div>
         <div className="font-body text-[13px] text-white/35 leading-[1.7]">
-          Chennai, India<br />[YOUR CONTACT EMAIL]
+          Chennai, India<br /><a href="mailto:support@nebulaa.ai" className="hover:text-brand-gold transition-colors">support@nebulaa.ai</a>
         </div>
       </div>
 

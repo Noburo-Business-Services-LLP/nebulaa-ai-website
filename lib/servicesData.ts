@@ -50,10 +50,10 @@ export const serviceTiers: Record<string, ServiceTierData> = {
     slug: 'enterprise',
     name: 'Enterprise',
     eyebrow: 'Managed services',
-    headline: "You don't want software.",
-    headlineEmphasis: 'You want it handled.',
+    headline: 'We run the launch.',
+    headlineEmphasis: 'You run the business.',
     subheadline:
-      "We plan it, write it, ship it and chase it — with the same agents doing the heavy lifting behind our team. That's why we come in under the agency quoting you now, and move while they're still building the deck. You approve. You never log in.",
+      'Gandhimathi Jewellers, JKR Tex and TNV Chits already have us doing this for them — market-entry content, dealer enablement, and a number you agreed to, every month. Bosch is next.',
     seoTitle: 'Enterprise Managed Marketing — Nebulaa',
     seoDescription:
       'End-to-end managed marketing for established brands entering new markets — strategy, content, distribution, and sales enablement, delivered by Nebulaa’s team.',
@@ -83,16 +83,16 @@ export const serviceTiers: Record<string, ServiceTierData> = {
     slug: 'msme',
     name: 'MSME',
     eyebrow: 'Managed services',
-    headline: "You don't want software.",
-    headlineEmphasis: 'You want it handled.',
+    headline: 'A marketing team,',
+    headlineEmphasis: 'priced like one person.',
     subheadline:
-      "We plan it, write it, ship it and chase it — with the same agents doing the heavy lifting behind our team. That's why we come in under the agency quoting you now, and move while they're still building the deck. You approve. You never log in.",
+      "Gravity plans your month, Pulsar answers your WhatsApp — our team runs both and calls you once a month to say what worked. Rajaram's and Nellai Kuttam Snacks are piloting it now.",
     seoTitle: 'AI-Native Marketing Services for MSMEs — Nebulaa',
     seoDescription:
       'Done-for-you digital marketing for small and mid-size businesses, delivered by Nebulaa’s team and accelerated by AI — scoped to MSME budgets.',
     engagementTitle: "A marketing team you couldn't otherwise afford",
     engagementBlurb:
-      "The same engine, sized for you. Gravity plans your month and drafts the posts; Pulsar answers every WhatsApp enquiry before it goes cold. Our team runs it, checks it, and calls you once a month to say what's working — no jargon, no surprise invoice.",
+      "The same engine, sized for you. Gravity plans your month and drafts the posts; Pulsar answers every WhatsApp enquiry before it goes cold. Our team runs it, checks it, and calls you once a month to say what's working.",
     whatYouGet: [
       'A month of content, planned and drafted for you',
       'Every WhatsApp enquiry answered and scored',

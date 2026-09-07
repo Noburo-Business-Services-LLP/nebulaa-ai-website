@@ -110,31 +110,6 @@ export default function ServiceTierPage({ params }: { params: { tier: string } }
         </div>
       </section>
 
-      <hr className="border-t border-white/[0.06]" />
-
-      {/* What it looks like — illustrative, clearly labelled */}
-      <section className="px-6 md:px-12 lg:px-[120px] py-[120px]">
-        <div className="max-w-[640px] mb-5">
-          <SectionLabel className="mb-[22px] block">What changes</SectionLabel>
-          <h2 className="font-heading font-medium text-4xl md:text-[48px] leading-[1.12] tracking-[-0.02em] mb-4">
-            The kind of shift this <span className="italic text-brand-gold">typically drives.</span>
-          </h2>
-          <p className="text-[14.5px] leading-[1.6] text-white/35">
-            Illustrative examples by category &mdash; not attributed quotes, not case studies.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-5 mt-[52px]">
-          {data.illustrativeExamples.map((ex) => (
-            <div key={ex.industryLabel} className="border border-dashed border-white/[0.14] rounded-[18px] px-[30px] pt-[34px] pb-9 bg-white/[0.015]">
-              <SectionLabel tone="muted" className="mb-[18px] block">{ex.industryLabel}</SectionLabel>
-              <p className="text-[14.5px] leading-[1.7] text-white/30 italic">
-                {ex.copy ?? '[Copy from DK]'}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Close */}
       <section id="contact" className="relative px-6 md:px-12 lg:px-[120px] py-[130px] pb-[140px] text-center border-t border-white/[0.06] overflow-hidden">
         <div

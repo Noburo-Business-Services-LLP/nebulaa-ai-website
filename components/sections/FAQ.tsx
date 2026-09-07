@@ -52,7 +52,7 @@ export default function FAQ() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={viewportOptions}
-        className="max-w-[760px] bg-brand-dark-surface border border-white/[0.06] rounded-[18px] px-8"
+        className="bg-brand-dark-surface border border-white/[0.06] rounded-[18px] px-8"
       >
         {faqs.map((faq, i) => <FAQItem key={i} q={faq.q} a={faq.a} />)}
       </motion.div>

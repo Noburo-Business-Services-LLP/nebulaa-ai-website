@@ -53,7 +53,7 @@ export const serviceTiers: Record<string, ServiceTierData> = {
     headline: 'We run the launch.',
     headlineEmphasis: 'You run the business.',
     subheadline:
-      'Gandhimathi Jewellers, JKR Tex and TNV Chits already have us doing this for them — market-entry content, dealer enablement, and a number you agreed to, every month. Bosch is next.',
+      "We're in early conversations with Bosch on exactly this: market-entry content, dealer enablement, and a number agreed every month. This is the shape of engagement we're building toward.",
     seoTitle: 'Enterprise Managed Marketing — Nebulaa',
     seoDescription:
       'End-to-end managed marketing for established brands entering new markets — strategy, content, distribution, and sales enablement, delivered by Nebulaa’s team.',
@@ -67,9 +67,6 @@ export const serviceTiers: Record<string, ServiceTierData> = {
       'Monthly reporting against agreed targets',
     ],
     clients: [
-      { name: 'Gandhimathi Jewellers', stage: 'active' },
-      { name: 'JKR Tex', stage: 'active' },
-      { name: 'TNV Chits', stage: 'active' },
       { name: 'Bosch', stage: 'proposal' },
     ],
     illustrativeExamples: [
@@ -86,7 +83,7 @@ export const serviceTiers: Record<string, ServiceTierData> = {
     headline: 'A marketing team,',
     headlineEmphasis: 'priced like one person.',
     subheadline:
-      "Gravity plans your month, Pulsar answers your WhatsApp — our team runs both and calls you once a month to say what worked. Rajaram's and Nellai Kuttam Snacks are piloting it now.",
+      "Gravity plans your month, Pulsar answers your WhatsApp — our team runs both and calls you once a month to say what worked. Gandhimathi Jewellers, JKR Tex and TNV Chits already run on it; Rajaram's and Nellai Kuttam Snacks are piloting it now.",
     seoTitle: 'AI-Native Marketing Services for MSMEs — Nebulaa',
     seoDescription:
       'Done-for-you digital marketing for small and mid-size businesses, delivered by Nebulaa’s team and accelerated by AI — scoped to MSME budgets.',
@@ -100,6 +97,9 @@ export const serviceTiers: Record<string, ServiceTierData> = {
       'A monthly call, in plain language',
     ],
     clients: [
+      { name: 'Gandhimathi Jewellers', stage: 'active' },
+      { name: 'JKR Tex', stage: 'active' },
+      { name: 'TNV Chits', stage: 'active' },
       { name: "Rajaram's", stage: 'proposal' },
       { name: 'Nellai Kuttam Snacks', stage: 'proposal' },
     ],

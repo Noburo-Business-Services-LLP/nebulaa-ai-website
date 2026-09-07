@@ -92,7 +92,7 @@ export default function Pricing() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={viewportOptions}
         transition={{ duration: 0.6 }}
-        className="max-w-[760px] bg-brand-dark-surface border border-white/[0.06] rounded-[20px] overflow-hidden mb-[62px]"
+        className="bg-brand-dark-surface border border-white/[0.06] rounded-[20px] overflow-hidden mb-[62px]"
       >
         <div className="px-6 md:px-9 pt-7 pb-5">
           <div className="neb-label">What you&apos;d otherwise be paying for</div>

@@ -12,8 +12,8 @@ const GOLD_DOT_STYLE = {
 }
 
 const PRODUCT_LINKS = [
-  { name: 'Gravity', desc: 'AI Marketing Engine — posts, schedules, tracks rivals', href: '#gravity' },
-  { name: 'Pulsar', desc: 'AI Outreach Engine — calls, WhatsApp, email sequences', href: '#pulsar' },
+  { name: 'Gravity', desc: 'AI Marketing Engine — posts, schedules, tracks rivals', href: '/#gravity' },
+  { name: 'Pulsar', desc: 'AI Outreach Engine — calls, WhatsApp, email sequences', href: '/#pulsar' },
 ]
 
 const SERVICES_LINKS = [
@@ -22,12 +22,12 @@ const SERVICES_LINKS = [
 ]
 
 const MOBILE_LINKS = [
-  { label: 'Gravity', href: '#gravity' },
-  { label: 'Pulsar', href: '#pulsar' },
+  { label: 'Gravity', href: '/#gravity' },
+  { label: 'Pulsar', href: '/#pulsar' },
   { label: 'Enterprise', href: '/services/enterprise' },
   { label: 'MSME', href: '/services/msme' },
   { label: 'Free tools', href: '/tools' },
-  { label: 'Pricing', href: '#pricing' },
+  { label: 'Pricing', href: '/#pricing' },
   { label: 'Journal', href: '/blog' },
 ]
 
@@ -55,7 +55,7 @@ export default function Navbar() {
       >
         <div className="flex items-center justify-between py-7 px-6 md:px-12 lg:px-[120px]">
           {/* Logo */}
-          <a href="#" className="flex-shrink-0">
+          <Link href="/" className="flex-shrink-0">
             <Image
               src="/images/logo-dark.png"
               alt="Nebulaa.ai"
@@ -65,7 +65,7 @@ export default function Navbar() {
               priority
               loading="eager"
             />
-          </a>
+          </Link>
 
           {/* Center links — desktop */}
           <div className="hidden md:flex items-center gap-[38px]">
@@ -167,7 +167,7 @@ export default function Navbar() {
               <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-brand-gold group-hover:w-full transition-all duration-300" />
             </Link>
             <a
-              href="#pricing"
+              href="/#pricing"
               className="relative font-body text-sm text-white/55 hover:text-white transition-colors group"
             >
               Pricing
@@ -188,7 +188,7 @@ export default function Navbar() {
               Sign in
             </a>
             <a
-              href="#pricing"
+              href="/#pricing"
               className="font-body text-sm font-semibold bg-brand-gold text-brand-black rounded-full px-[22px] py-[11px] shadow-[0_4px_18px_rgba(245,166,35,0.20)] hover:bg-brand-gold-dim transition-all"
             >
               Start free
@@ -242,7 +242,7 @@ export default function Navbar() {
                 Sign in
               </a>
               <a
-                href="#pricing"
+                href="/#pricing"
                 className="font-body text-sm font-semibold bg-brand-gold text-brand-black rounded-full px-5 py-3.5 text-center hover:bg-brand-gold-dim transition-all"
                 onClick={() => setMobileOpen(false)}
               >

@@ -5,15 +5,16 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import { fadeUpVariant, slideInLeft, staggerContainer, viewportOptions } from '@/lib/animations'
 
 const bullets = [
-  'Daily posts for LinkedIn, Instagram and X, in your voice',
-  'Festivals planned weeks ahead, not the night before',
-  'See what rivals shipped this week, before you write',
+  'Builds your marketing strategy first — ICP, channels, what to say',
+  'Plans the month, then executes it — posts, carousels, reels',
+  'Watches your rivals and drafts the counter-post, not just a report',
+  'Gets sharper over time — it remembers what worked',
   'Nothing publishes until you tap approve',
 ]
 
 const stats = [
   { label: 'Queued', value: '18', suffix: '' },
-  { label: 'Platforms', value: '3', suffix: '' },
+  { label: 'Formats', value: '3', suffix: '' },
   { label: 'Your time', value: '9', suffix: 'min' },
 ]
 
@@ -41,7 +42,7 @@ export default function GravitySection() {
             variants={fadeUpVariant}
             className="font-body text-[17px] leading-[1.68] text-white/55 max-w-[480px] mb-[34px]"
           >
-            Not laziness — there&rsquo;s a business to run. But the shop that shows up every day is the shop people think of first. Gravity writes in your voice, queues a week ahead, and waits for your yes before a single word goes out.
+            Not laziness — there&rsquo;s a business to run. Gravity starts by understanding you: your customers, your channels, what actually works. Then it plans the month and drafts the posts, carousels and reels to fill it, watching your rivals so your content never plays catch-up. You approve; it ships.
           </motion.p>
           <motion.div variants={fadeUpVariant} className="flex flex-col gap-4">
             {bullets.map((bullet) => (
@@ -75,7 +76,7 @@ export default function GravitySection() {
                 LIVE
               </span>
             </div>
-            <SectionLabel tone="muted">This week</SectionLabel>
+            <SectionLabel tone="muted">This month&apos;s plan</SectionLabel>
           </div>
 
           <div className="bg-[#1A1A1A] border border-white/[0.06] rounded-[14px] p-5 mb-[14px]">

@@ -12,8 +12,8 @@ const steps = [
   },
   {
     n: '02',
-    title: 'It shows up every morning',
-    body: 'Posts in your voice, on your channels, before you’ve had your first coffee. Diwali and Pongal are already in the calendar — it plans around them, so you never wake up on the day with nothing ready.',
+    title: 'It plans the month, then runs it',
+    body: 'Not a post at a time — a month, mapped out and drafted in your voice: posts, carousels, the occasional reel. Diwali and Pongal are already in the plan, so you never wake up on the day with nothing ready.',
   },
   {
     n: '03',

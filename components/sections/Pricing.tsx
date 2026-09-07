@@ -4,6 +4,13 @@ import { motion } from 'framer-motion'
 import SectionLabel from '@/components/ui/SectionLabel'
 import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animations'
 
+const replaces = [
+  { item: 'A marketing hire', cost: '₹30,000–50,000/mo' },
+  { item: 'Scheduling & design tools', cost: '₹3,000–5,000/mo' },
+  { item: 'Someone to answer leads fast', cost: '₹8,000–12,000/mo' },
+  { item: 'Weeks spent interviewing', cost: '4–6 weeks, before they start' },
+]
+
 const plans = [
   {
     name: 'Gravity',
@@ -75,6 +82,35 @@ export default function Pricing() {
         <motion.p variants={fadeUpVariant} className="font-body text-[17px] leading-[1.68] text-white/55">
           A marketing executive costs ₹30,000–50,000 a month, plus tools, plus six weeks of interviews, plus the morning they hand in their notice. This starts working on Thursday.
         </motion.p>
+      </motion.div>
+
+      {/* Itemized cost comparison — do the arithmetic for the reader, not just assert the conclusion */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={viewportOptions}
+        transition={{ duration: 0.6 }}
+        className="max-w-[760px] bg-brand-dark-surface border border-white/[0.06] rounded-[20px] overflow-hidden mb-[62px]"
+      >
+        <div className="px-6 md:px-9 pt-7 pb-5">
+          <div className="neb-label">What you&apos;d otherwise be paying for</div>
+        </div>
+        <div className="px-6 md:px-9">
+          {replaces.map(row => (
+            <div key={row.item} className="flex items-center justify-between gap-4 py-4 border-t border-white/[0.06]">
+              <span className="font-body text-[14.5px] text-white/70">{row.item}</span>
+              <span className="font-body text-[14.5px] text-white/45 text-right">{row.cost}</span>
+            </div>
+          ))}
+        </div>
+        <div className="flex items-center justify-between gap-4 px-6 md:px-9 py-6 border-t border-white/[0.10] bg-white/[0.02]">
+          <span className="font-heading text-[20px] md:text-[22px] font-medium">Doing it yourself</span>
+          <span className="font-heading text-[20px] md:text-[22px] font-medium text-white/45">₹41,000–67,000+/mo</span>
+        </div>
+        <div className="flex items-center justify-between gap-4 px-6 md:px-9 py-6 border-t border-brand-gold/[0.18] bg-brand-gold/[0.06]">
+          <span className="font-heading text-[20px] md:text-[22px] font-medium text-brand-gold">With Nebulaa</span>
+          <span className="font-heading text-[24px] md:text-[26px] font-medium text-brand-gold">From ₹10,000/mo</span>
+        </div>
       </motion.div>
 
       {/* 3 cards */}

@@ -10,13 +10,15 @@ interface Props {
   height?: number
   readout?: Readout
   className?: string
+  /** 'boxed' (default) = bordered card. 'fullbleed' = no box, meant to sit as an absolutely-positioned background layer. */
+  variant?: 'boxed' | 'fullbleed'
 }
 
-export default function ParticleField({ height = 520, readout, className = '' }: Props) {
+export default function ParticleField({ height = 520, readout, className = '', variant = 'boxed' }: Props) {
   return (
     <div
-      className={`relative rounded-3xl overflow-hidden bg-[#0C0C0F] border border-white/[0.06] ${className}`}
-      style={{ height }}
+      className={`relative overflow-hidden ${variant === 'boxed' ? 'rounded-3xl bg-[#0C0C0F] border border-white/[0.06]' : ''} ${className}`}
+      style={variant === 'boxed' ? { height } : undefined}
     >
       <div className="neb-field" />
       <div className="neb-field-hot" />

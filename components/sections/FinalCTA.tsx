@@ -39,13 +39,13 @@ export default function FinalCTA() {
 
         <motion.div variants={fadeUpVariant} className="flex flex-col sm:flex-row justify-center gap-[14px]">
           <a
-            href="#pricing"
+            href="/#pricing"
             className="inline-flex items-center justify-center bg-brand-gold text-[#1A1208] text-[15px] font-semibold px-[34px] py-4 rounded-full shadow-[0_6px_26px_rgba(245,166,35,0.24)] hover:bg-brand-gold-dim transition-colors"
           >
             Start free — no card
           </a>
           <a
-            href="/services/enterprise"
+            href="/services"
             className="inline-flex items-center justify-center border border-white/[0.12] text-white/75 text-[15px] font-medium px-[30px] py-4 rounded-full hover:border-brand-gold hover:text-brand-gold transition-colors"
           >
             Book a 20-min call

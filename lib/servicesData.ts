@@ -1,11 +1,18 @@
 export interface ServiceClient {
   name: string
   stage: 'active' | 'proposal'
+  blurb: string
 }
 
-export interface IllustrativeExample {
-  industryLabel: string
-  copy: string | null // null = placeholder, waiting on real copy from DK — do not invent
+export interface Capability {
+  title: string
+  body: string
+}
+
+export interface ProcessStage {
+  step: string
+  title: string
+  body: string
 }
 
 export interface Differentiator {
@@ -13,101 +20,75 @@ export interface Differentiator {
   body: string
 }
 
-export interface ServiceTierData {
-  slug: 'enterprise' | 'msme'
-  name: string
-  eyebrow: string
-  headline: string
-  headlineEmphasis: string
-  subheadline: string
-  seoTitle: string
-  seoDescription: string
-  engagementTitle: string
-  engagementBlurb: string
-  whatYouGet: string[]
-  clients: ServiceClient[]
-  illustrativeExamples: IllustrativeExample[]
-  ctaLabel: string
-}
-
 export const differentiators: Differentiator[] = [
   {
-    title: 'One team, one contact',
-    body: 'Not a rotating cast of account managers, and not a junior learning your business on your retainer. Whoever learns it, keeps it.',
+    title: 'One team, one point of contact',
+    body: "Strategy, content, production, campaigns and on-ground activation — handled by one team, under one plan, with one person accountable for all of it. Not five vendors pretending to talk to each other.",
   },
   {
-    title: 'The machines do the volume',
-    body: "Gravity plans the month and drafts every post, carousel and reel against it. Pulsar scores and chases every lead. Our people review, refine, and make the judgement calls — the part you're actually paying for.",
+    title: 'AI-accelerated, not AI-only',
+    body: 'A fast-moving team paired with AI-driven systems for content, scheduling and paid promotions — so organic content, ads and outreach run as one system, not three disconnected efforts.',
   },
   {
-    title: 'You keep everything',
-    body: 'Accounts, content and lead data, all in your name. Take it in-house whenever you like and the whole system walks with you. No hostages.',
+    title: 'Built around how you sell',
+    body: 'No fragmented vendors. No guessing what’s working. Just marketing built around how your business actually sells.',
   },
 ]
 
-export const serviceTiers: Record<string, ServiceTierData> = {
-  enterprise: {
-    slug: 'enterprise',
-    name: 'Enterprise',
-    eyebrow: 'Managed services',
-    headline: 'We run the launch.',
-    headlineEmphasis: 'You run the business.',
-    subheadline:
-      "We're in early conversations with Bosch on exactly this: market-entry content, dealer enablement, and a number agreed every month. This is the shape of engagement we're building toward.",
-    seoTitle: 'Enterprise Managed Marketing — Nebulaa',
-    seoDescription:
-      'End-to-end managed marketing for established brands entering new markets — strategy, content, distribution, and sales enablement, delivered by Nebulaa’s team.',
-    engagementTitle: 'Entering a market, or scaling a region',
-    engagementBlurb:
-      "Distribution is the hard part, not the deck. Gravity builds the market-entry content plan — posts, carousels, reels — and tracks what's already working for competitors in the region. Pulsar follows up every retail and dealer enquiry the same day. Our team directs it and reports against the numbers you agreed to, every month.",
-    whatYouGet: [
-      'Market-entry strategy and a content plan built from it',
-      'Posts, carousels and reels, localised per region',
-      'Every dealer and retail enquiry followed up same-day',
-      'Monthly reporting against agreed targets',
-    ],
-    clients: [
-      { name: 'Bosch', stage: 'proposal' },
-    ],
-    illustrativeExamples: [
-      { industryLabel: 'A jewellery retail brand', copy: null },
-      { industryLabel: 'An FMCG brand entering a new city', copy: null },
-      { industryLabel: 'A textile manufacturer', copy: null },
-    ],
-    ctaLabel: 'Book a 20-min call',
+export const capabilities: Capability[] = [
+  { title: 'Marketing Strategy', body: 'Positioning, content strategy, campaign themes, audience and channel planning.' },
+  { title: 'Social & Content Systems', body: 'Platform-specific content engine and consistent publishing across channels.' },
+  { title: 'Content & Photography', body: 'Carousels, static creatives, short-form videos, explainers, copy and photography.' },
+  { title: 'Films & Production', body: 'Brand films, product and facility stories, leadership and culture videos.' },
+  { title: 'Digital Campaigns', body: 'Campaign creatives, landing-page content, lead-generation communication.' },
+  { title: 'BTL & On-Ground Activation', body: 'In-store activation, promoter-led events, dealer and distributor trade marketing.' },
+  { title: 'Brand Communication', body: 'Visual direction, messaging, campaign concepts and communication assets.' },
+  { title: 'Reporting & Optimisation', body: 'Content performance, learnings and next-cycle recommendations.' },
+]
+
+export const process: ProcessStage[] = [
+  { step: '01', title: 'Strategy', body: 'Business priorities, audiences, positioning, content pillars.' },
+  { step: '02', title: 'Content', body: 'Monthly content system, creative direction, copy.' },
+  { step: '03', title: 'Production', body: 'Shoot, edit, design — corporate, product & facility assets.' },
+  { step: '04', title: 'Distribution', body: 'Social, campaigns, website, on-ground activation.' },
+  { step: '05', title: 'Optimise', body: 'Performance review, learnings, next-cycle plan.' },
+]
+
+export const clients: ServiceClient[] = [
+  {
+    name: 'Bosch',
+    stage: 'proposal',
+    blurb: 'A regional marketing programme across South India — organic content, performance media and on-ground retail activation. Currently in scoping.',
   },
-  msme: {
-    slug: 'msme',
-    name: 'MSME',
-    eyebrow: 'Managed services',
-    headline: 'A marketing team,',
-    headlineEmphasis: 'priced like one person.',
-    subheadline:
-      "Gravity plans your month, Pulsar answers your WhatsApp — our team runs both and calls you once a month to say what worked. Gandhimathi Jewellers, JKR Tex and TNV Chits already run on it; Rajaram's and Nellai Kuttam Snacks are piloting it now.",
-    seoTitle: 'AI-Native Marketing Services for MSMEs — Nebulaa',
-    seoDescription:
-      'Done-for-you digital marketing for small and mid-size businesses, delivered by Nebulaa’s team and accelerated by AI — scoped to MSME budgets.',
-    engagementTitle: "A marketing team you couldn't otherwise afford",
-    engagementBlurb:
-      "The same engine, sized for you. Gravity plans your month and drafts the posts; Pulsar answers every WhatsApp enquiry before it goes cold. Our team runs it, checks it, and calls you once a month to say what's working.",
-    whatYouGet: [
-      'A month of content, planned and drafted for you',
-      'Every WhatsApp enquiry answered and scored',
-      'Festival and season campaigns planned ahead',
-      'A monthly call, in plain language',
-    ],
-    clients: [
-      { name: 'Gandhimathi Jewellers', stage: 'active' },
-      { name: 'JKR Tex', stage: 'active' },
-      { name: 'TNV Chits', stage: 'active' },
-      { name: "Rajaram's", stage: 'proposal' },
-      { name: 'Nellai Kuttam Snacks', stage: 'proposal' },
-    ],
-    illustrativeExamples: [
-      { industryLabel: 'A jewellery retail brand', copy: null },
-      { industryLabel: 'An FMCG brand entering a new city', copy: null },
-      { industryLabel: 'A textile manufacturer', copy: null },
-    ],
-    ctaLabel: 'Book a 20-min call',
+  {
+    name: "Rajaram's",
+    stage: 'proposal',
+    blurb: 'Bangalore market entry for a 70-year-old Tamil Nadu snacking brand — distribution and demand-generation timed to a shared launch calendar.',
   },
+  {
+    name: 'Nellai Kuttam Snacks',
+    stage: 'proposal',
+    blurb: 'New-market entry for a legacy Tamil Nadu snacking brand — distribution paired with regional content, timed to launch.',
+  },
+  {
+    name: 'Gandhimathi Jewellers',
+    stage: 'active',
+    blurb: 'Always-on organic content — posts, carousels and short-form video, every month.',
+  },
+  {
+    name: 'JKR Tex',
+    stage: 'active',
+    blurb: 'Always-on organic content, as part of an ongoing content package.',
+  },
+  {
+    name: 'TNV Chits',
+    stage: 'active',
+    blurb: 'Always-on organic content, as part of an ongoing content package.',
+  },
+]
+
+export const servicesPageMeta = {
+  seoTitle: 'Managed Marketing Services — Nebulaa',
+  seoDescription:
+    'Strategy, content, production, campaigns and on-ground activation, handled by one team under one plan — for brands entering new markets or scaling an existing one.',
 }

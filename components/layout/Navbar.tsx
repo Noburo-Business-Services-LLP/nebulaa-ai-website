@@ -16,16 +16,10 @@ const PRODUCT_LINKS = [
   { name: 'Pulsar', desc: 'AI Outreach Engine — calls, WhatsApp, email sequences', href: '/#pulsar' },
 ]
 
-const SERVICES_LINKS = [
-  { name: 'Enterprise', desc: 'Managed marketing for established brands', href: '/services/enterprise' },
-  { name: 'MSME', desc: 'Your outsourced marketing team, AI-accelerated', href: '/services/msme' },
-]
-
 const MOBILE_LINKS = [
   { label: 'Gravity', href: '/#gravity' },
   { label: 'Pulsar', href: '/#pulsar' },
-  { label: 'Enterprise', href: '/services/enterprise' },
-  { label: 'MSME', href: '/services/msme' },
+  { label: 'Services', href: '/services' },
   { label: 'Free tools', href: '/tools' },
   { label: 'Pricing', href: '/#pricing' },
   { label: 'Journal', href: '/blog' },
@@ -35,7 +29,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [productDropdownOpen, setProductDropdownOpen] = useState(false)
-  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false)
   const { scrollY } = useScroll()
 
   useEffect(() => {
@@ -114,50 +107,13 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            {/* Services dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setServicesDropdownOpen(true)}
-              onMouseLeave={() => setServicesDropdownOpen(false)}
+            <Link
+              href="/services"
+              className="relative font-body text-sm text-white/55 hover:text-white transition-colors group"
             >
-              <button
-                className="flex items-center gap-1 font-body text-sm text-white/55 hover:text-white transition-colors"
-                aria-expanded={servicesDropdownOpen}
-              >
-                Services
-                <ChevronDown
-                  size={14}
-                  className={`transition-transform duration-200 ${servicesDropdownOpen ? 'rotate-180' : ''}`}
-                />
-              </button>
-              <AnimatePresence>
-                {servicesDropdownOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 6 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 mt-2 w-64 bg-[#1A1815] border border-white/10 rounded-2xl overflow-hidden p-2"
-                  >
-                    {SERVICES_LINKS.map(item => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 border-l-2 border-transparent hover:border-l-brand-gold transition-all group"
-                      >
-                        <span className="w-5 h-5 rounded-full mt-0.5 flex-shrink-0" style={GOLD_DOT_STYLE} />
-                        <div>
-                          <p className="font-body font-semibold text-sm text-white/90 group-hover:text-brand-gold transition-colors">
-                            {item.name}
-                          </p>
-                          <p className="font-body text-xs text-white/40 mt-0.5">{item.desc}</p>
-                        </div>
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+              Services
+              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-brand-gold group-hover:w-full transition-all duration-300" />
+            </Link>
 
             <Link
               href="/tools"

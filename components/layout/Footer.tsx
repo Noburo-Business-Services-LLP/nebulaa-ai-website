@@ -9,14 +9,13 @@ const GOLD_DOT_STYLE = {
 }
 
 const productLinks = [
-  { name: 'Gravity', href: '#gravity' },
-  { name: 'Pulsar', href: '#pulsar' },
-  { name: 'Pricing', href: '#pricing' },
+  { name: 'Gravity', href: '/#gravity' },
+  { name: 'Pulsar', href: '/#pulsar' },
+  { name: 'Pricing', href: '/#pricing' },
 ]
 
 const servicesLinks = [
-  { name: 'Enterprise', href: '/services/enterprise' },
-  { name: 'MSME', href: '/services/msme' },
+  { name: 'Managed services', href: '/services' },
 ]
 
 const freeLinks = [

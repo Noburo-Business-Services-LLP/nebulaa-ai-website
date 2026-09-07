@@ -77,7 +77,7 @@ export default function Hero() {
           </motion.form>
 
           <motion.p variants={fadeUpVariant} className="text-[13px] text-white/35 mb-6">
-            Free to start · No credit card required · <a href="/services/enterprise" className="text-white/55 hover:text-brand-gold transition underline underline-offset-2">or have our team run it</a>
+            Free to start · No credit card required · <a href="/services" className="text-white/55 hover:text-brand-gold transition underline underline-offset-2">or have our team run it</a>
           </motion.p>
 
           <motion.div variants={fadeUpVariant} className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[13px] text-white/35">

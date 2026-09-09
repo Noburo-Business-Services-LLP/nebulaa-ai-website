@@ -17,6 +17,12 @@ const featured = FEATURED_SLUGS
   .map((slug) => tools.find((t) => t.slug === slug))
   .filter((t): t is NonNullable<typeof t> => Boolean(t))
 
+/** Everything not already shown as a full card — rendered as a dense chip row
+ *  so the "thirty tools" claim is something you can actually see. */
+const rest = tools.filter((t) => !FEATURED_SLUGS.includes(t.slug))
+
+const shortName = (name: string) => name.replace(/^Free\s+/, '')
+
 export default function ToolsTeaser() {
   return (
     <section className="py-[130px] px-6 md:px-12 lg:px-[120px]">
@@ -64,10 +70,31 @@ export default function ToolsTeaser() {
               href={`/tools/${tool.slug}`}
               className="block bg-[#151515] border border-white/[0.06] rounded-2xl px-6 py-[26px] h-full transition-colors hover:border-white/[0.14]"
             >
+              <div className="text-[22px] mb-3.5 leading-none">{tool.icon}</div>
               <div className="font-body text-[15.5px] font-medium mb-2">{tool.name}</div>
               <div className="font-body text-[13.5px] leading-[1.55] text-white/45">{tool.tagline}</div>
             </Link>
           </motion.div>
+        ))}
+      </motion.div>
+
+      {/* Everything else — dense, so "thirty" is visible, not just claimed */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={viewportOptions}
+        transition={{ duration: 0.5 }}
+        className="flex flex-wrap gap-2.5 mt-4"
+      >
+        {rest.map((tool) => (
+          <Link
+            key={tool.slug}
+            href={`/tools/${tool.slug}`}
+            className="flex items-center gap-2 bg-white/[0.02] border border-white/[0.06] rounded-full pl-3 pr-4 py-2 transition-colors hover:border-brand-gold/40 hover:bg-white/[0.04]"
+          >
+            <span className="text-[13px] leading-none">{tool.icon}</span>
+            <span className="font-body text-[13px] text-white/55">{shortName(tool.name)}</span>
+          </Link>
         ))}
       </motion.div>
     </section>

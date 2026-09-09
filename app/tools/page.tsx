@@ -64,7 +64,6 @@ export default function ToolsPage() {
                   href={`/tools/${tool.slug}`}
                   className="group block bg-[#151515] border border-white/[0.06] rounded-2xl px-6 py-[26px] hover:border-brand-gold/60 transition-all duration-200 hover:-translate-y-0.5"
                 >
-                  <div className="text-[26px] mb-4">{tool.icon}</div>
                   <h3 className="text-[15.5px] font-medium mb-[7px] text-[#F5F4F1] group-hover:text-brand-gold transition-colors leading-snug">
                     {tool.name.replace(/^Free /, '')}
                   </h3>

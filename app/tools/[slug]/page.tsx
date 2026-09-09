@@ -107,7 +107,6 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           <div>
             {/* Header */}
             <div className="mb-8">
-              <div className="text-4xl mb-3">{tool.icon}</div>
               <h1 className="font-heading font-bold text-3xl md:text-4xl text-brand-text dark:text-white mb-2">
                 {tool.name}
               </h1>
@@ -131,7 +130,6 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                     href={`/tools/${t.slug}`}
                     className="flex items-center gap-2 p-2.5 rounded-xl hover:bg-brand-warm-gray dark:hover:bg-white/5 transition-all group"
                   >
-                    <span className="text-lg">{t.icon}</span>
                     <span className="font-body text-sm text-brand-text dark:text-white group-hover:text-brand-gold transition-colors leading-snug">
                       {t.name}
                     </span>

@@ -29,10 +29,9 @@ export default function BlogEmailCapture() {
   if (status === 'success') {
     return (
       <div className="mt-14 bg-green-50 dark:bg-green-500/8 border border-green-200 dark:border-green-500/20 rounded-2xl p-6 text-center">
-        <div className="text-3xl mb-2">🎉</div>
-        <h3 className="font-heading text-lg font-bold text-brand-text dark:text-white mb-1">You&apos;re in!</h3>
+        <h3 className="font-heading text-lg font-bold text-brand-text dark:text-white mb-1">You&apos;re in.</h3>
         <p className="font-body text-sm text-brand-muted dark:text-white/50">
-          Expect one email a week — only the good stuff.
+          One email a week. Nothing else.
         </p>
       </div>
     )
@@ -41,7 +40,6 @@ export default function BlogEmailCapture() {
   return (
     <div className="mt-14 bg-[#F9F6EE] dark:bg-[#111110] border border-brand-border dark:border-white/8 rounded-2xl p-6">
       <div className="flex items-start gap-4">
-        <div className="text-3xl flex-shrink-0">📬</div>
         <div className="flex-1">
           <h3 className="font-heading text-lg font-bold text-brand-text dark:text-white mb-1">
             Get GTM playbooks that actually work

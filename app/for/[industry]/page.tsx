@@ -89,7 +89,7 @@ export default function IndustryPage({ params }: { params: { industry: string } 
                       : 'bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400'
                   }`}
                 >
-                  {uc.agent === 'Gravity' ? '🌀' : uc.agent === 'Pulsar' ? '📞' : '⚡'} {uc.agent}
+                  {uc.agent}
                 </span>
                 <div>
                   <h3 className="font-heading font-bold text-base text-brand-text dark:text-white mb-1">{uc.title}</h3>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X } from 'lucide-react'
+import { X, Check, Mail } from 'lucide-react'
 
 const DISMISSED_KEY = 'nebulaa_nl_popup_dismissed'
 
@@ -110,20 +110,16 @@ export default function NewsletterPopup() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex flex-col items-center justify-center py-16 px-8 text-center"
                 >
-                  <motion.div
-                    animate={{ rotate: [0, -10, 10, -5, 5, 0], scale: [1, 1.2, 1.2, 1] }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                    className="text-6xl mb-5"
-                  >
-                    {state === 'success' ? '🎉' : '😄'}
-                  </motion.div>
+                  <div className="w-12 h-12 rounded-full bg-brand-gold/10 border border-brand-gold/25 flex items-center justify-center mb-5">
+                    <Check size={20} className="text-brand-gold" />
+                  </div>
                   <h3 className="text-white font-heading font-bold text-2xl mb-2">
-                    {state === 'success' ? "You're in the crew!" : "Already subscribed!"}
+                    {state === 'success' ? "You're in." : 'Already subscribed'}
                   </h3>
                   <p className="text-white/50 font-body text-sm leading-relaxed">
                     {state === 'success'
-                      ? 'Every Monday, GTM gold hits your inbox. Founders who act on it, win.'
-                      : "You're already getting the good stuff every Monday. 🚀"}
+                      ? 'One email every Monday — what we tried, what the numbers said, what changed.'
+                      : "You're already on the list. Next one lands Monday."}
                   </p>
                   {state === 'success' && (
                     <motion.div
@@ -132,8 +128,7 @@ export default function NewsletterPopup() {
                       transition={{ delay: 0.5 }}
                       className="mt-6 flex items-center gap-2 bg-brand-gold/10 border border-brand-gold/20 rounded-2xl px-5 py-3"
                     >
-                      <span className="text-brand-gold text-lg">⚡</span>
-                      <span className="text-brand-gold font-body text-sm font-semibold">Next drop: Monday 8 AM IST</span>
+                      <span className="text-brand-gold font-body text-sm font-semibold">Next issue: Monday, 8 AM IST</span>
                     </motion.div>
                   )}
                 </motion.div>
@@ -142,8 +137,8 @@ export default function NewsletterPopup() {
                   {/* Header row */}
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 bg-brand-gold/15 border border-brand-gold/30 rounded-xl flex items-center justify-center text-base">
-                        ⚡
+                      <div className="w-8 h-8 bg-brand-gold/15 border border-brand-gold/30 rounded-xl flex items-center justify-center">
+                        <Mail size={14} className="text-brand-gold" />
                       </div>
                       <div>
                         <p className="text-brand-gold font-body text-[10px] font-bold tracking-widest uppercase">Weekly GTM Intel</p>
@@ -162,11 +157,11 @@ export default function NewsletterPopup() {
                   </p>
 
                   {/* Proof bullets */}
-                  <div className="flex gap-4 mb-6">
-                    {['🧪 Real experiments', '📈 Actual data', '🎯 Zero fluff'].map(item => (
+                  <div className="flex flex-wrap gap-x-4 gap-y-2 mb-6">
+                    {['Real experiments', 'Actual data', 'No filler'].map(item => (
                       <div key={item} className="flex items-center gap-1.5 text-white/40 font-body text-[11px]">
-                        <span>{item.split(' ')[0]}</span>
-                        <span>{item.split(' ').slice(1).join(' ')}</span>
+                        <Check size={11} className="text-brand-gold" />
+                        <span>{item}</span>
                       </div>
                     ))}
                   </div>

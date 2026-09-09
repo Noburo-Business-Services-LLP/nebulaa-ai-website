@@ -1,7 +1,28 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { Check, Minus } from 'lucide-react'
 import { getCompareData, compareData } from '@/lib/compareData'
+
+/** Renders the ✅/❌ markers stored in compareData as real icons rather than emoji. */
+function SupportCell({ value }: { value: string }) {
+  const supported = value.startsWith('✅')
+  const unsupported = value.startsWith('❌')
+  if (!supported && !unsupported) {
+    return <span className="text-brand-muted dark:text-white/60">{value}</span>
+  }
+  const note = value.slice(1).trim()
+  return (
+    <span className="inline-flex items-center justify-center gap-1.5">
+      {supported ? (
+        <Check size={16} className="text-brand-gold" aria-label="Included" />
+      ) : (
+        <Minus size={16} className="text-brand-muted/50 dark:text-white/25" aria-label="Not included" />
+      )}
+      {note && <span className="text-brand-muted dark:text-white/50 text-[13px]">{note}</span>}
+    </span>
+  )
+}
 
 export function generateStaticParams() {
   return Object.keys(compareData).map(slug => ({ competitor: `nebulaa-vs-${slug}` }))
@@ -78,8 +99,8 @@ export default function ComparePage({ params }: { params: { competitor: string }
                     }`}
                   >
                     <td className="font-body text-sm text-brand-text dark:text-white px-5 py-3">{row.feature}</td>
-                    <td className="font-body text-sm text-center px-5 py-3">{row.nebulaa}</td>
-                    <td className="font-body text-sm text-center px-5 py-3">{row.competitor}</td>
+                    <td className="font-body text-sm text-center px-5 py-3"><SupportCell value={row.nebulaa} /></td>
+                    <td className="font-body text-sm text-center px-5 py-3"><SupportCell value={row.competitor} /></td>
                   </tr>
                 ))}
               </tbody>

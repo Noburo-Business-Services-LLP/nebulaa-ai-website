@@ -87,6 +87,87 @@ export const clients: ServiceClient[] = [
   },
 ]
 
+export interface DeliverableStat {
+  value: string
+  label: string
+}
+
+export interface DeliverableRow {
+  format: string
+  volume: string
+  covers: string
+}
+
+export interface DeliverableGroup {
+  title: string
+  rows: DeliverableRow[]
+}
+
+/**
+ * Real monthly scope, taken from the Nellai Kuttam engagement deck.
+ * Volumes are illustrative of a full-scope engagement — every deal is
+ * scoped and quoted separately, which the section copy says explicitly.
+ */
+export const deliverableStats: DeliverableStat[] = [
+  { value: '60', label: 'Image posts / month / platform' },
+  { value: '8', label: 'Video reels / month / platform' },
+  { value: '10', label: 'Influencer posts / month' },
+  { value: '10', label: 'BTL activation days / month' },
+]
+
+export const deliverableGroups: DeliverableGroup[] = [
+  {
+    title: 'Organic brand content',
+    rows: [
+      {
+        format: 'Image posts',
+        volume: '60 / month (2 / day)',
+        covers: 'Product, category, offers and seasonal content across Instagram & Facebook.',
+      },
+      {
+        format: 'Video reels',
+        volume: '8 / month (2 / week)',
+        covers: 'Short-form video — product use, demos, behind-the-brand — across Instagram, Facebook and YouTube Shorts.',
+      },
+    ],
+  },
+  {
+    title: 'Paid promotions',
+    rows: [
+      {
+        format: 'Meta + Google Ads',
+        volume: 'Always-on, all month',
+        covers: 'Awareness, consideration and retargeting campaigns, geo-targeted to the markets that matter.',
+      },
+      {
+        format: 'SEO',
+        volume: 'Continuous',
+        covers: 'Keyword optimisation, quick-commerce listing optimisation, Google Business profile optimisation.',
+      },
+    ],
+  },
+  {
+    title: 'Influencer marketing',
+    rows: [
+      {
+        format: 'Creator posts',
+        volume: '10 / month',
+        covers: 'Roughly 5 regional creators, 2 posts each — demos, use cases and reviews, published on their channel and amplified on yours.',
+      },
+    ],
+  },
+  {
+    title: 'BTL activation',
+    rows: [
+      {
+        format: 'On-ground activation',
+        volume: '10 days / month',
+        covers: 'Sampling drives, retail activations, local events and hyperlocal promotional activity, rotating across priority neighbourhoods.',
+      },
+    ],
+  },
+]
+
 export const servicesPageMeta = {
   seoTitle: 'Managed Marketing Services — Nebulaa',
   seoDescription:

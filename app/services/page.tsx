@@ -1,6 +1,14 @@
 import type { Metadata } from 'next'
 import { Users, Cpu, Sparkles, Target, Layers, Camera, Film, Megaphone, MapPin, Palette, BarChart3 } from 'lucide-react'
-import { differentiators, capabilities, process, clients, servicesPageMeta } from '@/lib/servicesData'
+import {
+  differentiators,
+  capabilities,
+  process,
+  clients,
+  deliverableStats,
+  deliverableGroups,
+  servicesPageMeta,
+} from '@/lib/servicesData'
 import SectionLabel from '@/components/ui/SectionLabel'
 
 export const metadata: Metadata = {
@@ -106,6 +114,70 @@ export default function ServicesPage() {
             )
           })}
         </div>
+      </section>
+
+      <hr className="border-t border-white/[0.06]" />
+
+      {/* What we deliver, every month */}
+      <section className="px-6 md:px-12 lg:px-[120px] py-[120px]">
+        <div className="max-w-[680px] mb-[52px]">
+          <SectionLabel className="mb-[22px] block">What we deliver</SectionLabel>
+          <h2 className="font-heading font-medium text-4xl md:text-[48px] leading-[1.12] tracking-[-0.02em] mb-5">
+            A month of work, <span className="italic text-brand-gold">counted out in advance.</span>
+          </h2>
+          <p className="text-[16px] leading-[1.68] text-white/55">
+            No retainer that quietly shrinks. Here&apos;s what a full-scope engagement looks like in a
+            month — volumes are agreed up front and scoped to your market before anything is signed.
+          </p>
+        </div>
+
+        {/* Headline volumes */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-brand-gold/20 rounded-[16px] overflow-hidden mb-[52px]">
+          {deliverableStats.map((s) => (
+            <div key={s.label} className="bg-brand-gold px-6 py-8 text-center">
+              <div className="font-heading text-[44px] leading-none text-[#1A1208] mb-2.5">{s.value}</div>
+              <div className="font-body text-[11.5px] leading-[1.4] uppercase tracking-[0.07em] text-[#1A1208]/70">
+                {s.label}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Breakdown */}
+        <div className="flex flex-col gap-10">
+          {deliverableGroups.map((group) => (
+            <div key={group.title}>
+              <h3 className="font-heading font-medium text-[26px] mb-1 pb-3.5 border-b border-brand-gold/30">
+                {group.title}
+              </h3>
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[620px] border-collapse">
+                  <thead>
+                    <tr className="text-left">
+                      <th className="neb-label font-normal py-3.5 pr-5 w-[22%] align-top">Format</th>
+                      <th className="neb-label font-normal py-3.5 pr-5 w-[22%] align-top">Volume</th>
+                      <th className="neb-label font-normal py-3.5 align-top">What it covers</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {group.rows.map((row) => (
+                      <tr key={row.format} className="border-t border-white/[0.06] align-top">
+                        <td className="py-[18px] pr-5 text-[14.5px] text-brand-gold">{row.format}</td>
+                        <td className="py-[18px] pr-5 text-[14.5px] text-white/70">{row.volume}</td>
+                        <td className="py-[18px] text-[14.5px] leading-[1.6] text-white/55">{row.covers}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="text-[13.5px] leading-[1.6] text-white/35 mt-9 max-w-[680px]">
+          Media spend and creator fees are billed separately, at actuals — never marked up and never
+          buried inside the retainer.
+        </p>
       </section>
 
       <hr className="border-t border-white/[0.06]" />

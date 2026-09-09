@@ -1,8 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { Linkedin, Instagram, Twitter, Mail, MessageSquare } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
+import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
 import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animations'
+
+const gravityChannels = [Linkedin, Instagram, Twitter]
+const pulsarChannels = [WhatsAppIcon, Mail, MessageSquare]
 
 const replaces = [
   { item: 'A marketing hire', cost: '₹30,000–50,000/mo' },
@@ -20,6 +25,7 @@ const plans = [
     tagline: 'AI Marketing Agent',
     price: '₹10,000',
     description: 'A strategy, then a month of content to run it.',
+    channels: gravityChannels,
     features: [
       'Marketing strategy & ICP, built in',
       'Monthly content plan, auto-generated',
@@ -38,6 +44,7 @@ const plans = [
     tagline: 'Marketing + Outreach',
     price: '₹20,000',
     description: 'The whole loop — content in, customers out. ₹5,000 less than buying the two separately.',
+    channels: [...gravityChannels, ...pulsarChannels],
     features: [
       'Strategy, monthly plan & content — Gravity',
       'WhatsApp, email & SMS outreach — Pulsar',
@@ -56,6 +63,7 @@ const plans = [
     tagline: 'AI Outreach Agent',
     price: '₹15,000',
     description: 'Every enquiry, answered.',
+    channels: pulsarChannels,
     features: [
       'WhatsApp, email & SMS',
       'Lead scoring',
@@ -140,7 +148,15 @@ export default function Pricing() {
               <span className="font-heading text-[46px] tracking-[-0.02em] leading-none">{plan.price}</span>
               <span className="font-body text-sm text-white/35">/month</span>
             </div>
-            <p className="font-body text-[14.5px] leading-[1.6] text-white/55 mb-[30px]">{plan.description}</p>
+            <p className="font-body text-[14.5px] leading-[1.6] text-white/55 mb-5">{plan.description}</p>
+
+            <div className="flex items-center gap-3 mb-[30px]">
+              {plan.channels.map((Icon, i) => (
+                <span key={i} className="w-7 h-7 rounded-full bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-white/50">
+                  <Icon size={13.5} />
+                </span>
+              ))}
+            </div>
 
             <hr className="border-t border-white/[0.06] mb-[26px]" />
 

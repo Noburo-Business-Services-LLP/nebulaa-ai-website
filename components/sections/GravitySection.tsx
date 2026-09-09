@@ -1,15 +1,22 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { Target, CalendarCheck, Radar, TrendingUp, CircleCheck, Linkedin, Instagram, Twitter } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
 import { fadeUpVariant, slideInLeft, staggerContainer, viewportOptions } from '@/lib/animations'
 
 const bullets = [
-  'Builds your marketing strategy first — ICP, channels, what to say',
-  'Plans the month, then executes it — posts, carousels, reels',
-  'Watches your rivals and drafts the counter-post, not just a report',
-  'Gets sharper over time — it remembers what worked',
-  'Nothing publishes until you tap approve',
+  { icon: Target, text: 'Builds your marketing strategy first — ICP, channels, what to say' },
+  { icon: CalendarCheck, text: 'Plans the month, then executes it — posts, carousels, reels' },
+  { icon: Radar, text: 'Watches your rivals and drafts the counter-post, not just a report' },
+  { icon: TrendingUp, text: 'Gets sharper over time — it remembers what worked' },
+  { icon: CircleCheck, text: 'Nothing publishes until you tap approve' },
+]
+
+const channels = [
+  { icon: Linkedin, name: 'LinkedIn' },
+  { icon: Instagram, name: 'Instagram' },
+  { icon: Twitter, name: 'X' },
 ]
 
 const stats = [
@@ -45,14 +52,24 @@ export default function GravitySection() {
             Gravity starts by understanding you: your customers, your channels, what actually works. Then it plans the month and drafts the posts, carousels and reels to fill it, watching your rivals so your content never plays catch-up. Your part is the last step — tap approve.
           </motion.p>
           <motion.div variants={fadeUpVariant} className="flex flex-col gap-4">
-            {bullets.map((bullet) => (
-              <div key={bullet} className="flex gap-[13px] items-start">
-                <span className="text-brand-gold text-sm leading-[1.6]">—</span>
-                <span className="font-body text-[15px] leading-[1.6] text-white/70">{bullet}</span>
+            {bullets.map(({ icon: Icon, text }) => (
+              <div key={text} className="flex gap-[13px] items-start">
+                <span className="flex-shrink-0 w-[26px] h-[26px] rounded-full bg-brand-gold/10 flex items-center justify-center mt-0.5">
+                  <Icon size={13.5} className="text-brand-gold" />
+                </span>
+                <span className="font-body text-[15px] leading-[1.6] text-white/70 pt-0.5">{text}</span>
               </div>
             ))}
           </motion.div>
-          <motion.a variants={fadeUpVariant} href="#how-it-works" className="mt-[38px] inline-block text-[15px] text-brand-gold hover:underline">
+          <motion.div variants={fadeUpVariant} className="flex items-center gap-[22px] mt-[30px]">
+            {channels.map(({ icon: Icon, name }) => (
+              <span key={name} className="flex items-center gap-2 text-[13px] text-white/40">
+                <Icon size={16} />
+                {name}
+              </span>
+            ))}
+          </motion.div>
+          <motion.a variants={fadeUpVariant} href="#how-it-works" className="mt-[26px] inline-block text-[15px] text-brand-gold hover:underline">
             See how Gravity works →
           </motion.a>
         </motion.div>

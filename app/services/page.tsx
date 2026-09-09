@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Users, Cpu, Sparkles, Target, Layers, Camera, Film, Megaphone, MapPin, Palette, BarChart3 } from 'lucide-react'
 import { differentiators, capabilities, process, clients, servicesPageMeta } from '@/lib/servicesData'
 import SectionLabel from '@/components/ui/SectionLabel'
 
@@ -6,6 +7,19 @@ export const metadata: Metadata = {
   title: servicesPageMeta.seoTitle,
   description: servicesPageMeta.seoDescription,
   openGraph: { title: servicesPageMeta.seoTitle, description: servicesPageMeta.seoDescription },
+}
+
+const differentiatorIcons = [Users, Cpu, Sparkles]
+
+const capabilityIcons: Record<string, typeof Target> = {
+  'Marketing Strategy': Target,
+  'Social & Content Systems': Layers,
+  'Content & Photography': Camera,
+  'Films & Production': Film,
+  'Digital Campaigns': Megaphone,
+  'BTL & On-Ground Activation': MapPin,
+  'Brand Communication': Palette,
+  'Reporting & Optimisation': BarChart3,
 }
 
 export default function ServicesPage() {
@@ -53,12 +67,18 @@ export default function ServicesPage() {
       {/* Differentiators */}
       <section className="px-6 md:px-12 lg:px-[120px] py-[110px]">
         <div className="grid md:grid-cols-3 gap-6">
-          {differentiators.map((d) => (
-            <div key={d.title} className="bg-[#151515] border border-white/[0.06] rounded-[18px] px-[34px] pt-[38px] pb-10">
-              <h3 className="font-heading font-medium text-2xl mb-3.5">{d.title}</h3>
-              <p className="text-[15px] leading-[1.68] text-white/55">{d.body}</p>
-            </div>
-          ))}
+          {differentiators.map((d, i) => {
+            const Icon = differentiatorIcons[i]
+            return (
+              <div key={d.title} className="bg-[#151515] border border-white/[0.06] rounded-[18px] px-[34px] pt-[38px] pb-10">
+                <span className="inline-flex w-10 h-10 rounded-full bg-brand-gold/10 items-center justify-center mb-5">
+                  <Icon size={18} className="text-brand-gold" />
+                </span>
+                <h3 className="font-heading font-medium text-2xl mb-3.5">{d.title}</h3>
+                <p className="text-[15px] leading-[1.68] text-white/55">{d.body}</p>
+              </div>
+            )
+          })}
         </div>
       </section>
 
@@ -73,12 +93,18 @@ export default function ServicesPage() {
           </h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {capabilities.map((c) => (
-            <div key={c.title} className="bg-[#151515] border border-white/[0.06] rounded-[16px] px-[26px] pt-[30px] pb-8">
-              <h3 className="font-heading font-medium text-lg mb-2.5">{c.title}</h3>
-              <p className="text-[13.5px] leading-[1.6] text-white/50">{c.body}</p>
-            </div>
-          ))}
+          {capabilities.map((c) => {
+            const Icon = capabilityIcons[c.title]
+            return (
+              <div key={c.title} className="bg-[#151515] border border-white/[0.06] rounded-[16px] px-[26px] pt-[30px] pb-8">
+                <span className="inline-flex w-9 h-9 rounded-full bg-brand-gold/10 items-center justify-center mb-4">
+                  <Icon size={16} className="text-brand-gold" />
+                </span>
+                <h3 className="font-heading font-medium text-lg mb-2.5">{c.title}</h3>
+                <p className="text-[13.5px] leading-[1.6] text-white/50">{c.body}</p>
+              </div>
+            )
+          })}
         </div>
       </section>
 

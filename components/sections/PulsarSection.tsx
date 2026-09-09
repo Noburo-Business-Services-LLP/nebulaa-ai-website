@@ -1,14 +1,22 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { MessageSquareText, ClipboardCheck, ListOrdered, Phone, Mail, MessageSquare } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
+import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
 import { fadeUpVariant, slideInRight, staggerContainer, viewportOptions } from '@/lib/animations'
 
 const bullets = [
-  "WhatsApp, email and SMS — written the way you'd write them",
-  'Budget, timeline and fit settled before it reaches you',
-  'Every lead scored, so your day starts at the top of the list',
-  'Voice calling where it earns its place',
+  { icon: MessageSquareText, text: "WhatsApp, email and SMS — written the way you'd write them" },
+  { icon: ClipboardCheck, text: 'Budget, timeline and fit settled before it reaches you' },
+  { icon: ListOrdered, text: 'Every lead scored, so your day starts at the top of the list' },
+  { icon: Phone, text: 'Voice calling where it earns its place' },
+]
+
+const channels = [
+  { icon: WhatsAppIcon, name: 'WhatsApp' },
+  { icon: Mail, name: 'Email' },
+  { icon: MessageSquare, name: 'SMS' },
 ]
 
 const thread = [
@@ -93,14 +101,24 @@ export default function PulsarSection() {
             It happens mid-billing, mid-invoice, mid-everything — and by the time you&rsquo;re free, they&rsquo;ve already messaged someone else. Pulsar replies in minutes, asks the questions you&rsquo;d ask, and hands you only the ones worth your afternoon.
           </motion.p>
           <motion.div variants={fadeUpVariant} className="flex flex-col gap-4">
-            {bullets.map((bullet) => (
-              <div key={bullet} className="flex gap-[13px] items-start">
-                <span className="text-brand-gold text-sm leading-[1.6]">—</span>
-                <span className="font-body text-[15px] leading-[1.6] text-white/70">{bullet}</span>
+            {bullets.map(({ icon: Icon, text }) => (
+              <div key={text} className="flex gap-[13px] items-start">
+                <span className="flex-shrink-0 w-[26px] h-[26px] rounded-full bg-brand-gold/10 flex items-center justify-center mt-0.5">
+                  <Icon size={13.5} className="text-brand-gold" />
+                </span>
+                <span className="font-body text-[15px] leading-[1.6] text-white/70 pt-0.5">{text}</span>
               </div>
             ))}
           </motion.div>
-          <motion.a variants={fadeUpVariant} href="#how-it-works" className="mt-[38px] inline-block text-[15px] text-brand-gold hover:underline">
+          <motion.div variants={fadeUpVariant} className="flex items-center gap-[22px] mt-[30px]">
+            {channels.map(({ icon: Icon, name }) => (
+              <span key={name} className="flex items-center gap-2 text-[13px] text-white/40">
+                <Icon size={16} />
+                {name}
+              </span>
+            ))}
+          </motion.div>
+          <motion.a variants={fadeUpVariant} href="#how-it-works" className="mt-[26px] inline-block text-[15px] text-brand-gold hover:underline">
             See how Pulsar works →
           </motion.a>
         </motion.div>

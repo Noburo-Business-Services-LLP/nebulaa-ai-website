@@ -25,6 +25,10 @@ const stats = [
   { label: 'Your time', value: '9', suffix: 'min' },
 ]
 
+const WEEKDAYS = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
+/** 18 scheduled days across a 4-week view — matches the "Queued: 18" stat below. */
+const SCHEDULED = new Set([1, 2, 4, 5, 6, 7, 9, 11, 13, 14, 16, 18, 20, 21, 23, 25, 27, 28])
+
 export default function GravitySection() {
   return (
     <section id="gravity" className="py-[130px] px-6 md:px-12 lg:px-[120px]">
@@ -94,6 +98,34 @@ export default function GravitySection() {
               </span>
             </div>
             <SectionLabel tone="muted">This month&apos;s plan</SectionLabel>
+          </div>
+
+          {/* Month view — the "plans the month" claim, made visible */}
+          <div className="bg-[#1A1A1A] border border-white/[0.06] rounded-[14px] p-[17px] mb-[14px]">
+            <div className="grid grid-cols-7 gap-[5px] mb-2">
+              {WEEKDAYS.map((d, i) => (
+                <div key={i} className="text-[9.5px] text-center text-white/25 tracking-[0.04em]">
+                  {d}
+                </div>
+              ))}
+            </div>
+            <div className="grid grid-cols-7 gap-[5px]">
+              {Array.from({ length: 28 }, (_, i) => i + 1).map((day) => {
+                const on = SCHEDULED.has(day)
+                return (
+                  <div
+                    key={day}
+                    className={`aspect-square rounded-[4px] flex items-center justify-center text-[9.5px] ${
+                      on
+                        ? 'bg-brand-gold/[0.22] border border-brand-gold/40 text-brand-gold'
+                        : 'bg-white/[0.03] border border-white/[0.05] text-white/20'
+                    }`}
+                  >
+                    {day}
+                  </div>
+                )
+              })}
+            </div>
           </div>
 
           <div className="bg-[#1A1A1A] border border-white/[0.06] rounded-[14px] p-5 mb-[14px]">

@@ -11,6 +11,9 @@ import {
 } from '@/lib/servicesData'
 import SectionLabel from '@/components/ui/SectionLabel'
 import MediaSlot from '@/components/ui/MediaSlot'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
+import { servicePages } from '@/lib/servicePageData'
 
 export const metadata: Metadata = {
   title: servicesPageMeta.seoTitle,
@@ -114,6 +117,47 @@ export default function ServicesPage() {
               </div>
             )
           })}
+        </div>
+      </section>
+
+      <hr className="border-t border-rule" />
+
+      {/* The eight services, each with its own page */}
+      <section className="px-6 md:px-12 lg:px-[120px] py-[120px]">
+        <div className="max-w-[660px] mb-[52px]">
+          <SectionLabel className="mb-[22px] block">The engagement</SectionLabel>
+          <h2 className="font-heading font-medium text-4xl md:text-[48px] leading-[1.12] tracking-[-0.02em] mb-5">
+            Eight things we run. <span className="italic text-gold-text">Three nobody else can.</span>
+          </h2>
+          <p className="text-[16px] leading-[1.68] text-muted">
+            Market entry, BTL activation and distribution enablement need people on the ground. No
+            software competitor offers them, because software cannot.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {servicePages.map(svc => (
+            <Link
+              key={svc.slug}
+              href={`/services/${svc.slug}`}
+              className={`group block rounded-[16px] px-[26px] pt-[28px] pb-7 border transition-colors ${
+                svc.flagship
+                  ? 'bg-surface border-gold/25 hover:border-gold/50'
+                  : 'bg-surface border-rule hover:border-gold/30'
+              }`}
+            >
+              {svc.flagship && (
+                <span className="inline-block text-[10px] font-semibold uppercase tracking-[0.08em] text-gold-text bg-gold-wash rounded-full px-2 py-0.5 mb-3">
+                  On the ground
+                </span>
+              )}
+              <h3 className="font-heading font-medium text-[19px] mb-2.5">{svc.name}</h3>
+              <p className="text-[13.5px] leading-[1.6] text-muted mb-5">{svc.summary}</p>
+              <span className="flex items-center gap-1.5 text-[13px] font-semibold text-gold-text group-hover:gap-2.5 transition-all">
+                Read <ArrowRight size={13} />
+              </span>
+            </Link>
+          ))}
         </div>
       </section>
 

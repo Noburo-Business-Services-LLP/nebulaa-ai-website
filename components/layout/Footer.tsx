@@ -20,6 +20,8 @@ const servicesLinks = [
 
 const freeLinks = [
   { name: '30+ tools', href: '/tools' },
+  { name: 'By industry', href: '/for' },
+  { name: 'Compare', href: '/compare' },
   { name: 'Journal', href: '/blog' },
 ]
 

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence, useScroll } from 'framer-motion'
-import { ChevronDown, Menu, X } from 'lucide-react'
+import { ChevronDown, Menu, X, Radar, MessageSquareText, Wrench, ScrollText, Building2, Scale } from 'lucide-react'
 
 const GOLD_DOT_STYLE = {
   background:
@@ -12,8 +12,15 @@ const GOLD_DOT_STYLE = {
 }
 
 const PRODUCT_LINKS = [
-  { name: 'Gravity', desc: 'AI Marketing Engine — posts, schedules, tracks rivals', href: '/#gravity' },
-  { name: 'Pulsar', desc: 'AI Outreach Engine — calls, WhatsApp, email sequences', href: '/#pulsar' },
+  { name: 'Gravity', desc: 'AI Marketing Engine — posts, schedules, tracks rivals', href: '/#gravity', icon: Radar },
+  { name: 'Pulsar', desc: 'AI Outreach Engine — calls, WhatsApp, email sequences', href: '/#pulsar', icon: MessageSquareText },
+]
+
+const RESOURCES_LINKS = [
+  { name: 'Free tools', desc: '31 free generators and calculators, no signup', href: '/tools', icon: Wrench },
+  { name: 'By industry', desc: 'How Gravity and Pulsar run per vertical', href: '/for', icon: Building2 },
+  { name: 'Compare', desc: 'Nebulaa vs Buffer, Hootsuite, Jasper and more', href: '/compare', icon: Scale },
+  { name: 'Journal', desc: 'Notes from the work — GTM, marketing, product', href: '/blog', icon: ScrollText },
 ]
 
 const MOBILE_LINKS = [
@@ -21,6 +28,8 @@ const MOBILE_LINKS = [
   { label: 'Pulsar', href: '/#pulsar' },
   { label: 'Services', href: '/services' },
   { label: 'Free tools', href: '/tools' },
+  { label: 'By industry', href: '/for' },
+  { label: 'Compare', href: '/compare' },
   { label: 'Pricing', href: '/#pricing' },
   { label: 'Journal', href: '/blog' },
 ]
@@ -29,6 +38,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [productDropdownOpen, setProductDropdownOpen] = useState(false)
+  const [resourcesDropdownOpen, setResourcesDropdownOpen] = useState(false)
   const { scrollY } = useScroll()
 
   useEffect(() => {
@@ -93,7 +103,9 @@ export default function Navbar() {
                         href={item.href}
                         className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 border-l-2 border-transparent hover:border-l-brand-gold transition-all group"
                       >
-                        <span className="w-5 h-5 rounded-full mt-0.5 flex-shrink-0" style={GOLD_DOT_STYLE} />
+                        <span className="w-8 h-8 rounded-lg bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
+                          <item.icon size={15} className="text-brand-gold" />
+                        </span>
                         <div>
                           <p className="font-body font-semibold text-sm text-white/90 group-hover:text-brand-gold transition-colors">
                             {item.name}
@@ -115,13 +127,6 @@ export default function Navbar() {
               <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-brand-gold group-hover:w-full transition-all duration-300" />
             </Link>
 
-            <Link
-              href="/tools"
-              className="relative font-body text-sm text-white/55 hover:text-white transition-colors group"
-            >
-              Free tools
-              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-brand-gold group-hover:w-full transition-all duration-300" />
-            </Link>
             <a
               href="/#pricing"
               className="relative font-body text-sm text-white/55 hover:text-white transition-colors group"
@@ -129,13 +134,53 @@ export default function Navbar() {
               Pricing
               <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-brand-gold group-hover:w-full transition-all duration-300" />
             </a>
-            <Link
-              href="/blog"
-              className="relative font-body text-sm text-white/55 hover:text-white transition-colors group"
+
+            {/* Resources dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setResourcesDropdownOpen(true)}
+              onMouseLeave={() => setResourcesDropdownOpen(false)}
             >
-              Journal
-              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-brand-gold group-hover:w-full transition-all duration-300" />
-            </Link>
+              <button
+                className="flex items-center gap-1 font-body text-sm text-white/55 hover:text-white transition-colors"
+                aria-expanded={resourcesDropdownOpen}
+              >
+                Resources
+                <ChevronDown
+                  size={14}
+                  className={`transition-transform duration-200 ${resourcesDropdownOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+              <AnimatePresence>
+                {resourcesDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 6 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute top-full right-0 mt-2 w-72 bg-[#1A1815] border border-white/10 rounded-2xl overflow-hidden p-2"
+                  >
+                    {RESOURCES_LINKS.map(item => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 border-l-2 border-transparent hover:border-l-brand-gold transition-all group"
+                      >
+                        <span className="w-8 h-8 rounded-lg bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
+                          <item.icon size={15} className="text-brand-gold" />
+                        </span>
+                        <div>
+                          <p className="font-body font-semibold text-sm text-white/90 group-hover:text-brand-gold transition-colors">
+                            {item.name}
+                          </p>
+                          <p className="font-body text-xs text-white/40 mt-0.5">{item.desc}</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
 
           {/* Right CTAs — desktop */}

@@ -1,5 +1,7 @@
+import type { ReactNode } from 'react'
+
 interface Props {
-  children: string
+  children: ReactNode
   className?: string
   /** 'onDark' is for labels sitting inside a product mockup, which stays dark in both themes. */
   tone?: 'gold' | 'muted' | 'onDark'

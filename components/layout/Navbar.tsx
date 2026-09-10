@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence, useScroll } from 'framer-motion'
-import { ChevronDown, Menu, X, Radar, MessageSquareText, Wrench, ScrollText, Building2, Scale } from 'lucide-react'
+import { ChevronDown, Menu, X, Radar, MessageSquareText, Wrench, ScrollText, Building2, Scale, Layers } from 'lucide-react'
 
 const GOLD_DOT_STYLE = {
   background:
@@ -12,8 +12,9 @@ const GOLD_DOT_STYLE = {
 }
 
 const PRODUCT_LINKS = [
-  { name: 'Gravity', desc: 'AI Marketing Engine — posts, schedules, tracks rivals', href: '/#gravity', icon: Radar },
-  { name: 'Pulsar', desc: 'AI Outreach Engine — calls, WhatsApp, email sequences', href: '/#pulsar', icon: MessageSquareText },
+  { name: 'Overview', desc: 'Two agents, one engine underneath', href: '/product', icon: Layers },
+  { name: 'Gravity', desc: 'Strategy, content, campaigns, creators, inbox, SEO', href: '/product/gravity', icon: Radar },
+  { name: 'Pulsar', desc: 'WhatsApp, leads, broadcasts, voice, automation', href: '/product/pulsar', icon: MessageSquareText },
 ]
 
 const RESOURCES_LINKS = [
@@ -24,8 +25,9 @@ const RESOURCES_LINKS = [
 ]
 
 const MOBILE_LINKS = [
-  { label: 'Gravity', href: '/#gravity' },
-  { label: 'Pulsar', href: '/#pulsar' },
+  { label: 'Product', href: '/product' },
+  { label: 'Gravity', href: '/product/gravity' },
+  { label: 'Pulsar', href: '/product/pulsar' },
   { label: 'Services', href: '/services' },
   { label: 'Free tools', href: '/tools' },
   { label: 'By industry', href: '/for' },
@@ -108,7 +110,7 @@ export default function Navbar() {
                     className="absolute top-full left-0 mt-2 w-64 bg-surface border border-rule-2 rounded-2xl overflow-hidden p-2"
                   >
                     {PRODUCT_LINKS.map(item => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className="flex items-start gap-3 p-3 rounded-xl hover:bg-surface-2 border-l-2 border-transparent hover:border-l-brand-gold transition-all group"
@@ -122,7 +124,7 @@ export default function Navbar() {
                           </p>
                           <p className="font-body text-xs text-faint mt-0.5">{item.desc}</p>
                         </div>
-                      </a>
+                      </Link>
                     ))}
                   </motion.div>
                 )}

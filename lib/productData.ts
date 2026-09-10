@@ -521,6 +521,314 @@ export const capabilities: Capability[] = [
     seoDescription:
       'Performance across every connected platform, attributed to pillars, formats and campaigns, and fed into the next month\'s plan.',
   },
+  // ───────────────────────────── Pulsar ─────────────────────────────
+  {
+    slug: 'whatsapp',
+    agent: 'pulsar',
+    name: 'WhatsApp',
+    eyebrow: 'Pulsar · WhatsApp',
+    headline: 'The channel your customers',
+    headlineEmphasis: 'actually use.',
+    subheadline:
+      'In India the enquiry does not arrive by email. It arrives on WhatsApp, often at nine on a Sunday night, and whoever replies first usually gets the sale. Pulsar answers in minutes, in your voice, and asks the questions you would have asked.',
+    summary: 'Replies to WhatsApp enquiries in minutes, in your voice.',
+    steps: [
+      { title: 'The enquiry lands', body: 'Someone messages your business number — from an ad, a post, your Google listing or a friend passing on the number.' },
+      { title: 'Pulsar replies in minutes', body: 'Not a menu tree. A reply that answers what they asked and moves the conversation toward what you need to know.' },
+      { title: 'You get the ones that matter', body: 'Budget, timeline and fit established before it reaches you, with the full conversation attached.' },
+    ],
+    whatYouGet: [
+      'Replies within minutes, day or night',
+      'Conversation rather than a keyword auto-responder',
+      'Questions asked in the order a good salesperson would ask them',
+      'Handover with the whole thread, not just a name and number',
+      'Official WhatsApp Business API, not a phone farm',
+    ],
+    mediaSlot: 'pulsar-whatsapp',
+    faqs: [
+      { q: 'Is this the official WhatsApp API?', a: 'Yes. That matters — unofficial workarounds get numbers banned, usually at the worst possible moment.' },
+      { q: 'Will customers know it is not me?', a: 'It writes in your voice and it does not pretend to be a person with a name. Most enquiries are answered and handed over before that question comes up.' },
+      { q: 'What happens outside business hours?', a: 'That is when it earns its keep. An enquiry at 9pm Sunday gets answered at 9pm Sunday rather than Monday morning, by which point they have messaged someone else.' },
+    ],
+    seoTitle: 'WhatsApp Enquiry Automation & Qualification — Pulsar | Nebulaa',
+    seoDescription:
+      'Pulsar answers WhatsApp enquiries in minutes on the official Business API, qualifies budget, timeline and fit, and hands over the full conversation.',
+  },
+  {
+    slug: 'leads',
+    agent: 'pulsar',
+    name: 'Leads & scoring',
+    eyebrow: 'Pulsar · leads',
+    headline: 'Your day starts at',
+    headlineEmphasis: 'the top of the list.',
+    subheadline:
+      'Most enquiries are not ready to buy, and finding the few that are is what eats the morning. Every conversation is scored on what was actually said, so the list you open is ordered by who is worth calling first.',
+    summary: 'Every conversation scored on intent, so the list is already ordered.',
+    steps: [
+      { title: 'Every enquiry becomes a record', body: 'Contact details, source, the full conversation and what was established during it.' },
+      { title: 'It gets scored', body: 'Budget, timeline, fit and how the conversation actually went — not just whether a form was filled in.' },
+      { title: 'You work the top of the list', body: 'The people ready to move are at the top. The rest stay warm rather than being lost.' },
+    ],
+    whatYouGet: [
+      'A scored lead list rather than an inbox',
+      'Full conversation history on every record',
+      'Source attribution, so you know which channel produced what',
+      'Unlimited contacts — no per-contact pricing',
+      'CRM-ready exports when you want the data elsewhere',
+    ],
+    mediaSlot: 'pulsar-leads',
+    faqs: [
+      { q: 'How is the score calculated?', a: 'From what was established in conversation — budget, timeline, fit and buying signals — rather than a form-fill or a page view.' },
+      { q: 'Can I change the criteria?', a: 'Yes. What counts as a good lead for a jewellery showroom is not what counts for a chit fund, and the scoring reflects your business.' },
+      { q: 'Does it work with my CRM?', a: 'Exports are CRM-ready. Direct integrations depend on which CRM you run — worth a conversation.' },
+    ],
+    seoTitle: 'Lead Scoring & Qualification — Pulsar | Nebulaa',
+    seoDescription:
+      'Every enquiry is scored on budget, timeline and fit from the conversation itself, so your list is ordered by who is actually worth calling.',
+  },
+  {
+    slug: 'broadcasts',
+    agent: 'pulsar',
+    name: 'Broadcasts',
+    eyebrow: 'Pulsar · broadcasts',
+    headline: 'Reach everyone at once,',
+    headlineEmphasis: 'without sounding like spam.',
+    subheadline:
+      'A new scheme, a festival offer, a new collection — sometimes you need to tell everyone. Broadcasts send to a segment of your contacts and, crucially, handle every reply that comes back as a real conversation.',
+    summary: 'Segment, send, and handle every reply as a conversation.',
+    steps: [
+      { title: 'Pick who it goes to', body: 'Segment by source, score, past interest or how recently they were in touch — not just everyone in the list.' },
+      { title: 'Send it', body: 'One message, personalised per recipient, sent within WhatsApp policy rather than around it.' },
+      { title: 'Replies become conversations', body: 'The point most broadcast tools stop at. Everyone who replies gets a real answer, qualified and scored like any other enquiry.' },
+    ],
+    whatYouGet: [
+      'Segmented sends rather than one list for everything',
+      'Per-recipient personalisation',
+      'Every reply handled as a conversation, not a dead end',
+      'Delivery and response reporting per broadcast',
+    ],
+    mediaSlot: 'pulsar-broadcasts',
+    faqs: [
+      { q: 'Will this get my number banned?', a: 'Not if it is done inside WhatsApp policy on the official API, which is how this sends. Bulk blasting from an unofficial tool is what gets numbers banned.' },
+      { q: 'What if a hundred people reply at once?', a: 'That is the case this is built for. Every reply gets answered and qualified in parallel rather than queuing behind your team.' },
+      { q: 'Can I broadcast on email and SMS too?', a: 'Yes — the same segment can be reached on whichever channel that contact actually responds on.' },
+    ],
+    seoTitle: 'WhatsApp Broadcast with Real Reply Handling — Pulsar | Nebulaa',
+    seoDescription:
+      'Send segmented, personalised broadcasts on the official WhatsApp API, and have every reply handled as a qualified conversation.',
+  },
+  {
+    slug: 'voice-calling',
+    agent: 'pulsar',
+    name: 'Voice calling',
+    eyebrow: 'Pulsar · voice',
+    headline: 'For the moments a call',
+    headlineEmphasis: 'still beats a message.',
+    subheadline:
+      'Most of the time a message is better — it is on the customer\'s terms and it leaves a record. But some enquiries deserve a call, and some people simply do not reply to text. The call queue handles those without anyone dialling manually.',
+    summary: 'A call queue for the enquiries where a message is not enough.',
+    steps: [
+      { title: 'A call gets queued', body: 'Triggered by a score threshold, an unanswered message thread, or a rule you set.' },
+      { title: 'The call is made', body: 'Working through the queue in priority order rather than whenever someone gets to it.' },
+      { title: 'The outcome is recorded', body: 'What happened on the call lands on the lead record alongside the message history.' },
+    ],
+    whatYouGet: [
+      'A managed call queue rather than a manual dial list',
+      'Calls triggered by score or by silence on other channels',
+      'Outcomes recorded against the lead',
+      'Used where it helps — messaging stays the primary channel',
+    ],
+    mediaSlot: 'pulsar-callqueue',
+    faqs: [
+      { q: 'Why is voice last on the list?', a: 'Because in this market it usually should be. WhatsApp gets answered, calls from unknown numbers often do not. Voice is there for the cases where it genuinely works better.' },
+      { q: 'Does it call people who did not ask to be contacted?', a: 'It works your own enquiries and contacts. It is not a cold-calling machine.' },
+      { q: 'Can my team take over a call?', a: 'Yes — the queue is a way of making sure calls happen in the right order, not of removing your team from the conversation.' },
+    ],
+    seoTitle: 'Automated Call Queue for Sales Follow-up — Pulsar | Nebulaa',
+    seoDescription:
+      'A managed call queue that works your enquiries in priority order, triggered by lead score or silence on other channels, with outcomes recorded.',
+  },
+  {
+    slug: 'ai-agents',
+    agent: 'pulsar',
+    name: 'AI agents',
+    eyebrow: 'Pulsar · agents',
+    headline: 'Different conversations',
+    headlineEmphasis: 'need different agents.',
+    subheadline:
+      'The way you answer a bridal jewellery enquiry is not the way you answer a dealer asking about bulk pricing. Configure separate agents with their own brief, tone and rules, and route each conversation to the right one.',
+    summary: 'Separate agents per conversation type, each with its own brief and tone.',
+    steps: [
+      { title: 'Define the agent', body: 'What it handles, how it should sound, what it must always ask and what it must never say.' },
+      { title: 'Route conversations to it', body: 'By channel, by source, by product line or by what the customer opens with.' },
+      { title: 'Refine as you learn', body: 'Adjust the brief as you see real conversations, and the change applies from the next message on.' },
+    ],
+    whatYouGet: [
+      'Multiple agents rather than one generic responder',
+      'Per-agent tone, brief and guardrails',
+      'Routing by channel, source or product line',
+      'Explicit rules for what an agent must never claim',
+    ],
+    faqs: [
+      { q: 'How many agents can I run?', a: 'As many as you have genuinely distinct conversation types. Most businesses need two or three, not ten.' },
+      { q: 'Can I stop it saying certain things?', a: 'Yes, and you should. Pricing you do not want quoted, promises you cannot keep, claims you are not allowed to make — those are explicit guardrails.' },
+      { q: 'What happens if it does not know an answer?', a: 'It says so and hands over, rather than inventing something. That behaviour is the whole point of the knowledge base.' },
+    ],
+    seoTitle: 'Configurable AI Sales Agents — Pulsar | Nebulaa',
+    seoDescription:
+      'Run separate AI agents for different conversation types, each with its own brief, tone, routing rules and guardrails.',
+  },
+  {
+    slug: 'automation',
+    agent: 'pulsar',
+    name: 'Automation',
+    eyebrow: 'Pulsar · automation',
+    headline: 'Follow-up that happens',
+    headlineEmphasis: 'whether you remember or not.',
+    subheadline:
+      'Most lost sales are not lost to a competitor. They are lost to nobody following up on day four. Sequences handle the chasing — and the monitor shows you exactly what is running, so automation never becomes something happening behind your back.',
+    summary: 'Follow-up sequences that run themselves, with a live monitor.',
+    steps: [
+      { title: 'Build the sequence', body: 'What happens on day one, day three, day seven — and on which channel each step goes out.' },
+      { title: 'It runs on its own', body: 'Triggered by score, silence, or where the lead has reached in the conversation.' },
+      { title: 'You watch it work', body: 'The monitor shows what is running, what fired, what stalled and what a person needs to pick up.' },
+    ],
+    whatYouGet: [
+      'Multi-step follow-up across WhatsApp, email and SMS',
+      'Triggers on score, silence or conversation stage',
+      'A live monitor rather than a black box',
+      'Sequences that stop the moment a real conversation starts',
+    ],
+    mediaSlot: 'pulsar-automation',
+    faqs: [
+      { q: 'What stops it pestering people?', a: 'A sequence stops as soon as the person replies, and stops permanently if they ask it to. Chasing someone who has answered is how you lose them.' },
+      { q: 'Can I see what is running right now?', a: 'That is what the automation monitor is for — which sequences are active, what fired, what stalled.' },
+      { q: 'What if something goes wrong?', a: 'Stalled runs surface rather than failing quietly, so you find out from the monitor and not from a customer.' },
+    ],
+    seoTitle: 'Follow-up Automation & Monitoring — Pulsar | Nebulaa',
+    seoDescription:
+      'Multi-step follow-up across WhatsApp, email and SMS, triggered by score or silence, with a live monitor showing what is running.',
+  },
+  {
+    slug: 'knowledge-base',
+    agent: 'pulsar',
+    name: 'Knowledge base',
+    eyebrow: 'Pulsar · knowledge',
+    headline: 'It only answers',
+    headlineEmphasis: 'what you have told it.',
+    subheadline:
+      'An agent that invents an answer about your pricing or your terms is worse than no agent at all. The knowledge base is the boundary: your products, policies, schemes and answers, and an instruction to hand over rather than guess.',
+    summary: 'Your products, policies and answers — the boundary it works inside.',
+    steps: [
+      { title: 'Load what it needs to know', body: 'Products, pricing rules, schemes, policies, delivery terms and the questions you answer every week.' },
+      { title: 'It answers from that', body: 'Grounded in what you provided, in your own phrasing, rather than a plausible-sounding guess.' },
+      { title: 'Gaps become handovers', body: 'Anything outside the boundary goes to a person, and shows up as something worth adding.' },
+    ],
+    whatYouGet: [
+      'A single source the agents answer from',
+      'Handover instead of invention when something is missing',
+      'Visibility of the questions it could not answer',
+      'Updates that apply from the next message onward',
+    ],
+    faqs: [
+      { q: 'What stops it making things up?', a: 'It answers from the knowledge base and hands over when something is not in it. Getting your terms wrong in writing is a real cost, so the default is to defer.' },
+      { q: 'How much do I need to load in?', a: 'Start with the twenty questions you answer every week. That covers most enquiries, and the gaps report tells you what to add next.' },
+      { q: 'Can different agents know different things?', a: 'Yes — a dealer agent and a retail agent should not be working from the same pricing.' },
+    ],
+    seoTitle: 'Grounded Knowledge Base for AI Sales Agents — Pulsar | Nebulaa',
+    seoDescription:
+      'Load your products, policies and schemes so agents answer from what you actually told them, and hand over rather than guess.',
+  },
+  {
+    slug: 'email-sms',
+    agent: 'pulsar',
+    name: 'Email & SMS',
+    eyebrow: 'Pulsar · channels',
+    headline: 'Reach people where',
+    headlineEmphasis: 'they actually reply.',
+    subheadline:
+      'WhatsApp carries most of the conversation in this market, but not all of it. Some buyers want email, some only see an SMS, and a dealer network often runs on both. Pulsar works all three from one thread.',
+    summary: 'Email and SMS alongside WhatsApp, in one conversation thread.',
+    steps: [
+      { title: 'One contact, several channels', body: 'A person is one record, whichever channel they came in on.' },
+      { title: 'It replies where they wrote', body: 'And can follow up on another channel when the first goes quiet.' },
+      { title: 'The thread stays whole', body: 'You read one conversation, not three fragments in three tools.' },
+    ],
+    whatYouGet: [
+      'Email and SMS handled alongside WhatsApp',
+      'A single thread per person across channels',
+      'Channel fallback when one goes unanswered',
+      'The same qualification and scoring on every channel',
+    ],
+    faqs: [
+      { q: 'Which channel should I lead with?', a: 'WhatsApp, in almost every case in India. Email and SMS are for the buyers and dealers who genuinely prefer them.' },
+      { q: 'Can it send bulk email?', a: 'Broadcasts work across channels. Large newsletter sends are a different job and belong in a newsletter tool.' },
+      { q: 'Do I need separate numbers?', a: 'One business number for WhatsApp and SMS is normal. Email uses your own domain.' },
+    ],
+    seoTitle: 'Email & SMS Outreach Alongside WhatsApp — Pulsar | Nebulaa',
+    seoDescription:
+      'Handle email and SMS in the same thread as WhatsApp, with channel fallback and the same qualification on every channel.',
+  },
+  {
+    slug: 'tasks-activities',
+    agent: 'pulsar',
+    name: 'Tasks & activities',
+    eyebrow: 'Pulsar · workflow',
+    headline: 'The handover is where',
+    headlineEmphasis: 'most leads die.',
+    subheadline:
+      'Qualifying a lead is only useful if somebody then does something about it. Tasks put the follow-up on a named person with a date, and the activity trail shows what actually happened rather than what was meant to.',
+    summary: 'Named owners, dated follow-ups, and a trail of what actually happened.',
+    steps: [
+      { title: 'A qualified lead becomes a task', body: 'Assigned to a person with a date, not dropped into a shared inbox to be noticed.' },
+      { title: 'Activity is recorded', body: 'Calls, messages, notes and outcomes, all against the lead.' },
+      { title: 'You can see the gap', body: 'What was promised versus what was done, per person and per lead.' },
+    ],
+    whatYouGet: [
+      'Follow-up assigned to a person with a due date',
+      'A full activity trail per lead',
+      'Per-person performance you can actually see',
+      'A calendar view of what is due',
+    ],
+    faqs: [
+      { q: 'Is this a CRM?', a: 'It covers the conversation-to-handover part of one properly. If you already run a CRM, Pulsar feeds it rather than replacing it.' },
+      { q: 'Can I see how my team is doing?', a: 'Yes — response times, follow-through and outcomes per person.' },
+      { q: 'What if a task is missed?', a: 'It surfaces as overdue rather than quietly disappearing, which is the entire point.' },
+    ],
+    seoTitle: 'Lead Handover, Tasks & Activity Tracking — Pulsar | Nebulaa',
+    seoDescription:
+      'Turn qualified leads into dated tasks with named owners, and keep a full activity trail of what actually happened.',
+  },
+  {
+    slug: 'analytics',
+    agent: 'pulsar',
+    name: 'Analytics',
+    eyebrow: 'Pulsar · analytics',
+    headline: 'How fast you answer,',
+    headlineEmphasis: 'and what it is worth.',
+    subheadline:
+      'Response time is the number that moves conversion most in this market, and almost nobody measures it. Pulsar reports it — by channel, by agent and by person — alongside what those conversations turned into.',
+    summary: 'Response time, conversion and per-person performance.',
+    steps: [
+      { title: 'Every conversation is timed', body: 'From enquiry to first reply, and through to handover.' },
+      { title: 'Outcomes get attached', body: 'What each source and channel actually produced, not just how many messages came in.' },
+      { title: 'You see who is slow', body: 'By channel, by agent and by team member — including where handovers stall.' },
+    ],
+    whatYouGet: [
+      'Response time as a first-class metric',
+      'Conversion by source and channel',
+      'Per-person performance on follow-through',
+      'Where in the funnel conversations stall',
+    ],
+    faqs: [
+      { q: 'What is a good response time?', a: 'Minutes, not hours. The gap between a two-minute reply and a two-hour reply is usually larger than the gap between a good pitch and a bad one.' },
+      { q: 'Does it measure my team as well as the agent?', a: 'Yes. The agent replies fast by design; the handover is usually where the delay actually is.' },
+      { q: 'Can I export this?', a: 'Yes, and it is part of the monthly report on managed engagements.' },
+    ],
+    seoTitle: 'Response Time & Conversion Analytics — Pulsar | Nebulaa',
+    seoDescription:
+      'Measure response time by channel, agent and team member, alongside what those conversations converted into.',
+  },
 ]
 
 export function getCapability(agent: AgentId, slug: string): Capability | undefined {

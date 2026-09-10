@@ -87,9 +87,9 @@ export default function Pricing() {
       >
         <motion.div variants={fadeUpVariant}><SectionLabel className="mb-[22px] block">Pricing</SectionLabel></motion.div>
         <motion.h2 variants={fadeUpVariant} className="font-heading font-medium text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] mb-5">
-          Cheaper than the hire. <span className="italic text-brand-gold">Faster than the agency.</span>
+          Cheaper than the hire. <span className="italic text-gold-text">Faster than the agency.</span>
         </motion.h2>
-        <motion.p variants={fadeUpVariant} className="font-body text-[17px] leading-[1.68] text-white/55">
+        <motion.p variants={fadeUpVariant} className="font-body text-[17px] leading-[1.68] text-muted">
           A marketing executive costs ₹30,000–50,000 a month, plus tools, plus six weeks of interviews, plus the morning they hand in their notice. This starts working on Thursday.
         </motion.p>
       </motion.div>
@@ -100,26 +100,26 @@ export default function Pricing() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={viewportOptions}
         transition={{ duration: 0.6 }}
-        className="bg-brand-dark-surface border border-white/[0.06] rounded-[20px] overflow-hidden mb-[62px]"
+        className="bg-surface border border-rule rounded-[20px] overflow-hidden mb-[62px]"
       >
         <div className="px-6 md:px-9 pt-7 pb-5">
           <div className="neb-label">What you&apos;d otherwise be paying for</div>
         </div>
         <div className="px-6 md:px-9">
           {replaces.map(row => (
-            <div key={row.item} className="flex items-center justify-between gap-4 py-4 border-t border-white/[0.06]">
-              <span className="font-body text-[14.5px] text-white/70">{row.item}</span>
-              <span className="font-body text-[14.5px] text-white/45 text-right">{row.cost}</span>
+            <div key={row.item} className="flex items-center justify-between gap-4 py-4 border-t border-rule">
+              <span className="font-body text-[14.5px] text-ink-2">{row.item}</span>
+              <span className="font-body text-[14.5px] text-muted text-right">{row.cost}</span>
             </div>
           ))}
         </div>
-        <div className="flex items-center justify-between gap-4 px-6 md:px-9 py-6 border-t border-white/[0.10] bg-white/[0.02]">
+        <div className="flex items-center justify-between gap-4 px-6 md:px-9 py-6 border-t border-rule-2 bg-surface-2">
           <span className="font-heading text-[20px] md:text-[22px] font-medium">Doing it yourself</span>
-          <span className="font-heading text-[20px] md:text-[22px] font-medium text-white/45">₹58,000–97,000+/mo</span>
+          <span className="font-heading text-[20px] md:text-[22px] font-medium text-muted">₹58,000–97,000+/mo</span>
         </div>
-        <div className="flex items-center justify-between gap-4 px-6 md:px-9 py-6 border-t border-brand-gold/[0.18] bg-brand-gold/[0.06]">
-          <span className="font-heading text-[20px] md:text-[22px] font-medium text-brand-gold">With Nebulaa</span>
-          <span className="font-heading text-[24px] md:text-[26px] font-medium text-brand-gold">From ₹10,000/mo</span>
+        <div className="flex items-center justify-between gap-4 px-6 md:px-9 py-6 border-t border-gold/[0.18] bg-gold/[0.06]">
+          <span className="font-heading text-[20px] md:text-[22px] font-medium text-gold-text">With Nebulaa</span>
+          <span className="font-heading text-[24px] md:text-[26px] font-medium text-gold-text">From ₹10,000/mo</span>
         </div>
       </motion.div>
 
@@ -132,10 +132,10 @@ export default function Pricing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={viewportOptions}
             transition={{ duration: 0.6, delay: i * 0.1 }}
-            className={`relative bg-brand-dark-surface rounded-[20px] p-6 md:p-10 ${
+            className={`relative bg-surface rounded-[20px] p-6 md:p-10 ${
               plan.highlight
-                ? 'border border-brand-gold/[0.22] shadow-[inset_0_1px_0_0_rgba(255,214,150,0.07),0_18px_60px_rgba(245,166,35,0.07)]'
-                : 'border border-white/[0.06]'
+                ? 'border border-gold/[0.22] shadow-[inset_0_1px_0_0_rgba(255,214,150,0.07),0_18px_60px_rgba(245,166,35,0.07)]'
+                : 'border border-rule'
             }`}
           >
             {/* Header */}
@@ -146,24 +146,24 @@ export default function Pricing() {
             {/* Price */}
             <div className="flex items-baseline gap-2 mb-2.5">
               <span className="font-heading text-[46px] tracking-[-0.02em] leading-none">{plan.price}</span>
-              <span className="font-body text-sm text-white/35">/month</span>
+              <span className="font-body text-sm text-faint">/month</span>
             </div>
-            <p className="font-body text-[14.5px] leading-[1.6] text-white/55 mb-5">{plan.description}</p>
+            <p className="font-body text-[14.5px] leading-[1.6] text-muted mb-5">{plan.description}</p>
 
             <div className="flex items-center gap-3 mb-[30px]">
               {plan.channels.map((Icon, i) => (
-                <span key={i} className="w-7 h-7 rounded-full bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-white/50">
+                <span key={i} className="w-7 h-7 rounded-full bg-surface-2 border border-rule flex items-center justify-center text-muted">
                   <Icon size={13.5} />
                 </span>
               ))}
             </div>
 
-            <hr className="border-t border-white/[0.06] mb-[26px]" />
+            <hr className="border-t border-rule mb-[26px]" />
 
             {/* Features */}
             <div className="flex flex-col gap-[13px] mb-9">
               {plan.features.map(f => (
-                <div key={f} className="font-body text-[14.5px] text-white/70">{f}</div>
+                <div key={f} className="font-body text-[14.5px] text-ink-2">{f}</div>
               ))}
             </div>
 
@@ -172,8 +172,8 @@ export default function Pricing() {
               href="#"
               className={`w-full text-center font-body font-semibold text-[14.5px] rounded-full py-[15px] block transition-all hover:scale-[1.02] active:scale-[0.98] ${
                 plan.highlight
-                  ? 'bg-brand-gold text-[#1A1208] shadow-[0_6px_22px_rgba(245,166,35,0.22)]'
-                  : 'border border-white/[0.14] text-white/80 hover:border-brand-gold hover:text-brand-gold'
+                  ? 'bg-gold text-[#1A1208] shadow-[0_6px_22px_rgba(245,166,35,0.22)]'
+                  : 'border border-rule-2 text-ink-2 hover:border-gold hover:text-gold-text'
               }`}
             >
               {plan.cta}

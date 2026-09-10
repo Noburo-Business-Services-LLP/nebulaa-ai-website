@@ -35,18 +35,18 @@ export default function ToolsTeaser() {
             variants={fadeUpVariant}
             className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium mb-5"
           >
-            Take thirty tools. <span className="italic text-brand-gold">Pay nothing. Ever.</span>
+            Take thirty tools. <span className="italic text-gold-text">Pay nothing. Ever.</span>
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}
-            className="font-body text-[17px] leading-[1.68] text-white/55"
+            className="font-body text-[17px] leading-[1.68] text-muted"
           >
             Every one of them runs on the same model that writes for Gravity. No signup, no card, no drip campaign afterwards. If they&apos;re all you ever need from us, that&apos;s a perfectly good outcome.
           </motion.p>
         </div>
         <motion.div variants={fadeUpVariant} className="flex-shrink-0 pb-1.5">
-          <Link href="/tools" className="font-body text-[15px] text-brand-gold hover:underline">
-            Browse all 30+ →
+          <Link href="/tools" className="font-body text-[15px] text-gold-text hover:underline">
+            Browse all 30 →
           </Link>
         </motion.div>
       </motion.div>
@@ -62,10 +62,10 @@ export default function ToolsTeaser() {
           <motion.div key={tool.slug} variants={fadeUpVariant}>
             <Link
               href={`/tools/${tool.slug}`}
-              className="block bg-[#151515] border border-white/[0.06] rounded-2xl px-6 py-[26px] h-full transition-colors hover:border-white/[0.14]"
+              className="block bg-surface border border-rule rounded-2xl px-6 py-[26px] h-full transition-colors hover:border-rule-2"
             >
               <div className="font-body text-[15.5px] font-medium mb-2">{tool.name}</div>
-              <div className="font-body text-[13.5px] leading-[1.55] text-white/45">{tool.tagline}</div>
+              <div className="font-body text-[13.5px] leading-[1.55] text-muted">{tool.tagline}</div>
             </Link>
           </motion.div>
         ))}

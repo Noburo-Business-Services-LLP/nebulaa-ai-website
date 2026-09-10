@@ -4,13 +4,13 @@ const clients = [
   { name: 'Gandhimathi Jewellers', inProgress: false },
   { name: 'JKR Tex', inProgress: false },
   { name: 'TNV Chits', inProgress: false },
-  { name: 'Bosch', inProgress: true },
   { name: "Rajaram's", inProgress: true },
+  { name: 'Nellai Kuttam Snacks', inProgress: true },
 ]
 
 export default function ClientStrip() {
   return (
-    <div className="border-y border-white/[0.06] py-12 px-6 md:px-12 lg:px-[120px] flex items-center gap-11 flex-wrap">
+    <div className="border-y border-rule py-12 px-6 md:px-12 lg:px-[120px] flex items-center gap-11 flex-wrap">
       <SectionLabel tone="muted" className="flex-shrink-0">
         Working with
       </SectionLabel>
@@ -18,7 +18,7 @@ export default function ClientStrip() {
         {clients.map((client) => (
           <span
             key={client.name}
-            className={`font-heading text-xl ${client.inProgress ? 'text-white/30' : 'text-white/[0.62]'}`}
+            className={`font-heading text-xl ${client.inProgress ? 'text-faint' : 'text-ink-2'}`}
           >
             {client.name}
             {client.inProgress && (

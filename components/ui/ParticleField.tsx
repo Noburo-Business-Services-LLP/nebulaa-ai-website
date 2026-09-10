@@ -42,14 +42,14 @@ export default function ParticleField({ height = 520, readout, className = '', v
           <div className="absolute left-7 top-6 neb-label">{readout.label}</div>
           <div className="absolute left-7 bottom-6 flex flex-col gap-2.5">
             {readout.lines.map(line => (
-              <div key={line} className="font-body text-[12.5px] text-white/[0.62] flex items-center gap-2.5">
-                <span className="text-[#4ADE80]">✓</span>
+              <div key={line} className="font-body text-[12.5px] text-ink-2 flex items-center gap-2.5">
+                <span className="text-emerald-600 dark:text-[#4ADE80]">✓</span>
                 {line}
               </div>
             ))}
           </div>
           {readout.timer && (
-            <div className="absolute right-6 top-6 font-body text-[11px] tracking-[0.08em] text-white/35 tabular-nums">
+            <div className="absolute right-6 top-6 font-body text-[11px] tracking-[0.08em] text-muted tabular-nums">
               {readout.timer}
             </div>
           )}

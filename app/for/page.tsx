@@ -43,7 +43,7 @@ export default function IndustriesHubPage() {
               <p className="text-[15px] leading-[1.6] text-white/60 mb-5">{ind.hubBlurb}</p>
               <div className="flex items-center justify-between">
                 <span className="text-[12.5px] text-white/35">
-                  {ind.clients.map(c => c.name).join(', ')}
+                  {ind.clients.length > 0 ? ind.clients.map(c => c.name).join(', ') : 'Sector capability'}
                 </span>
                 <span className="flex items-center gap-1.5 text-[13.5px] font-semibold text-brand-gold group-hover:gap-2.5 transition-all">
                   Explore <ArrowRight size={14} />

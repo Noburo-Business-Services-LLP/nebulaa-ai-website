@@ -32,7 +32,7 @@ export default function Newsletter() {
   }
 
   return (
-    <section id="newsletter" className="relative py-[130px] px-6 md:px-12 lg:px-[120px] text-center border-t border-white/[0.06] overflow-hidden">
+    <section id="newsletter" className="relative py-[130px] px-6 md:px-12 lg:px-[120px] text-center border-t border-rule overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -52,9 +52,9 @@ export default function Newsletter() {
           <SectionLabel className="mb-[22px] block">Weekly GTM Intel</SectionLabel>
         </motion.div>
         <motion.h2 variants={fadeUpVariant} className="font-heading text-[42px] leading-[1.12] tracking-[-0.02em] font-medium mb-5">
-          GTM tips. Weekly. <span className="italic text-brand-gold">No fluff.</span>
+          GTM tips. Weekly. <span className="italic text-gold-text">No fluff.</span>
         </motion.h2>
-        <motion.p variants={fadeUpVariant} className="font-body text-[16px] leading-[1.68] text-white/55 mb-10 max-w-[440px] mx-auto">
+        <motion.p variants={fadeUpVariant} className="font-body text-[16px] leading-[1.68] text-muted mb-10 max-w-[440px] mx-auto">
           What founders using Nebulaa are learning right now — experiments, data, and what&apos;s actually working.
         </motion.p>
 
@@ -63,10 +63,10 @@ export default function Newsletter() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-brand-dark-surface border border-brand-gold/[0.18] rounded-[18px] p-7 text-center"
+              className="bg-surface border border-gold/[0.18] rounded-[18px] p-7 text-center"
             >
-              <p className="font-heading text-[19px] font-medium text-brand-gold mb-1">You&apos;re in!</p>
-              <p className="font-body text-[14.5px] text-white/55">
+              <p className="font-heading text-[19px] font-medium text-gold-text mb-1">You&apos;re in!</p>
+              <p className="font-body text-[14.5px] text-muted">
                 {name ? `Hey ${name}! ` : ''}Expect GTM gold in your inbox every Monday at 8 AM.
               </p>
             </motion.div>
@@ -74,19 +74,19 @@ export default function Newsletter() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-brand-dark-surface border border-white/[0.06] rounded-[18px] p-7 text-center"
+              className="bg-surface border border-rule rounded-[18px] p-7 text-center"
             >
-              <p className="font-body text-[14.5px] text-white/55">You&apos;re already on the list! See you Monday.</p>
+              <p className="font-body text-[14.5px] text-muted">You&apos;re already on the list! See you Monday.</p>
             </motion.div>
           ) : (
-            <div className="bg-brand-dark-surface border border-white/[0.06] rounded-[18px] p-6">
+            <div className="bg-surface border border-rule rounded-[18px] p-6">
               <form onSubmit={submit} className="space-y-3">
                 <input
                   type="text"
                   value={name}
                   onChange={e => setName(e.target.value)}
                   placeholder="First name (optional)"
-                  className="w-full font-body text-[14.5px] bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 outline-none focus:border-brand-gold transition-colors text-white placeholder:text-white/30"
+                  className="w-full font-body text-[14.5px] bg-surface-2 border border-rule rounded-xl px-4 py-3 outline-none focus:border-gold transition-colors text-ink placeholder:text-faint"
                 />
                 <div className="flex gap-2">
                   <input
@@ -95,18 +95,18 @@ export default function Newsletter() {
                     onChange={e => setEmail(e.target.value)}
                     placeholder="your@email.com"
                     required
-                    className="flex-1 font-body text-[14.5px] bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 outline-none focus:border-brand-gold transition-colors text-white placeholder:text-white/30"
+                    className="flex-1 font-body text-[14.5px] bg-surface-2 border border-rule rounded-xl px-4 py-3 outline-none focus:border-gold transition-colors text-ink placeholder:text-faint"
                   />
                   <button
                     type="submit"
                     disabled={state === 'loading'}
-                    className="bg-brand-gold text-[#1A1208] font-body font-semibold text-[14.5px] rounded-xl px-5 py-3 hover:bg-brand-gold-dim transition-colors whitespace-nowrap disabled:opacity-60"
+                    className="bg-gold text-[#1A1208] font-body font-semibold text-[14.5px] rounded-xl px-5 py-3 hover:bg-gold-dim transition-colors whitespace-nowrap disabled:opacity-60"
                   >
                     {state === 'loading' ? '…' : 'Join →'}
                   </button>
                 </div>
                 {state === 'error' && <p className="font-body text-[12.5px] text-red-400 pl-1">{error}</p>}
-                <p className="font-body text-[12px] text-white/35 text-center">
+                <p className="font-body text-[12px] text-faint text-center">
                   No spam. Unsubscribe anytime.
                 </p>
               </form>

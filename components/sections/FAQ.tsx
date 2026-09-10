@@ -18,17 +18,17 @@ const faqs = [
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false)
   return (
-    <div className={`border-b border-white/[0.06] transition-all duration-200 ${open ? 'border-l-2 border-l-brand-gold pl-5' : 'pl-0'}`}>
+    <div className={`border-b border-rule transition-all duration-200 ${open ? 'border-l-2 border-l-brand-gold pl-5' : 'pl-0'}`}>
       <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between py-6 text-left cursor-pointer group">
-        <span className="font-heading text-[19px] font-medium text-white pr-4 group-hover:text-brand-gold transition-colors">{q}</span>
+        <span className="font-heading text-[19px] font-medium text-ink pr-4 group-hover:text-gold-text transition-colors">{q}</span>
         <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ type: 'spring', stiffness: 300, damping: 25 }} className="flex-shrink-0">
-          <ChevronDown size={18} className="text-brand-gold" />
+          <ChevronDown size={18} className="text-gold-text" />
         </motion.div>
       </button>
       <AnimatePresence initial={false}>
         {open && (
           <motion.div key="content" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }} className="overflow-hidden">
-            <p className="font-body text-[15px] leading-[1.68] text-white/55 pb-6">{a}</p>
+            <p className="font-body text-[15px] leading-[1.68] text-muted pb-6">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -44,7 +44,7 @@ export default function FAQ() {
           <SectionLabel className="mb-[22px] block">FAQ</SectionLabel>
         </motion.div>
         <motion.h2 variants={fadeUpVariant} className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium">
-          The questions you&apos;re <span className="italic text-brand-gold">actually asking.</span>
+          The questions you&apos;re <span className="italic text-gold-text">actually asking.</span>
         </motion.h2>
       </motion.div>
 
@@ -52,7 +52,7 @@ export default function FAQ() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={viewportOptions}
-        className="bg-brand-dark-surface border border-white/[0.06] rounded-[18px] px-8"
+        className="bg-surface border border-rule rounded-[18px] px-8"
       >
         {faqs.map((faq, i) => <FAQItem key={i} q={faq.q} a={faq.a} />)}
       </motion.div>

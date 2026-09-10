@@ -19,10 +19,10 @@ const servicesLinks = [
 ]
 
 const freeLinks = [
-  { name: '30+ tools', href: '/tools' },
+  { name: '30 free tools', href: '/tools' },
   { name: 'By industry', href: '/for' },
   { name: 'Compare', href: '/compare' },
-  { name: 'Journal', href: '/blog' },
+  { name: 'Playbook', href: '/blog' },
 ]
 
 function FooterNewsletter() {
@@ -52,14 +52,14 @@ function FooterNewsletter() {
 
       {state === 'success' ? (
         <div>
-          <p className="font-body text-[13.5px] text-brand-gold">You&apos;re in!</p>
-          <p className="font-body text-[13px] text-white/35 mt-1">Check your inbox Mondays.</p>
+          <p className="font-body text-[13.5px] text-gold-text">You&apos;re in!</p>
+          <p className="font-body text-[13px] text-muted mt-1">Check your inbox Mondays.</p>
         </div>
       ) : state === 'duplicate' ? (
-        <p className="font-body text-[13px] text-white/35">Already subscribed!</p>
+        <p className="font-body text-[13px] text-muted">Already subscribed!</p>
       ) : (
         <>
-          <p className="font-body text-[13px] text-white/35 leading-[1.6]">
+          <p className="font-body text-[13px] text-muted leading-[1.6]">
             Real GTM experiments, every Monday.
           </p>
           <form onSubmit={submit} className="flex flex-col gap-2 mt-1">
@@ -69,7 +69,7 @@ function FooterNewsletter() {
               onChange={e => setEmail(e.target.value)}
               placeholder="your@email.com"
               required
-              className="w-full font-body text-[13px] bg-white/5 border border-white/[0.06] rounded-lg px-3.5 py-2.5 outline-none focus:border-brand-gold transition-colors text-white placeholder:text-white/25"
+              className="w-full font-body text-[13px] bg-surface-2 border border-rule rounded-lg px-3.5 py-2.5 outline-none focus:border-gold transition-colors text-ink placeholder:text-faint"
             />
             <button
               type="submit"
@@ -87,15 +87,15 @@ function FooterNewsletter() {
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/[0.06] pt-[60px] pb-[50px] px-6 md:px-12 lg:px-[120px]">
+    <footer className="relative border-t border-rule pt-[60px] pb-[50px] px-6 md:px-12 lg:px-[120px]">
       <div className="flex flex-col lg:flex-row items-start justify-between gap-[50px] lg:gap-[70px]">
       <div>
         <div className="flex items-center gap-[10px] mb-4">
           <div className="w-[17px] h-[17px] rounded-full flex-shrink-0" style={GOLD_DOT_STYLE} />
-          <span className="font-heading text-[17px] font-normal text-white">Nebulaa</span>
+          <span className="font-heading text-[17px] font-normal text-ink">Nebulaa</span>
         </div>
-        <div className="font-body text-[13px] text-white/35 leading-[1.7]">
-          Chennai, India<br /><a href="mailto:hello@nebulaa.ai" className="hover:text-brand-gold transition-colors">hello@nebulaa.ai</a>
+        <div className="font-body text-[13px] text-muted leading-[1.7]">
+          Chennai, India<br /><a href="mailto:hello@nebulaa.ai" className="hover:text-gold-text transition-colors">hello@nebulaa.ai</a>
         </div>
       </div>
 
@@ -106,7 +106,7 @@ export default function Footer() {
             <a
               key={link.name}
               href={link.href}
-              className="font-body text-[13.5px] text-white/55 hover:text-white transition-colors"
+              className="font-body text-[13.5px] text-muted hover:text-ink transition-colors"
             >
               {link.name}
             </a>
@@ -119,7 +119,7 @@ export default function Footer() {
             <a
               key={link.name}
               href={link.href}
-              className="font-body text-[13.5px] text-white/55 hover:text-white transition-colors"
+              className="font-body text-[13.5px] text-muted hover:text-ink transition-colors"
             >
               {link.name}
             </a>
@@ -132,7 +132,7 @@ export default function Footer() {
             <a
               key={link.name}
               href={link.href}
-              className="font-body text-[13.5px] text-white/55 hover:text-white transition-colors"
+              className="font-body text-[13.5px] text-muted hover:text-ink transition-colors"
             >
               {link.name}
             </a>
@@ -145,11 +145,11 @@ export default function Footer() {
       </div>
       </div>
 
-      <div className="mt-[50px] pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-        <span className="font-body text-[12px] text-white/35">&copy; 2026 Nebulaa. All rights reserved.</span>
+      <div className="mt-[50px] pt-6 border-t border-rule flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <span className="font-body text-[12px] text-muted">&copy; 2026 Nebulaa. All rights reserved.</span>
         <div className="flex items-center gap-5">
-          <a href="/privacy-policy" className="font-body text-[12px] text-white/35 hover:text-white/60 transition-colors">Privacy</a>
-          <a href="/terms" className="font-body text-[12px] text-white/35 hover:text-white/60 transition-colors">Terms</a>
+          <a href="/privacy-policy" className="font-body text-[12px] text-muted hover:text-ink transition-colors">Privacy</a>
+          <a href="/terms" className="font-body text-[12px] text-muted hover:text-ink transition-colors">Terms</a>
         </div>
       </div>
     </footer>

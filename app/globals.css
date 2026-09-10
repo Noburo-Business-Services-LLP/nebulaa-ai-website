@@ -4,6 +4,61 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Semantic theme tokens ───────────────────────────────────────────────
+   Light is the default. `.dark` on <html> flips the same token set, so every
+   component styles through tokens and never needs a `dark:` variant.
+
+   One rule that must not be broken: --gold is the brand fill (#F5A623). It
+   fails text contrast on a light ground (~2.1:1), so gold *text* uses
+   --gold-text, which resolves darker in light mode and back to brand gold
+   in dark mode.
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --ground:      #FAF9F6;
+  --surface:     #FFFFFF;
+  --surface-2:   #F2F0EA;
+  --ink:         #17171A;
+  --ink-2:       #44433F;
+  --muted:       #78756D;
+  --faint:       #9C998F;
+  --rule:        #E3DFD6;
+  --rule-2:      #CFC9BC;
+  --gold:        #F5A623;
+  /* 4.79:1 on the light ground — passes AA for body text */
+  --gold-text:   #96650A;
+  /* 3.63:1 — passes AA for large text only (>=24px); headings use this */
+  --gold-display:#B0770F;
+  --gold-wash:   rgba(245, 166, 35, 0.10);
+
+  /* ground as raw channels, so gradients can fade it to transparent */
+  --ground-rgb:  250 249 246;
+  /* hero particle field */
+  --particle:     rgba(23, 23, 26, 0.14);
+  --particle-hot: rgba(168, 114, 12, 0.55);
+  --label:        var(--muted);
+}
+
+.dark {
+  --ground:      #0A0A0A;
+  --surface:     #151515;
+  --surface-2:   #1A1A1A;
+  --ink:         #F5F4F1;
+  --ink-2:       #C9C6BE;
+  --muted:       #8A8780;
+  --faint:       #6E6B65;
+  --rule:        rgba(255, 255, 255, 0.06);
+  --rule-2:      rgba(255, 255, 255, 0.14);
+  --gold:        #F5A623;
+  --gold-text:   #F5A623;
+  --gold-display:#F5A623;
+  --gold-wash:   rgba(245, 166, 35, 0.10);
+
+  --ground-rgb:  10 10 10;
+  --particle:     rgba(255, 255, 255, 0.13);
+  --particle-hot: rgba(255, 214, 150, 0.95);
+  --label:        rgba(255, 255, 255, 0.45);
+}
+
 /* ─── Reset & base ────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -15,19 +70,14 @@ html {
 }
 
 body {
-  background: #0A0A0A;
-  color: #F5F4F1;
+  background: var(--ground);
+  color: var(--ink);
   font-family: 'Inter', 'DM Sans', sans-serif;
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* ─── Dark mode base ──────────────────────── */
-.dark body {
-  background: #0A0A0A;
-  color: #FAFAF8;
-}
 .dark ::-webkit-scrollbar-track { background: #111110; }
 .dark .glass-card {
   background: rgba(26,24,21,0.9);
@@ -129,21 +179,23 @@ body {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
+  color: var(--label);
 }
-.neb-label-gold { color: #F5A623; }
+.neb-label-gold { color: var(--gold-text); }
+/* Product mockups stay dark in both themes — labels inside them need fixed light ink */
+.neb-label-on-dark { color: rgba(255,255,255,0.45); }
 
 /* Particle field — the dot-matrix motif the Gravity app uses while generating */
 .neb-field {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.13) 1.1px, transparent 1.1px);
+  background-image: radial-gradient(circle, var(--particle) 1.1px, transparent 1.1px);
   background-size: 16px 16px;
 }
 .neb-field-hot {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(255,214,150,0.95) 1.4px, transparent 1.4px);
+  background-image: radial-gradient(circle, var(--particle-hot) 1.4px, transparent 1.4px);
   background-size: 16px 16px;
   -webkit-mask-image: radial-gradient(closest-side, #000 0%, rgba(0,0,0,0.30) 58%, transparent 100%);
   mask-image: radial-gradient(closest-side, #000 0%, rgba(0,0,0,0.30) 58%, transparent 100%);
@@ -209,4 +261,24 @@ body {
   border-radius: 0.75rem;
   padding: 1rem;
   overflow-x: auto;
+}
+
+
+/* ─── Hero fades — keep copy legible over the particle field, in either theme ─── */
+.neb-hero-fade-x {
+  background: linear-gradient(
+    to right,
+    rgb(var(--ground-rgb)) 0%,
+    rgb(var(--ground-rgb) / 0.85) 42%,
+    rgb(var(--ground-rgb) / 0.30) 78%,
+    rgb(var(--ground-rgb) / 0.10) 100%
+  );
+}
+.neb-hero-fade-y {
+  background: linear-gradient(
+    to top,
+    rgb(var(--ground-rgb)) 0%,
+    rgb(var(--ground-rgb) / 0) 55%,
+    rgb(var(--ground-rgb) / 0.40) 100%
+  );
 }

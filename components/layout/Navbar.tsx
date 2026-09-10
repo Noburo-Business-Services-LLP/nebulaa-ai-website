@@ -17,10 +17,10 @@ const PRODUCT_LINKS = [
 ]
 
 const RESOURCES_LINKS = [
-  { name: 'Free tools', desc: '31 free generators and calculators, no signup', href: '/tools', icon: Wrench },
+  { name: 'Free tools', desc: '30 free generators and calculators, no signup', href: '/tools', icon: Wrench },
   { name: 'By industry', desc: 'How Gravity and Pulsar run per vertical', href: '/for', icon: Building2 },
   { name: 'Compare', desc: 'Nebulaa vs Buffer, Hootsuite, Jasper and more', href: '/compare', icon: Scale },
-  { name: 'Journal', desc: 'Notes from the work — GTM, marketing, product', href: '/blog', icon: ScrollText },
+  { name: 'Playbook', desc: 'What we try, what the numbers say, what changes', href: '/blog', icon: ScrollText },
 ]
 
 const MOBILE_LINKS = [
@@ -31,7 +31,7 @@ const MOBILE_LINKS = [
   { label: 'By industry', href: '/for' },
   { label: 'Compare', href: '/compare' },
   { label: 'Pricing', href: '/#pricing' },
-  { label: 'Journal', href: '/blog' },
+  { label: 'Playbook', href: '/blog' },
 ]
 
 export default function Navbar() {
@@ -49,8 +49,8 @@ export default function Navbar() {
   return (
     <>
       <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] transition-all duration-300 ${
-          scrolled ? 'bg-brand-black/95 backdrop-blur-lg' : 'bg-brand-black/80 backdrop-blur-sm'
+        className={`fixed top-0 left-0 right-0 z-50 border-b border-rule transition-all duration-300 ${
+          scrolled ? 'bg-ground/95 backdrop-blur-lg' : 'bg-ground/80 backdrop-blur-sm'
         }`}
         initial={{ y: -64 }}
         animate={{ y: 0 }}
@@ -60,11 +60,21 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/images/logo-dark.png"
+              src="/images/logo-light.png"
               alt="Nebulaa.ai"
               width={160}
               height={40}
-              className="h-10 w-auto hover:opacity-80 transition-opacity brightness-110"
+              className="h-10 w-auto hover:opacity-80 transition-opacity dark:hidden"
+              priority
+              loading="eager"
+            />
+            <Image
+              src="/images/logo-dark.png"
+              alt=""
+              aria-hidden="true"
+              width={160}
+              height={40}
+              className="h-10 w-auto hover:opacity-80 transition-opacity brightness-110 hidden dark:block"
               priority
               loading="eager"
             />
@@ -79,7 +89,7 @@ export default function Navbar() {
               onMouseLeave={() => setProductDropdownOpen(false)}
             >
               <button
-                className="flex items-center gap-1 font-body text-sm text-white/55 hover:text-white transition-colors"
+                className="flex items-center gap-1 font-body text-sm text-muted hover:text-ink transition-colors"
                 aria-expanded={productDropdownOpen}
               >
                 Product
@@ -95,22 +105,22 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 6 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 mt-2 w-64 bg-[#1A1815] border border-white/10 rounded-2xl overflow-hidden p-2"
+                    className="absolute top-full left-0 mt-2 w-64 bg-surface border border-rule-2 rounded-2xl overflow-hidden p-2"
                   >
                     {PRODUCT_LINKS.map(item => (
                       <a
                         key={item.name}
                         href={item.href}
-                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 border-l-2 border-transparent hover:border-l-brand-gold transition-all group"
+                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-surface-2 border-l-2 border-transparent hover:border-l-brand-gold transition-all group"
                       >
-                        <span className="w-8 h-8 rounded-lg bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
-                          <item.icon size={15} className="text-brand-gold" />
+                        <span className="w-8 h-8 rounded-lg bg-gold-wash flex items-center justify-center flex-shrink-0">
+                          <item.icon size={15} className="text-gold-text" />
                         </span>
                         <div>
-                          <p className="font-body font-semibold text-sm text-white/90 group-hover:text-brand-gold transition-colors">
+                          <p className="font-body font-semibold text-sm text-ink group-hover:text-gold-text transition-colors">
                             {item.name}
                           </p>
-                          <p className="font-body text-xs text-white/40 mt-0.5">{item.desc}</p>
+                          <p className="font-body text-xs text-faint mt-0.5">{item.desc}</p>
                         </div>
                       </a>
                     ))}
@@ -121,18 +131,18 @@ export default function Navbar() {
 
             <Link
               href="/services"
-              className="relative font-body text-sm text-white/55 hover:text-white transition-colors group"
+              className="relative font-body text-sm text-muted hover:text-ink transition-colors group"
             >
               Services
-              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-brand-gold group-hover:w-full transition-all duration-300" />
+              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-gold group-hover:w-full transition-all duration-300" />
             </Link>
 
             <a
               href="/#pricing"
-              className="relative font-body text-sm text-white/55 hover:text-white transition-colors group"
+              className="relative font-body text-sm text-muted hover:text-ink transition-colors group"
             >
               Pricing
-              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-brand-gold group-hover:w-full transition-all duration-300" />
+              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-gold group-hover:w-full transition-all duration-300" />
             </a>
 
             {/* Resources dropdown */}
@@ -142,7 +152,7 @@ export default function Navbar() {
               onMouseLeave={() => setResourcesDropdownOpen(false)}
             >
               <button
-                className="flex items-center gap-1 font-body text-sm text-white/55 hover:text-white transition-colors"
+                className="flex items-center gap-1 font-body text-sm text-muted hover:text-ink transition-colors"
                 aria-expanded={resourcesDropdownOpen}
               >
                 Resources
@@ -158,22 +168,22 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 6 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute top-full right-0 mt-2 w-72 bg-[#1A1815] border border-white/10 rounded-2xl overflow-hidden p-2"
+                    className="absolute top-full right-0 mt-2 w-72 bg-surface border border-rule-2 rounded-2xl overflow-hidden p-2"
                   >
                     {RESOURCES_LINKS.map(item => (
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 border-l-2 border-transparent hover:border-l-brand-gold transition-all group"
+                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-surface-2 border-l-2 border-transparent hover:border-l-brand-gold transition-all group"
                       >
-                        <span className="w-8 h-8 rounded-lg bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
-                          <item.icon size={15} className="text-brand-gold" />
+                        <span className="w-8 h-8 rounded-lg bg-gold-wash flex items-center justify-center flex-shrink-0">
+                          <item.icon size={15} className="text-gold-text" />
                         </span>
                         <div>
-                          <p className="font-body font-semibold text-sm text-white/90 group-hover:text-brand-gold transition-colors">
+                          <p className="font-body font-semibold text-sm text-ink group-hover:text-gold-text transition-colors">
                             {item.name}
                           </p>
-                          <p className="font-body text-xs text-white/40 mt-0.5">{item.desc}</p>
+                          <p className="font-body text-xs text-faint mt-0.5">{item.desc}</p>
                         </div>
                       </Link>
                     ))}
@@ -185,7 +195,7 @@ export default function Navbar() {
 
           {/* Right CTAs — desktop */}
           <div className="hidden md:flex items-center gap-3.5">
-            <a href="#" className="font-body text-sm text-white/55 hover:text-white transition-colors">
+            <a href="#" className="font-body text-sm text-muted hover:text-ink transition-colors">
               Sign in
             </a>
             <a
@@ -199,7 +209,7 @@ export default function Navbar() {
           {/* Mobile hamburger */}
           <div className="md:hidden flex items-center gap-2">
             <button
-              className="text-white"
+              className="text-ink"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             >
@@ -216,7 +226,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-brand-black pt-16 px-6 flex flex-col overflow-y-auto"
+            className="fixed inset-0 z-40 bg-ground pt-16 px-6 flex flex-col overflow-y-auto"
           >
             <nav className="flex flex-col gap-5 pt-8">
               {MOBILE_LINKS.map((link, i) => (
@@ -226,7 +236,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.06 }}
-                  className="flex items-center gap-3 font-heading text-2xl text-white hover:text-brand-gold transition-colors"
+                  className="flex items-center gap-3 font-heading text-2xl text-ink hover:text-gold-text transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   <span className="w-4 h-4 rounded-full flex-shrink-0" style={GOLD_DOT_STYLE} />
@@ -234,10 +244,10 @@ export default function Navbar() {
                 </motion.a>
               ))}
             </nav>
-            <div className="mt-auto pb-10 pt-8 flex flex-col gap-3 border-t border-white/10">
+            <div className="mt-auto pb-10 pt-8 flex flex-col gap-3 border-t border-rule-2">
               <a
                 href="#"
-                className="font-body text-sm text-white/55 border border-white/10 rounded-full px-5 py-3.5 text-center hover:border-brand-gold hover:text-white transition-all"
+                className="font-body text-sm text-muted border border-rule-2 rounded-full px-5 py-3.5 text-center hover:border-gold hover:text-ink transition-all"
                 onClick={() => setMobileOpen(false)}
               >
                 Sign in

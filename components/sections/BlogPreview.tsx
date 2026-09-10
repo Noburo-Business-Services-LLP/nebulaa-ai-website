@@ -17,16 +17,16 @@ export default function BlogPreview() {
       >
         <div className="max-w-[640px]">
           <motion.div variants={fadeUpVariant}>
-            <SectionLabel className="mb-[22px] block">The Nebulaa Blog</SectionLabel>
+            <SectionLabel className="mb-[22px] block">The Playbook</SectionLabel>
           </motion.div>
           <motion.h2 variants={fadeUpVariant} className="font-heading text-[42px] leading-[1.12] tracking-[-0.02em] font-medium">
-            Notes from <span className="italic text-brand-gold">the work.</span>
+            Notes from <span className="italic text-gold-text">the work.</span>
           </motion.h2>
         </div>
         <motion.a
           variants={fadeUpVariant}
           href="/blog"
-          className="hidden md:block font-body text-[14.5px] font-semibold text-brand-gold hover:text-brand-gold-dim transition-colors whitespace-nowrap"
+          className="hidden md:block font-body text-[14.5px] font-semibold text-gold-text hover:text-gold-text-dim transition-colors whitespace-nowrap"
         >
           View all posts →
         </motion.a>
@@ -44,7 +44,7 @@ export default function BlogPreview() {
             key={post.slug}
             href={`/blog/${post.slug}`}
             variants={fadeUpVariant}
-            className="bg-brand-dark-surface border border-white/[0.06] rounded-[18px] overflow-hidden hover:border-brand-gold/[0.18] transition-colors duration-300 group block"
+            className="bg-surface border border-rule rounded-[18px] overflow-hidden hover:border-gold/[0.18] transition-colors duration-300 group block"
           >
             <div className={`h-44 bg-gradient-to-br ${post.headerColor} relative`}>
               <span className="absolute bottom-3 left-4">
@@ -52,15 +52,15 @@ export default function BlogPreview() {
               </span>
             </div>
             <div className="p-6">
-              <h3 className="font-heading text-[19px] font-medium text-white line-clamp-2 mb-3 group-hover:text-brand-gold transition-colors leading-snug">
+              <h3 className="font-heading text-[19px] font-medium text-ink line-clamp-2 mb-3 group-hover:text-gold-text transition-colors leading-snug">
                 {post.title}
               </h3>
-              <p className="font-body text-[14.5px] text-white/55 line-clamp-2 mb-5 leading-[1.68]">
+              <p className="font-body text-[14.5px] text-muted line-clamp-2 mb-5 leading-[1.68]">
                 {post.excerpt}
               </p>
-              <div className="flex items-center justify-between border-t border-white/[0.06] pt-4">
-                <span className="font-body text-[13px] text-white/35">{post.author} · {post.readTime}</span>
-                <span className="font-body text-[13px] font-semibold text-brand-gold opacity-0 group-hover:opacity-100 transition-opacity">Read more →</span>
+              <div className="flex items-center justify-between border-t border-rule pt-4">
+                <span className="font-body text-[13px] text-faint">{post.author} · {post.readTime}</span>
+                <span className="font-body text-[13px] font-semibold text-gold-text opacity-0 group-hover:opacity-100 transition-opacity">Read more →</span>
               </div>
             </div>
           </motion.a>
@@ -68,7 +68,7 @@ export default function BlogPreview() {
       </motion.div>
 
       <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={viewportOptions} className="md:hidden text-center mt-8">
-        <a href="/blog" className="font-body text-[14.5px] font-semibold text-brand-gold hover:text-brand-gold-dim transition-colors">View all posts →</a>
+        <a href="/blog" className="font-body text-[14.5px] font-semibold text-gold-text hover:text-gold-text-dim transition-colors">View all posts →</a>
       </motion.div>
     </section>
   )

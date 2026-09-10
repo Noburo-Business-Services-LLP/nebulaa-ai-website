@@ -165,7 +165,7 @@ export const industries: Record<string, IndustryData> = {
       { title: 'Dealer and retail-cluster support', desc: 'Local promotional content and geo-targeted spend concentrated around the retail clusters where the product is actually sold.', agent: 'Both' },
       { title: 'Festival and launch activation', desc: 'On-ground activation — sampling, dealer events, retail activations — timed to the moments that matter, not run as isolated one-offs.', agent: 'Both' },
     ],
-    clients: [{ name: 'Bosch', stage: 'proposal' }],
+    clients: [],
     hubBlurb: 'Organic, paid, dealer support and on-ground activation — one team, one system.',
     hubImage: 'industrial',
   },

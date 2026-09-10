@@ -49,9 +49,9 @@ export default function PulsarSection() {
                 className="w-[13px] h-[13px] rounded-full"
                 style={{ background: 'radial-gradient(circle at 34% 32%, #FFD48A 0%, #F5A623 46%, #A4650B 100%)' }}
               />
-              <span className="font-heading text-[13.5px] font-medium">Pulsar</span>
+              <span className="font-heading text-[13.5px] font-medium text-white">Pulsar</span>
             </div>
-            <SectionLabel tone="muted">4 min after enquiry</SectionLabel>
+            <SectionLabel tone="onDark">4 min after enquiry</SectionLabel>
           </div>
 
           <div className="flex flex-col gap-[11px] mb-[18px]">
@@ -71,7 +71,7 @@ export default function PulsarSection() {
 
           <div className="bg-[#1A1A1A] border border-white/[0.06] rounded-[14px] p-[17px] flex items-center justify-between">
             <div>
-              <SectionLabel tone="muted" className="mb-[6px] block">Scored &amp; handed over</SectionLabel>
+              <SectionLabel tone="onDark" className="mb-[6px] block">Scored &amp; handed over</SectionLabel>
               <div className="text-[13.5px] text-white/75">Bridal · March timeline · booked Saturday</div>
             </div>
             <div className="font-heading text-[30px] text-brand-gold">86</div>
@@ -92,33 +92,33 @@ export default function PulsarSection() {
             variants={fadeUpVariant}
             className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium mb-[26px]"
           >
-            Whoever replies first <span className="italic text-brand-gold">wins the sale.</span>
+            Whoever replies first <span className="italic text-gold-text">wins the sale.</span>
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}
-            className="font-body text-[17px] leading-[1.68] text-white/55 max-w-[480px] mb-[34px]"
+            className="font-body text-[17px] leading-[1.68] text-muted max-w-[480px] mb-[34px]"
           >
             It happens mid-billing, mid-invoice, mid-everything — and by the time you&rsquo;re free, they&rsquo;ve already messaged someone else. Pulsar replies in minutes, asks the questions you&rsquo;d ask, and hands you only the ones worth your afternoon.
           </motion.p>
           <motion.div variants={fadeUpVariant} className="flex flex-col gap-4">
             {bullets.map(({ icon: Icon, text }) => (
               <div key={text} className="flex gap-[13px] items-start">
-                <span className="flex-shrink-0 w-[26px] h-[26px] rounded-full bg-brand-gold/10 flex items-center justify-center mt-0.5">
-                  <Icon size={13.5} className="text-brand-gold" />
+                <span className="flex-shrink-0 w-[26px] h-[26px] rounded-full bg-gold-wash flex items-center justify-center mt-0.5">
+                  <Icon size={13.5} className="text-gold-text" />
                 </span>
-                <span className="font-body text-[15px] leading-[1.6] text-white/70 pt-0.5">{text}</span>
+                <span className="font-body text-[15px] leading-[1.6] text-ink-2 pt-0.5">{text}</span>
               </div>
             ))}
           </motion.div>
           <motion.div variants={fadeUpVariant} className="flex items-center gap-[22px] mt-[30px]">
             {channels.map(({ icon: Icon, name }) => (
-              <span key={name} className="flex items-center gap-2 text-[13px] text-white/40">
+              <span key={name} className="flex items-center gap-2 text-[13px] text-faint">
                 <Icon size={16} />
                 {name}
               </span>
             ))}
           </motion.div>
-          <motion.a variants={fadeUpVariant} href="#how-it-works" className="mt-[26px] inline-block text-[15px] text-brand-gold hover:underline">
+          <motion.a variants={fadeUpVariant} href="#how-it-works" className="mt-[26px] inline-block text-[15px] text-gold-text hover:underline">
             See how Pulsar works →
           </motion.a>
         </motion.div>

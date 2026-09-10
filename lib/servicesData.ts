@@ -56,11 +56,6 @@ export const process: ProcessStage[] = [
 
 export const clients: ServiceClient[] = [
   {
-    name: 'Bosch',
-    stage: 'proposal',
-    blurb: 'A regional marketing programme across South India — organic content, performance media and on-ground retail activation. Currently in scoping.',
-  },
-  {
     name: "Rajaram's",
     stage: 'proposal',
     blurb: 'Bangalore market entry for a 70-year-old Tamil Nadu snacking brand — distribution and demand-generation timed to a shared launch calendar.',

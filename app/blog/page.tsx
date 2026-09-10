@@ -17,7 +17,7 @@ export default function BlogPage() {
       <main className="bg-white dark:bg-[#0A0A0A] min-h-screen pt-24 pb-20 transition-colors">
         <div className="max-w-5xl mx-auto px-4 md:px-8">
           <div className="mb-14">
-            <SectionLabel className="mb-4 block">The Nebulaa Blog</SectionLabel>
+            <SectionLabel className="mb-4 block">The Playbook</SectionLabel>
             <h1 className="font-heading font-bold text-4xl md:text-5xl text-brand-text dark:text-white tracking-tight mb-3">
               GTM playbooks that actually get implemented.
             </h1>

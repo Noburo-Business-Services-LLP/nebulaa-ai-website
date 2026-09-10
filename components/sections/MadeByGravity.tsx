@@ -15,14 +15,14 @@ function GalleryCard({ item }: { item: GalleryItem }) {
       variants={fadeUpVariant}
       className={`min-h-[280px] rounded-[18px] p-6 flex flex-col ${
         isPopulated
-          ? 'bg-brand-dark-surface border border-white/[0.06]'
-          : 'bg-transparent border border-dashed border-white/[0.14]'
+          ? 'bg-surface border border-rule'
+          : 'bg-transparent border border-dashed border-rule-2'
       }`}
     >
       <div className="flex items-center justify-between mb-5">
         <SectionLabel tone="muted">{item.platform}</SectionLabel>
         {isPopulated && (
-          <span className="font-body text-[13px] text-white/45">{displayName}</span>
+          <span className="font-body text-[13px] text-muted">{displayName}</span>
         )}
       </div>
 
@@ -33,13 +33,13 @@ function GalleryCard({ item }: { item: GalleryItem }) {
               <Image src={item.image} alt={`${displayName} post on ${item.platform}`} fill className="object-cover" />
             </div>
           ) : (
-            <p className="font-body text-[15px] leading-[1.68] text-white/70 flex-1">{item.post}</p>
+            <p className="font-body text-[15px] leading-[1.68] text-ink-2 flex-1">{item.post}</p>
           )}
         </div>
       ) : (
         <div className="flex-1 flex flex-col justify-between">
           <SectionLabel tone="muted">{item.industryLabel}</SectionLabel>
-          <p className="font-body text-[14px] italic leading-[1.6] text-white/30">
+          <p className="font-body text-[14px] italic leading-[1.6] text-faint">
             [Real post — awaiting export]
           </p>
         </div>
@@ -68,11 +68,11 @@ export default function MadeByGravity() {
           variants={fadeUpVariant}
           className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium mb-[26px]"
         >
-          Not mockups. <span className="italic text-brand-gold">Actual posts, actually published.</span>
+          Not mockups. <span className="italic text-gold-text">Actual posts, actually published.</span>
         </motion.h2>
         <motion.p
           variants={fadeUpVariant}
-          className="font-body text-[17px] leading-[1.68] text-white/55 max-w-[480px]"
+          className="font-body text-[17px] leading-[1.68] text-muted max-w-[480px]"
         >
           Every post below was written by Gravity for a real client and went out on their channels.
         </motion.p>

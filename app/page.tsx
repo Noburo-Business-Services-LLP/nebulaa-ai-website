@@ -5,13 +5,15 @@ import GravitySection from '@/components/sections/GravitySection'
 import PulsarSection from '@/components/sections/PulsarSection'
 import MadeByGravity from '@/components/sections/MadeByGravity'
 import EntryFork from '@/components/sections/EntryFork'
-import ToolsTeaser from '@/components/sections/ToolsTeaser'
 import Pricing from '@/components/sections/Pricing'
 import FAQ from '@/components/sections/FAQ'
-import BlogPreview from '@/components/sections/BlogPreview'
 import Newsletter from '@/components/sections/Newsletter'
 import FinalCTA from '@/components/sections/FinalCTA'
 
+/**
+ * Free tools and the blog are deliberately absent — they exist to earn search
+ * traffic, not homepage space. Both remain reachable from the nav and footer.
+ */
 export default function Home() {
   return (
     <main>
@@ -22,10 +24,8 @@ export default function Home() {
       <PulsarSection />
       <MadeByGravity />
       <EntryFork />
-      <ToolsTeaser />
       <Pricing />
       <FAQ />
-      <BlogPreview />
       <Newsletter />
       <FinalCTA />
     </main>

@@ -47,33 +47,33 @@ export default function GravitySection() {
             variants={fadeUpVariant}
             className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium mb-[26px]"
           >
-            Stop planning content. <span className="italic text-brand-gold">Start approving it.</span>
+            Stop planning content. <span className="italic text-gold-text">Start approving it.</span>
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}
-            className="font-body text-[17px] leading-[1.68] text-white/55 max-w-[480px] mb-[34px]"
+            className="font-body text-[17px] leading-[1.68] text-muted max-w-[480px] mb-[34px]"
           >
             Gravity starts by understanding you: your customers, your channels, what actually works. Then it plans the month and drafts the posts, carousels and reels to fill it, watching your rivals so your content never plays catch-up. Your part is the last step — tap approve.
           </motion.p>
           <motion.div variants={fadeUpVariant} className="flex flex-col gap-4">
             {bullets.map(({ icon: Icon, text }) => (
               <div key={text} className="flex gap-[13px] items-start">
-                <span className="flex-shrink-0 w-[26px] h-[26px] rounded-full bg-brand-gold/10 flex items-center justify-center mt-0.5">
-                  <Icon size={13.5} className="text-brand-gold" />
+                <span className="flex-shrink-0 w-[26px] h-[26px] rounded-full bg-gold-wash flex items-center justify-center mt-0.5">
+                  <Icon size={13.5} className="text-gold-text" />
                 </span>
-                <span className="font-body text-[15px] leading-[1.6] text-white/70 pt-0.5">{text}</span>
+                <span className="font-body text-[15px] leading-[1.6] text-ink-2 pt-0.5">{text}</span>
               </div>
             ))}
           </motion.div>
           <motion.div variants={fadeUpVariant} className="flex items-center gap-[22px] mt-[30px]">
             {channels.map(({ icon: Icon, name }) => (
-              <span key={name} className="flex items-center gap-2 text-[13px] text-white/40">
+              <span key={name} className="flex items-center gap-2 text-[13px] text-faint">
                 <Icon size={16} />
                 {name}
               </span>
             ))}
           </motion.div>
-          <motion.a variants={fadeUpVariant} href="#how-it-works" className="mt-[26px] inline-block text-[15px] text-brand-gold hover:underline">
+          <motion.a variants={fadeUpVariant} href="#how-it-works" className="mt-[26px] inline-block text-[15px] text-gold-text hover:underline">
             See how Gravity works →
           </motion.a>
         </motion.div>
@@ -92,12 +92,12 @@ export default function GravitySection() {
                 className="w-[13px] h-[13px] rounded-full"
                 style={{ background: 'radial-gradient(circle at 34% 32%, #FFD48A 0%, #F5A623 46%, #A4650B 100%)' }}
               />
-              <span className="font-heading text-[13.5px] font-medium">Gravity</span>
+              <span className="font-heading text-[13.5px] font-medium text-white">Gravity</span>
               <span className="text-[10px] font-semibold tracking-[0.06em] text-[#4ADE80] border border-[#4ADE80]/30 rounded-full px-2 py-0.5">
                 LIVE
               </span>
             </div>
-            <SectionLabel tone="muted">This month&apos;s plan</SectionLabel>
+            <SectionLabel tone="onDark">This month&apos;s plan</SectionLabel>
           </div>
 
           {/* Month view — the "plans the month" claim, made visible */}
@@ -129,7 +129,7 @@ export default function GravitySection() {
           </div>
 
           <div className="bg-[#1A1A1A] border border-white/[0.06] rounded-[14px] p-5 mb-[14px]">
-            <SectionLabel tone="muted" className="mb-3 block">Tuesday · LinkedIn</SectionLabel>
+            <SectionLabel tone="onDark" className="mb-3 block">Tuesday · LinkedIn</SectionLabel>
             <p className="font-body text-[14.5px] leading-[1.6] text-white/85 mb-4">
               Most of our customers don&rsquo;t compare us to other jewellers. They compare us to the shop their mother trusted for thirty years. That&rsquo;s the bar.
             </p>
@@ -142,8 +142,8 @@ export default function GravitySection() {
           <div className="grid grid-cols-3 gap-[10px]">
             {stats.map((stat) => (
               <div key={stat.label} className="bg-[#1A1A1A] border border-white/[0.06] rounded-xl p-[15px]">
-                <SectionLabel tone="muted" className="mb-[7px] block">{stat.label}</SectionLabel>
-                <div className="font-heading text-[27px]">
+                <SectionLabel tone="onDark" className="mb-[7px] block">{stat.label}</SectionLabel>
+                <div className="font-heading text-[27px] text-white">
                   {stat.value}
                   {stat.suffix && <span className="text-[15px] text-white/45">{stat.suffix}</span>}
                 </div>

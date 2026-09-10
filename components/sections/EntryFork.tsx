@@ -49,9 +49,9 @@ export default function EntryFork() {
           variants={fadeUpVariant}
           className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium mb-5"
         >
-          Who should be running this — <span className="italic text-brand-gold">you, or us?</span>
+          Who should be running this — <span className="italic text-gold-text">you, or us?</span>
         </motion.h2>
-        <motion.p variants={fadeUpVariant} className="font-body text-[17px] leading-[1.68] text-white/55">
+        <motion.p variants={fadeUpVariant} className="font-body text-[17px] leading-[1.68] text-muted">
           Same agents underneath. The only question is whose evening it takes.
         </motion.p>
       </motion.div>
@@ -67,27 +67,27 @@ export default function EntryFork() {
           <motion.div
             key={card.label}
             variants={fadeUpVariant}
-            className={`bg-brand-dark-surface rounded-[20px] pt-[46px] px-6 md:px-[42px] pb-11 ${
+            className={`bg-surface rounded-[20px] pt-[46px] px-6 md:px-[42px] pb-11 ${
               card.goldBorder
-                ? 'border border-brand-gold/[0.18] shadow-[inset_0_1px_0_0_rgba(255,214,150,0.07)]'
-                : 'border border-white/[0.06]'
+                ? 'border border-gold/[0.18] shadow-[inset_0_1px_0_0_rgba(255,214,150,0.07)]'
+                : 'border border-rule'
             }`}
           >
             <SectionLabel tone={card.labelGold ? 'gold' : 'muted'} className="mb-[26px] block">
               {card.label}
             </SectionLabel>
             <h3 className="font-heading text-[32px] font-medium tracking-[-0.015em] mb-4">{card.title}</h3>
-            <p className="font-body text-[15.5px] leading-[1.68] text-white/55 mb-[30px]">{card.body}</p>
+            <p className="font-body text-[15.5px] leading-[1.68] text-muted mb-[30px]">{card.body}</p>
             <div className="flex flex-col gap-3 mb-[34px]">
-              <div className="text-[14.5px] text-white/70">{card.metaPrimary}</div>
-              <div className="text-[14.5px] text-white/45">{card.metaSecondary}</div>
+              <div className="text-[14.5px] text-ink-2">{card.metaPrimary}</div>
+              <div className="text-[14.5px] text-muted">{card.metaSecondary}</div>
             </div>
             <Link
               href={card.href}
               className={`inline-block text-[14.5px] font-semibold px-[26px] py-[15px] rounded-full transition-colors ${
                 card.goldCta
-                  ? 'bg-brand-gold text-[#1A1208] hover:bg-brand-gold-dim'
-                  : 'border border-white/[0.14] text-white/80 hover:border-brand-gold hover:text-brand-gold'
+                  ? 'bg-gold text-[#1A1208] hover:bg-gold-dim'
+                  : 'border border-rule-2 text-ink-2 hover:border-gold hover:text-gold-text'
               }`}
             >
               {card.cta}

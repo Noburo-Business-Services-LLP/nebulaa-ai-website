@@ -10,6 +10,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Semantic theme tokens — defined in globals.css, flipped by `.dark`.
+        // Use these for anything that must respond to the theme.
+        ground:     'var(--ground)',
+        surface:    'var(--surface)',
+        'surface-2':'var(--surface-2)',
+        ink:        'var(--ink)',
+        'ink-2':    'var(--ink-2)',
+        muted:      'var(--muted)',
+        faint:      'var(--faint)',
+        rule:       'var(--rule)',
+        'rule-2':   'var(--rule-2)',
+        gold:       'var(--gold)',
+        'gold-text':'var(--gold-text)',
+        'gold-display':'var(--gold-display)',
+        'gold-wash':'var(--gold-wash)',
         brand: {
           gold:        '#F5A623',
           'gold-soft': 'rgba(245,166,35,0.15)',

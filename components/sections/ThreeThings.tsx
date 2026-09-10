@@ -39,7 +39,7 @@ export default function ThreeThings() {
           variants={fadeUpVariant}
           className="font-heading text-[33px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium"
         >
-          It does the three things you <span className="italic text-brand-gold">keep meaning to do.</span>
+          It does the three things you <span className="italic text-gold-text">keep meaning to do.</span>
         </motion.h2>
       </motion.div>
 
@@ -54,11 +54,11 @@ export default function ThreeThings() {
           <motion.div
             key={step.n}
             variants={fadeUpVariant}
-            className="bg-brand-dark-surface border border-white/[0.06] rounded-[18px] p-9"
+            className="bg-surface border border-rule rounded-[18px] p-9"
           >
-            <div className="font-heading text-[46px] text-brand-gold/35 leading-none mb-7">{step.n}</div>
+            <div className="font-heading text-[46px] text-gold-text/35 leading-none mb-7">{step.n}</div>
             <h3 className="font-heading text-[25px] font-medium mb-3.5">{step.title}</h3>
-            <p className="font-body text-[15px] leading-[1.68] text-white/55">{step.body}</p>
+            <p className="font-body text-[15px] leading-[1.68] text-muted">{step.body}</p>
           </motion.div>
         ))}
       </motion.div>

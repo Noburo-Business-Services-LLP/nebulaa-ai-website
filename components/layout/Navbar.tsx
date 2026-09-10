@@ -28,6 +28,7 @@ const MOBILE_LINKS = [
   { label: 'Product', href: '/product' },
   { label: 'Gravity', href: '/product/gravity' },
   { label: 'Pulsar', href: '/product/pulsar' },
+  { label: 'Channels', href: '/channels' },
   { label: 'Services', href: '/services' },
   { label: 'Free tools', href: '/tools' },
   { label: 'By industry', href: '/for' },
@@ -130,6 +131,14 @@ export default function Navbar() {
                 )}
               </AnimatePresence>
             </div>
+
+            <Link
+              href="/channels"
+              className="relative font-body text-sm text-muted hover:text-ink transition-colors group"
+            >
+              Channels
+              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-gold group-hover:w-full transition-all duration-300" />
+            </Link>
 
             <Link
               href="/services"

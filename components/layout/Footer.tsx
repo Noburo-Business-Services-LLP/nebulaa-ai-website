@@ -9,18 +9,20 @@ const GOLD_DOT_STYLE = {
 }
 
 const productLinks = [
-  { name: 'Gravity', href: '/#gravity' },
-  { name: 'Pulsar', href: '/#pulsar' },
+  { name: 'Overview', href: '/product' },
+  { name: 'Gravity', href: '/product/gravity' },
+  { name: 'Pulsar', href: '/product/pulsar' },
   { name: 'Pricing', href: '/pricing' },
 ]
 
 const servicesLinks = [
   { name: 'Managed services', href: '/services' },
+  { name: 'Channels', href: '/channels' },
+  { name: 'By industry', href: '/for' },
 ]
 
 const freeLinks = [
   { name: '30 free tools', href: '/tools' },
-  { name: 'By industry', href: '/for' },
   { name: 'Compare', href: '/compare' },
   { name: 'Playbook', href: '/blog' },
 ]

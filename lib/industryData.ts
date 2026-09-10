@@ -174,8 +174,115 @@ export const industries: Record<string, IndustryData> = {
     hubBlurb: 'Organic, paid, dealer support and on-ground activation — one team, one system.',
     hubImage: 'industrial',
   },
+  'hospitality': {
+    slug: 'hospitality',
+    name: 'Hospitality',
+    eyebrow: 'For hotels, resorts & restaurants',
+    headline: 'They book the place',
+    headlineEmphasis: 'they can already picture.',
+    subheadline:
+      'Hospitality sells on atmosphere and on the enquiry answered while someone is still deciding. Gravity keeps the rooms, the food and the season in front of people; Pulsar answers the availability question before they check the next place.',
+    seoTitle: 'Nebulaa for Hospitality — Hotels, Resorts & Restaurants',
+    seoDescription:
+      'Content and enquiry handling for hotels, resorts and restaurants — seasonal campaigns, review management and WhatsApp enquiries answered before the booking goes elsewhere.',
+    painPoints: [
+      'An enquiry about availability that sits unanswered while the guest books somewhere else',
+      'Seasonal demand that needs campaigns planned months ahead, not the week before',
+      'Reviews that go unanswered, which future guests read more carefully than any ad',
+      'Food and property photography that never makes it out of the phone it was shot on',
+    ],
+    useCases: [
+      { title: 'Season and occasion campaigns', desc: 'Holiday seasons, long weekends and festival periods planned well ahead, when people are actually deciding where to go.', agent: 'Gravity' },
+      { title: 'Availability enquiries answered fast', desc: 'Pulsar answers dates, rates and availability questions immediately, and hands over anyone ready to book.', agent: 'Pulsar' },
+      { title: 'Review and listing management', desc: 'Google Business kept current and reviews answered — the surface future guests actually read before choosing.', agent: 'Both' },
+      { title: 'Atmosphere content', desc: 'Rooms, food and the experience itself, published consistently rather than whenever someone remembers to post.', agent: 'Gravity' },
+    ],
+    clients: [],
+    hubBlurb: 'Seasonal demand planned ahead, and enquiries answered while they are still deciding.',
+    hubImage: 'hospitality',
+  },
+  'real-estate': {
+    slug: 'real-estate',
+    name: 'Real Estate',
+    eyebrow: 'For builders & property',
+    headline: 'The enquiry is worth',
+    headlineEmphasis: 'too much to leave waiting.',
+    subheadline:
+      'One property enquiry can be worth more than a year of most businesses\' customers, which makes a slow reply extraordinarily expensive. Pulsar qualifies budget, location and timeline the moment it lands; Gravity keeps the projects visible in between.',
+    seoTitle: 'Nebulaa for Real Estate — Property Marketing & Lead Qualification',
+    seoDescription:
+      'Project content and instant enquiry qualification for builders and property businesses — budget, location and timeline established before your team calls.',
+    painPoints: [
+      'High-value enquiries going cold because nobody replied within the hour',
+      'Sales teams spending their day on enquiries that were never going to buy',
+      'Project updates that stop being posted once the launch excitement fades',
+      'No easy way to keep past enquiries warm through a long decision cycle',
+    ],
+    useCases: [
+      { title: 'Instant enquiry qualification', desc: 'Budget, preferred location, timeline and financing status established in conversation, before anyone from your team picks up the phone.', agent: 'Pulsar' },
+      { title: 'Project and progress content', desc: 'Construction progress, layouts, amenities and locality content published consistently through a long sales cycle.', agent: 'Gravity' },
+      { title: 'Long-cycle nurture', desc: 'Property decisions take months. Sequences keep enquiries warm without your team chasing manually.', agent: 'Pulsar' },
+      { title: 'Locality and geo-targeted campaigns', desc: 'Paid campaigns aimed at the catchments that actually buy in your corridor.', agent: 'Both' },
+    ],
+    clients: [],
+    hubBlurb: 'High-value enquiries qualified in minutes, and projects kept visible through a long cycle.',
+    hubImage: 'realestate',
+  },
+  'furniture-appliances': {
+    slug: 'furniture-appliances',
+    name: 'Furniture & Home Appliances',
+    eyebrow: 'For furniture & appliances',
+    headline: 'A considered purchase',
+    headlineEmphasis: 'needs more than one post.',
+    subheadline:
+      'Nobody buys a sofa or a refrigerator from a single ad. They research, compare, ask about warranty and delivery, then visit. Gravity carries the consideration content; Pulsar answers the questions that decide it.',
+    seoTitle: 'Nebulaa for Furniture & Home Appliances Retail',
+    seoDescription:
+      'Consideration-stage content and enquiry handling for furniture and appliance retailers — specifications, warranty and delivery questions answered fast.',
+    painPoints: [
+      'Enquiries asking about price, warranty and delivery that take a day to answer',
+      'A big catalogue that never gets shown properly because photographing it is a job',
+      'Festival and season offers that need planning ahead of the buying window',
+      'Dealer and showroom enquiries handled differently depending on who picks up',
+    ],
+    useCases: [
+      { title: 'Catalogue and category content', desc: 'Product ranges, use cases and comparisons published steadily rather than only when a new line arrives.', agent: 'Gravity' },
+      { title: 'Specification and delivery questions', desc: 'The questions that actually decide a considered purchase — warranty, delivery, installation, EMI — answered immediately and consistently.', agent: 'Pulsar' },
+      { title: 'Festival and season offers', desc: 'The buying windows that matter in this category, planned and campaigned ahead of time.', agent: 'Gravity' },
+      { title: 'Showroom visit booking', desc: 'Qualified enquiries converted into a booked visit rather than a maybe.', agent: 'Pulsar' },
+    ],
+    clients: [],
+    hubBlurb: 'Consideration content plus the warranty and delivery answers that close the sale.',
+    hubImage: 'furniture',
+  },
+  'automobiles': {
+    slug: 'automobiles',
+    name: 'Automobiles',
+    eyebrow: 'For dealerships & auto',
+    headline: 'Test drives are won',
+    headlineEmphasis: 'in the first reply.',
+    subheadline:
+      'An auto enquiry is almost always sent to several dealers at once. The one that replies first, with a real answer about variant, price and availability, is usually the one that gets the test drive.',
+    seoTitle: 'Nebulaa for Automobile Dealerships — Enquiry & Content',
+    seoDescription:
+      'Fast enquiry qualification and consistent showroom content for dealerships — variant, finance and availability questions answered before the competing dealer replies.',
+    painPoints: [
+      'Enquiries sent to four dealers at once, where the slowest reply loses',
+      'Finance and exchange questions that need a fast, accurate answer',
+      'Service reminders and follow-ups that nobody has time to run',
+      'Showroom content that stops the moment the sales team gets busy',
+    ],
+    useCases: [
+      { title: 'First-reply advantage', desc: 'Variant, on-road price, availability and finance questions answered in minutes, while the buyer is still comparing.', agent: 'Pulsar' },
+      { title: 'Test drive booking', desc: 'Qualified enquiries turned into a booked test drive with the details already captured.', agent: 'Pulsar' },
+      { title: 'Showroom and model content', desc: 'New arrivals, variants, offers and customer deliveries published consistently.', agent: 'Gravity' },
+      { title: 'Service and exchange follow-up', desc: 'Sequences that keep existing customers coming back for service and exchange, without manual chasing.', agent: 'Pulsar' },
+    ],
+    clients: [],
+    hubBlurb: 'Reply first on variant, price and finance — then book the test drive.',
+    hubImage: 'auto',
+  },
 }
-
 export function getIndustryData(slug: string): IndustryData | null {
   return industries[slug] ?? null
 }

@@ -42,16 +42,16 @@ export default function CookieConsent() {
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           className="fixed bottom-5 left-1/2 -translate-x-1/2 z-[80] w-[calc(100%-2rem)] max-w-xl"
         >
-          <div className="bg-[#111111] border border-white/[0.10] rounded-2xl shadow-[0_18px_60px_rgba(0,0,0,0.55)] px-6 py-5">
+          <div className="bg-surface border border-rule-2 rounded-2xl shadow-[0_18px_60px_rgba(0,0,0,0.55)] px-6 py-5">
             <div className="flex flex-col sm:flex-row sm:items-center gap-5">
               <div className="flex-1">
-                <p className="font-body text-[14px] text-white/85 mb-1.5">Cookies</p>
-                <p className="font-body text-[13px] leading-[1.6] text-white/45">
+                <p className="font-body text-[14px] text-ink mb-1.5">Cookies</p>
+                <p className="font-body text-[13px] leading-[1.6] text-muted">
                   We use a small number of cookies to understand how the site is used. No advertising
                   trackers. See our{' '}
                   <Link
                     href="/privacy-policy"
-                    className="text-white/65 underline underline-offset-2 hover:text-brand-gold transition-colors"
+                    className="text-ink-2 underline underline-offset-2 hover:text-gold-text transition-colors"
                   >
                     privacy policy
                   </Link>
@@ -62,13 +62,13 @@ export default function CookieConsent() {
               <div className="flex gap-2.5 flex-shrink-0">
                 <button
                   onClick={() => accept(false)}
-                  className="font-body text-[13px] text-white/60 hover:text-white border border-white/[0.12] hover:border-white/25 rounded-full px-[18px] py-2.5 transition-colors"
+                  className="font-body text-[13px] text-muted hover:text-ink border border-rule-2 hover:border-rule-2 rounded-full px-[18px] py-2.5 transition-colors"
                 >
                   Essential only
                 </button>
                 <button
                   onClick={() => accept(true)}
-                  className="font-body text-[13px] font-semibold bg-brand-gold text-[#1A1208] rounded-full px-[18px] py-2.5 hover:bg-brand-gold-dim transition-colors"
+                  className="font-body text-[13px] font-semibold bg-gold text-[#1A1208] rounded-full px-[18px] py-2.5 hover:bg-gold-dim transition-colors"
                 >
                   Accept
                 </button>

@@ -18,13 +18,13 @@ export default function IndustriesHubPage() {
   const list = Object.values(industries)
 
   return (
-    <main className="bg-[#0A0A0A] text-[#F5F4F1] min-h-screen">
+    <main className="bg-ground text-ink min-h-screen">
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[90px] max-w-[820px]">
         <SectionLabel className="mb-[26px] block">By industry</SectionLabel>
         <h1 className="font-heading font-medium text-[38px] md:text-[58px] leading-[1.1] tracking-[-0.02em] mb-[26px]">
-          Every industry sells <span className="italic text-brand-gold">differently.</span>
+          Every industry sells <span className="italic text-gold-text">differently.</span>
         </h1>
-        <p className="text-[17px] leading-[1.65] text-white/55 max-w-[620px]">
+        <p className="text-[17px] leading-[1.65] text-muted max-w-[620px]">
           A jewellery brand sells on trust built over decades. A snack brand entering a new city needs
           demand waiting before launch. Gravity and Pulsar adapt to how your business actually sells —
           here&apos;s what that looks like for each one we run today.
@@ -37,15 +37,15 @@ export default function IndustriesHubPage() {
             <Link
               key={ind.slug}
               href={`/for/${ind.slug}`}
-              className="group block bg-[#151515] border border-white/[0.06] rounded-[20px] px-[30px] pt-[32px] pb-[30px] hover:border-brand-gold/30 transition-colors"
+              className="group block bg-surface border border-rule rounded-[20px] px-[30px] pt-[32px] pb-[30px] hover:border-gold/30 transition-colors"
             >
               <SectionLabel tone="muted" className="mb-4 block">{ind.name}</SectionLabel>
-              <p className="text-[15px] leading-[1.6] text-white/60 mb-5">{ind.hubBlurb}</p>
+              <p className="text-[15px] leading-[1.6] text-muted mb-5">{ind.hubBlurb}</p>
               <div className="flex items-center justify-between">
-                <span className="text-[12.5px] text-white/35">
+                <span className="text-[12.5px] text-faint">
                   {ind.clients.length > 0 ? ind.clients.map(c => c.name).join(', ') : 'Sector capability'}
                 </span>
-                <span className="flex items-center gap-1.5 text-[13.5px] font-semibold text-brand-gold group-hover:gap-2.5 transition-all">
+                <span className="flex items-center gap-1.5 text-[13.5px] font-semibold text-gold-text group-hover:gap-2.5 transition-all">
                   Explore <ArrowRight size={14} />
                 </span>
               </div>

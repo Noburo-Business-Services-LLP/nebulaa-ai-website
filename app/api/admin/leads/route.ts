@@ -1,17 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
-import fs from 'fs'
-import path from 'path'
+import { readLeads, tryPersistLeads } from '@/lib/leadStore'
 
 function checkAuth(req: NextRequest) {
   const secret = req.headers.get('x-admin-secret')
   return secret?.trim() === process.env.ADMIN_SECRET?.trim()
 }
 
-const leadsPath = () => path.join(process.cwd(), 'data', 'leads.json')
-
 export async function GET(req: NextRequest) {
   if (!checkAuth(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  const leads = JSON.parse(fs.readFileSync(leadsPath(), 'utf8'))
+  const leads = readLeads()
   return NextResponse.json(leads)
 }
 
@@ -19,7 +16,7 @@ export async function POST(req: NextRequest) {
   if (!checkAuth(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   const { name, email, source, tags } = await req.json()
   if (!name || !email) return NextResponse.json({ error: 'Name and email required' }, { status: 400 })
-  const leads = JSON.parse(fs.readFileSync(leadsPath(), 'utf8'))
+  const leads = readLeads()
   const newLead = {
     id: Date.now().toString(),
     name,
@@ -29,15 +26,25 @@ export async function POST(req: NextRequest) {
     tags: tags || [],
   }
   leads.push(newLead)
-  fs.writeFileSync(leadsPath(), JSON.stringify(leads, null, 2))
+  if (!tryPersistLeads(leads)) {
+    return NextResponse.json(
+      { error: 'Read-only filesystem — lead not saved. See LEAD_STORAGE note in leadStore.ts.' },
+      { status: 503 },
+    )
+  }
   return NextResponse.json(newLead)
 }
 
 export async function DELETE(req: NextRequest) {
   if (!checkAuth(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   const { id } = await req.json()
-  const leads = JSON.parse(fs.readFileSync(leadsPath(), 'utf8'))
+  const leads = readLeads()
   const filtered = leads.filter((l: { id: string }) => l.id !== id)
-  fs.writeFileSync(leadsPath(), JSON.stringify(filtered, null, 2))
+  if (!tryPersistLeads(filtered)) {
+    return NextResponse.json(
+      { error: 'Read-only filesystem — deletion not saved.' },
+      { status: 503 },
+    )
+  }
   return NextResponse.json({ success: true })
 }

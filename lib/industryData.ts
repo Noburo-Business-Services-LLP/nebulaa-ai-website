@@ -23,6 +23,8 @@ export interface IndustryData {
   clients: IndustryClient[]
   hubBlurb: string
   hubImage: string
+  /** Optional media slot id for illustrative sample creative. */
+  creativeSlot?: string
 }
 
 /**
@@ -57,6 +59,7 @@ export const industries: Record<string, IndustryData> = {
     clients: [{ name: 'Gandhimathi Jewellers', stage: 'active' }],
     hubBlurb: 'Craft and trust, posted consistently — enquiries answered before they cool.',
     hubImage: 'jewellery',
+    creativeSlot: 'creative-jewellery',
   },
   'textile-apparel': {
     slug: 'textile-apparel',
@@ -84,6 +87,7 @@ export const industries: Record<string, IndustryData> = {
     clients: [{ name: 'JKR Tex', stage: 'active' }],
     hubBlurb: 'One content system for every branch — nothing goes quiet during peak season.',
     hubImage: 'textile',
+    creativeSlot: 'creative-textile',
   },
   'financial-services': {
     slug: 'financial-services',
@@ -141,6 +145,7 @@ export const industries: Record<string, IndustryData> = {
     ],
     hubBlurb: 'Demand built before launch day, not scrambled together after it.',
     hubImage: 'fmcg',
+    creativeSlot: 'creative-fmcg',
   },
   'industrial-b2b': {
     slug: 'industrial-b2b',

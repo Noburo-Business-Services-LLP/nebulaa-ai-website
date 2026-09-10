@@ -10,6 +10,7 @@ import {
   servicesPageMeta,
 } from '@/lib/servicesData'
 import SectionLabel from '@/components/ui/SectionLabel'
+import MediaSlot from '@/components/ui/MediaSlot'
 
 export const metadata: Metadata = {
   title: servicesPageMeta.seoTitle,
@@ -178,6 +179,13 @@ export default function ServicesPage() {
           Media spend and creator fees are billed separately, at actuals — never marked up and never
           buried inside the retainer.
         </p>
+
+        {/* On-ground activation is the least visible thing we do and the hardest
+            for a competitor to copy — it should not be text-only. */}
+        <div className="grid md:grid-cols-2 gap-5 mt-[52px]">
+          <MediaSlot id="btl-sampling" ratio="3 / 2" />
+          <MediaSlot id="btl-instore" ratio="3 / 2" />
+        </div>
       </section>
 
       <hr className="border-t border-rule" />

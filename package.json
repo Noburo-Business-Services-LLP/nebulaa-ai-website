@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "media:scan": "node scripts/scan-media.mjs",
+    "prebuild": "node scripts/scan-media.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",

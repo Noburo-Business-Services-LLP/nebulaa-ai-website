@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { X } from 'lucide-react'
 import { getIndustryData, industries } from '@/lib/industryData'
 import SectionLabel from '@/components/ui/SectionLabel'
+import MediaSlot from '@/components/ui/MediaSlot'
 
 export function generateStaticParams() {
   return Object.keys(industries).map(slug => ({ industry: slug }))
@@ -103,6 +104,28 @@ export default function IndustryPage({ params }: { params: { industry: string } 
           ))}
         </div>
       </section>
+
+      {/* Sample creative — illustrative of Gravity's output, never captioned
+          as a named client's published work. */}
+      {data.creativeSlot && (
+        <>
+          <hr className="border-t border-rule" />
+          <section className="px-6 md:px-12 lg:px-[120px] py-[100px]">
+            <div className="max-w-[640px] mb-9">
+              <SectionLabel className="mb-[18px] block">What the output looks like</SectionLabel>
+              <h2 className="font-heading font-medium text-[28px] md:text-4xl mb-3.5">
+                The kind of post Gravity writes <span className="italic text-gold-text">for this sector.</span>
+              </h2>
+              <p className="text-[15px] leading-[1.65] text-muted">
+                Illustrative of the format and tone — not a client&apos;s published campaign.
+              </p>
+            </div>
+            <div className="max-w-[420px]">
+              <MediaSlot id={data.creativeSlot} ratio="1 / 1" />
+            </div>
+          </section>
+        </>
+      )}
 
       {/* Close */}
       <section className="relative px-6 md:px-12 lg:px-[120px] py-[130px] pb-[140px] text-center border-t border-rule overflow-hidden">

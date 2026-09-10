@@ -829,7 +829,7 @@ function BlogWriter({ secret }: { secret: string }) {
             </div>
           </div>
           <button onClick={generate} disabled={generating || !topic.trim()} className="flex items-center gap-2 bg-brand-gold text-brand-black font-body font-bold rounded-full px-6 py-3 hover:bg-brand-gold-dim transition-all disabled:opacity-40 disabled:cursor-not-allowed">
-            {generating ? <><span className="animate-spin">⚡</span> Generating...</> : <>✍️ Generate with Claude</>}
+            {generating ? 'Generating…' : 'Generate with Claude'}
           </button>
           {error && <p className="text-red-400 text-sm font-body">❌ {error}</p>}
         </div>
@@ -945,7 +945,6 @@ function NewsletterComposer({ secret }: { secret: string }) {
       <div className="space-y-4">
         <div className="bg-[#111110] border border-white/8 rounded-2xl p-5 space-y-4">
           <div className="flex items-center gap-2 text-white/40 text-xs font-body">
-            <span>📬</span>
             <span>{leadCount} subscribers</span>
           </div>
           <div>
@@ -953,7 +952,7 @@ function NewsletterComposer({ secret }: { secret: string }) {
             <textarea value={topic} onChange={e => setTopic(e.target.value)} rows={3} placeholder="e.g. 'why cold calling is back in 2026'" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white font-body text-sm resize-none outline-none focus:border-brand-gold transition-colors placeholder:text-white/20" />
           </div>
           <button onClick={generate} disabled={generating || !topic.trim()} className="flex items-center gap-2 bg-brand-gold text-brand-black font-body font-bold rounded-full px-6 py-3 hover:bg-brand-gold-dim transition-all disabled:opacity-40">
-            {generating ? <><span className="animate-spin">⚡</span> Generating...</> : <>✍️ Generate Newsletter</>}
+            {generating ? 'Generating…' : 'Generate Newsletter'}
           </button>
           {error && <p className="text-red-400 text-sm font-body">❌ {error}</p>}
         </div>
@@ -1146,13 +1145,13 @@ export default function AdminPage() {
   if (!secret) return <AuthGate onAuth={setSecret} />
 
   const tabs = [
-    { id: 'dashboard', label: '📊 Overview', key: 'dashboard' as const },
-    { id: 'website', label: '🌐 Website', key: 'website' as const },
-    { id: 'blog-analytics', label: '📈 Blog', key: 'blog-analytics' as const },
-    { id: 'nl-analytics', label: '📬 Newsletter', key: 'nl-analytics' as const },
-    { id: 'blog', label: '✍️ Write', key: 'blog' as const },
-    { id: 'newsletter', label: '📧 Send', key: 'newsletter' as const },
-    { id: 'leads', label: '👥 Leads', key: 'leads' as const },
+    { id: 'dashboard', label: 'Overview', key: 'dashboard' as const },
+    { id: 'website', label: 'Website', key: 'website' as const },
+    { id: 'blog-analytics', label: 'Blog', key: 'blog-analytics' as const },
+    { id: 'nl-analytics', label: 'Newsletter', key: 'nl-analytics' as const },
+    { id: 'blog', label: 'Write', key: 'blog' as const },
+    { id: 'newsletter', label: 'Send', key: 'newsletter' as const },
+    { id: 'leads', label: 'Leads', key: 'leads' as const },
   ]
 
   return (
@@ -1171,9 +1170,14 @@ export default function AdminPage() {
               </button>
             ))}
           </div>
-          <button onClick={() => { sessionStorage.removeItem('admin_secret'); setSecret(null) }} className="text-white/30 hover:text-white/60 font-body text-xs transition-colors">
-            logout
-          </button>
+          <div className="flex items-center gap-4">
+            <a href="/admin/media" className="text-white/40 hover:text-brand-gold font-body text-xs transition-colors whitespace-nowrap">
+              media slots
+            </a>
+            <button onClick={() => { sessionStorage.removeItem('admin_secret'); setSecret(null) }} className="text-white/30 hover:text-white/60 font-body text-xs transition-colors">
+              logout
+            </button>
+          </div>
         </div>
       </div>
 

@@ -42,7 +42,7 @@ export default function IndustryPage({ params }: { params: { industry: string } 
           {data.subheadline}
         </p>
         <a
-          href="/#pricing"
+          href="/pricing"
           className="inline-block bg-gold text-[#1A1208] text-[15px] font-semibold px-[28px] py-[14px] rounded-full shadow-[0_6px_26px_rgba(245,166,35,0.24)] hover:brightness-105 transition"
         >
           Start free trial →
@@ -121,7 +121,7 @@ export default function IndustryPage({ params }: { params: { industry: string } 
             no brief, no onboarding call.
           </p>
           <a
-            href="/#pricing"
+            href="/pricing"
             className="inline-block bg-gold text-[#1A1208] text-[15px] font-semibold px-[30px] py-[15px] rounded-full shadow-[0_6px_26px_rgba(245,166,35,0.24)] hover:brightness-105 transition"
           >
             Start your free 7-day trial →

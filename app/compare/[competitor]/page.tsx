@@ -143,7 +143,7 @@ export default function ComparePage({ params }: { params: { competitor: string }
           <p className="font-heading font-bold text-2xl text-brand-text dark:text-white mb-4">Ready to try Nebulaa?</p>
           <p className="font-body text-base text-brand-muted dark:text-white/60 mb-6">7-day free trial. No credit card required.</p>
           <a
-            href="/#pricing"
+            href="/pricing"
             className="inline-flex items-center gap-2 bg-brand-gold text-brand-black font-body font-semibold rounded-full px-8 py-3.5 hover:bg-brand-gold-dim transition-all hover:scale-[1.03]"
           >
             Start free trial →

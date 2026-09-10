@@ -241,7 +241,7 @@ export default function GTMLaunchChecklist() {
       <div className="px-1">
         <p className="font-body text-xs text-brand-muted dark:text-white/50">
           💡 Want Gravity to handle the Content and Outreach sections automatically?{' '}
-          <a href="/#pricing" className="text-brand-gold hover:underline">Try Nebulaa free →</a>
+          <a href="/pricing" className="text-brand-gold hover:underline">Try Nebulaa free →</a>
         </p>
       </div>
     </div>

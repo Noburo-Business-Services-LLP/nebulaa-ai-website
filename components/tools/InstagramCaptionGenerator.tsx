@@ -280,7 +280,7 @@ export default function InstagramCaptionGenerator() {
             <div className="px-1">
               <p className="font-body text-xs text-brand-muted dark:text-white/50">
                 💡 Tip: Post the hashtags in the first comment, not the caption, for a cleaner look. Want automated captions daily?{' '}
-                <a href="/#pricing" className="text-brand-gold hover:underline">Try Gravity →</a>
+                <a href="/pricing" className="text-brand-gold hover:underline">Try Gravity →</a>
               </p>
             </div>
           </motion.div>

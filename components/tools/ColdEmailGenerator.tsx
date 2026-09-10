@@ -219,7 +219,7 @@ export default function ColdEmailGenerator() {
             <div className="px-5 py-3 bg-brand-gold/5 dark:bg-brand-gold/10 border-t border-brand-border dark:border-white/5">
               <p className="font-body text-xs text-brand-muted dark:text-white/50">
                 💡 Tip: Personalize the first line with something specific about their company. Response rates jump 3x with genuine personalization.{' '}
-                <a href="/#pricing" className="text-brand-gold hover:underline">Automate your outreach with Pulsar →</a>
+                <a href="/pricing" className="text-brand-gold hover:underline">Automate your outreach with Pulsar →</a>
               </p>
             </div>
           </motion.div>

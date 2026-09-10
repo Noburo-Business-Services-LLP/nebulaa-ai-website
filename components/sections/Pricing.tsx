@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Linkedin, Instagram, Twitter, Mail, MessageSquare } from 'lucide-react'
+import { Linkedin, Instagram, Twitter, Mail, MessageSquare, Check } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
 import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animations'
@@ -16,6 +16,17 @@ const replaces = [
   { item: 'WhatsApp Business API / CRM', cost: '₹5,000–10,000/mo' },
   { item: 'Someone to answer leads fast', cost: '₹8,000–12,000/mo' },
   { item: 'Weeks spent interviewing', cost: '4–6 weeks, before they start' },
+]
+
+// The other half of the same comparison — asserting a total without
+// itemising our side is only doing half the arithmetic for the reader.
+const included = [
+  'Strategy and ICP, built from your URL',
+  'A month of content planned and drafted',
+  'Posts, carousels and AI reels',
+  'Competitor tracking and counter-content',
+  'WhatsApp, email and SMS handled',
+  'Live on Thursday, not in six weeks',
 ]
 
 const plans = [
@@ -115,11 +126,24 @@ export default function Pricing() {
         </div>
         <div className="flex items-center justify-between gap-4 px-6 md:px-9 py-6 border-t border-rule-2 bg-surface-2">
           <span className="font-heading text-[20px] md:text-[22px] font-medium">Doing it yourself</span>
-          <span className="font-heading text-[20px] md:text-[22px] font-medium text-muted">₹58,000–97,000+/mo</span>
+          <span className="font-heading text-[20px] md:text-[22px] font-medium text-muted tabular-nums">₹58,000–97,000+/mo</span>
         </div>
-        <div className="flex items-center justify-between gap-4 px-6 md:px-9 py-6 border-t border-gold/[0.18] bg-gold/[0.06]">
+
+        {/* Our side of the ledger, itemised the same way */}
+        <div className="px-6 md:px-9 pt-7 pb-5 border-t border-gold/[0.18] bg-gold/[0.05]">
+          <div className="neb-label neb-label-gold">What you get instead</div>
+        </div>
+        <div className="px-6 md:px-9 bg-gold/[0.05]">
+          {included.map(item => (
+            <div key={item} className="flex items-center gap-3 py-3.5 border-t border-gold/[0.14]">
+              <Check size={15} className="text-gold-text flex-shrink-0" />
+              <span className="font-body text-[14.5px] text-ink-2">{item}</span>
+            </div>
+          ))}
+        </div>
+        <div className="flex items-center justify-between gap-4 px-6 md:px-9 py-6 border-t border-gold/[0.18] bg-gold/[0.09]">
           <span className="font-heading text-[20px] md:text-[22px] font-medium text-gold-text">With Nebulaa</span>
-          <span className="font-heading text-[24px] md:text-[26px] font-medium text-gold-text">From ₹10,000/mo</span>
+          <span className="font-heading text-[24px] md:text-[26px] font-medium text-gold-text tabular-nums">From ₹10,000/mo</span>
         </div>
       </motion.div>
 

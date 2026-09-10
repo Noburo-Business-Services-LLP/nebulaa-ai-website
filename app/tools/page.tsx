@@ -92,7 +92,7 @@ export default function ToolsPage() {
           </div>
           <div className="flex flex-col gap-[13px]">
             <a
-              href="/#pricing"
+              href="/pricing"
               className="bg-gold text-[#1A1208] text-[15px] font-semibold py-[15px] rounded-full text-center shadow-[0_6px_22px_rgba(245,166,35,0.22)] hover:brightness-105 transition"
             >
               Start free — no card

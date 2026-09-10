@@ -30,7 +30,7 @@ const MOBILE_LINKS = [
   { label: 'Free tools', href: '/tools' },
   { label: 'By industry', href: '/for' },
   { label: 'Compare', href: '/compare' },
-  { label: 'Pricing', href: '/#pricing' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'Playbook', href: '/blog' },
 ]
 
@@ -138,7 +138,7 @@ export default function Navbar() {
             </Link>
 
             <a
-              href="/#pricing"
+              href="/pricing"
               className="relative font-body text-sm text-muted hover:text-ink transition-colors group"
             >
               Pricing
@@ -199,7 +199,7 @@ export default function Navbar() {
               Sign in
             </a>
             <a
-              href="/#pricing"
+              href="/pricing"
               className="font-body text-sm font-semibold bg-brand-gold text-brand-black rounded-full px-[22px] py-[11px] shadow-[0_4px_18px_rgba(245,166,35,0.20)] hover:bg-brand-gold-dim transition-all"
             >
               Start free
@@ -253,7 +253,7 @@ export default function Navbar() {
                 Sign in
               </a>
               <a
-                href="/#pricing"
+                href="/pricing"
                 className="font-body text-sm font-semibold bg-brand-gold text-brand-black rounded-full px-5 py-3.5 text-center hover:bg-brand-gold-dim transition-all"
                 onClick={() => setMobileOpen(false)}
               >

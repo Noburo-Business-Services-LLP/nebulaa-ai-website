@@ -97,7 +97,7 @@ export default async function BlogPost({ params }: Props) {
             <h3 className="font-heading text-lg font-bold text-brand-text dark:text-white mb-2">Ready to automate your GTM?</h3>
             <p className="font-body text-sm text-brand-muted dark:text-white/50 mb-4">100 free credits. No card required. Setup in 24 hours.</p>
             <a
-              href="/#pricing"
+              href="/pricing"
               className="inline-flex items-center gap-2 bg-brand-gold text-brand-black font-body font-semibold rounded-full px-6 py-3 hover:bg-brand-gold-dim transition-all hover:scale-[1.03]"
             >
               Start your free trial →

@@ -93,7 +93,7 @@ export default function CACCalculator() {
             <div className="bg-brand-gold/5 dark:bg-brand-gold/10 rounded-2xl p-4 border border-brand-gold/20">
               <p className="font-body text-xs text-brand-muted dark:text-white/50">
                 💡 Target LTV:CAC ratio of 3:1 or higher for sustainable growth. Use our Free LTV Calculator to check your ratio.{' '}
-                <a href="/#pricing" className="text-brand-gold hover:underline">Try Gravity →</a>
+                <a href="/pricing" className="text-brand-gold hover:underline">Try Gravity →</a>
               </p>
             </div>
           </motion.div>

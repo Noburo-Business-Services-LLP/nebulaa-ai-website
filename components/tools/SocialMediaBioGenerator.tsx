@@ -197,7 +197,7 @@ export default function SocialMediaBioGenerator() {
             <div className="px-1">
               <p className="font-body text-xs text-brand-muted dark:text-white/50">
                 💡 Tip: Update your bios every quarter as your focus evolves. Consistent bios across platforms build trust faster.{' '}
-                <a href="/#pricing" className="text-brand-gold hover:underline">Automate your content with Gravity →</a>
+                <a href="/pricing" className="text-brand-gold hover:underline">Automate your content with Gravity →</a>
               </p>
             </div>
           </motion.div>

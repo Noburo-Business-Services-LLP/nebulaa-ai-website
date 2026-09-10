@@ -112,7 +112,7 @@ export default function ROICalculator() {
             <div className="bg-brand-gold/5 dark:bg-brand-gold/10 rounded-2xl p-4 border border-brand-gold/20">
               <p className="font-body text-xs text-brand-muted dark:text-white/50">
                 💡 Industry benchmark: B2B marketing typically targets 3-5x ROI (300-500%). Automate your highest-ROI activities to scale returns.{' '}
-                <a href="/#pricing" className="text-brand-gold hover:underline">Try Gravity →</a>
+                <a href="/pricing" className="text-brand-gold hover:underline">Try Gravity →</a>
               </p>
             </div>
           </motion.div>

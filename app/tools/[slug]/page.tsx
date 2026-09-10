@@ -153,7 +153,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 Gravity does this automatically every day. No manual input needed.
               </p>
               <a
-                href="/#pricing"
+                href="/pricing"
                 className="block text-center bg-brand-gold text-brand-black font-body font-semibold text-sm rounded-full px-4 py-2.5 hover:bg-brand-gold-dim transition-all"
               >
                 Try Nebulaa free →

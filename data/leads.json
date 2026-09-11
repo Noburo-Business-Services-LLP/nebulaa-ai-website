@@ -5,7 +5,10 @@
     "email": "arjun@example.com",
     "source": "Gravity Trial",
     "date": "2026-03-15",
-    "tags": ["gravity", "saas-founder"]
+    "tags": [
+      "gravity",
+      "saas-founder"
+    ]
   },
   {
     "id": "2",
@@ -13,6 +16,8 @@
     "email": "priya@example.com",
     "source": "Newsletter Signup",
     "date": "2026-03-18",
-    "tags": ["newsletter"]
+    "tags": [
+      "newsletter"
+    ]
   }
 ]

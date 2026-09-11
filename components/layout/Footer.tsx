@@ -24,6 +24,7 @@ const servicesLinks = [
 
 const freeLinks = [
   { name: '30 free tools', href: '/tools' },
+  { name: 'Downloads', href: '/resources' },
   { name: 'Compare', href: '/compare' },
   { name: 'Playbook', href: '/blog' },
 ]

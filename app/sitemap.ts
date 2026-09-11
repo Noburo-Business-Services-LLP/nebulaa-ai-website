@@ -7,6 +7,7 @@ import { capabilities, agents } from '@/lib/productData'
 import { channels } from '@/lib/channelData'
 import { servicePages } from '@/lib/servicePageData'
 import { engagements } from '@/lib/engagementData'
+import { resources } from '@/lib/resourceData'
 
 /**
  * Everything here is derived from the data that generates the pages, never
@@ -38,6 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/compare', 0.8, 'monthly'),
     entry('/tools', 0.85, 'weekly'),
     entry('/blog', 0.85, 'daily'),
+    entry('/resources', 0.85, 'monthly'),
     entry('/facts', 0.6, 'monthly'),
 
     // Product — agent hubs and every capability
@@ -62,6 +64,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Journal
     ...blogPosts.map(p => entry(`/blog/${p.slug}`, 0.65)),
+
+    // Gated downloads
+    ...resources.map(r => entry(`/resources/${r.slug}`, 0.7)),
 
     // Legal
     entry('/privacy-policy', 0.3, 'yearly'),

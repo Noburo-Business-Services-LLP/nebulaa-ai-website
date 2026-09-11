@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence, useScroll } from 'framer-motion'
-import { ChevronDown, Menu, X, Radar, MessageSquareText, Wrench, ScrollText, Building2, Scale, Layers, Briefcase } from 'lucide-react'
+import { ChevronDown, Menu, X, Radar, MessageSquareText, Wrench, ScrollText, Building2, Scale, Layers, Briefcase, Download } from 'lucide-react'
 
 const GOLD_DOT_STYLE = {
   background:
@@ -19,6 +19,7 @@ const PRODUCT_LINKS = [
 
 const RESOURCES_LINKS = [
   { name: 'Free tools', desc: '30 free generators and calculators, no signup', href: '/tools', icon: Wrench },
+  { name: 'Downloads', desc: 'Festival calendar, playbooks and templates', href: '/resources', icon: Download },
   { name: 'Engagements', desc: 'The three shapes of managed work, and what each includes', href: '/work', icon: Briefcase },
   { name: 'By industry', desc: 'How Gravity and Pulsar run per vertical', href: '/for', icon: Building2 },
   { name: 'Compare', desc: 'Nebulaa vs Buffer, Hootsuite, Jasper and more', href: '/compare', icon: Scale },
@@ -32,6 +33,7 @@ const MOBILE_LINKS = [
   { label: 'Channels', href: '/channels' },
   { label: 'Services', href: '/services' },
   { label: 'Free tools', href: '/tools' },
+  { label: 'Downloads', href: '/resources' },
   { label: 'Engagements', href: '/work' },
   { label: 'By industry', href: '/for' },
   { label: 'Compare', href: '/compare' },

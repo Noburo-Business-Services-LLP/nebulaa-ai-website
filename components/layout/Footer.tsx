@@ -18,6 +18,7 @@ const productLinks = [
 const servicesLinks = [
   { name: 'Managed services', href: '/services' },
   { name: 'Channels', href: '/channels' },
+  { name: 'Engagements', href: '/work' },
   { name: 'By industry', href: '/for' },
 ]
 

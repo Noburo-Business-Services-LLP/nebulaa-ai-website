@@ -50,6 +50,8 @@ const config: Config = {
         heading: ['Playfair Display', 'Georgia', 'serif'],
         body:    ['Inter', 'DM Sans', 'sans-serif'],
         sans:    ['Inter', 'DM Sans', 'sans-serif'],
+        // Utility face for data, routes, stats and product-UI mockups
+        mono:    ['IBM Plex Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       fontSize: {
         'display-xl': ['80px', { lineHeight: '0.95', letterSpacing: '-0.03em' }],

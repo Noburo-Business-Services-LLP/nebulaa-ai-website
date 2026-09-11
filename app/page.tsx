@@ -5,6 +5,7 @@ import GravitySection from '@/components/sections/GravitySection'
 import PulsarSection from '@/components/sections/PulsarSection'
 import MadeByGravity from '@/components/sections/MadeByGravity'
 import EntryFork from '@/components/sections/EntryFork'
+import NarrativeDemo from '@/components/sections/NarrativeDemo'
 import Pricing from '@/components/sections/Pricing'
 import FAQ from '@/components/sections/FAQ'
 import Newsletter from '@/components/sections/Newsletter'
@@ -20,10 +21,11 @@ export default function Home() {
       <Hero />
       <ClientStrip />
       <ThreeThings />
+      <EntryFork />
+      <NarrativeDemo />
       <GravitySection />
       <PulsarSection />
       <MadeByGravity />
-      <EntryFork />
       <Pricing />
       <FAQ />
       <Newsletter />

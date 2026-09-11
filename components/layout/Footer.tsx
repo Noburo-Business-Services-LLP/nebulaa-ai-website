@@ -151,6 +151,7 @@ export default function Footer() {
       <div className="mt-[50px] pt-6 border-t border-rule flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <span className="font-body text-[12px] text-muted">&copy; 2026 Nebulaa. All rights reserved.</span>
         <div className="flex items-center gap-5">
+          <a href="/facts" className="font-body text-[12px] text-muted hover:text-ink transition-colors">Facts</a>
           <a href="/privacy-policy" className="font-body text-[12px] text-muted hover:text-ink transition-colors">Privacy</a>
           <a href="/terms" className="font-body text-[12px] text-muted hover:text-ink transition-colors">Terms</a>
         </div>

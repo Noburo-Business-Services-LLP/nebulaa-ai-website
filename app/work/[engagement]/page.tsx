@@ -5,6 +5,7 @@ import { ArrowRight, Check } from 'lucide-react'
 import { engagements, getEngagement } from '@/lib/engagementData'
 import SectionLabel from '@/components/ui/SectionLabel'
 import FaqList from '@/components/ui/FaqList'
+import Schema, { breadcrumbSchema, serviceSchema } from '@/components/ui/Schema'
 
 export function generateStaticParams() {
   return engagements.map(e => ({ engagement: e.slug }))
@@ -28,6 +29,15 @@ export default function EngagementPage({ params }: { params: { engagement: strin
 
   return (
     <main className="bg-ground text-ink min-h-screen">
+      <Schema
+        data={breadcrumbSchema([
+          { name: 'Engagements', path: '/work' },
+          { name: eng.name, path: `/work/${eng.slug}` },
+        ])}
+      />
+      <Schema
+        data={serviceSchema({ name: eng.name, description: eng.seoDescription, url: `/work/${eng.slug}` })}
+      />
       <section className="px-6 md:px-12 lg:px-[120px] pt-[130px] pb-[80px]">
         <nav className="flex items-center gap-2 text-[12.5px] text-faint mb-8">
           <Link href="/work" className="hover:text-gold-text">Engagements</Link>

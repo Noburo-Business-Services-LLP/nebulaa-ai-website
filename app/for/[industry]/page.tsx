@@ -4,6 +4,7 @@ import { X } from 'lucide-react'
 import { getIndustryData, industries } from '@/lib/industryData'
 import SectionLabel from '@/components/ui/SectionLabel'
 import MediaSlot from '@/components/ui/MediaSlot'
+import Schema, { breadcrumbSchema, serviceSchema } from '@/components/ui/Schema'
 
 export function generateStaticParams() {
   return Object.keys(industries).map(slug => ({ industry: slug }))
@@ -31,6 +32,19 @@ export default function IndustryPage({ params }: { params: { industry: string } 
 
   return (
     <main className="bg-ground text-ink min-h-screen">
+      <Schema
+        data={breadcrumbSchema([
+          { name: 'By industry', path: '/for' },
+          { name: data.name, path: `/for/${data.slug}` },
+        ])}
+      />
+      <Schema
+        data={serviceSchema({
+          name: `Marketing for ${data.name}`,
+          description: data.seoDescription,
+          url: `/for/${data.slug}`,
+        })}
+      />
       {/* Hero */}
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[90px] max-w-[900px]">
         <SectionLabel className="mb-[26px] block">{data.eyebrow}</SectionLabel>

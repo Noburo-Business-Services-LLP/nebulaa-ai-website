@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import ThemeProvider from '@/components/providers/ThemeProvider'
+import Schema from '@/components/ui/Schema'
+import { organizationSchema } from '@/lib/orgFacts'
 import SiteShell from '@/components/layout/SiteShell'
 
 export const metadata: Metadata = {
@@ -41,20 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'SoftwareApplication',
-              name: 'Nebulaa.ai',
-              applicationCategory: 'BusinessApplication',
-              description: 'Agentic AI for marketing and outreach. Built for Indian founders and SMBs.',
-              url: 'https://nebulaa.ai',
-              offers: { '@type': 'Offer', price: '10000', priceCurrency: 'INR' },
-            }),
-          }}
-        />
+        <Schema data={organizationSchema()} />
       </head>
       <body className="bg-ground text-ink font-body antialiased">
         <ThemeProvider>

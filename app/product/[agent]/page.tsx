@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation'
 import { ArrowRight } from 'lucide-react'
 import { agents, capabilitiesFor, type AgentId } from '@/lib/productData'
 import SectionLabel from '@/components/ui/SectionLabel'
+import Schema, { breadcrumbSchema, softwareApplicationSchema } from '@/components/ui/Schema'
+import { products } from '@/lib/orgFacts'
 
 export function generateStaticParams() {
   return Object.keys(agents).map(agent => ({ agent }))
@@ -26,8 +28,24 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
   const caps = capabilitiesFor(agent.id)
   const other = agent.id === 'gravity' ? agents.pulsar : agents.gravity
 
+  const priced = products.find(p => p.name === agent.name)
+
   return (
     <main className="bg-ground text-ink min-h-screen">
+      <Schema
+        data={breadcrumbSchema([
+          { name: 'Product', path: '/product' },
+          { name: agent.name, path: `/product/${agent.id}` },
+        ])}
+      />
+      <Schema
+        data={softwareApplicationSchema({
+          name: agent.name,
+          description: agent.seoDescription,
+          price: priced?.price,
+          url: `/product/${agent.id}`,
+        })}
+      />
       <section className="px-6 md:px-12 lg:px-[120px] pt-[130px] pb-[80px]">
         <nav className="flex items-center gap-2 text-[12.5px] text-faint mb-8">
           <Link href="/product" className="hover:text-gold-text">Product</Link>

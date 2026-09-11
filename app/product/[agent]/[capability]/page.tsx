@@ -6,6 +6,7 @@ import { capabilities, getCapability, capabilitiesFor, agents, type AgentId } fr
 import SectionLabel from '@/components/ui/SectionLabel'
 import MediaSlot from '@/components/ui/MediaSlot'
 import FaqList from '@/components/ui/FaqList'
+import Schema, { breadcrumbSchema, softwareApplicationSchema } from '@/components/ui/Schema'
 
 export function generateStaticParams() {
   return capabilities.map(c => ({ agent: c.agent, capability: c.slug }))
@@ -40,6 +41,20 @@ export default function CapabilityPage({
 
   return (
     <main className="bg-ground text-ink min-h-screen">
+      <Schema
+        data={breadcrumbSchema([
+          { name: 'Product', path: '/product' },
+          { name: agent.name, path: `/product/${agent.id}` },
+          { name: cap.name, path: `/product/${agent.id}/${cap.slug}` },
+        ])}
+      />
+      <Schema
+        data={softwareApplicationSchema({
+          name: `${agent.name} — ${cap.name}`,
+          description: cap.seoDescription,
+          url: `/product/${agent.id}/${cap.slug}`,
+        })}
+      />
       {/* Hero */}
       <section className="px-6 md:px-12 lg:px-[120px] pt-[130px] pb-[80px]">
         <nav className="flex items-center gap-2 text-[12.5px] text-faint mb-8">

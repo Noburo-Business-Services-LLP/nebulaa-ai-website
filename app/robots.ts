@@ -5,6 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
+      // The admin surface has no business in an index.
+      disallow: ['/admin', '/admin/'],
     },
     sitemap: 'https://nebulaa.ai/sitemap.xml',
   }

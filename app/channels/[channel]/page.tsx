@@ -5,6 +5,7 @@ import { ArrowRight, Check, Info } from 'lucide-react'
 import { channels, getChannel, runByLabel } from '@/lib/channelData'
 import SectionLabel from '@/components/ui/SectionLabel'
 import FaqList from '@/components/ui/FaqList'
+import Schema, { breadcrumbSchema, serviceSchema } from '@/components/ui/Schema'
 
 export function generateStaticParams() {
   return channels.map(c => ({ channel: c.slug }))
@@ -36,6 +37,15 @@ export default function ChannelPage({ params }: { params: { channel: string } })
 
   return (
     <main className="bg-ground text-ink min-h-screen">
+      <Schema
+        data={breadcrumbSchema([
+          { name: 'Channels', path: '/channels' },
+          { name: ch.name, path: `/channels/${ch.slug}` },
+        ])}
+      />
+      <Schema
+        data={serviceSchema({ name: `${ch.name} marketing`, description: ch.seoDescription, url: `/channels/${ch.slug}` })}
+      />
       <section className="px-6 md:px-12 lg:px-[120px] pt-[130px] pb-[80px]">
         <nav className="flex items-center gap-2 text-[12.5px] text-faint mb-8">
           <Link href="/channels" className="hover:text-gold-text">Channels</Link>

@@ -32,6 +32,21 @@ export default $config({
     const site = new sst.aws.Nextjs('Site', {
       link: [data],
 
+      domain: {
+        name: 'www.nebulaa.ai',
+        // Apex redirects to www rather than serving a second copy, so there is
+        // one canonical hostname for search engines and one place to debug.
+        redirects: ['nebulaa.ai'],
+        // DNS lives at Cloudflare, so SST creates no records — the CNAMEs are
+        // added there by hand. A wildcard cert is required rather than a
+        // per-host one: `www` is itself a CNAME, and DNS forbids resolving any
+        // name beneath a CNAME, so ACM can never read a validation record at
+        // `_xxx.www.nebulaa.ai`. Validating `*.nebulaa.ai` at the apex avoids
+        // that entirely.
+        dns: false,
+        cert: 'arn:aws:acm:us-east-1:609665073007:certificate/576ba9ff-7943-40dc-ac4c-b8c37b3ccdb0',
+      },
+
       // One always-live instance. The analytics beacon already keeps the
       // function warm during the day; this covers the quiet hours so the
       // first form submission of the morning doesn't pay a cold start.

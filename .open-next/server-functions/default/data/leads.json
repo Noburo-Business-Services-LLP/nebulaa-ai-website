@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "name": "Arjun Mehta",
+    "email": "arjun@example.com",
+    "source": "Gravity Trial",
+    "date": "2026-03-15",
+    "tags": [
+      "gravity",
+      "saas-founder"
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Priya Nair",
+    "email": "priya@example.com",
+    "source": "Newsletter Signup",
+    "date": "2026-03-18",
+    "tags": [
+      "newsletter"
+    ]
+  }
+]

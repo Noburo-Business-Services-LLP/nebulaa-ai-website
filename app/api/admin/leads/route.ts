@@ -1,22 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { isAdmin } from '@/lib/adminAuth'
 import { readLeads, tryPersistLeads } from '@/lib/leadStore'
 
-function checkAuth(req: NextRequest) {
-  const secret = req.headers.get('x-admin-secret')
-  return secret?.trim() === process.env.ADMIN_SECRET?.trim()
-}
-
 export async function GET(req: NextRequest) {
-  if (!checkAuth(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  const leads = readLeads()
+  if (!isAdmin(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  const leads = await readLeads()
   return NextResponse.json(leads)
 }
 
 export async function POST(req: NextRequest) {
-  if (!checkAuth(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  if (!isAdmin(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   const { name, email, source, tags } = await req.json()
   if (!name || !email) return NextResponse.json({ error: 'Name and email required' }, { status: 400 })
-  const leads = readLeads()
+  const leads = await readLeads()
   const newLead = {
     id: Date.now().toString(),
     name,
@@ -26,9 +22,9 @@ export async function POST(req: NextRequest) {
     tags: tags || [],
   }
   leads.push(newLead)
-  if (!tryPersistLeads(leads)) {
+  if (!(await tryPersistLeads(leads))) {
     return NextResponse.json(
-      { error: 'Read-only filesystem — lead not saved. See LEAD_STORAGE note in leadStore.ts.' },
+      { error: 'Lead store unavailable — lead not saved.' },
       { status: 503 },
     )
   }
@@ -36,13 +32,13 @@ export async function POST(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
-  if (!checkAuth(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  if (!isAdmin(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   const { id } = await req.json()
-  const leads = readLeads()
+  const leads = await readLeads()
   const filtered = leads.filter((l: { id: string }) => l.id !== id)
-  if (!tryPersistLeads(filtered)) {
+  if (!(await tryPersistLeads(filtered))) {
     return NextResponse.json(
-      { error: 'Read-only filesystem — deletion not saved.' },
+      { error: 'Lead store unavailable — deletion not saved.' },
       { status: 503 },
     )
   }

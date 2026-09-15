@@ -1,30 +1,34 @@
 import { NextRequest, NextResponse } from 'next/server'
-import fs from 'fs'
-import path from 'path'
+import { isAdmin } from '@/lib/adminAuth'
+import { readLeads } from '@/lib/leadStore'
+import { readJson } from '@/lib/s3Store'
+import { blogPosts } from '@/lib/blogData'
+import { listPublishedPosts } from '@/lib/blogStore'
 
-function checkAuth(req: NextRequest) {
-  const secret = req.headers.get('x-admin-secret')
-  return secret?.trim() === process.env.ADMIN_SECRET?.trim()
+interface SendRecord {
+  id: string
+  subject: string
+  date: string
+  sent: number
+  failed: number
+  totalLeads: number
+  testMode: boolean
 }
 
 export async function GET(req: NextRequest) {
-  if (!checkAuth(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-
-  const cwd = process.cwd()
+  if (!isAdmin(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
   // Leads / subscribers
-  const leadsPath = path.join(cwd, 'data', 'leads.json')
-  const leads: { id: string; name: string; email: string; source: string; date: string; tags: string[] }[] =
-    fs.existsSync(leadsPath) ? JSON.parse(fs.readFileSync(leadsPath, 'utf8')) : []
+  const leads = await readLeads()
 
   // Newsletter send history
-  const sendsPath = path.join(cwd, 'data', 'sends.json')
-  const sends: { id: string; subject: string; date: string; sent: number; failed: number; totalLeads: number; testMode: boolean }[] =
-    fs.existsSync(sendsPath) ? JSON.parse(fs.readFileSync(sendsPath, 'utf8')) : []
+  const sends = await readJson<SendRecord[]>('sends.json', [])
 
-  // Blog posts
-  const blogDir = path.join(cwd, 'content', 'blog')
-  const blogFiles = fs.existsSync(blogDir) ? fs.readdirSync(blogDir).filter(f => f.endsWith('.mdx')) : []
+  // Blog posts — the ones compiled into the repo, plus anything published
+  // through the admin page since the last deploy.
+  const published = await listPublishedPosts()
+  const repoSlugs = new Set(blogPosts.map(p => p.slug))
+  const totalPosts = blogPosts.length + published.filter(p => !repoSlugs.has(p.slug)).length
 
   // Subscriber growth — last 14 days
   const today = new Date()
@@ -57,7 +61,7 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({
     totalSubscribers: leads.length,
     thisMonthSignups: thisMonthCount,
-    totalBlogPosts: blogFiles.length,
+    totalBlogPosts: totalPosts,
     totalEmailsSent: totalSent,
     totalSendCampaigns: sends.filter(s => !s.testMode).length,
     growth,

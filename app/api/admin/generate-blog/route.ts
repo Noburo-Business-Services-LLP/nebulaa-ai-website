@@ -1,15 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { isAdmin } from '@/lib/adminAuth'
 import Anthropic from '@anthropic-ai/sdk'
-
-function checkAuth(req: NextRequest) {
-  const secret = req.headers.get('x-admin-secret')
-  return secret?.trim() === process.env.ADMIN_SECRET?.trim()
-}
 
 const client = new Anthropic()
 
 export async function POST(req: NextRequest) {
-  if (!checkAuth(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  if (!isAdmin(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
   const { topic, style, ideaPrompt } = await req.json()
 

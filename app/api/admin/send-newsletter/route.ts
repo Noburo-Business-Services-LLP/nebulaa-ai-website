@@ -1,15 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { isAdmin } from '@/lib/adminAuth'
 import { createTransport, buildNewsletterHTML } from '@/lib/mailer'
-import fs from 'fs'
-import path from 'path'
+import { readLeads } from '@/lib/leadStore'
+import { readJson, writeJson } from '@/lib/s3Store'
 
-function checkAuth(req: NextRequest) {
-  const secret = req.headers.get('x-admin-secret')
-  return secret?.trim() === process.env.ADMIN_SECRET?.trim()
+interface SendRecord {
+  id: string
+  subject: string
+  date: string
+  sent: number
+  failed: number
+  totalLeads: number
+  testMode: boolean
 }
 
 export async function POST(req: NextRequest) {
-  if (!checkAuth(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  if (!isAdmin(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
   const { subject, body, testMode, testEmail } = await req.json()
 
@@ -17,11 +23,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Subject and body are required' }, { status: 400 })
   }
 
-  // Read leads
-  const leadsPath = path.join(process.cwd(), 'data', 'leads.json')
-  const leads: { id: string; name: string; email: string }[] = JSON.parse(
-    fs.readFileSync(leadsPath, 'utf8')
-  )
+  const leads = await readLeads()
 
   const html = buildNewsletterHTML(subject, body)
   const transport = createTransport()
@@ -64,8 +66,7 @@ export async function POST(req: NextRequest) {
   }
 
   // Log send history
-  const sendsPath = path.join(process.cwd(), 'data', 'sends.json')
-  const sends = fs.existsSync(sendsPath) ? JSON.parse(fs.readFileSync(sendsPath, 'utf8')) : []
+  const sends = await readJson<SendRecord[]>('sends.json', [])
   sends.unshift({
     id: Date.now().toString(),
     subject: testMode ? `[TEST] ${subject}` : subject,
@@ -75,7 +76,7 @@ export async function POST(req: NextRequest) {
     totalLeads: leads.length,
     testMode: !!testMode,
   })
-  fs.writeFileSync(sendsPath, JSON.stringify(sends.slice(0, 50), null, 2)) // keep last 50
+  await writeJson('sends.json', sends.slice(0, 50)) // keep last 50
 
   return NextResponse.json({
     success: true,

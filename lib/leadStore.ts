@@ -1,5 +1,4 @@
-import fs from 'fs'
-import path from 'path'
+import { readJson, writeJson, isRemote } from '@/lib/s3Store'
 import { createTransport } from '@/lib/mailer'
 
 export interface Lead {
@@ -11,33 +10,20 @@ export interface Lead {
   tags: string[]
 }
 
-const leadsPath = () => path.join(process.cwd(), 'data', 'leads.json')
+const LEADS_KEY = 'leads.json'
 
-/**
- * Reads the local lead file. On a read-only host this still works — the file
- * is bundled at build time — it just won't contain anything captured in
- * production, which is what `notifyLead` exists to cover.
- */
-export function readLeads(): Lead[] {
-  try {
-    return JSON.parse(fs.readFileSync(leadsPath(), 'utf8'))
-  } catch {
-    return []
-  }
+/** Every captured lead. S3 in production, `data/leads.json` locally. */
+export async function readLeads(): Promise<Lead[]> {
+  return readJson<Lead[]>(LEADS_KEY, [])
 }
 
 /**
- * Persist to disk where the filesystem allows it (local dev, a VM, a container
- * with a volume). Serverless hosts mount the app read-only, so this is a
- * best-effort write and never the only copy of a lead — see `notifyLead`.
+ * Persist the lead list. This is now a durable write rather than the
+ * best-effort one it used to be, but `notifyLead` still runs on every signup:
+ * S3 can fail too, and a lead is worth two copies.
  */
-export function tryPersistLeads(leads: Lead[]): boolean {
-  try {
-    fs.writeFileSync(leadsPath(), JSON.stringify(leads, null, 2))
-    return true
-  } catch {
-    return false
-  }
+export async function tryPersistLeads(leads: Lead[]): Promise<boolean> {
+  return writeJson(LEADS_KEY, leads)
 }
 
 /**
@@ -61,8 +47,8 @@ export async function notifyLead(lead: Lead, persisted: boolean): Promise<boolea
         `Date:   ${lead.date}`,
         '',
         persisted
-          ? 'Also written to data/leads.json.'
-          : 'NOT written to disk (read-only filesystem) — this email is the only record.',
+          ? `Also stored in ${isRemote() ? 'S3' : 'data/leads.json'}.`
+          : 'NOT stored — this email is the only record. Check the lead store.',
       ].join('\n'),
     })
     return true

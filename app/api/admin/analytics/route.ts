@@ -1,21 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
-import fs from 'fs'
-import path from 'path'
-
-function checkAuth(req: NextRequest) {
-  return req.headers.get('x-admin-secret') === process.env.ADMIN_SECRET
-}
-
-interface PageView { page: string; date: string; referrer: string; ua: string }
+import { isAdmin } from '@/lib/adminAuth'
+import { readPageViews } from '@/lib/analyticsStore'
 
 export async function GET(req: NextRequest) {
-  if (!checkAuth(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  if (!isAdmin(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
-  const cwd = process.cwd()
-  const analyticsPath = path.join(cwd, 'data', 'analytics.json')
-  const views: PageView[] = fs.existsSync(analyticsPath)
-    ? JSON.parse(fs.readFileSync(analyticsPath, 'utf8'))
-    : []
+  // Sixty days covers the dashboard's widest window (this month vs last).
+  const views = await readPageViews(60)
 
   const today = new Date()
 

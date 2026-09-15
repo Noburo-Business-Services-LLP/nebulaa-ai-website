@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Valid email required' }, { status: 400 })
   }
 
-  const leads = readLeads()
+  const leads = await readLeads()
 
   if (leads.some(l => l.email.toLowerCase() === email.toLowerCase())) {
     return NextResponse.json({ success: true, message: 'already_subscribed' })
@@ -23,10 +23,9 @@ export async function POST(req: NextRequest) {
     tags: ['newsletter'],
   }
 
-  // Write where we can, and email either way — on a read-only host the write
-  // is a no-op, and the email is the only thing standing between a signup and
-  // a lost lead.
-  const persisted = tryPersistLeads([...leads, lead])
+  // Store the lead, and email it either way. Two independent copies, because
+  // a signup that reaches neither is a lost customer.
+  const persisted = await tryPersistLeads([...leads, lead])
   const notified = await notifyLead(lead, persisted)
 
   if (!persisted && !notified) {

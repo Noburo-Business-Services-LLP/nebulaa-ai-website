@@ -1,0 +1,62 @@
+/// <reference path="./.sst/platform/config.d.ts" />
+
+/**
+ * Nebulaa marketing site — OpenNext on AWS.
+ *
+ * The 145 prerendered pages and every static asset are uploaded to S3 and
+ * served from CloudFront's edge network. Only the nine API routes reach the
+ * Lambda server function. A second, private bucket holds mutable state —
+ * leads, per-day analytics, newsletter send history, admin-published posts —
+ * because the Lambda bundle itself is read-only.
+ */
+export default $config({
+  app(input) {
+    return {
+      name: 'nebulaa-website',
+      // Production keeps its buckets if the stack is ever torn down; the lead
+      // list is the one thing here that cannot be regenerated from the repo.
+      removal: input?.stage === 'production' ? 'retain' : 'remove',
+      protect: input?.stage === 'production',
+      home: 'aws',
+      providers: {
+        aws: { region: 'ap-south-1' },
+      },
+    }
+  },
+
+  async run() {
+    // Mutable application state. Private — reached only through the server
+    // function, never directly from the internet.
+    const data = new sst.aws.Bucket('Data')
+
+    const site = new sst.aws.Nextjs('Site', {
+      link: [data],
+
+      // One always-live instance. The analytics beacon already keeps the
+      // function warm during the day; this covers the quiet hours so the
+      // first form submission of the morning doesn't pay a cold start.
+      // Deliberately not Provisioned Concurrency, which costs ~$12/month.
+      warm: 1,
+
+      environment: {
+        DATA_BUCKET: data.name,
+
+        // Supplied from the deploy environment. ADMIN_SECRET unset means the
+        // admin API refuses every request — see lib/adminAuth.ts.
+        ADMIN_SECRET: process.env.ADMIN_SECRET ?? '',
+        ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY ?? '',
+        SMTP_HOST: process.env.SMTP_HOST ?? '',
+        SMTP_PORT: process.env.SMTP_PORT ?? '587',
+        SMTP_USER: process.env.SMTP_USER ?? '',
+        SMTP_PASS: process.env.SMTP_PASS ?? '',
+        SMTP_FROM: process.env.SMTP_FROM ?? '',
+        LEADS_NOTIFY_TO: process.env.LEADS_NOTIFY_TO ?? 'hello@nebulaa.ai',
+      },
+    })
+
+    return {
+      url: site.url,
+      dataBucket: data.name,
+    }
+  },
+})

@@ -1,27 +1,46 @@
 import { notFound } from 'next/navigation'
 import { blogPosts } from '@/lib/blogData'
+import { getPublishedPost, toMeta } from '@/lib/blogStore'
 import fs from 'fs'
 import path from 'path'
 import BlogEmailCapture from '@/components/ui/BlogEmailCapture'
 
 interface Props { params: { slug: string } }
 
+/**
+ * Only the repo's posts are prerendered. A slug published through the admin
+ * page is not known at build time, so it falls through to an on-demand render
+ * that reads the post from S3 — which is why dynamicParams stays on.
+ */
 export function generateStaticParams() {
   return blogPosts.map(p => ({ slug: p.slug }))
 }
 
-async function getContent(slug: string): Promise<string | null> {
+export const dynamicParams = true
+export const revalidate = 300
+
+/** The .mdx files that ship with the repo. */
+function getRepoContent(slug: string): string | null {
   const filePath = path.join(process.cwd(), 'content', 'blog', `${slug}.mdx`)
   if (!fs.existsSync(filePath)) return null
   return fs.readFileSync(filePath, 'utf-8')
 }
 
 export default async function BlogPost({ params }: Props) {
-  const post = blogPosts.find(p => p.slug === params.slug)
-  if (!post) notFound()
+  const repoPost = blogPosts.find(p => p.slug === params.slug)
 
-  const raw = await getContent(params.slug)
-  if (!raw) notFound()
+  let post = repoPost as (typeof blogPosts)[number] | undefined
+  let raw = repoPost ? getRepoContent(params.slug) : null
+
+  if (!raw) {
+    const stored = await getPublishedPost(params.slug)
+    if (stored) {
+      post = toMeta(stored)
+      raw = stored.content
+    }
+  }
+
+  if (!post || !raw) notFound()
 
   // Simple MDX → HTML conversion for static rendering
   const lines = raw.split('\n')

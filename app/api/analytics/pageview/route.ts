@@ -1,15 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import fs from 'fs'
-import path from 'path'
-
-interface PageView {
-  page: string
-  date: string
-  referrer: string
-  ua: string
-}
-
-const analyticsPath = () => path.join(process.cwd(), 'data', 'analytics.json')
+import { appendPageView, today, type PageView } from '@/lib/analyticsStore'
 
 export async function POST(req: NextRequest) {
   try {
@@ -18,23 +8,14 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false }, { status: 400 })
     }
 
-    const filePath = analyticsPath()
-    const views: PageView[] = fs.existsSync(filePath)
-      ? JSON.parse(fs.readFileSync(filePath, 'utf8'))
-      : []
-
     const entry: PageView = {
       page: page.slice(0, 200),
-      date: new Date().toISOString().split('T')[0],
+      date: today(),
       referrer: (referrer || '').slice(0, 200),
       ua: (req.headers.get('user-agent') || '').slice(0, 100),
     }
 
-    views.push(entry)
-
-    // Keep last 10,000 entries to avoid unbounded growth
-    const trimmed = views.slice(-10000)
-    fs.writeFileSync(filePath, JSON.stringify(trimmed, null, 2))
+    await appendPageView(entry)
 
     return NextResponse.json({ ok: true })
   } catch {

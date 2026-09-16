@@ -1,5 +1,7 @@
 'use client'
 
+import ParticleCanvas from '@/components/ui/ParticleCanvas'
+
 interface Readout {
   label: string
   lines: string[]
@@ -12,16 +14,24 @@ interface Props {
   className?: string
   /** 'boxed' (default) = bordered card. 'fullbleed' = no box, meant to sit as an absolutely-positioned background layer. */
   variant?: 'boxed' | 'fullbleed'
+  /** Swap the static dot texture for the cursor-reactive canvas field. Off by default — most uses (dark product mockups) want the calm, static motif. */
+  interactive?: boolean
 }
 
-export default function ParticleField({ height = 520, readout, className = '', variant = 'boxed' }: Props) {
+export default function ParticleField({ height = 520, readout, className = '', variant = 'boxed', interactive = false }: Props) {
   return (
     <div
       className={`overflow-hidden ${variant === 'boxed' ? 'relative rounded-3xl bg-[#0C0C0F] border border-white/[0.06]' : ''} ${className}`}
       style={variant === 'boxed' ? { height } : undefined}
     >
-      <div className="neb-field" />
-      <div className="neb-field-hot" />
+      {interactive ? (
+        <ParticleCanvas className="absolute inset-0" />
+      ) : (
+        <>
+          <div className="neb-field" />
+          <div className="neb-field-hot" />
+        </>
+      )}
       <div className="neb-halo" />
 
       {/* orbital rings */}

@@ -20,7 +20,7 @@ export default function Hero() {
     <section className="relative bg-ground py-32 px-6 md:px-12 lg:px-[120px] overflow-hidden">
       {/* Full-bleed background visual — one centrepiece behind the whole hero, not boxed in a column */}
       <div className="absolute inset-0">
-        <ParticleField variant="fullbleed" className="absolute inset-0" />
+        <ParticleField variant="fullbleed" interactive className="absolute inset-0" />
         {/* left-to-right fade so copy stays legible over the field */}
         <div className="absolute inset-0 neb-hero-fade-x" />
         <div className="absolute inset-0 neb-hero-fade-y" />

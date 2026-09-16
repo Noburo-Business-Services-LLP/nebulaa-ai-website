@@ -350,7 +350,7 @@ export const channels: Channel[] = [
       'Listing optimisation so the product is findable in-app',
       'Geo-targeted campaigns aimed at areas where you are actually stocked',
       'Platform promotions and trial offers where they are worth running',
-      'Tracking which markets convert, to inform where distribution goes next',
+      'Tracking which markets convert, to sharpen where the next campaign spend goes',
     ],
     note: 'Run by our team as part of a managed engagement — most relevant for FMCG and food brands.',
     faqs: [

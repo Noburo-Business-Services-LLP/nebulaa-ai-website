@@ -92,11 +92,9 @@ export const servicePages: ServicePage[] = [
       'Regional creator collaborations for local credibility',
       'Sampling, retail activation and hyperlocal promotion',
       'Quick-commerce listing optimisation and discovery campaigns',
-      'Distributor introductions through existing regional relationships',
     ],
     note: 'The timeline above is the shape of the model, not a fixed contract. A faster launch or several cities at once changes the scope and the sequence.',
     faqs: [
-      { q: 'Do you handle distribution itself?', a: 'We facilitate introductions and support the conversations. Distributor appointment, commercial negotiation and sales execution stay with you and your partners — we are not a distribution company and would not do it well.' },
       { q: 'How far ahead should we start?', a: 'Three to four months before launch is where this model works. Starting a month out still helps, but you lose most of the compounding.' },
       { q: 'What if the launch date moves?', a: 'It frequently does. The sequence shifts with it — the point is that activity is timed to the date, whenever the date turns out to be.' },
       { q: 'Can you do more than one city?', a: 'Yes, and the model repeats per market. Costs and team scale with the number of cities, which is part of what gets scoped.' },
@@ -126,7 +124,7 @@ export const servicePages: ServicePage[] = [
       'In-store standees and point-of-sale visibility',
       'Outdoor activations at local events and neighbourhood clusters',
       'Bus-back advertising and auto-rickshaw branding for city-level presence',
-      'Dealer and distributor trade marketing support',
+      'Retail and trade marketing collateral for local partners',
     ],
     note: 'Activation investment depends on format, city and scale, and is scoped and quoted once specific activations are confirmed.',
     faqs: [
@@ -137,37 +135,6 @@ export const servicePages: ServicePage[] = [
     seoTitle: 'BTL Activation, Sampling & In-Store Demos in India | Nebulaa',
     seoDescription:
       'Sampling drives, promoter-led in-store demos, standees, outdoor activations and vehicle branding, rotated monthly across your priority retail catchments.',
-  },
-  {
-    slug: 'distribution-enablement',
-    name: 'Distribution enablement',
-    summary: 'Introductions into a distributor network — the conversation stays yours.',
-    flagship: true,
-    eyebrow: 'Service · distribution',
-    headline: 'The introduction,',
-    headlineEmphasis: 'not the negotiation.',
-    subheadline:
-      'Entering a new market means finding distributors who will actually carry you, which usually means knowing someone. We use existing regional relationships to open those conversations — and then stay out of the commercial terms, which are yours to set.',
-    howItWorks: [
-      { title: 'Identify the right partners', body: 'Distributors whose existing lines, coverage and retail relationships fit the product and the market.' },
-      { title: 'Open the conversation', body: 'A warm introduction through an existing relationship, which travels considerably further than a cold approach.' },
-      { title: 'Support the early discussions', body: 'Coordination and context while the relationship forms — then it is between you and them.' },
-    ],
-    whatWeRun: [
-      'Identifying relevant distributor opportunities per market',
-      'Introductions through existing regional relationships',
-      'Coordination during early channel conversations',
-      'Context and materials that make the brand easy to say yes to',
-    ],
-    note: 'Distributor appointment, commercial negotiation and sales execution remain with you and your appointed partners. Our role is network access, introduction and facilitation — nothing beyond that.',
-    faqs: [
-      { q: 'Can you guarantee distribution?', a: 'No, and anyone who does is selling you something. We can open doors that are hard to open cold; whether a distributor takes the line depends on your product and your terms.' },
-      { q: 'Do you take a cut of distribution revenue?', a: 'No. This is part of the engagement, not a brokerage arrangement.' },
-      { q: 'Which markets do you have relationships in?', a: 'Strongest across Tamil Nadu and the wider South. Worth a direct conversation about the specific city you have in mind.' },
-    ],
-    seoTitle: 'Distribution Enablement & Distributor Introductions | Nebulaa',
-    seoDescription:
-      'Warm introductions into regional distributor networks for brands entering a new market — appointment and negotiation stay with you.',
   },
   {
     slug: 'performance-marketing',

@@ -41,7 +41,7 @@ export const capabilities: Capability[] = [
   { title: 'Content & Photography', body: 'Carousels, static creatives, short-form videos, explainers, copy and photography.' },
   { title: 'Films & Production', body: 'Brand films, product and facility stories, leadership and culture videos.' },
   { title: 'Digital Campaigns', body: 'Campaign creatives, landing-page content, lead-generation communication.' },
-  { title: 'BTL & On-Ground Activation', body: 'In-store activation, promoter-led events, dealer and distributor trade marketing.' },
+  { title: 'BTL & On-Ground Activation', body: 'In-store activation, promoter-led events, retail and trade marketing collateral.' },
   { title: 'Brand Communication', body: 'Visual direction, messaging, campaign concepts and communication assets.' },
   { title: 'Reporting & Optimisation', body: 'Content performance, learnings and next-cycle recommendations.' },
 ]
@@ -50,7 +50,7 @@ export const process: ProcessStage[] = [
   { step: '01', title: 'Strategy', body: 'Business priorities, audiences, positioning, content pillars.' },
   { step: '02', title: 'Content', body: 'Monthly content system, creative direction, copy.' },
   { step: '03', title: 'Production', body: 'Shoot, edit, design — corporate, product & facility assets.' },
-  { step: '04', title: 'Distribution', body: 'Social, campaigns, website, on-ground activation.' },
+  { step: '04', title: 'Activation', body: 'Social, campaigns, website, on-ground activation.' },
   { step: '05', title: 'Optimise', body: 'Performance review, learnings, next-cycle plan.' },
 ]
 
@@ -58,12 +58,12 @@ export const clients: ServiceClient[] = [
   {
     name: "Rajaram's",
     stage: 'proposal',
-    blurb: 'Bangalore market entry for a 70-year-old Tamil Nadu snacking brand — distribution and demand-generation timed to a shared launch calendar.',
+    blurb: 'Bangalore market entry for a 70-year-old Tamil Nadu snacking brand — demand generation timed to a shared launch calendar.',
   },
   {
     name: 'Nellai Kuttam Snacks',
     stage: 'proposal',
-    blurb: 'New-market entry for a legacy Tamil Nadu snacking brand — distribution paired with regional content, timed to launch.',
+    blurb: 'New-market entry for a legacy Tamil Nadu snacking brand — regional content and on-ground activation, timed to launch.',
   },
   {
     name: 'Gandhimathi Jewellers',

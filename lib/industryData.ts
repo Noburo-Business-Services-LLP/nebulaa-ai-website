@@ -123,10 +123,10 @@ export const industries: Record<string, IndustryData> = {
     headline: 'Awareness has to exist',
     headlineEmphasis: 'before the product hits the shelf.',
     subheadline:
-      'Entering a new market only works if demand is already waiting when you launch. Gravity builds local awareness and content ahead of time; Pulsar and our team run the distribution and retail activation that gets you on shelf.',
+      'Entering a new market only works if demand is already waiting when you launch. Gravity builds local awareness and content ahead of time; Pulsar and our team run the retail activation that gets you seen once you are on shelf.',
     seoTitle: 'Nebulaa for FMCG & Food Brands — Market Entry & Growth',
     seoDescription:
-      'Market-entry content, demand generation and distribution support for FMCG and food brands — trusted by Rajaram\'s and Nellai Kuttam Snacks.',
+      'Market-entry content and demand generation for FMCG and food brands — trusted by Rajaram\'s and Nellai Kuttam Snacks.',
     painPoints: [
       'Launching in a new city with distribution sorted but zero awareness waiting for it',
       'No content system built for the run-up to a launch, only for after it',
@@ -135,7 +135,6 @@ export const industries: Record<string, IndustryData> = {
     ],
     useCases: [
       { title: 'Market-entry content, ahead of launch', desc: 'Gravity builds local-market content and awareness before the product is even on shelf, so demand is waiting on day one.', agent: 'Gravity' },
-      { title: 'Distribution enablement', desc: 'Our team facilitates the distributor conversations and retail cluster targeting that gets you into the right stores — appointment and execution stay yours.', agent: 'Both' },
       { title: 'Sampling and BTL, timed to launch', desc: 'On-ground activation builds through the weeks before launch, not as a one-off event after the fact.', agent: 'Both' },
       { title: 'Quick-commerce visibility', desc: 'Content and campaigns drive traffic to your live listings on Zepto, Blinkit and Instamart as availability rolls out.', agent: 'Gravity' },
     ],

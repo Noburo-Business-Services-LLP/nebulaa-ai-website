@@ -57,7 +57,6 @@ export const capabilitiesSummary = [
   'Regional influencer and creator collaborations',
   'BTL and on-ground activation — sampling, in-store demos, retail activation',
   'Quick-commerce listing optimisation and discovery campaigns',
-  'Distribution enablement — introductions, not appointment or negotiation',
   'Monthly reporting across organic, paid, creator and on-ground activity',
 ] as const
 

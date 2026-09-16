@@ -137,7 +137,7 @@ export const demoRuns: DemoRun[] = [
       outbound: 'We’re on Blinkit and Instamart in Indiranagar and Koramangala from this week. Which area are you in?',
       inboundBack: 'Koramangala. Do you do bulk for offices?',
       score: 88,
-      handover: 'Koramangala · bulk / corporate enquiry · passed to distribution',
+      handover: 'Koramangala · bulk / corporate enquiry · flagged for follow-up',
     },
     report: [
       { label: 'Pre-launch reach', value: '2 months', note: 'before stock landed' },

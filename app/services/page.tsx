@@ -127,11 +127,11 @@ export default function ServicesPage() {
         <div className="max-w-[660px] mb-[52px]">
           <SectionLabel className="mb-[22px] block">The engagement</SectionLabel>
           <h2 className="font-heading font-medium text-4xl md:text-[48px] leading-[1.12] tracking-[-0.02em] mb-5">
-            Eight things we run. <span className="italic text-gold-text">Three nobody else can.</span>
+            Seven things we run. <span className="italic text-gold-text">Two nobody else can.</span>
           </h2>
           <p className="text-[16px] leading-[1.68] text-muted">
-            Market entry, BTL activation and distribution enablement need people on the ground. No
-            software competitor offers them, because software cannot.
+            Market entry and BTL activation need people on the ground. No software competitor
+            offers them, because software cannot.
           </p>
         </div>
 

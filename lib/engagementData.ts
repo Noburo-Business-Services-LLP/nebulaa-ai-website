@@ -93,13 +93,13 @@ export const engagements: Engagement[] = [
   {
     slug: 'market-entry',
     name: 'Market entry',
-    summary: 'Demand built in the months before a launch, plus the distribution introductions.',
+    summary: 'Demand built in the months before a launch, so it is waiting when the stock lands.',
     forWho: 'Brands taking an existing product into a new city or market',
     eyebrow: 'Engagement · market entry',
     headline: 'Awareness waiting',
     headlineEmphasis: 'when the stock arrives.',
     subheadline:
-      'A brand with a proven product in one market, going into another. The failure mode is sorting distribution first and marketing second, then watching stock sit. This engagement runs demand generation ahead of the launch date and opens distributor conversations alongside it.',
+      'A brand with a proven product in one market, going into another. The failure mode is sorting distribution first and marketing second, then watching stock sit. This engagement runs demand generation ahead of the launch date, so awareness is already there by the time distribution is sorted.',
     scope: [
       {
         group: 'Demand generation',
@@ -118,35 +118,25 @@ export const engagements: Engagement[] = [
           'Local events and hyperlocal promotional activity',
         ],
       },
-      {
-        group: 'Distribution',
-        items: [
-          'Identifying relevant distributor opportunities in the market',
-          'Introductions through existing regional relationships',
-          'Coordination during early channel conversations',
-        ],
-      },
     ],
     rhythm: [
       { label: 'Month 1', body: 'Build the market — campaigns begin, audience forms, creators identified, retail clusters agreed.' },
       { label: 'Month 2', body: 'Build product interest — creator collaborations go live, sampling starts in priority areas.' },
-      { label: 'Month 3', body: 'Create purchase intent — performance intensifies, BTL steps up, distribution readiness completes.' },
+      { label: 'Month 3', body: 'Create purchase intent — performance intensifies, BTL steps up as launch approaches.' },
       { label: 'Month 4', body: 'Launch and convert — visible across digital, listings promoted, activation supporting on the ground.' },
     ],
     whatChanges: [
       'The brand is already familiar in the market by the time it is on shelf',
       'Listings have traffic pointed at them rather than sitting undiscovered',
-      'Distributor conversations start warm instead of cold',
       'Launch week has activity around it, not just stock in a warehouse',
     ],
     faqs: [
-      { q: 'Do you handle distribution itself?', a: 'We open the conversations. Appointment, commercial negotiation and sales execution stay with you and your partners.' },
       { q: 'How far ahead should we start?', a: 'Three to four months. Starting a month out still helps, but most of the compounding is lost.' },
       { q: 'Can you run several cities at once?', a: 'Yes, and the model repeats per market. Team and cost scale with the number of cities, which gets scoped up front.' },
     ],
     seoTitle: 'Market Entry Engagement for New City Launches | Nebulaa',
     seoDescription:
-      'A four-month engagement building demand before launch — local content, creators, geo-targeted campaigns, sampling, quick commerce and distributor introductions.',
+      'A four-month engagement building demand before launch — local content, creators, geo-targeted campaigns, sampling and quick commerce.',
   },
   {
     slug: 'regional-programme',

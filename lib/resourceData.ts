@@ -59,7 +59,7 @@ export const resources: Resource[] = [
     flagship: true,
     seoTitle: 'Free New Market Entry Playbook for Consumer Brands | Nebulaa',
     seoDescription:
-      'A four-month model for entering a new city — demand generation, creators, quick commerce, sampling and distribution, sequenced to a launch date.',
+      'A four-month model for entering a new city — demand generation, creators, quick commerce and sampling, sequenced to a launch date.',
   },
   {
     slug: 'btl-activation-checklist',

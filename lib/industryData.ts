@@ -126,7 +126,7 @@ export const industries: Record<string, IndustryData> = {
       'Entering a new market only works if demand is already waiting when you launch. Gravity builds local awareness and content ahead of time; Pulsar and our team run the retail activation that gets you seen once you are on shelf.',
     seoTitle: 'Nebulaa for FMCG & Food Brands — Market Entry & Growth',
     seoDescription:
-      'Market-entry content and demand generation for FMCG and food brands — trusted by Rajaram\'s and Nellai Kuttam Snacks.',
+      'Market-entry content and demand generation for FMCG and food brands entering a new city.',
     painPoints: [
       'Launching in a new city with distribution sorted but zero awareness waiting for it',
       'No content system built for the run-up to a launch, only for after it',
@@ -138,10 +138,7 @@ export const industries: Record<string, IndustryData> = {
       { title: 'Sampling and BTL, timed to launch', desc: 'On-ground activation builds through the weeks before launch, not as a one-off event after the fact.', agent: 'Both' },
       { title: 'Quick-commerce visibility', desc: 'Content and campaigns drive traffic to your live listings on Zepto, Blinkit and Instamart as availability rolls out.', agent: 'Gravity' },
     ],
-    clients: [
-      { name: "Rajaram's", stage: 'proposal' },
-      { name: 'Nellai Kuttam Snacks', stage: 'proposal' },
-    ],
+    clients: [],
     hubBlurb: 'Demand built before launch day, not scrambled together after it.',
     hubImage: 'fmcg',
     creativeSlot: 'creative-fmcg',

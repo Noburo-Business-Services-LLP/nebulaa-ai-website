@@ -4,8 +4,6 @@ const clients = [
   { name: 'Gandhimathi Jewellers', inProgress: false },
   { name: 'JKR Tex', inProgress: false },
   { name: 'TNV Chits', inProgress: false },
-  { name: "Rajaram's", inProgress: true },
-  { name: 'Nellai Kuttam Snacks', inProgress: true },
 ]
 
 export default function ClientStrip() {

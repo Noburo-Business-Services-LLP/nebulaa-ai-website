@@ -56,16 +56,6 @@ export const process: ProcessStage[] = [
 
 export const clients: ServiceClient[] = [
   {
-    name: "Rajaram's",
-    stage: 'proposal',
-    blurb: 'Bangalore market entry for a 70-year-old Tamil Nadu snacking brand — demand generation timed to a shared launch calendar.',
-  },
-  {
-    name: 'Nellai Kuttam Snacks',
-    stage: 'proposal',
-    blurb: 'New-market entry for a legacy Tamil Nadu snacking brand — regional content and on-ground activation, timed to launch.',
-  },
-  {
     name: 'Gandhimathi Jewellers',
     stage: 'active',
     blurb: 'Always-on organic content — posts, carousels and short-form video, every month.',

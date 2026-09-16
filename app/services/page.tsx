@@ -46,7 +46,7 @@ export default function ServicesPage() {
           <span className="italic text-gold-text">Not five vendors pretending to talk to each other.</span>
         </h1>
         <p className="text-[18.5px] leading-[1.65] text-muted max-w-[620px] mb-10">
-          Strategy, content, production, campaigns and on-ground activation — handled by one team, under one plan, with one person accountable for all of it. We&apos;re already running this for Gandhimathi Jewellers, JKR Tex and TNV Chits, and taking Rajaram&apos;s and Nellai Kuttam Snacks into new markets.
+          Strategy, content, production, campaigns and on-ground activation — handled by one team, under one plan, with one person accountable for all of it. We&apos;re already running this for Gandhimathi Jewellers, JKR Tex and TNV Chits.
         </p>
         <a
           href="#contact"

@@ -32,7 +32,7 @@ export default function BlogEmailCapture() {
 
   if (status === 'success') {
     return (
-      <HudCard halo="cyan" className="mt-14 p-6 text-center">
+      <HudCard halo="amber" className="mt-14 p-6 text-center">
         <h3 className="font-heading text-lg font-bold text-ink mb-1">You&apos;re in.</h3>
         <p className="font-body text-sm text-muted">
           One email a week. Nothing else.

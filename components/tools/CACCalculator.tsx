@@ -72,8 +72,8 @@ export default function CACCalculator() {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {[
                 { label: 'Blended CAC', value: fmt(cac), sub: 'total cost per customer', color: 'text-brand-gold' },
-                { label: 'Marketing CAC', value: fmt(mktCAC), sub: 'from marketing only', color: 'text-blue-500' },
-                { label: 'Sales CAC', value: fmt(salCAC), sub: 'from sales only', color: 'text-purple-500' },
+                { label: 'Marketing CAC', value: fmt(mktCAC), sub: 'from marketing only', color: 'text-ink' },
+                { label: 'Sales CAC', value: fmt(salCAC), sub: 'from sales only', color: 'text-ink' },
               ].map(c => (
                 <div key={c.label} className="bg-white dark:bg-[#1A1815] rounded-2xl p-4 border border-brand-border dark:border-white/8 text-center">
                   <p className={`font-heading font-bold text-2xl ${c.color}`}>{c.value}</p>

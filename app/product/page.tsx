@@ -36,7 +36,7 @@ export default function ProductPage() {
 
       {/* Core — the connecting layer, not a fourth priced card */}
       <section className="px-6 md:px-12 lg:px-[120px] pb-[80px]">
-        <HudCard halo="cyan" className="p-8 md:p-10 max-w-[900px]">
+        <HudCard halo="amber" className="p-8 md:p-10 max-w-[900px]">
           <div className="flex items-start gap-5">
             <span className="w-11 h-11 rounded-full bg-gold-wash flex items-center justify-center flex-shrink-0">
               <BrainCircuit size={20} className="text-gold-text" />

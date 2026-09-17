@@ -4,22 +4,44 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Radar, MessageSquareText, Orbit as OrbitIcon, BrainCircuit } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
-import HudCard from '@/components/ui/HudCard'
+import SystemPanel from '@/components/ui/SystemPanel'
 import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animations'
 
-const AGENTS = [
-  { id: 'orbit', name: 'Orbit', icon: OrbitIcon, purpose: 'Finds and qualifies leads', status: 'ACTIVE', accent: '#F5A623' },
-  { id: 'gravity', name: 'Gravity', icon: Radar, purpose: 'Plans and makes the content', status: 'ACTIVE', accent: '#F5A623' },
-  { id: 'pulsar', name: 'Pulsar', icon: MessageSquareText, purpose: 'Answers and qualifies leads', status: 'ACTIVE', accent: '#38BDF8' },
+/**
+ * Descriptions are the canonical engine definitions — the same sentences
+ * used on the product pages and in orgFacts, so a reader meets one version
+ * of what each engine does wherever they land.
+ */
+const ENGINES = [
+  {
+    id: 'gravity',
+    name: 'Gravity',
+    role: 'AI content & social media engine',
+    icon: Radar,
+    purpose: 'Plans, creates, publishes and monitors your content across the channels your business uses.',
+  },
+  {
+    id: 'orbit',
+    name: 'Orbit',
+    role: 'AI lead generation engine',
+    icon: OrbitIcon,
+    purpose: 'Finds, enriches, qualifies and prepares the right prospects for outreach.',
+  },
+  {
+    id: 'pulsar',
+    name: 'Pulsar',
+    role: 'AI lead engagement engine',
+    icon: MessageSquareText,
+    purpose: 'Responds, follows up, qualifies and keeps customer conversations moving.',
+  },
 ]
 
 /**
- * "Not four ordinary feature cards" — a hub-and-spoke diagram (Core in the
- * center, the three agents connected to it) rather than another card grid.
- * SVG lines only render on wider screens; the diagram still reads as a
- * connected system on mobile through proximity and the shared "→ Core"
- * labeling, per the audit doc's "convert complex HUD layouts into clean
- * vertical modules" mobile rule.
+ * Hub and spoke — Core at the centre with the three engines connected to it —
+ * rather than four feature cards, because the claim being made is that these
+ * are coordinated rather than separate. Connector lines are desktop-only; on
+ * mobile the relationship carries through order and the closing line instead,
+ * which is the "clean vertical modules" rule rather than a shrunk diagram.
  */
 export default function AgentEcosystem() {
   return (
@@ -32,10 +54,15 @@ export default function AgentEcosystem() {
         className="max-w-[680px] mb-[72px]"
       >
         <motion.div variants={fadeUpVariant}>
-          <SectionLabel className="mb-[22px] block">One objective. Multiple agents.</SectionLabel>
+          <SectionLabel className="mb-[22px] block">03 // The system</SectionLabel>
         </motion.div>
-        <motion.h2 variants={fadeUpVariant} className="font-heading text-[33px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium">
-          Not separate tools. <span className="italic text-gold-text">A coordinated system.</span>
+        <motion.h2
+          variants={fadeUpVariant}
+          className="neb-display text-[33px] md:text-[50px] text-ink"
+        >
+          Three engines.
+          <br />
+          <span className="text-gold-display">One core.</span>
         </motion.h2>
       </motion.div>
 
@@ -47,12 +74,21 @@ export default function AgentEcosystem() {
           preserveAspectRatio="none"
           aria-hidden="true"
         >
-          <line x1="410" y1="140" x2="137" y2="300" stroke="rgba(245,166,35,0.25)" strokeWidth="1.5" strokeDasharray="4 5" />
-          <line x1="410" y1="140" x2="410" y2="300" stroke="rgba(245,166,35,0.25)" strokeWidth="1.5" strokeDasharray="4 5" />
-          <line x1="410" y1="140" x2="683" y2="300" stroke="rgba(56,189,248,0.25)" strokeWidth="1.5" strokeDasharray="4 5" />
+          {[137, 410, 683].map(x => (
+            <line
+              key={x}
+              x1="410"
+              y1="140"
+              x2={x}
+              y2="300"
+              stroke="rgba(245,166,35,0.25)"
+              strokeWidth="1.5"
+              strokeDasharray="4 5"
+            />
+          ))}
         </svg>
 
-        {/* Core */}
+        {/* Core — the hub */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -60,44 +96,60 @@ export default function AgentEcosystem() {
           transition={{ duration: 0.5 }}
           className="relative z-10 flex justify-center mb-16 md:mb-0"
         >
-          <Link href="/product/core" className="group">
-            <HudCard halo="cyan" className="px-8 py-6 text-center hover:border-gold/30 transition-colors">
-              <BrainCircuit size={22} className="text-gold-text mx-auto mb-3" />
-              <SectionLabel tone="muted" className="mb-1.5 block">Nebulaa Core</SectionLabel>
-              <p className="font-heading text-[15px] font-medium">Cross-agent intelligence</p>
-            </HudCard>
+          <Link href="/product/core" className="group block w-full max-w-[290px]">
+            <SystemPanel
+              label="Nebulaa Core"
+              status={{ tone: 'learning', label: 'Learning' }}
+              lit
+              className="group-hover:border-gold/30 transition-colors"
+            >
+              <div className="text-center">
+                <BrainCircuit size={22} className="text-gold-text mx-auto mb-3" />
+                <p className="font-heading text-[15px] font-medium mb-1.5">Cross-agent intelligence</p>
+                <p className="text-[13px] leading-[1.55] text-muted">
+                  Learns from actions, outcomes and signals across the system — continuously
+                  improving what happens next.
+                </p>
+              </div>
+            </SystemPanel>
           </Link>
         </motion.div>
 
-        {/* Agents */}
+        {/* The three engines */}
         <div className="relative z-10 grid sm:grid-cols-3 gap-6 md:mt-[140px]">
-          {AGENTS.map((a, i) => (
+          {ENGINES.map((e, i) => (
             <motion.div
-              key={a.id}
+              key={e.id}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportOptions}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <Link href={`/product/${a.id}`} className="group block">
-                <HudCard halo={i === 2 ? 'cyan' : 'amber'} className="p-7 h-full hover:border-gold/30 transition-colors">
-                  <div className="flex items-center justify-between mb-4">
-                    <a.icon size={20} style={{ color: a.accent }} />
-                    <span className="flex items-center gap-1.5 font-mono text-[10px] tracking-wider" style={{ color: a.accent }}>
-                      <span className="relative flex h-1.5 w-1.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60" style={{ background: a.accent }} />
-                        <span className="relative inline-flex rounded-full h-1.5 w-1.5" style={{ background: a.accent }} />
-                      </span>
-                      {a.status}
-                    </span>
-                  </div>
-                  <h3 className="font-heading font-medium text-[19px] mb-1.5">{a.name}</h3>
-                  <p className="text-[13.5px] leading-[1.55] text-muted">{a.purpose}</p>
-                </HudCard>
+              <Link href={`/product/${e.id}`} className="group block h-full">
+                <SystemPanel
+                  label={e.role}
+                  status={{ tone: 'active', label: 'Ready' }}
+                  className="h-full group-hover:border-gold/30 transition-colors"
+                >
+                  <e.icon size={20} className="text-gold-text mb-4" />
+                  <h3 className="font-heading font-medium text-[19px] mb-1.5">{e.name}</h3>
+                  <p className="text-[13.5px] leading-[1.55] text-muted">{e.purpose}</p>
+                </SystemPanel>
               </Link>
             </motion.div>
           ))}
         </div>
+
+        {/* The closing statement from the master copy */}
+        <motion.p
+          variants={fadeUpVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          className="neb-label text-center mt-14 leading-[2]"
+        >
+          Core learns. Gravity creates. Orbit finds. Pulsar engages.
+        </motion.p>
       </div>
     </section>
   )

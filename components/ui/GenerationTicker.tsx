@@ -27,16 +27,15 @@ const ACTIVITY = [
   { agent: 'gravity', icon: Radar, text: 'Flagged a rival\'s new campaign, drafted a response' },
 ]
 
-const AGENT_COLOR: Record<string, string> = {
-  gravity: 'text-gold-text',
-  pulsar: 'text-[#38BDF8]',
-  orbit: 'text-[#A78BFA]',
-}
-
+/**
+ * One colour for every engine. The three used to be gold, cyan and violet,
+ * which made a strip of system telemetry read as three separate products
+ * passing by. The icon identifies the engine; colour is not doing that job.
+ */
 function Card({ item }: { item: (typeof ACTIVITY)[number] }) {
   return (
     <div className="hud-card flex-shrink-0 flex items-center gap-3.5 rounded-full pl-4 pr-6 py-3 mx-2.5">
-      <item.icon size={16} className={AGENT_COLOR[item.agent]} />
+      <item.icon size={16} className="text-gold-text" />
       <span className="font-mono text-[12.5px] text-ink-2 whitespace-nowrap">{item.text}</span>
     </div>
   )

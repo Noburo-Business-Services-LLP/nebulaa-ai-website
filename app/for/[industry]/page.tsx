@@ -20,10 +20,11 @@ export async function generateMetadata({ params }: { params: { industry: string 
   }
 }
 
+/** One palette — the engines are distinguished by name, not by hue. */
 const AGENT_STYLE: Record<string, string> = {
   Gravity: 'bg-gold/15 text-gold-text',
-  Pulsar: 'bg-orange-400/15 text-orange-400',
-  Both: 'bg-purple-400/15 text-purple-300',
+  Pulsar: 'bg-gold/[0.08] text-gold-text/80',
+  Both: 'bg-white/[0.06] text-ink-2',
 }
 
 export default function IndustryPage({ params }: { params: { industry: string } }) {

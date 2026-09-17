@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { agents, capabilitiesFor } from '@/lib/productData'
 import SectionLabel from '@/components/ui/SectionLabel'
+import HudCard from '@/components/ui/HudCard'
+import { BrainCircuit } from 'lucide-react'
 
 const seoTitle = 'Product — Orbit, Gravity & Pulsar | Nebulaa'
 const seoDescription =
@@ -30,6 +32,34 @@ export default function ProductPage() {
           them a reason to say yes. Pulsar answers them before they go somewhere else. All three share
           the same brand memory, so what one learns the others already know.
         </p>
+      </section>
+
+      {/* Core — the connecting layer, not a fourth priced card */}
+      <section className="px-6 md:px-12 lg:px-[120px] pb-[80px]">
+        <HudCard halo="cyan" className="p-8 md:p-10 max-w-[900px]">
+          <div className="flex items-start gap-5">
+            <span className="w-11 h-11 rounded-full bg-gold-wash flex items-center justify-center flex-shrink-0">
+              <BrainCircuit size={20} className="text-gold-text" />
+            </span>
+            <div>
+              <SectionLabel tone="muted" className="mb-2.5 block">Core — cross-agent intelligence</SectionLabel>
+              <p className="font-heading text-[19px] md:text-[21px] font-medium mb-2.5">
+                What connects all three, underneath.
+              </p>
+              <p className="text-[14.5px] leading-[1.65] text-muted max-w-[560px] mb-4">
+                Core observes actions, outcomes and signals across Orbit, Gravity and Pulsar, and
+                turns them into what runs next. It comes with every agent — there is nothing
+                separate to buy.
+              </p>
+              <Link
+                href="/product/core"
+                className="inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-gold-text hover:gap-2.5 transition-all"
+              >
+                See how Core works <ArrowRight size={13} />
+              </Link>
+            </div>
+          </div>
+        </HudCard>
       </section>
 
       <section className="px-6 md:px-12 lg:px-[120px] pb-[110px]">

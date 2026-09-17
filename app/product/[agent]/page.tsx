@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowRight } from 'lucide-react'
 import { agents, capabilitiesFor, type AgentId } from '@/lib/productData'
+import HudCard from '@/components/ui/HudCard'
 import SectionLabel from '@/components/ui/SectionLabel'
 import Schema, { breadcrumbSchema, softwareApplicationSchema } from '@/components/ui/Schema'
 import { products } from '@/lib/orgFacts'
@@ -121,22 +122,27 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
         <h2 className="font-heading font-medium text-[26px] md:text-[34px] leading-[1.14] tracking-[-0.02em] mb-8 max-w-[720px]">
           {agent.name} {ROLE[agent.id]}. Two more agents run the rest of it.
         </h2>
-        <div className="grid sm:grid-cols-2 gap-5 max-w-[880px]">
-          {others.map(o => (
-            <Link
-              key={o.id}
-              href={`/product/${o.id}`}
-              className="group block bg-surface border border-rule rounded-[18px] px-7 pt-[30px] pb-8 hover:border-gold/30 transition-colors"
-            >
-              <SectionLabel tone="muted" className="mb-3 block">{o.tagline}</SectionLabel>
-              <h3 className="font-heading font-medium text-[22px] mb-3">{o.name}</h3>
-              <p className="text-[14px] leading-[1.6] text-muted mb-6">{o.subheadline}</p>
-              <span className="flex items-center gap-1.5 text-[13.5px] font-semibold text-gold-text group-hover:gap-2.5 transition-all">
-                See {o.name} <ArrowRight size={13} />
-              </span>
+        <div className="grid sm:grid-cols-2 gap-5 max-w-[880px] mb-10">
+          {others.map((o, i) => (
+            <Link key={o.id} href={`/product/${o.id}`} className="group block">
+              <HudCard halo={i === 0 ? 'amber' : 'cyan'} className="px-7 pt-[30px] pb-8 h-full">
+                <SectionLabel tone="muted" className="mb-3 block">{o.tagline}</SectionLabel>
+                <h3 className="font-heading font-medium text-[22px] mb-3">{o.name}</h3>
+                <p className="text-[14px] leading-[1.6] text-muted mb-6">{o.subheadline}</p>
+                <span className="flex items-center gap-1.5 text-[13.5px] font-semibold text-gold-text group-hover:gap-2.5 transition-all">
+                  See {o.name} <ArrowRight size={13} />
+                </span>
+              </HudCard>
             </Link>
           ))}
         </div>
+
+        <Link
+          href="/product/core"
+          className="inline-flex items-center gap-1.5 font-mono text-[12.5px] text-faint hover:text-gold-text transition-colors"
+        >
+          {agent.name} → outcome → Core → learning <ArrowRight size={12} />
+        </Link>
       </section>
     </main>
   )

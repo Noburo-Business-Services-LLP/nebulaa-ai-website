@@ -6,7 +6,7 @@
  * If something isn't built, it doesn't get a page.
  */
 
-export type AgentId = 'gravity' | 'pulsar'
+export type AgentId = 'gravity' | 'pulsar' | 'orbit'
 
 export interface Step {
   title: string
@@ -48,6 +48,10 @@ export interface Agent {
   headlineEmphasis: string
   subheadline: string
   price: string
+  /** What sits next to the price on the hub page. Defaults to the standard trial line. */
+  priceNote?: string
+  /** Overrides the default "Start free trial → /pricing" CTA — for a product that isn't self-serve yet. */
+  cta?: { label: string; href: string }
   seoTitle: string
   seoDescription: string
 }
@@ -80,6 +84,22 @@ export const agents: Record<AgentId, Agent> = {
     seoTitle: 'Pulsar — AI Outreach & Lead Qualification Agent | Nebulaa',
     seoDescription:
       'Pulsar replies to WhatsApp, email and SMS enquiries in minutes, qualifies budget, timeline and fit, scores every lead, and runs broadcasts, automation and voice calling.',
+  },
+  orbit: {
+    id: 'orbit',
+    name: 'Orbit',
+    tagline: 'The lead engine',
+    eyebrow: 'Orbit — the lead engine',
+    headline: 'Before there is a conversation,',
+    headlineEmphasis: 'there has to be a lead worth having.',
+    subheadline:
+      'Orbit finds real businesses that match who you sell to, keeps only the ones worth calling, finds a real contact email even when Google never gives you one, drafts the first outreach message, and puts the whole thing straight into your CRM — assigned to a rep, ready to work. Gravity and Pulsar take it from there.',
+    price: 'Early access',
+    priceNote: 'by request — talk to us',
+    cta: { label: 'Get early access', href: 'mailto:hello@nebulaa.ai?subject=Orbit%20early%20access' },
+    seoTitle: 'Orbit — AI Lead Sourcing & Qualification Engine | Nebulaa',
+    seoDescription:
+      'Orbit finds real businesses on Google Maps, filters for quality, enriches contact emails, drafts personalized outreach, and pushes qualified leads into your CRM.',
   },
 }
 
@@ -828,6 +848,151 @@ export const capabilities: Capability[] = [
     seoTitle: 'Response Time & Conversion Analytics — Pulsar | Nebulaa',
     seoDescription:
       'Measure response time by channel, agent and team member, alongside what those conversations converted into.',
+  },
+  // ───────────────────────────── Orbit ─────────────────────────────
+  {
+    slug: 'lead-sourcing',
+    agent: 'orbit',
+    name: 'Lead sourcing',
+    eyebrow: 'Orbit · sourcing',
+    headline: 'Real businesses,',
+    headlineEmphasis: 'not a scraped list.',
+    subheadline:
+      'Tell Orbit what you sell and who buys it — a category, a location. It searches Google Maps and a second, independent source for the same area, so one provider going quiet or capping a query does not stop the list from filling.',
+    summary: 'Searches Google Maps and a second source for real businesses matching your target.',
+    steps: [
+      { title: 'Describe the target', body: 'A business type and a location — "gyms in Chennai," "interior designers in Coimbatore." No list to upload.' },
+      { title: 'It searches two sources', body: 'Google Maps and a second maps-search provider cover the same area, so gaps in one get filled by the other.' },
+      { title: 'Duplicates get merged', body: 'The same business found twice becomes one record, not two leads to work.' },
+    ],
+    whatYouGet: [
+      'Business name, category, location and public listing details',
+      'Two independent sources searched per run, not one',
+      'Coverage across multiple locations in a single pass',
+      'A deduplicated list, not a raw export',
+    ],
+    faqs: [
+      { q: 'Where does the data come from?', a: 'Google Maps and Serper, a second maps-search provider. Both are queried so one running dry does not cap the list.' },
+      { q: 'Can I target more than one city?', a: 'Yes — Orbit runs multiple locations in a single sourcing pass.' },
+      { q: 'Does this replace a data provider like Apollo or ZoomInfo?', a: 'Different job. Those are contact databases; Orbit finds and qualifies real local businesses for outbound that starts with "we found you," not a purchased list.' },
+    ],
+    seoTitle: 'AI Lead Sourcing from Google Maps — Orbit | Nebulaa',
+    seoDescription:
+      'Orbit searches Google Maps and a second source for real businesses matching your target category and location, then deduplicates the results.',
+  },
+  {
+    slug: 'lead-qualification',
+    agent: 'orbit',
+    name: 'Lead qualification',
+    eyebrow: 'Orbit · qualification',
+    headline: 'Only the ones',
+    headlineEmphasis: 'actually worth calling.',
+    subheadline:
+      'A sourced list is not a qualified one. Orbit keeps a business only if there is a phone number to actually reach them on and a public rating that suggests they are a going concern worth pursuing — everything else is dropped before it reaches you.',
+    summary: 'Keeps only businesses with a real phone number and a rating of 4.2 or above.',
+    steps: [
+      { title: 'Phone number required', body: 'No number, no lead. A business you cannot call is not a qualified one, whatever else is on the listing.' },
+      { title: 'Rating threshold applied', body: '4.2 and above on the public listing — a working proxy for a business that is actually operating and cared about.' },
+      { title: 'Everything else is dropped', body: 'Quietly, before it reaches a rep — the point is a shorter list worth working, not a bigger one.' },
+    ],
+    whatYouGet: [
+      'A phone-reachable, minimum-4.2-rated shortlist',
+      'The unqualified majority filtered out automatically',
+      'The same bar applied consistently, run after run',
+    ],
+    faqs: [
+      { q: 'Why 4.2 specifically?', a: 'It is the threshold in production today — high enough to filter out businesses that are struggling or inactive, without being so strict that a real, decent business gets excluded.' },
+      { q: 'Can the bar be changed?', a: 'It is a configuration, not a fixed rule — worth a conversation about what fits your category.' },
+      { q: 'What happens to the leads that get filtered out?', a: 'They are not called — that is the point of qualifying before outreach rather than after it.' },
+    ],
+    seoTitle: 'Automated Lead Qualification — Orbit | Nebulaa',
+    seoDescription:
+      'Orbit filters sourced businesses down to a phone-reachable shortlist rated 4.2 and above, before any outreach happens.',
+  },
+  {
+    slug: 'email-enrichment',
+    agent: 'orbit',
+    name: 'Email enrichment',
+    eyebrow: 'Orbit · enrichment',
+    headline: 'Google Maps never',
+    headlineEmphasis: 'gives you an email. Orbit finds one anyway.',
+    subheadline:
+      'For any qualified lead with a website, Orbit reads the homepage and the usual contact pages, and pulls out a real business email — filtering out the noreply addresses, the placeholder domains and the junk that scraping usually drags in.',
+    summary: 'Reads a lead\'s website to find a real contact email, filtering out noreply addresses and placeholder junk.',
+    steps: [
+      { title: 'It visits the website', body: 'The homepage first, then the usual contact-page paths — /contact, /about and their common variants.' },
+      { title: 'It filters what it finds', body: 'noreply@, webmaster@, and addresses on placeholder or template domains are discarded automatically, not left for someone to notice later.' },
+      { title: 'A real email, or none', body: 'If nothing plausible turns up, the lead moves on without one rather than carrying a guessed address.' },
+    ],
+    whatYouGet: [
+      'A real business email for leads that have one to find',
+      'Automatic filtering of noreply and placeholder-domain junk',
+      'No guessed or fabricated addresses — a clean miss over a bad guess',
+    ],
+    faqs: [
+      { q: 'What if the lead has no website?', a: 'Then there is nothing to enrich, and the lead is worked on phone or the channel it does have.' },
+      { q: 'Does this always find an email?', a: 'No — some sites genuinely do not publish one. Orbit returns what is really there rather than inventing something plausible-looking.' },
+    ],
+    seoTitle: 'Website-Based Email Enrichment — Orbit | Nebulaa',
+    seoDescription:
+      'Orbit reads a qualified lead\'s website to find a real contact email, filtering out noreply addresses and placeholder-domain noise.',
+  },
+  {
+    slug: 'personalized-outreach',
+    agent: 'orbit',
+    name: 'Personalized outreach',
+    eyebrow: 'Orbit · outreach',
+    headline: 'The first message,',
+    headlineEmphasis: 'already written.',
+    subheadline:
+      'Every qualified lead gets an opening message drafted around what is actually true about them — whether they have a website, what the business appears to be about — instead of a template with their name dropped in.',
+    summary: 'Drafts an opening outreach message per lead, based on their website and business context.',
+    steps: [
+      { title: 'Context, not a template', body: 'Website presence and what the listing says about the business shape the message, not a fill-in-the-blank script.' },
+      { title: 'One message per lead', body: 'Generated per business, not copy-pasted across the list.' },
+      { title: 'Ready to send or hand off', body: 'The draft is there for a rep to review and send, or to flow straight into Pulsar for the actual conversation.' },
+    ],
+    whatYouGet: [
+      'A drafted opening message for every qualified lead',
+      'Context pulled from the lead\'s own website where one exists',
+      'A starting point a rep edits rather than writes from nothing',
+    ],
+    faqs: [
+      { q: 'Does this send the message too?', a: 'Orbit drafts it. Sending and the conversation that follows is Pulsar\'s job, or a rep\'s.' },
+      { q: 'Can I set the tone?', a: 'Yes — this runs on the same brand voice the rest of the account uses.' },
+    ],
+    seoTitle: 'AI-Personalized Cold Outreach Messages — Orbit | Nebulaa',
+    seoDescription:
+      'Orbit drafts a personalized opening outreach message for every qualified lead, based on their real website and business context.',
+  },
+  {
+    slug: 'crm-sync',
+    agent: 'orbit',
+    name: 'CRM sync',
+    eyebrow: 'Orbit · CRM',
+    headline: 'Into the CRM,',
+    headlineEmphasis: 'assigned and ready to work.',
+    subheadline:
+      'A qualified lead does not stop at a spreadsheet. Orbit pushes it into your CRM as a linked Company, Contact and Pipeline record, and — if you run more than one rep — assigns it to the next one in rotation, so nobody is idle and nobody is flooded.',
+    summary: 'Pushes qualified leads into your CRM as linked records, round-robin assigned across reps.',
+    steps: [
+      { title: 'Three linked records', body: 'A Company, a Contact tied to it, and a Pipeline record tied to both — so a rep sees the full picture, not a bare contact.' },
+      { title: 'Round-robin assignment', body: 'With more than one rep configured, each new lead goes to the next one in rotation automatically.' },
+      { title: 'It lands ready to call', body: 'Stage, pipeline and ownership are already set — the rep opens the CRM and starts working, not sorting.' },
+    ],
+    whatYouGet: [
+      'Company, Contact and Pipeline records created together, linked',
+      'Round-robin assignment across your configured reps',
+      'A consistent starting stage, so nothing sits unclassified',
+    ],
+    faqs: [
+      { q: 'Which CRM does this work with?', a: 'Built for Zoho Bigin today. Ask if you run something else.' },
+      { q: 'What if I only have one rep?', a: 'Every lead is owned by that account — round-robin only kicks in once more than one rep is configured.' },
+      { q: 'Can I choose the pipeline and stage it lands in?', a: 'Yes, both are configured to match your existing CRM setup rather than assuming one.' },
+    ],
+    seoTitle: 'Automatic CRM Sync for Qualified Leads — Orbit | Nebulaa',
+    seoDescription:
+      'Orbit pushes qualified leads into your CRM as linked Company, Contact and Pipeline records, round-robin assigned across your sales reps.',
   },
 ]
 

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence, useScroll } from 'framer-motion'
-import { ChevronDown, Menu, X, Radar, MessageSquareText, Wrench, ScrollText, Building2, Scale, Layers, Briefcase, Download } from 'lucide-react'
+import { ChevronDown, Menu, X, Radar, MessageSquareText, Orbit, Wrench, ScrollText, Building2, Scale, Layers, Briefcase, Download } from 'lucide-react'
 import SoundToggle from '@/components/ui/SoundToggle'
 import { soundEngine } from '@/lib/soundEngine'
 
@@ -14,7 +14,8 @@ const GOLD_DOT_STYLE = {
 }
 
 const PRODUCT_LINKS = [
-  { name: 'Overview', desc: 'Two agents, one engine underneath', href: '/product', icon: Layers },
+  { name: 'Overview', desc: 'Three agents, one engine underneath', href: '/product', icon: Layers },
+  { name: 'Orbit', desc: 'Lead sourcing, qualification, enrichment, CRM sync', href: '/product/orbit', icon: Orbit },
   { name: 'Gravity', desc: 'Strategy, content, campaigns, creators, inbox, SEO', href: '/product/gravity', icon: Radar },
   { name: 'Pulsar', desc: 'WhatsApp, leads, broadcasts, voice, automation', href: '/product/pulsar', icon: MessageSquareText },
 ]
@@ -30,6 +31,7 @@ const RESOURCES_LINKS = [
 
 const MOBILE_LINKS = [
   { label: 'Product', href: '/product' },
+  { label: 'Orbit', href: '/product/orbit' },
   { label: 'Gravity', href: '/product/gravity' },
   { label: 'Pulsar', href: '/product/pulsar' },
   { label: 'Channels', href: '/channels' },

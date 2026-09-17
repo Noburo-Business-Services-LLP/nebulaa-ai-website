@@ -76,10 +76,10 @@ export default function CapabilityPage({
           </h1>
           <p className="text-[17.5px] leading-[1.65] text-muted max-w-[640px] mb-9">{cap.subheadline}</p>
           <Link
-            href="/pricing"
+            href={agent.cta?.href ?? '/pricing'}
             className="inline-flex items-center gap-2 bg-gold text-[#1A1208] text-[15px] font-semibold px-[28px] py-[14px] rounded-full hover:brightness-105 transition"
           >
-            Start free trial <ArrowRight size={15} />
+            {agent.cta?.label ?? 'Start free trial'} <ArrowRight size={15} />
           </Link>
         </div>
       </section>
@@ -178,18 +178,22 @@ export default function CapabilityPage({
         />
         <div className="relative">
           <h2 className="font-heading font-medium text-[30px] md:text-[46px] leading-[1.1] tracking-[-0.02em] mb-5">
-            Give it a URL.{' '}
-            <span className="italic text-gold-display">See what it makes of you.</span>
+            {agent.cta ? (
+              <>{agent.name}, running on your business.{' '}<span className="italic text-gold-display">See it for yourself.</span></>
+            ) : (
+              <>Give it a URL.{' '}<span className="italic text-gold-display">See what it makes of you.</span></>
+            )}
           </h2>
           <p className="text-[16px] leading-[1.65] text-muted max-w-[460px] mx-auto mb-9">
-            Seven days free, no card. If it is not writing something worth publishing by day two,
-            nothing is lost.
+            {agent.cta
+              ? `${agent.price} — ${agent.priceNote ?? 'talk to us'}.`
+              : 'Seven days free, no card. If it is not writing something worth publishing by day two, nothing is lost.'}
           </p>
           <Link
-            href="/pricing"
+            href={agent.cta?.href ?? '/pricing'}
             className="inline-flex items-center gap-2 bg-gold text-[#1A1208] text-[15px] font-semibold px-[30px] py-[15px] rounded-full hover:brightness-105 transition"
           >
-            Start free trial <ArrowRight size={16} />
+            {agent.cta?.label ?? 'Start free trial'} <ArrowRight size={16} />
           </Link>
         </div>
       </section>

@@ -4,9 +4,9 @@ import { ArrowRight } from 'lucide-react'
 import { agents, capabilitiesFor } from '@/lib/productData'
 import SectionLabel from '@/components/ui/SectionLabel'
 
-const seoTitle = 'Product — Gravity & Pulsar | Nebulaa'
+const seoTitle = 'Product — Orbit, Gravity & Pulsar | Nebulaa'
 const seoDescription =
-  'Two agents on one engine. Gravity plans and makes the marketing; Pulsar answers everyone it brings in.'
+  'Three agents on one engine. Orbit finds who to talk to, Gravity gives them a reason to say yes, Pulsar closes the conversation.'
 
 export const metadata: Metadata = {
   title: seoTitle,
@@ -15,24 +15,25 @@ export const metadata: Metadata = {
 }
 
 export default function ProductPage() {
-  const list = [agents.gravity, agents.pulsar]
+  const list = [agents.orbit, agents.gravity, agents.pulsar]
 
   return (
     <main className="bg-ground text-ink min-h-screen">
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[90px] max-w-[880px]">
         <SectionLabel className="mb-[26px] block">The product</SectionLabel>
         <h1 className="font-heading font-medium text-[40px] md:text-[62px] leading-[1.06] tracking-[-0.02em] mb-[26px]" style={{ textWrap: 'pretty' }}>
-          Two agents.{' '}
+          Three agents.{' '}
           <span className="italic text-gold-display">One engine underneath.</span>
         </h1>
         <p className="text-[18px] leading-[1.65] text-muted max-w-[640px]">
-          Gravity makes the marketing that brings people in. Pulsar answers them before they go
-          somewhere else. They share the same brand memory, so what one learns the other already knows.
+          Orbit finds and qualifies who is worth talking to. Gravity makes the marketing that gives
+          them a reason to say yes. Pulsar answers them before they go somewhere else. All three share
+          the same brand memory, so what one learns the others already know.
         </p>
       </section>
 
       <section className="px-6 md:px-12 lg:px-[120px] pb-[110px]">
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {list.map(agent => {
             const caps = capabilitiesFor(agent.id)
             return (
@@ -78,7 +79,7 @@ export default function ProductPage() {
 
       <section className="px-6 md:px-12 lg:px-[120px] py-[100px] text-center">
         <h2 className="font-heading font-medium text-[28px] md:text-[42px] leading-[1.12] tracking-[-0.02em] mb-5">
-          Or have our team <span className="italic text-gold-text">run both for you.</span>
+          Or have our team <span className="italic text-gold-text">run all three for you.</span>
         </h2>
         <p className="text-[16px] leading-[1.65] text-muted max-w-[520px] mx-auto mb-9">
           Same agents underneath, with our team planning, producing and reporting on top of them —

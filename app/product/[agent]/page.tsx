@@ -7,6 +7,12 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import Schema, { breadcrumbSchema, softwareApplicationSchema } from '@/components/ui/Schema'
 import { products } from '@/lib/orgFacts'
 
+const ROLE: Record<string, string> = {
+  orbit: 'finds and qualifies who is worth talking to',
+  gravity: 'gives them a reason to say yes',
+  pulsar: 'closes the conversation',
+}
+
 export function generateStaticParams() {
   return Object.keys(agents).map(agent => ({ agent }))
 }
@@ -26,7 +32,7 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
   if (!agent) notFound()
 
   const caps = capabilitiesFor(agent.id)
-  const other = agent.id === 'gravity' ? agents.pulsar : agents.gravity
+  const others = (Object.keys(agents) as AgentId[]).filter(id => id !== agent.id).map(id => agents[id])
 
   const priced = products.find(p => p.name === agent.name)
 
@@ -65,12 +71,12 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
           <p className="text-[18px] leading-[1.65] text-muted max-w-[660px] mb-9">{agent.subheadline}</p>
           <div className="flex flex-wrap items-center gap-4">
             <Link
-              href="/pricing"
+              href={agent.cta?.href ?? '/pricing'}
               className="inline-flex items-center gap-2 bg-gold text-[#1A1208] text-[15px] font-semibold px-[30px] py-[15px] rounded-full hover:brightness-105 transition"
             >
-              Start free trial <ArrowRight size={15} />
+              {agent.cta?.label ?? 'Start free trial'} <ArrowRight size={15} />
             </Link>
-            <span className="text-[14.5px] text-muted">{agent.price} · 7-day trial, no card</span>
+            <span className="text-[14.5px] text-muted">{agent.price} · {agent.priceNote ?? '7-day trial, no card'}</span>
           </div>
         </div>
       </section>
@@ -109,22 +115,27 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
 
       <hr className="border-t border-rule" />
 
-      {/* The other half */}
+      {/* The rest of the pipeline */}
       <section className="px-6 md:px-12 lg:px-[120px] py-[100px]">
-        <div className="bg-surface border border-rule rounded-[20px] px-8 md:px-[52px] py-[46px] max-w-[880px]">
-          <SectionLabel tone="muted" className="mb-4 block">The other half</SectionLabel>
-          <h2 className="font-heading font-medium text-[26px] md:text-[34px] leading-[1.14] tracking-[-0.02em] mb-4">
-            {agent.name} brings people in. {other.name} {other.id === 'pulsar' ? 'answers them.' : 'gives them a reason to come.'}
-          </h2>
-          <p className="text-[15.5px] leading-[1.68] text-muted mb-7 max-w-[62ch]">
-            {other.subheadline}
-          </p>
-          <Link
-            href={`/product/${other.id}`}
-            className="inline-flex items-center gap-2 text-[14.5px] font-semibold text-gold-text hover:gap-3 transition-all"
-          >
-            See {other.name} <ArrowRight size={15} />
-          </Link>
+        <SectionLabel tone="muted" className="mb-6 block">The rest of the pipeline</SectionLabel>
+        <h2 className="font-heading font-medium text-[26px] md:text-[34px] leading-[1.14] tracking-[-0.02em] mb-8 max-w-[720px]">
+          {agent.name} {ROLE[agent.id]}. Two more agents run the rest of it.
+        </h2>
+        <div className="grid sm:grid-cols-2 gap-5 max-w-[880px]">
+          {others.map(o => (
+            <Link
+              key={o.id}
+              href={`/product/${o.id}`}
+              className="group block bg-surface border border-rule rounded-[18px] px-7 pt-[30px] pb-8 hover:border-gold/30 transition-colors"
+            >
+              <SectionLabel tone="muted" className="mb-3 block">{o.tagline}</SectionLabel>
+              <h3 className="font-heading font-medium text-[22px] mb-3">{o.name}</h3>
+              <p className="text-[14px] leading-[1.6] text-muted mb-6">{o.subheadline}</p>
+              <span className="flex items-center gap-1.5 text-[13.5px] font-semibold text-gold-text group-hover:gap-2.5 transition-all">
+                See {o.name} <ArrowRight size={13} />
+              </span>
+            </Link>
+          ))}
         </div>
       </section>
     </main>

@@ -41,3 +41,6 @@ next-env.d.ts
 
 # sst / opennext build output
 .open-next/
+
+# local dev-server data store (production uses the S3 DATA_BUCKET instead)
+/data/

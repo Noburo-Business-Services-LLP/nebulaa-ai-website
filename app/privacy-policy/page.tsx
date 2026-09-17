@@ -44,7 +44,7 @@ function SubHeading({ children }: { children: React.ReactNode }) {
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="bg-white dark:bg-[#0A0A0A] min-h-screen pt-28 pb-24 transition-colors">
+    <main className="bg-ground min-h-screen pt-28 pb-24">
       <div className="max-w-3xl mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="mb-12">

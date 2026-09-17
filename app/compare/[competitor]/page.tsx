@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Check, Minus } from 'lucide-react'
 import { getCompareData, compareData } from '@/lib/compareData'
+import HudCard from '@/components/ui/HudCard'
 
 /** Renders the ✅/❌ markers stored in compareData as real icons rather than emoji. */
 function SupportCell({ value }: { value: string }) {
@@ -110,7 +111,7 @@ export default function ComparePage({ params }: { params: { competitor: string }
 
         {/* What each does well */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <div className="bg-surface border border-rule rounded-2xl p-6">
+          <HudCard halo="amber" className="p-6">
             <h3 className="font-heading font-bold text-lg text-ink mb-4">Where Nebulaa stands out</h3>
             <ul className="space-y-2">
               {data.nebulaaStrengths.map((s, i) => (
@@ -119,8 +120,8 @@ export default function ComparePage({ params }: { params: { competitor: string }
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="bg-surface border border-rule rounded-2xl p-6">
+          </HudCard>
+          <HudCard halo="cyan" className="p-6">
             <h3 className="font-heading font-bold text-lg text-ink mb-4">Where {data.competitor} stands out</h3>
             <ul className="space-y-2">
               {data.competitorStrengths.map((s, i) => (
@@ -129,7 +130,7 @@ export default function ComparePage({ params }: { params: { competitor: string }
                 </li>
               ))}
             </ul>
-          </div>
+          </HudCard>
         </div>
 
         {/* Verdict */}

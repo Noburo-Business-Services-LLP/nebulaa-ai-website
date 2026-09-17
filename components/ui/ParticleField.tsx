@@ -1,6 +1,11 @@
 'use client'
 
-import ParticleCanvas from '@/components/ui/ParticleCanvas'
+import dynamic from 'next/dynamic'
+
+const ParticleGlobeCanvas = dynamic(() => import('@/components/three/ParticleGlobeCanvas'), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0 bg-[#030305] animate-pulse" />,
+})
 
 interface Readout {
   label: string
@@ -25,27 +30,25 @@ export default function ParticleField({ height = 520, readout, className = '', v
       style={variant === 'boxed' ? { height } : undefined}
     >
       {interactive ? (
-        <ParticleCanvas className="absolute inset-0" />
+        <ParticleGlobeCanvas className="absolute inset-0" interactive />
       ) : (
         <>
           <div className="neb-field" />
           <div className="neb-field-hot" />
+          <div className="neb-halo" />
+          {/* orbital rings */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-brand-gold/[0.16]" style={{ width: 300, height: 300 }} />
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-brand-gold/[0.08]" style={{ width: 440, height: 440 }} />
+          {/* core */}
+          <div
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[54px] h-[54px] rounded-full"
+            style={{
+              background: 'radial-gradient(circle at 36% 32%, #FFE1AC 0%, #F5A623 52%, #8A5406 100%)',
+              boxShadow: '0 0 60px 12px rgba(245,166,35,0.35)',
+            }}
+          />
         </>
       )}
-      <div className="neb-halo" />
-
-      {/* orbital rings */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-brand-gold/[0.16]" style={{ width: 300, height: 300 }} />
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-brand-gold/[0.08]" style={{ width: 440, height: 440 }} />
-
-      {/* core */}
-      <div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[54px] h-[54px] rounded-full"
-        style={{
-          background: 'radial-gradient(circle at 36% 32%, #FFE1AC 0%, #F5A623 52%, #8A5406 100%)',
-          boxShadow: '0 0 60px 12px rgba(245,166,35,0.35)',
-        }}
-      />
 
       {readout && (
         <>

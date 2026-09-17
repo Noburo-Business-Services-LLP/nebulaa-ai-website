@@ -47,10 +47,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        heading: ['Playfair Display', 'Georgia', 'serif'],
-        body:    ['Inter', 'DM Sans', 'sans-serif'],
-        sans:    ['Inter', 'DM Sans', 'sans-serif'],
-        // Utility face for data, routes, stats and product-UI mockups
+        heading: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        body:    ['Inter', 'system-ui', 'sans-serif'],
+        sans:    ['Inter', 'system-ui', 'sans-serif'],
+        // Telemetry, labels, stats, metadata — the "machine" voice
         mono:    ['IBM Plex Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       fontSize: {

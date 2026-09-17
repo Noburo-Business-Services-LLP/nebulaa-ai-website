@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import SectionLabel from '@/components/ui/SectionLabel'
+import HudCard from '@/components/ui/HudCard'
 import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animations'
 
 const steps = [
@@ -50,15 +51,13 @@ export default function ThreeThings() {
         viewport={viewportOptions}
         className="grid md:grid-cols-3 gap-6"
       >
-        {steps.map((step) => (
-          <motion.div
-            key={step.n}
-            variants={fadeUpVariant}
-            className="bg-surface border border-rule rounded-[18px] p-9"
-          >
-            <div className="font-heading text-[46px] text-gold-text/35 leading-none mb-7">{step.n}</div>
-            <h3 className="font-heading text-[25px] font-medium mb-3.5">{step.title}</h3>
-            <p className="font-body text-[15px] leading-[1.68] text-muted">{step.body}</p>
+        {steps.map((step, i) => (
+          <motion.div key={step.n} variants={fadeUpVariant}>
+            <HudCard halo={i === 1 ? 'cyan' : 'amber'} className="p-9 h-full">
+              <div className="font-mono text-[46px] text-gold-text/35 leading-none mb-7">{step.n}</div>
+              <h3 className="font-heading text-[25px] font-medium mb-3.5">{step.title}</h3>
+              <p className="font-body text-[15px] leading-[1.68] text-muted">{step.body}</p>
+            </HudCard>
           </motion.div>
         ))}
       </motion.div>

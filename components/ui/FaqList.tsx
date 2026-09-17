@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
+import { soundEngine } from '@/lib/soundEngine'
 
 export interface Faq {
   q: string
@@ -12,13 +13,13 @@ export interface Faq {
 function Item({ q, a }: Faq) {
   const [open, setOpen] = useState(false)
   return (
-    <div className={`border-b border-rule transition-all duration-200 ${open ? 'border-l-2 border-l-gold pl-5' : 'pl-0'}`}>
+    <div className={`border-b border-rule transition-all duration-200 ${open ? 'border-l-2 border-l-gold pl-5 bg-gold/[0.03]' : 'pl-0'}`}>
       <button
-        onClick={() => setOpen(!open)}
+        onClick={() => { soundEngine.playHudHover(); setOpen(!open) }}
         aria-expanded={open}
         className="w-full flex items-center justify-between py-5 text-left cursor-pointer group gap-4"
       >
-        <span className="font-heading text-[18px] font-medium text-ink group-hover:text-gold-text transition-colors">
+        <span className="font-heading text-[17.5px] font-medium text-ink group-hover:text-gold-text transition-colors">
           {q}
         </span>
         <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }} className="flex-shrink-0">

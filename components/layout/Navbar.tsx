@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence, useScroll } from 'framer-motion'
 import { ChevronDown, Menu, X, Radar, MessageSquareText, Wrench, ScrollText, Building2, Scale, Layers, Briefcase, Download } from 'lucide-react'
+import SoundToggle from '@/components/ui/SoundToggle'
 
 const GOLD_DOT_STYLE = {
   background:
@@ -210,6 +211,7 @@ export default function Navbar() {
 
           {/* Right CTAs — desktop */}
           <div className="hidden md:flex items-center gap-3.5">
+            <SoundToggle />
             <a href="#" className="font-body text-sm text-muted hover:text-ink transition-colors">
               Sign in
             </a>
@@ -221,10 +223,11 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile hamburger */}
+          {/* Mobile hamburger & sound */}
           <div className="md:hidden flex items-center gap-2">
+            <SoundToggle className="py-1 px-2.5" />
             <button
-              className="text-ink"
+              className="text-ink p-1"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             >

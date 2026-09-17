@@ -18,7 +18,7 @@ export const org = {
   region: 'Tamil Nadu',
   country: 'IN',
   description:
-    'Nebulaa is a Chennai-based AI operating system for business. It runs three engines on one core — Gravity for content and social media, Orbit for lead generation and Pulsar for lead engagement, with Nebulaa Core learning from actions, outcomes and signals across all three — and runs managed marketing engagements for brands across South India.',
+    'Nebulaa is a Chennai-based AI operating system for business. It runs three engines on one core — Gravity for content and social media, Orbit for lead generation and Pulsar for outreach, with Nebulaa Core learning from actions, outcomes and signals across all three — and runs managed marketing engagements for brands across South India.',
   founded: '2025',
 } as const
 
@@ -45,7 +45,7 @@ export const products = [
   },
   {
     name: 'Pulsar',
-    role: 'AI lead engagement engine',
+    role: 'AI outreach engine',
     price: 15000,
     description:
       'Answers enquiries on WhatsApp, email and SMS within minutes, qualifies budget, timeline and fit, scores every lead, and runs broadcasts, automation and voice calling.',

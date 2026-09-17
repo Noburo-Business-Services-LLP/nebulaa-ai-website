@@ -30,7 +30,7 @@ const ENGINES = [
   {
     id: 'pulsar',
     name: 'Pulsar',
-    role: 'AI lead engagement engine',
+    role: 'AI outreach engine',
     icon: MessageSquareText,
     purpose: 'Responds, follows up, qualifies and keeps customer conversations moving.',
   },

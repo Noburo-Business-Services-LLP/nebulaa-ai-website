@@ -65,7 +65,7 @@ export default function FactsPage() {
           </Row>
           <Row label="The system">
             Nebulaa Core (cross-agent intelligence), with three engines: Gravity (content &amp; social
-            media), Orbit (lead generation) and Pulsar (lead engagement)
+            media), Orbit (lead generation) and Pulsar (outreach)
           </Row>
         </dl>
       </section>

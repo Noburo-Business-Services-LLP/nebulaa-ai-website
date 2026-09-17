@@ -74,14 +74,14 @@ export const agents: Record<AgentId, Agent> = {
   pulsar: {
     id: 'pulsar',
     name: 'Pulsar',
-    tagline: 'AI lead engagement engine',
+    tagline: 'AI outreach engine',
     eyebrow: 'Pulsar // engagement',
     headline: 'Whoever replies first',
     headlineEmphasis: 'wins the sale.',
     subheadline:
       'Pulsar answers every enquiry on WhatsApp, email and SMS within minutes, asks the questions you would have asked, scores what comes back, and hands you only the people worth your afternoon. Broadcasts, automation and voice calling run from the same place.',
     price: '₹15,000 / month',
-    seoTitle: 'Pulsar — AI Lead Engagement Engine',
+    seoTitle: 'Pulsar — AI Outreach Engine',
     seoDescription:
       'A lead shouldn\'t disappear because someone forgot to follow up. Pulsar responds, follows up, qualifies and routes conversations across WhatsApp, email, SMS and voice — with humans in control where it matters.',
   },

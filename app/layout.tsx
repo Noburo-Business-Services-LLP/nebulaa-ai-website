@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     'autonomous AI agents',
     'AI content engine',
     'AI lead generation engine',
-    'AI lead engagement engine',
+    'AI outreach engine',
     'cross-agent intelligence',
   ],
   alternates: {

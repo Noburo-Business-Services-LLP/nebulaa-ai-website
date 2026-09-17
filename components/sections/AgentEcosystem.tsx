@@ -1,10 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { Radar, MessageSquareText, Orbit as OrbitIcon, BrainCircuit } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
-import SystemPanel from '@/components/ui/SystemPanel'
+import HudCard from '@/components/ui/HudCard'
 import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animations'
 
 /**
@@ -44,6 +44,8 @@ const ENGINES = [
  * which is the "clean vertical modules" rule rather than a shrunk diagram.
  */
 export default function AgentEcosystem() {
+  const reduceMotion = useReducedMotion()
+
   return (
     <section className="py-[130px] px-6 md:px-12 lg:px-[120px] overflow-hidden">
       <motion.div
@@ -67,15 +69,17 @@ export default function AgentEcosystem() {
       </motion.div>
 
       <div className="relative max-w-[820px] mx-auto">
-        {/* Connector lines — desktop only */}
+        {/* Connector lines — desktop only. Drawn in on scroll, then a signal
+            pulse loops along each one so the diagram reads as a running
+            system rather than a static wiring chart. */}
         <svg
           className="hidden md:block absolute left-0 top-0 w-full h-full pointer-events-none"
           viewBox="0 0 820 420"
           preserveAspectRatio="none"
           aria-hidden="true"
         >
-          {[137, 410, 683].map(x => (
-            <line
+          {[137, 410, 683].map((x, i) => (
+            <motion.line
               key={x}
               x1="410"
               y1="140"
@@ -84,8 +88,34 @@ export default function AgentEcosystem() {
               stroke="rgba(245,166,35,0.25)"
               strokeWidth="1.5"
               strokeDasharray="4 5"
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              viewport={viewportOptions}
+              transition={{ duration: 0.7, delay: 0.3 + i * 0.1 }}
             />
           ))}
+          {!reduceMotion &&
+            [137, 410, 683].map((x, i) => (
+              <motion.circle
+                key={`pulse-${x}`}
+                r="2.5"
+                fill="#F5A623"
+                initial={{ cx: 410, cy: 140, opacity: 0 }}
+                whileInView={{
+                  cx: [410, x],
+                  cy: [140, 300],
+                  opacity: [0, 1, 1, 0],
+                }}
+                viewport={viewportOptions}
+                transition={{
+                  duration: 1.8,
+                  delay: 1.2 + i * 0.35,
+                  repeat: Infinity,
+                  repeatDelay: 2.2,
+                  ease: 'easeInOut',
+                }}
+              />
+            ))}
         </svg>
 
         {/* Core — the hub */}
@@ -97,21 +127,21 @@ export default function AgentEcosystem() {
           className="relative z-10 flex justify-center mb-16 md:mb-0"
         >
           <Link href="/product/core" className="group block w-full max-w-[290px]">
-            <SystemPanel
-              label="Nebulaa Core"
+            <HudCard
+              halo="cyan"
+              label="Cross-agent intelligence"
               status={{ tone: 'learning', label: 'Learning' }}
-              lit
               className="group-hover:border-gold/30 transition-colors"
             >
               <div className="text-center">
-                <BrainCircuit size={22} className="text-gold-text mx-auto mb-3" />
-                <p className="font-heading text-[15px] font-medium mb-1.5">Cross-agent intelligence</p>
+                <BrainCircuit size={20} className="text-gold-text mx-auto mb-4" />
+                <h3 className="font-heading font-medium text-[19px] mb-1.5">Core</h3>
                 <p className="text-[13px] leading-[1.55] text-muted">
                   Learns from actions, outcomes and signals across the system — continuously
                   improving what happens next.
                 </p>
               </div>
-            </SystemPanel>
+            </HudCard>
           </Link>
         </motion.div>
 
@@ -126,7 +156,7 @@ export default function AgentEcosystem() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
               <Link href={`/product/${e.id}`} className="group block h-full">
-                <SystemPanel
+                <HudCard
                   label={e.role}
                   status={{ tone: 'active', label: 'Ready' }}
                   className="h-full group-hover:border-gold/30 transition-colors"
@@ -134,7 +164,7 @@ export default function AgentEcosystem() {
                   <e.icon size={20} className="text-gold-text mb-4" />
                   <h3 className="font-heading font-medium text-[19px] mb-1.5">{e.name}</h3>
                   <p className="text-[13.5px] leading-[1.55] text-muted">{e.purpose}</p>
-                </SystemPanel>
+                </HudCard>
               </Link>
             </motion.div>
           ))}

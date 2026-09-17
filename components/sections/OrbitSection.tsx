@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Crosshair, Search, Sparkles, Filter, Send, ArrowRight } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
-import SystemPanel from '@/components/ui/SystemPanel'
+import HudCard from '@/components/ui/HudCard'
 import StatusIndicator from '@/components/ui/StatusIndicator'
 import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animations'
 
@@ -84,7 +84,7 @@ export default function OrbitSection() {
           viewport={viewportOptions}
           transition={{ duration: 0.55 }}
         >
-          <SystemPanel label="Orbit // prospecting run" status={{ tone: 'active', label: 'Complete' }} lit>
+          <HudCard halo="cyan" label="Orbit // prospecting run" status={{ tone: 'active', label: 'Complete' }}>
             <div className="flex flex-col">
               {PIPELINE.map((row, i) => (
                 <div key={row.stage}>
@@ -108,12 +108,12 @@ export default function OrbitSection() {
               ))}
 
               {/* The handoff — the point of the whole run */}
-              <div className="flex items-center justify-between gap-4 mt-3 pt-3.5 border-t border-[var(--panel-border)]">
+              <div className="flex items-center justify-between gap-4 mt-3 pt-3.5 border-t border-rule">
                 <span className="neb-label">Handed to Pulsar</span>
                 <StatusIndicator tone="active" label="Engaging" />
               </div>
             </div>
-          </SystemPanel>
+          </HudCard>
         </motion.div>
       </div>
     </section>

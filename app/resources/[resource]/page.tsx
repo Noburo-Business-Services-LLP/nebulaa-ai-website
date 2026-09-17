@@ -28,7 +28,7 @@ export default function ResourcePage({ params }: { params: { resource: string } 
   const others = resources.filter(o => o.slug !== r.slug).slice(0, 3)
 
   return (
-    <main className="bg-ground text-ink min-h-screen">
+    <main className="text-ink min-h-screen">
       <Schema
         data={breadcrumbSchema([
           { name: 'Resources', path: '/resources' },

@@ -89,7 +89,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   const otherTools = tools.filter(t => t.slug !== params.slug).slice(0, 5)
 
   return (
-    <main className="bg-ground min-h-screen pt-20">
+    <main className="min-h-screen pt-20">
       {/* Breadcrumb */}
       <div className="max-w-6xl mx-auto px-4 md:px-8 py-4">
         <nav className="flex items-center gap-2 font-body text-xs text-muted">

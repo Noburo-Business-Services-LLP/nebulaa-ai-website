@@ -37,7 +37,7 @@ function Row({ label, children }: { label: string; children: React.ReactNode }) 
  */
 export default function FactsPage() {
   return (
-    <main className="bg-ground text-ink min-h-screen">
+    <main className="text-ink min-h-screen">
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[70px] max-w-[860px]">
         <SectionLabel className="mb-[26px] block">Company facts</SectionLabel>
         <h1 className="neb-display text-[38px] md:text-[56px] mb-[24px]" style={{ textWrap: 'pretty' }}>
@@ -71,7 +71,7 @@ export default function FactsPage() {
       </section>
 
       <section className="px-6 md:px-12 lg:px-[120px] pb-[70px]">
-        <h2 className="font-heading font-medium text-[26px] md:text-[32px] tracking-[-0.02em] mb-6">
+        <h2 className="neb-display text-[26px] md:text-[32px] mb-6">
           Software pricing
         </h2>
         <div className="max-w-[860px] overflow-x-auto border border-rule rounded-[16px] bg-surface">
@@ -102,14 +102,14 @@ export default function FactsPage() {
       </section>
 
       <section className="px-6 md:px-12 lg:px-[120px] pb-[70px] max-w-[860px]">
-        <h2 className="font-heading font-medium text-[26px] md:text-[32px] tracking-[-0.02em] mb-5">
+        <h2 className="neb-display text-[26px] md:text-[32px] mb-5">
           Managed services pricing
         </h2>
         <p className="text-[16px] leading-[1.7] text-muted">{servicePricingPolicy}</p>
       </section>
 
       <section className="px-6 md:px-12 lg:px-[120px] pb-[70px]">
-        <h2 className="font-heading font-medium text-[26px] md:text-[32px] tracking-[-0.02em] mb-6">
+        <h2 className="neb-display text-[26px] md:text-[32px] mb-6">
           Channels
         </h2>
         <dl className="max-w-[860px] border-t border-rule">
@@ -120,7 +120,7 @@ export default function FactsPage() {
       </section>
 
       <section className="px-6 md:px-12 lg:px-[120px] pb-[110px] max-w-[860px]">
-        <h2 className="font-heading font-medium text-[26px] md:text-[32px] tracking-[-0.02em] mb-6">
+        <h2 className="neb-display text-[26px] md:text-[32px] mb-6">
           What we do
         </h2>
         <ul className="flex flex-col gap-2.5">

@@ -15,7 +15,7 @@ export default function BlogList({ posts }: { posts: BlogPost[] }) {
 
   return (
     <>
-      <main className="bg-ground min-h-screen pt-24 pb-20">
+      <main className="min-h-screen pt-24 pb-20">
         <div className="max-w-5xl mx-auto px-4 md:px-8">
           <div className="mb-14">
             <SectionLabel className="mb-4 block">Nebulaa Labs</SectionLabel>

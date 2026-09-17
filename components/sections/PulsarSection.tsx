@@ -41,7 +41,7 @@ export default function PulsarSection() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
-          className="bg-[#111111] border border-white/[0.06] rounded-[20px] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.45)]"
+          className="bg-[#0A0A0E] border border-white/[0.06] rounded-[20px] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.45)]"
         >
           <div className="flex items-center justify-between mb-5">
             <div className="flex items-center gap-[9px]">
@@ -61,7 +61,7 @@ export default function PulsarSection() {
                 className={
                   bubble.sender === 'outbound'
                     ? 'self-end max-w-[78%] bg-gold/[0.13] border border-gold/[0.22] rounded-[14px_14px_4px_14px] px-4 py-[13px] text-[13.5px] leading-[1.55] text-white/[0.88]'
-                    : 'self-start max-w-[78%] bg-[#1A1A1A] border border-white/[0.06] rounded-[14px_14px_14px_4px] px-4 py-[13px] text-[13.5px] leading-[1.55] text-white/60'
+                    : 'self-start max-w-[78%] bg-[#101018] border border-white/[0.06] rounded-[14px_14px_14px_4px] px-4 py-[13px] text-[13.5px] leading-[1.55] text-white/60'
                 }
               >
                 {bubble.msg}
@@ -69,7 +69,7 @@ export default function PulsarSection() {
             ))}
           </div>
 
-          <div className="bg-[#1A1A1A] border border-white/[0.06] rounded-[14px] p-[17px] flex items-center justify-between">
+          <div className="bg-[#101018] border border-white/[0.06] rounded-[14px] p-[17px] flex items-center justify-between">
             <div>
               <SectionLabel tone="onDark" className="mb-[6px] block">Scored &amp; handed over</SectionLabel>
               <div className="text-[13.5px] text-white/75">Bridal · March timeline · booked Saturday</div>
@@ -86,13 +86,13 @@ export default function PulsarSection() {
           viewport={viewportOptions}
         >
           <motion.div variants={fadeUpVariant}>
-            <SectionLabel className="mb-[22px] block">Pulsar // Engagement</SectionLabel>
+            <SectionLabel className="mb-[22px] block">Pulsar // Outreach</SectionLabel>
           </motion.div>
           <motion.h2
             variants={fadeUpVariant}
             className="neb-display text-[34px] md:text-[50px] mb-[26px]"
           >
-            Whoever replies first <span className="text-gold-display">wins the sale.</span>
+            Follow-up <span className="text-gold-display">without the backlog.</span>
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}

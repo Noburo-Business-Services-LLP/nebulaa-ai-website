@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 
 const ParticleGlobeCanvas = dynamic(() => import('@/components/three/ParticleGlobeCanvas'), {
   ssr: false,
-  loading: () => <div className="absolute inset-0 bg-[#030305] animate-pulse" />,
+  loading: () => <div className="absolute inset-0 bg-ground animate-pulse" />,
 })
 
 interface Readout {
@@ -26,7 +26,7 @@ interface Props {
 export default function ParticleField({ height = 520, readout, className = '', variant = 'boxed', interactive = false }: Props) {
   return (
     <div
-      className={`overflow-hidden ${variant === 'boxed' ? 'relative rounded-3xl bg-[#0C0C0F] border border-white/[0.06]' : ''} ${className}`}
+      className={`overflow-hidden ${variant === 'boxed' ? 'relative rounded-3xl bg-[#0A0A0E] border border-white/[0.06]' : ''} ${className}`}
       style={variant === 'boxed' ? { height } : undefined}
     >
       {interactive ? (

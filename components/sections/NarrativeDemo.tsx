@@ -10,7 +10,7 @@ import { viewportOptions } from '@/lib/animations'
 
 /** Panels sit inside a dark product frame in both themes — that contrast is
  *  what makes the sequence read as software rather than as more page copy. */
-const PANEL = 'bg-[#141414] border border-white/[0.07] rounded-[14px]'
+const PANEL = 'bg-[#101018] border border-white/[0.07] rounded-[14px]'
 
 function Stage({
   index,
@@ -78,7 +78,7 @@ export default function NarrativeDemo() {
       </div>
 
       {/* The run */}
-      <div className="bg-[#0E0E0E] rounded-[22px] p-6 md:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.30)]">
+      <div className="bg-[#0A0A0E] rounded-[22px] p-6 md:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.30)]">
         <div className="flex flex-wrap items-baseline justify-between gap-3 mb-9 pb-6 border-b border-white/[0.07]">
           <span className="font-heading text-[17px] text-white">{run.who}</span>
           <span className="font-mono text-[12px] text-white/35">{run.url}</span>
@@ -179,18 +179,18 @@ export default function NarrativeDemo() {
               </div>
 
               <div className="flex flex-col gap-2.5 mb-4">
-                <div className="self-start max-w-[80%] bg-[#1E1E1E] border border-white/[0.06] rounded-[13px_13px_13px_4px] px-4 py-3 text-[13.5px] leading-[1.5] text-white/70">
+                <div className="self-start max-w-[80%] bg-[#101018] border border-white/[0.06] rounded-[13px_13px_13px_4px] px-4 py-3 text-[13.5px] leading-[1.5] text-white/70">
                   {run.reply.inbound}
                 </div>
                 <div className="self-end max-w-[80%] bg-gold/[0.14] border border-gold/25 rounded-[13px_13px_4px_13px] px-4 py-3 text-[13.5px] leading-[1.5] text-white/90">
                   {run.reply.outbound}
                 </div>
-                <div className="self-start max-w-[80%] bg-[#1E1E1E] border border-white/[0.06] rounded-[13px_13px_13px_4px] px-4 py-3 text-[13.5px] leading-[1.5] text-white/70">
+                <div className="self-start max-w-[80%] bg-[#101018] border border-white/[0.06] rounded-[13px_13px_13px_4px] px-4 py-3 text-[13.5px] leading-[1.5] text-white/70">
                   {run.reply.inboundBack}
                 </div>
               </div>
 
-              <div className="flex items-center justify-between gap-4 bg-[#1A1A1A] border border-white/[0.06] rounded-[12px] px-4 py-3.5">
+              <div className="flex items-center justify-between gap-4 bg-[#101018] border border-white/[0.06] rounded-[12px] px-4 py-3.5">
                 <div>
                   <div className="text-[11.5px] uppercase tracking-[0.08em] text-white/35 mb-1">
                     Scored and handed over

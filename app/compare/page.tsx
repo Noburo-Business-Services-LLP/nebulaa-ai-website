@@ -18,7 +18,7 @@ export default function CompareHubPage() {
   const list = Object.values(compareData)
 
   return (
-    <main className="bg-ground text-ink min-h-screen">
+    <main className="text-ink min-h-screen">
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[90px] max-w-[820px]">
         <SectionLabel className="mb-[26px] block">Comparisons</SectionLabel>
         <h1 className="neb-display text-[38px] md:text-[58px] mb-[26px]">

@@ -18,7 +18,7 @@ export default function ResourcesHubPage() {
   const ready = resources.filter(r => r.file).length
 
   return (
-    <main className="bg-ground text-ink min-h-screen">
+    <main className="text-ink min-h-screen">
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[80px] max-w-[860px]">
         <SectionLabel className="mb-[26px] block">Free downloads</SectionLabel>
         <h1 className="neb-display text-[40px] md:text-[60px] mb-[26px]" style={{ textWrap: 'pretty' }}>

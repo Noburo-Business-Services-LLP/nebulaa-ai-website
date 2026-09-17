@@ -77,7 +77,7 @@ export default function Hero() {
                 onFocus={() => soundEngine.playHudHover()}
                 placeholder="yourbusiness.com"
                 aria-label="Your website address"
-                className="relative w-full bg-[#08080E] border border-white/[0.14] rounded-full px-6 py-4 text-[15px] text-white placeholder:text-muted/60 outline-none focus:border-gold transition-all font-mono"
+                className="relative w-full bg-[#0A0A0E] border border-white/[0.14] rounded-full px-6 py-4 text-[15px] text-white placeholder:text-muted/60 outline-none focus:border-gold transition-all font-mono"
               />
             </div>
 

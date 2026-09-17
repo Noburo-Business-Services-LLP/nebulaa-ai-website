@@ -28,7 +28,7 @@ export default function EngagementPage({ params }: { params: { engagement: strin
   const others = engagements.filter(e => e.slug !== eng.slug)
 
   return (
-    <main className="bg-ground text-ink min-h-screen">
+    <main className="text-ink min-h-screen">
       <Schema
         data={breadcrumbSchema([
           { name: 'Engagements', path: '/work' },

@@ -22,7 +22,7 @@ const grouped = tools.reduce<Record<string, typeof tools>>((acc, tool) => {
 
 export default function ToolsPage() {
   return (
-    <main className="bg-ground text-ink min-h-screen">
+    <main className="text-ink min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[76px] max-w-[900px]">
         <div className="neb-glow-wash" />

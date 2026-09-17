@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import SectionLabel from '@/components/ui/SectionLabel'
-import SystemPanel from '@/components/ui/SystemPanel'
+import HudCard from '@/components/ui/HudCard'
 import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animations'
 import { galleryItems, type GalleryItem } from '@/lib/galleryData'
 
@@ -30,7 +30,7 @@ function GalleryCard({ item }: { item: GalleryItem }) {
 
   return (
     <motion.div variants={fadeUpVariant}>
-      <SystemPanel
+      <HudCard
         label={item.engine ? `${item.engine} // ${item.platform}` : item.platform}
         status={item.status ? { tone: 'active', label: item.status } : undefined}
         className="min-h-[280px] h-full"
@@ -50,14 +50,14 @@ function GalleryCard({ item }: { item: GalleryItem }) {
         )}
 
         {hasMeta && (
-          <div className="border-t border-[var(--panel-border)] pt-2.5">
+          <div className="border-t border-rule pt-2.5">
             <Meta label="Brand" value={item.brand ?? undefined} />
             <Meta label="Objective" value={item.objective} />
             <Meta label="Format" value={item.format} />
             <Meta label="Outcome" value={item.outcome} />
           </div>
         )}
-      </SystemPanel>
+      </HudCard>
     </motion.div>
   )
 }

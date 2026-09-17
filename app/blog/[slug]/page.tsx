@@ -58,7 +58,7 @@ export default async function BlogPost({ params }: Props) {
 
   return (
     <>
-      <main className="bg-ground min-h-screen pt-24 pb-20">
+      <main className="min-h-screen pt-24 pb-20">
         <div className="max-w-2xl mx-auto px-4 md:px-8">
           {/* Header */}
           <div className="mb-12">

@@ -32,7 +32,7 @@ export default function IndustryPage({ params }: { params: { industry: string } 
   if (!data) notFound()
 
   return (
-    <main className="bg-ground text-ink min-h-screen">
+    <main className="text-ink min-h-screen">
       <Schema
         data={breadcrumbSchema([
           { name: 'By industry', path: '/for' },
@@ -87,7 +87,7 @@ export default function IndustryPage({ params }: { params: { industry: string } 
 
       {/* Pain points */}
       <section className="px-6 md:px-12 lg:px-[120px] py-[100px]">
-        <h2 className="font-heading font-medium text-[28px] md:text-4xl mb-8">Sound familiar?</h2>
+        <h2 className="neb-display text-[28px] md:text-4xl mb-8">Sound familiar?</h2>
         <div className="grid sm:grid-cols-2 gap-3.5">
           {data.painPoints.map((pain, i) => (
             <div key={i} className="flex items-start gap-3 hud-card rounded-xl p-[18px]">
@@ -102,7 +102,7 @@ export default function IndustryPage({ params }: { params: { industry: string } 
 
       {/* Use cases */}
       <section className="px-6 md:px-12 lg:px-[120px] py-[100px]">
-        <h2 className="font-heading font-medium text-[28px] md:text-4xl mb-8">
+        <h2 className="neb-display text-[28px] md:text-4xl mb-8">
           How Nebulaa helps <span className="text-gold-display">{data.name.toLowerCase()}</span>
         </h2>
         <div className="flex flex-col gap-4">
@@ -128,7 +128,7 @@ export default function IndustryPage({ params }: { params: { industry: string } 
           <section className="px-6 md:px-12 lg:px-[120px] py-[100px]">
             <div className="max-w-[640px] mb-9">
               <SectionLabel className="mb-[18px] block">What the output looks like</SectionLabel>
-              <h2 className="font-heading font-medium text-[28px] md:text-4xl mb-3.5">
+              <h2 className="neb-display text-[28px] md:text-4xl mb-3.5">
                 The kind of post Gravity writes <span className="text-gold-display">for this sector.</span>
               </h2>
               <p className="text-[15px] leading-[1.65] text-muted">

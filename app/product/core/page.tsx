@@ -35,7 +35,7 @@ const SIGNALS = [
 
 export default function CorePage() {
   return (
-    <main className="bg-ground text-ink min-h-screen">
+    <main className="text-ink min-h-screen">
       <Schema
         data={breadcrumbSchema([
           { name: 'Product', path: '/product' },

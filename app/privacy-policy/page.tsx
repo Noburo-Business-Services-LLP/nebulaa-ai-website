@@ -44,13 +44,13 @@ function SubHeading({ children }: { children: React.ReactNode }) {
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="bg-ground min-h-screen pt-28 pb-24">
+    <main className="min-h-screen pt-28 pb-24">
       <div className="max-w-3xl mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="mb-12">
           <div className="h-1 w-16 bg-gradient-to-r from-gold to-gold/30 rounded-full mb-6" />
           <p className="font-body text-xs font-bold tracking-widest uppercase text-gold-text mb-3">Legal</p>
-          <h1 className="font-heading font-bold text-4xl md:text-5xl text-ink tracking-tight mb-4">
+          <h1 className="neb-display text-4xl md:text-5xl text-ink mb-4">
             Privacy Policy
           </h1>
           <div className="flex flex-wrap gap-4 font-body text-xs text-muted">

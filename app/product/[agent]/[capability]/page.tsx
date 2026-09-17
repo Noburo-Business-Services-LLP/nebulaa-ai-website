@@ -40,7 +40,7 @@ export default function CapabilityPage({
   const siblings = capabilitiesFor(agentId).filter(c => c.slug !== cap.slug).slice(0, 3)
 
   return (
-    <main className="bg-ground text-ink min-h-screen">
+    <main className="text-ink min-h-screen">
       <Schema
         data={breadcrumbSchema([
           { name: 'Product', path: '/product' },

@@ -46,7 +46,7 @@ export default function ComparePage({ params }: { params: { competitor: string }
   if (!data) notFound()
 
   return (
-    <main className="bg-ground min-h-screen pt-20">
+    <main className="min-h-screen pt-20">
       {/* Breadcrumb */}
       <div className="max-w-4xl mx-auto px-4 md:px-8 py-4">
         <nav className="flex items-center gap-2 font-body text-xs text-muted">
@@ -61,7 +61,7 @@ export default function ComparePage({ params }: { params: { competitor: string }
       <div className="max-w-4xl mx-auto px-4 md:px-8 pb-20">
         {/* Hero */}
         <div className="text-center py-12 border-b border-rule mb-12">
-          <h1 className="font-heading font-bold text-4xl md:text-5xl text-ink mb-4">{data.headline}</h1>
+          <h1 className="neb-display text-4xl md:text-5xl text-ink mb-4">{data.headline}</h1>
           <p className="font-body text-lg text-ink-2 max-w-2xl mx-auto">{data.subheadline}</p>
         </div>
 
@@ -81,7 +81,7 @@ export default function ComparePage({ params }: { params: { competitor: string }
 
         {/* Feature table */}
         <div className="mb-12">
-          <h2 className="font-heading font-bold text-2xl text-ink mb-6">Feature Comparison</h2>
+          <h2 className="neb-display text-2xl text-ink mb-6">Feature Comparison</h2>
           <div className="overflow-x-auto rounded-2xl border border-rule">
             <table className="w-full">
               <thead>
@@ -134,8 +134,8 @@ export default function ComparePage({ params }: { params: { competitor: string }
         </div>
 
         {/* Verdict */}
-        <div className="bg-surface-2 dark:bg-[#111110] rounded-2xl p-8 border border-rule mb-12">
-          <h2 className="font-heading font-bold text-xl text-ink mb-3">Our verdict</h2>
+        <div className="bg-surface-2 rounded-2xl p-8 border border-rule mb-12">
+          <h2 className="neb-display text-xl text-ink mb-3">Our verdict</h2>
           <p className="font-body text-base text-ink-2 leading-relaxed">{data.verdict}</p>
         </div>
 

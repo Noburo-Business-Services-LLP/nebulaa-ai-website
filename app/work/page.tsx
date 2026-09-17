@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function WorkHubPage() {
   return (
-    <main className="bg-ground text-ink min-h-screen">
+    <main className="text-ink min-h-screen">
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[90px] max-w-[860px]">
         <SectionLabel className="mb-[26px] block">Engagements</SectionLabel>
         <h1 className="neb-display text-[40px] md:text-[60px] mb-[26px]" style={{ textWrap: 'pretty' }}>
@@ -66,7 +66,7 @@ export default function WorkHubPage() {
       <section className="px-6 md:px-12 lg:px-[120px] py-[100px]">
         <div className="max-w-[680px]">
           <SectionLabel className="mb-[20px] block">On results</SectionLabel>
-          <h2 className="font-heading font-medium text-[28px] md:text-[38px] leading-[1.14] tracking-[-0.02em] mb-5">
+          <h2 className="neb-display text-[28px] md:text-[38px] leading-[1.14] mb-5">
             No numbers on these pages yet.
           </h2>
           <p className="text-[16px] leading-[1.68] text-muted mb-4">

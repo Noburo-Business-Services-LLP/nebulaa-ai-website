@@ -20,7 +20,7 @@ export default function ProductPage() {
   const list = [agents.orbit, agents.gravity, agents.pulsar]
 
   return (
-    <main className="bg-ground text-ink min-h-screen">
+    <main className="text-ink min-h-screen">
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[90px] max-w-[880px]">
         <SectionLabel className="mb-[26px] block">The product</SectionLabel>
         <h1 className="neb-display text-[40px] md:text-[62px] mb-[26px]" style={{ textWrap: 'pretty' }}>
@@ -69,7 +69,7 @@ export default function ProductPage() {
             return (
               <div key={agent.id} className="hud-card rounded-[20px] px-7 md:px-[42px] pt-[44px] pb-10">
                 <SectionLabel className="mb-[20px] block">{agent.tagline}</SectionLabel>
-                <h2 className="font-heading font-medium text-[32px] md:text-[38px] leading-[1.1] tracking-[-0.015em] mb-4">
+                <h2 className="neb-display text-[32px] md:text-[38px] leading-[1.1] mb-4">
                   {agent.name}
                 </h2>
                 <p className="text-[15.5px] leading-[1.68] text-muted mb-7">{agent.subheadline}</p>

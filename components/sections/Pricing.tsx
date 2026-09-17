@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Linkedin, Instagram, Twitter, Mail, MessageSquare, Check, MapPin, Building2 } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
+import StatusIndicator from '@/components/ui/StatusIndicator'
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
 import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animations'
 import { ANNUAL_DISCOUNT } from '@/lib/orgFacts'
@@ -105,7 +106,7 @@ const plans: Plan[] = [
     label: 'All three engines · best value',
     tagline: 'Sourcing + Marketing + Outreach',
     monthly: 28000,
-    description: 'The whole loop — leads found, content made, customers engaged. ₹9,000 less than buying separately.',
+    description: 'The whole loop — leads found, content made, customers engaged. Cheaper than buying separately.',
     channels: [...orbitChannels, ...gravityChannels, ...pulsarChannels],
     features: [
       'Orbit, Gravity and Pulsar on one account',
@@ -114,7 +115,6 @@ const plans: Plan[] = [
       'Content planned, drafted and published',
       'WhatsApp, email & SMS outreach',
       'Priority onboarding',
-      'Save ₹9,000/month vs separate',
     ],
     cta: 'Start with all three →',
     highlight: true,
@@ -189,25 +189,27 @@ export default function Pricing() {
         transition={{ duration: 0.6 }}
         className="hud-card rounded-[20px] overflow-hidden mb-[62px]"
       >
-        <div className="px-6 md:px-9 pt-7 pb-5">
+        <div className="px-6 md:px-9 pt-7 pb-5 flex items-center justify-between">
           <div className="neb-label">What you&apos;d otherwise be paying for</div>
+          <StatusIndicator tone="idle" label="Manual stack" pulse={false} />
         </div>
         <div className="px-6 md:px-9">
           {replaces.map(row => (
             <div key={row.item} className="flex items-center justify-between gap-4 py-4 border-t border-rule">
               <span className="font-body text-[14.5px] text-ink-2">{row.item}</span>
-              <span className="font-body text-[14.5px] text-muted text-right">{row.cost}</span>
+              <span className="font-mono text-[13px] text-muted text-right tabular-nums">{row.cost}</span>
             </div>
           ))}
         </div>
         <div className="flex items-center justify-between gap-4 px-6 md:px-9 py-6 border-t border-rule-2 bg-surface-2">
-          <span className="font-heading text-[20px] md:text-[22px] font-medium">Doing it yourself</span>
-          <span className="font-heading text-[20px] md:text-[22px] font-medium text-muted tabular-nums">₹58,000–97,000+/mo</span>
+          <span className="font-heading text-[17px] font-medium">Doing it yourself</span>
+          <span className="font-digital text-[22px] md:text-[26px] text-muted tabular-nums">₹58,000–97,000+/mo</span>
         </div>
 
         {/* Our side of the ledger, itemised the same way */}
-        <div className="px-6 md:px-9 pt-7 pb-5 border-t border-gold/[0.18] bg-gold/[0.05]">
+        <div className="px-6 md:px-9 pt-7 pb-5 border-t border-gold/[0.18] bg-gold/[0.05] flex items-center justify-between">
           <div className="neb-label neb-label-gold">What you get instead</div>
+          <StatusIndicator tone="active" label="Nebulaa" />
         </div>
         <div className="px-6 md:px-9 bg-gold/[0.05]">
           {included.map(item => (
@@ -218,8 +220,8 @@ export default function Pricing() {
           ))}
         </div>
         <div className="flex items-center justify-between gap-4 px-6 md:px-9 py-6 border-t border-gold/[0.18] bg-gold/[0.09]">
-          <span className="font-heading text-[20px] md:text-[22px] font-medium text-gold-text">With Nebulaa</span>
-          <span className="font-heading text-[24px] md:text-[26px] font-medium text-gold-text tabular-nums">From ₹{priceFor(10000, annual).display.toLocaleString('en-IN')}/mo</span>
+          <span className="font-heading text-[17px] font-medium text-gold-text">With Nebulaa</span>
+          <span className="font-digital text-[26px] md:text-[30px] text-gold-text tabular-nums">From ₹{priceFor(10000, annual).display.toLocaleString('en-IN')}/mo</span>
         </div>
       </motion.div>
 
@@ -227,6 +229,10 @@ export default function Pricing() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
         {plans.map((plan, i) => {
           const { display, suffix } = priceFor(plan.monthly, annual)
+          const individualTotal = plans
+            .slice(0, 3)
+            .reduce((sum, p) => sum + priceFor(p.monthly, annual).display, 0)
+          const savings = individualTotal - display
           return (
             <motion.div
               key={plan.name}
@@ -272,6 +278,11 @@ export default function Pricing() {
                 {plan.features.map(f => (
                   <div key={f} className="font-body text-[14.5px] text-ink-2">{f}</div>
                 ))}
+                {plan.highlight && savings > 0 && (
+                  <div className="font-body text-[14.5px] text-gold-text">
+                    Save ₹{savings.toLocaleString('en-IN')}/month vs separate
+                  </div>
+                )}
               </div>
 
               {/* CTA */}

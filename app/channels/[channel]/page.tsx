@@ -36,7 +36,7 @@ export default function ChannelPage({ params }: { params: { channel: string } })
   const siblings = channels.filter(c => c.slug !== ch.slug && c.runBy === ch.runBy).slice(0, 3)
 
   return (
-    <main className="bg-ground text-ink min-h-screen">
+    <main className="text-ink min-h-screen">
       <Schema
         data={breadcrumbSchema([
           { name: 'Channels', path: '/channels' },

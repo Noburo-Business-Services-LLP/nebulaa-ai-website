@@ -47,7 +47,7 @@ export default function GravitySection() {
             variants={fadeUpVariant}
             className="neb-display text-[34px] md:text-[50px] mb-[26px]"
           >
-            Stop planning content. <span className="text-gold-display">Start approving it.</span>
+            Your content system. <span className="text-gold-display">Always moving.</span>
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}
@@ -84,7 +84,7 @@ export default function GravitySection() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
-          className="bg-[#111111] border border-white/[0.06] rounded-[20px] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.45)]"
+          className="bg-[#0A0A0E] border border-white/[0.06] rounded-[20px] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.45)]"
         >
           <div className="flex items-center justify-between mb-5">
             <div className="flex items-center gap-[9px]">
@@ -101,7 +101,7 @@ export default function GravitySection() {
           </div>
 
           {/* Month view — the "plans the month" claim, made visible */}
-          <div className="bg-[#1A1A1A] border border-white/[0.06] rounded-[14px] p-[17px] mb-[14px]">
+          <div className="bg-[#101018] border border-white/[0.06] rounded-[14px] p-[17px] mb-[14px]">
             <div className="grid grid-cols-7 gap-[5px] mb-2">
               {WEEKDAYS.map((d, i) => (
                 <div key={i} className="text-[9.5px] text-center text-white/25 tracking-[0.04em]">
@@ -128,7 +128,7 @@ export default function GravitySection() {
             </div>
           </div>
 
-          <div className="bg-[#1A1A1A] border border-white/[0.06] rounded-[14px] p-5 mb-[14px]">
+          <div className="bg-[#101018] border border-white/[0.06] rounded-[14px] p-5 mb-[14px]">
             <SectionLabel tone="onDark" className="mb-3 block">Tuesday · LinkedIn</SectionLabel>
             <p className="font-body text-[14.5px] leading-[1.6] text-white/85 mb-4">
               Most of our customers don&rsquo;t compare us to other jewellers. They compare us to the shop their mother trusted for thirty years. That&rsquo;s the bar.
@@ -141,7 +141,7 @@ export default function GravitySection() {
 
           <div className="grid grid-cols-3 gap-[10px]">
             {stats.map((stat) => (
-              <div key={stat.label} className="bg-[#1A1A1A] border border-white/[0.06] rounded-xl p-[15px]">
+              <div key={stat.label} className="bg-[#101018] border border-white/[0.06] rounded-xl p-[15px]">
                 <SectionLabel tone="onDark" className="mb-[7px] block">{stat.label}</SectionLabel>
                 <div className="font-heading text-[27px] text-white">
                   {stat.value}

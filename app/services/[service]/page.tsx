@@ -36,7 +36,7 @@ export default function ServiceDetailPage({ params }: { params: { service: strin
   const siblings = servicePages.filter(s => s.slug !== svc.slug).slice(0, 3)
 
   return (
-    <main className="bg-ground text-ink min-h-screen">
+    <main className="text-ink min-h-screen">
       <Schema
         data={breadcrumbSchema([
           { name: 'Services', path: '/services' },

@@ -38,7 +38,7 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
   const priced = products.find(p => p.name === agent.name)
 
   return (
-    <main className="bg-ground text-ink min-h-screen">
+    <main className="text-ink min-h-screen">
       <Schema
         data={breadcrumbSchema([
           { name: 'Product', path: '/product' },
@@ -119,7 +119,7 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
       {/* The rest of the pipeline */}
       <section className="px-6 md:px-12 lg:px-[120px] py-[100px]">
         <SectionLabel tone="muted" className="mb-6 block">The rest of the pipeline</SectionLabel>
-        <h2 className="font-heading font-medium text-[26px] md:text-[34px] leading-[1.14] tracking-[-0.02em] mb-8 max-w-[720px]">
+        <h2 className="neb-display text-[26px] md:text-[34px] leading-[1.14] mb-8 max-w-[720px]">
           {agent.name} {ROLE[agent.id]}. Two more agents run the rest of it.
         </h2>
         <div className="grid sm:grid-cols-2 gap-5 max-w-[880px] mb-10">

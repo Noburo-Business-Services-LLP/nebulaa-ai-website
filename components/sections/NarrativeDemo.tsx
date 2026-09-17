@@ -49,8 +49,8 @@ export default function NarrativeDemo() {
       <div className="max-w-[680px] mb-[46px]">
         <SectionLabel className="mb-[22px] block">One run, start to finish</SectionLabel>
         <h2 className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium mb-5">
-          A URL on Monday.{' '}
-          <span className="italic text-gold-display">A booked customer by Saturday.</span>
+          One URL in.{' '}
+          <span className="italic text-gold-display">A growth engine running end to end.</span>
         </h2>
         <p className="font-body text-[17px] leading-[1.68] text-muted">
           The same seven steps run for any business. Pick a sector and follow one all the way

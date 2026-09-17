@@ -292,6 +292,11 @@ body {
   100% { transform: translateX(250%); }
 }
 
+@keyframes neb-ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .neb-field-hot, .neb-halo { animation: none; }
 }

@@ -46,7 +46,7 @@ export default function SharedMemory() {
           variants={fadeUpVariant}
           className="font-heading text-[33px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium mb-6"
         >
-          It doesn&apos;t forget <span className="italic text-gold-text">what worked.</span>
+          Compounding intelligence, <span className="italic text-gold-text">not a clean slate.</span>
         </motion.h2>
         <motion.p variants={fadeUpVariant} className="text-[16.5px] leading-[1.7] text-muted">
           Orbit, Gravity and Pulsar read from and write to the same memory. What gets engagement,

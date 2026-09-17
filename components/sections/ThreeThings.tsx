@@ -8,17 +8,17 @@ import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animatio
 const steps = [
   {
     n: '01',
-    title: 'It learns how you talk',
+    title: 'Full brand context, one pass',
     body: 'Paste your website. A minute later it knows your tone, who buys from you, and what your three closest rivals put out this week. No brief to write. No onboarding call to sit through.',
   },
   {
     n: '02',
-    title: 'It plans the month, then runs it',
+    title: 'A month planned and shipped, unattended',
     body: 'Not a post at a time — a month, mapped out and drafted in your voice: posts, carousels, the occasional reel. Diwali and Pongal are already in the plan, so you never wake up on the day with nothing ready.',
   },
   {
     n: '03',
-    title: 'It answers before they cool',
+    title: 'Every enquiry answered live',
     body: 'An enquiry at nine on a Sunday night doesn’t wait for Monday. Pulsar replies in minutes, asks what you’d have asked, and brings you in once there’s a real buyer on the other end.',
   },
 ]
@@ -34,13 +34,13 @@ export default function ThreeThings() {
         className="max-w-[640px] mb-[78px]"
       >
         <motion.div variants={fadeUpVariant}>
-          <SectionLabel className="mb-[22px] block">What actually happens</SectionLabel>
+          <SectionLabel className="mb-[22px] block">Always on</SectionLabel>
         </motion.div>
         <motion.h2
           variants={fadeUpVariant}
           className="font-heading text-[33px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium"
         >
-          It does the three things you <span className="italic text-gold-text">keep meaning to do.</span>
+          Agent intelligence, <span className="italic text-gold-text">running twenty-four seven.</span>
         </motion.h2>
       </motion.div>
 

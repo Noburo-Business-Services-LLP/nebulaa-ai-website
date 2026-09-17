@@ -1,5 +1,6 @@
 import Hero from '@/components/sections/Hero'
 import ClientStrip from '@/components/sections/ClientStrip'
+import GenerationTicker from '@/components/ui/GenerationTicker'
 import ThreeThings from '@/components/sections/ThreeThings'
 import SharedMemory from '@/components/sections/SharedMemory'
 import GravitySection from '@/components/sections/GravitySection'
@@ -20,6 +21,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <GenerationTicker />
       <ClientStrip />
       <ThreeThings />
       <SharedMemory />

@@ -90,9 +90,9 @@ export default function PulsarSection() {
           </motion.div>
           <motion.h2
             variants={fadeUpVariant}
-            className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium mb-[26px]"
+            className="neb-display text-[34px] md:text-[50px] mb-[26px]"
           >
-            Whoever replies first <span className="italic text-gold-text">wins the sale.</span>
+            Whoever replies first <span className="text-gold-display">wins the sale.</span>
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}

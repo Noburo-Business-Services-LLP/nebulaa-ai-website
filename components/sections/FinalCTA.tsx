@@ -23,11 +23,11 @@ export default function FinalCTA() {
       >
         <motion.h2
           variants={fadeUpVariant}
-          className="font-heading text-[36px] md:text-[62px] leading-[1.12] md:leading-[1.08] tracking-[-0.02em] font-medium mb-[26px]"
+          className="neb-display text-[36px] md:text-[62px] mb-[26px]"
         >
           Start with your URL.
           <br />
-          <span className="italic text-gold-text">See what it makes of you.</span>
+          <span className="text-gold-display">See what it makes of you.</span>
         </motion.h2>
 
         <motion.p

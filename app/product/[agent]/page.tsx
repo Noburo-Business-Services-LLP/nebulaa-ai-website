@@ -63,11 +63,11 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
         <div className="max-w-[880px]">
           <SectionLabel className="mb-[24px] block">{agent.eyebrow}</SectionLabel>
           <h1
-            className="font-heading font-medium text-[40px] md:text-[62px] leading-[1.06] tracking-[-0.02em] mb-[26px]"
+            className="neb-display text-[40px] md:text-[62px] mb-[26px]"
             style={{ textWrap: 'pretty' }}
           >
             {agent.headline}{' '}
-            <span className="italic text-gold-display">{agent.headlineEmphasis}</span>
+            <span className="text-gold-display">{agent.headlineEmphasis}</span>
           </h1>
           <p className="text-[18px] leading-[1.65] text-muted max-w-[660px] mb-9">{agent.subheadline}</p>
           <div className="flex flex-wrap items-center gap-4">
@@ -88,8 +88,8 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
       <section className="px-6 md:px-12 lg:px-[120px] py-[110px]">
         <div className="max-w-[660px] mb-[56px]">
           <SectionLabel className="mb-[20px] block">Everything it does</SectionLabel>
-          <h2 className="font-heading font-medium text-[32px] md:text-[46px] leading-[1.12] tracking-[-0.02em] mb-5">
-            {caps.length} things, <span className="italic text-gold-text">not one.</span>
+          <h2 className="neb-display text-[32px] md:text-[46px] mb-5">
+            {caps.length} things, <span className="text-gold-display">not one.</span>
           </h2>
           <p className="text-[16px] leading-[1.68] text-muted">
             Most of what {agent.name} does has never been on this website. Each of these is a module

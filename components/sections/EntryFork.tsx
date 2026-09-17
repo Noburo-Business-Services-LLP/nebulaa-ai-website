@@ -47,9 +47,9 @@ export default function EntryFork() {
         </motion.div>
         <motion.h2
           variants={fadeUpVariant}
-          className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium mb-5"
+          className="neb-display text-[34px] md:text-[50px] mb-5"
         >
-          Who should be running this — <span className="italic text-gold-text">you, or us?</span>
+          Who should be running this — <span className="text-gold-display">you, or us?</span>
         </motion.h2>
         <motion.p variants={fadeUpVariant} className="font-body text-[17px] leading-[1.68] text-muted">
           Same agents underneath. The only question is whose evening it takes.

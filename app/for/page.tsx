@@ -21,8 +21,8 @@ export default function IndustriesHubPage() {
     <main className="bg-ground text-ink min-h-screen">
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[90px] max-w-[820px]">
         <SectionLabel className="mb-[26px] block">By industry</SectionLabel>
-        <h1 className="font-heading font-medium text-[38px] md:text-[58px] leading-[1.1] tracking-[-0.02em] mb-[26px]">
-          Every industry sells <span className="italic text-gold-text">differently.</span>
+        <h1 className="neb-display text-[38px] md:text-[58px] mb-[26px]">
+          Every industry sells <span className="text-gold-display">differently.</span>
         </h1>
         <p className="text-[17px] leading-[1.65] text-muted max-w-[620px]">
           A jewellery brand sells on trust built over decades. A snack brand entering a new city needs

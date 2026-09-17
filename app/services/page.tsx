@@ -42,10 +42,10 @@ export default function ServicesPage() {
       {/* Hero */}
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[100px] max-w-[900px]">
         <SectionLabel className="mb-[26px] block">Managed services</SectionLabel>
-        <h1 className="font-heading font-medium text-[42px] md:text-[68px] leading-[1.06] tracking-[-0.02em] mb-[30px]" style={{ textWrap: 'pretty' }}>
+        <h1 className="neb-display text-[42px] md:text-[68px] mb-[30px]" style={{ textWrap: 'pretty' }}>
           Marketing, run as one system.
           <br />
-          <span className="italic text-gold-text">Not five vendors pretending to talk to each other.</span>
+          <span className="text-gold-display">Not five vendors pretending to talk to each other.</span>
         </h1>
         <p className="text-[18.5px] leading-[1.65] text-muted max-w-[620px] mb-10">
           Strategy, content, production, campaigns and on-ground activation — handled by one team, under one plan, with one person accountable for all of it. We&apos;re already running this for Gandhimathi Jewellers, JKR Tex and TNV Chits.
@@ -102,8 +102,8 @@ export default function ServicesPage() {
       <section className="px-6 md:px-12 lg:px-[120px] py-[120px]">
         <div className="max-w-[640px] mb-[62px]">
           <SectionLabel className="mb-[22px] block">What we do</SectionLabel>
-          <h2 className="font-heading font-medium text-4xl md:text-[48px] leading-[1.12] tracking-[-0.02em]">
-            One team across the <span className="italic text-gold-text">full execution layer.</span>
+          <h2 className="neb-display text-4xl md:text-[48px]">
+            One team across the <span className="text-gold-display">full execution layer.</span>
           </h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -128,8 +128,8 @@ export default function ServicesPage() {
       <section className="px-6 md:px-12 lg:px-[120px] py-[120px]">
         <div className="max-w-[660px] mb-[52px]">
           <SectionLabel className="mb-[22px] block">The engagement</SectionLabel>
-          <h2 className="font-heading font-medium text-4xl md:text-[48px] leading-[1.12] tracking-[-0.02em] mb-5">
-            Seven things we run. <span className="italic text-gold-text">Two nobody else can.</span>
+          <h2 className="neb-display text-4xl md:text-[48px] mb-5">
+            Seven things we run. <span className="text-gold-display">Two nobody else can.</span>
           </h2>
           <p className="text-[16px] leading-[1.68] text-muted">
             Market entry and BTL activation need people on the ground. No software competitor
@@ -169,8 +169,8 @@ export default function ServicesPage() {
       <section className="px-6 md:px-12 lg:px-[120px] py-[120px]">
         <div className="max-w-[680px] mb-[52px]">
           <SectionLabel className="mb-[22px] block">What we deliver</SectionLabel>
-          <h2 className="font-heading font-medium text-4xl md:text-[48px] leading-[1.12] tracking-[-0.02em] mb-5">
-            A month of work, <span className="italic text-gold-text">counted out in advance.</span>
+          <h2 className="neb-display text-4xl md:text-[48px] mb-5">
+            A month of work, <span className="text-gold-display">counted out in advance.</span>
           </h2>
           <p className="text-[16px] leading-[1.68] text-muted">
             No retainer that quietly shrinks. Here&apos;s what a full-scope engagement looks like in a
@@ -242,8 +242,8 @@ export default function ServicesPage() {
       <section className="px-6 md:px-12 lg:px-[120px] py-[120px]">
         <div className="max-w-[640px] mb-[62px]">
           <SectionLabel className="mb-[22px] block">How we work</SectionLabel>
-          <h2 className="font-heading font-medium text-4xl md:text-[48px] leading-[1.12] tracking-[-0.02em] mb-4">
-            One system, five stages, <span className="italic text-gold-text">one team accountable end to end.</span>
+          <h2 className="neb-display text-4xl md:text-[48px] mb-4">
+            One system, five stages, <span className="text-gold-display">one team accountable end to end.</span>
           </h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
@@ -264,10 +264,10 @@ export default function ServicesPage() {
           style={{ background: 'radial-gradient(50% 70% at 50% 100%, rgba(245,166,35,0.10) 0%, rgba(245,166,35,0) 62%)' }}
         />
         <div className="relative">
-          <h2 className="font-heading font-medium text-[36px] md:text-[56px] leading-[1.08] tracking-[-0.02em] mb-6">
+          <h2 className="neb-display text-[36px] md:text-[56px] mb-6">
             Tell us what you sell.
             <br />
-            <span className="italic text-gold-text">We&apos;ll tell you what we&apos;d do.</span>
+            <span className="text-gold-display">We&apos;ll tell you what we&apos;d do.</span>
           </h2>
           <p className="text-[17px] leading-[1.65] text-muted max-w-[480px] mx-auto mb-10">
             Twenty minutes, no deck, no pitch. If we&apos;re the wrong fit we&apos;ll say so on the call and point you somewhere better.

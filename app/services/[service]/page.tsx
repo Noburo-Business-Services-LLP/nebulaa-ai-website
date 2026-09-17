@@ -63,10 +63,10 @@ export default function ServiceDetailPage({ params }: { params: { service: strin
             )}
           </div>
           <h1
-            className="font-heading font-medium text-[38px] md:text-[58px] leading-[1.08] tracking-[-0.02em] mb-[26px]"
+            className="neb-display text-[38px] md:text-[58px] mb-[26px]"
             style={{ textWrap: 'pretty' }}
           >
-            {svc.headline} <span className="italic text-gold-display">{svc.headlineEmphasis}</span>
+            {svc.headline} <span className="text-gold-display">{svc.headlineEmphasis}</span>
           </h1>
           <p className="text-[17.5px] leading-[1.65] text-muted max-w-[640px] mb-9">{svc.subheadline}</p>
           <Link
@@ -94,8 +94,8 @@ export default function ServiceDetailPage({ params }: { params: { service: strin
       <section className="px-6 md:px-12 lg:px-[120px] py-[100px]">
         <div className="max-w-[640px] mb-[52px]">
           <SectionLabel className="mb-[20px] block">How it works</SectionLabel>
-          <h2 className="font-heading font-medium text-[30px] md:text-[42px] leading-[1.14] tracking-[-0.02em]">
-            The way this <span className="italic text-gold-text">actually runs.</span>
+          <h2 className="neb-display text-[30px] md:text-[42px]">
+            The way this <span className="text-gold-display">actually runs.</span>
           </h2>
         </div>
         <div className={`grid gap-6 ${svc.howItWorks.length === 4 ? 'md:grid-cols-4' : 'md:grid-cols-3'}`}>
@@ -118,8 +118,8 @@ export default function ServiceDetailPage({ params }: { params: { service: strin
           <section className="px-6 md:px-12 lg:px-[120px] py-[100px]">
             <div className="max-w-[660px] mb-[52px]">
               <SectionLabel className="mb-[20px] block">The sequence</SectionLabel>
-              <h2 className="font-heading font-medium text-[30px] md:text-[42px] leading-[1.14] tracking-[-0.02em] mb-4">
-                Four months to <span className="italic text-gold-text">a launch that lands.</span>
+              <h2 className="neb-display text-[30px] md:text-[42px] mb-4">
+                Four months to <span className="text-gold-display">a launch that lands.</span>
               </h2>
               <p className="text-[16px] leading-[1.68] text-muted">
                 Working backwards from the date, so demand is already in place when the stock is.
@@ -154,8 +154,8 @@ export default function ServiceDetailPage({ params }: { params: { service: strin
         <div className="grid lg:grid-cols-[minmax(0,400px)_minmax(0,1fr)] gap-x-[80px] gap-y-10">
           <div>
             <SectionLabel className="mb-[20px] block">What we run</SectionLabel>
-            <h2 className="font-heading font-medium text-[30px] md:text-[40px] leading-[1.14] tracking-[-0.02em]">
-              Concretely, <span className="italic text-gold-text">this.</span>
+            <h2 className="neb-display text-[30px] md:text-[40px]">
+              Concretely, <span className="text-gold-display">this.</span>
             </h2>
           </div>
           <div>
@@ -183,8 +183,8 @@ export default function ServiceDetailPage({ params }: { params: { service: strin
       <section className="px-6 md:px-12 lg:px-[120px] py-[100px]">
         <div className="max-w-[640px] mb-[44px]">
           <SectionLabel className="mb-[20px] block">Questions</SectionLabel>
-          <h2 className="font-heading font-medium text-[30px] md:text-[42px] leading-[1.14] tracking-[-0.02em]">
-            Asked before <span className="italic text-gold-text">every engagement.</span>
+          <h2 className="neb-display text-[30px] md:text-[42px]">
+            Asked before <span className="text-gold-display">every engagement.</span>
           </h2>
         </div>
         <FaqList faqs={svc.faqs} />
@@ -217,9 +217,9 @@ export default function ServiceDetailPage({ params }: { params: { service: strin
           style={{ background: 'radial-gradient(50% 70% at 50% 100%, rgba(245,166,35,0.10) 0%, rgba(245,166,35,0) 62%)' }}
         />
         <div className="relative">
-          <h2 className="font-heading font-medium text-[30px] md:text-[46px] leading-[1.1] tracking-[-0.02em] mb-5">
+          <h2 className="neb-display text-[30px] md:text-[46px] mb-5">
             Tell us what you sell.{' '}
-            <span className="italic text-gold-display">We&apos;ll tell you what we&apos;d do.</span>
+            <span className="text-gold-display">We&apos;ll tell you what we&apos;d do.</span>
           </h2>
           <p className="text-[16px] leading-[1.65] text-muted max-w-[470px] mx-auto mb-9">
             Twenty minutes, no deck. If we are the wrong fit we will say so on the call and point you

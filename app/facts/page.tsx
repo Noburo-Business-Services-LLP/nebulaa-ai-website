@@ -40,9 +40,9 @@ export default function FactsPage() {
     <main className="bg-ground text-ink min-h-screen">
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[70px] max-w-[860px]">
         <SectionLabel className="mb-[26px] block">Company facts</SectionLabel>
-        <h1 className="font-heading font-medium text-[38px] md:text-[56px] leading-[1.08] tracking-[-0.02em] mb-[24px]" style={{ textWrap: 'pretty' }}>
+        <h1 className="neb-display text-[38px] md:text-[56px] mb-[24px]" style={{ textWrap: 'pretty' }}>
           Everything true about us,{' '}
-          <span className="italic text-gold-display">on one page.</span>
+          <span className="text-gold-display">on one page.</span>
         </h1>
         <p className="text-[17px] leading-[1.65] text-muted max-w-[640px]">
           Pricing, products, location and capabilities, stated once. If a figure appears anywhere

@@ -21,9 +21,9 @@ export default function ResourcesHubPage() {
     <main className="bg-ground text-ink min-h-screen">
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[80px] max-w-[860px]">
         <SectionLabel className="mb-[26px] block">Free downloads</SectionLabel>
-        <h1 className="font-heading font-medium text-[40px] md:text-[60px] leading-[1.06] tracking-[-0.02em] mb-[26px]" style={{ textWrap: 'pretty' }}>
+        <h1 className="neb-display text-[40px] md:text-[60px] mb-[26px]" style={{ textWrap: 'pretty' }}>
           The things we use,{' '}
-          <span className="italic text-gold-display">handed over.</span>
+          <span className="text-gold-display">handed over.</span>
         </h1>
         <p className="text-[17.5px] leading-[1.65] text-muted max-w-[640px]">
           Built for Indian businesses and tuned to how the year actually runs here. One email

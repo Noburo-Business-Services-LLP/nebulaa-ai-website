@@ -48,9 +48,9 @@ export default function NarrativeDemo() {
     <section className="py-[130px] px-6 md:px-12 lg:px-[120px]">
       <div className="max-w-[680px] mb-[46px]">
         <SectionLabel className="mb-[22px] block">One run, start to finish</SectionLabel>
-        <h2 className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium mb-5">
+        <h2 className="neb-display text-[34px] md:text-[50px] mb-5">
           One URL in.{' '}
-          <span className="italic text-gold-display">A growth engine running end to end.</span>
+          <span className="text-gold-display">A growth engine running end to end.</span>
         </h2>
         <p className="font-body text-[17px] leading-[1.68] text-muted">
           The same seven steps run for any business. Pick a sector and follow one all the way

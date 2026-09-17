@@ -54,10 +54,10 @@ export default function CorePage() {
         <div className="max-w-[820px]">
           <SectionLabel className="mb-[24px] block">Core — cross-agent intelligence</SectionLabel>
           <h1
-            className="font-heading font-medium text-[40px] md:text-[62px] leading-[1.06] tracking-[-0.02em] mb-[26px]"
+            className="neb-display text-[40px] md:text-[62px] mb-[26px]"
             style={{ textWrap: 'pretty' }}
           >
-            The intelligence <span className="italic text-gold-display">behind the system.</span>
+            The intelligence <span className="text-gold-display">behind the system.</span>
           </h1>
           <p className="text-[18px] leading-[1.65] text-muted max-w-[660px] mb-9">
             Core connects what happens across Orbit, Gravity and Pulsar — observing actions,
@@ -78,8 +78,8 @@ export default function CorePage() {
       {/* Core doesn't do the work */}
       <section className="px-6 md:px-12 lg:px-[120px] py-[110px]">
         <div className="max-w-[720px] mb-[56px]">
-          <h2 className="font-heading font-medium text-[30px] md:text-[46px] leading-[1.14] tracking-[-0.02em]">
-            Core doesn&apos;t do the work. <span className="italic text-gold-text">It makes the system better at doing the work.</span>
+          <h2 className="neb-display text-[30px] md:text-[46px]">
+            Core doesn&apos;t do the work. <span className="text-gold-display">It makes the system better at doing the work.</span>
           </h2>
         </div>
         <div className="grid sm:grid-cols-3 gap-5 max-w-[900px]">
@@ -106,8 +106,8 @@ export default function CorePage() {
       <section className="px-6 md:px-12 lg:px-[120px] py-[110px]">
         <div className="max-w-[640px] mb-[52px]">
           <SectionLabel className="mb-[20px] block">From activity to signal</SectionLabel>
-          <h2 className="font-heading font-medium text-[30px] md:text-[44px] leading-[1.14] tracking-[-0.02em]">
-            Every action <span className="italic text-gold-text">leaves a signal.</span>
+          <h2 className="neb-display text-[30px] md:text-[44px]">
+            Every action <span className="text-gold-display">leaves a signal.</span>
           </h2>
         </div>
         <div className="flex flex-wrap gap-3">
@@ -126,8 +126,8 @@ export default function CorePage() {
       <section className="px-6 md:px-12 lg:px-[120px] py-[110px]">
         <div className="max-w-[640px] mb-[52px]">
           <SectionLabel className="mb-[20px] block">From signal to learning</SectionLabel>
-          <h2 className="font-heading font-medium text-[30px] md:text-[44px] leading-[1.14] tracking-[-0.02em]">
-            Signals, connected <span className="italic text-gold-text">across actions and outcomes.</span>
+          <h2 className="neb-display text-[30px] md:text-[44px]">
+            Signals, connected <span className="text-gold-display">across actions and outcomes.</span>
           </h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -147,8 +147,8 @@ export default function CorePage() {
       <section id="learning-loop" className="px-6 md:px-12 lg:px-[120px] py-[110px]">
         <div className="max-w-[640px] mb-[52px]">
           <SectionLabel className="mb-[20px] block">From learning to the next move</SectionLabel>
-          <h2 className="font-heading font-medium text-[30px] md:text-[44px] leading-[1.14] tracking-[-0.02em] mb-5">
-            The system uses what it learns <span className="italic text-gold-text">to inform what happens next.</span>
+          <h2 className="neb-display text-[30px] md:text-[44px] mb-5">
+            The system uses what it learns <span className="text-gold-display">to inform what happens next.</span>
           </h2>
         </div>
 
@@ -168,8 +168,8 @@ export default function CorePage() {
 
       {/* Close */}
       <section className="px-6 md:px-12 lg:px-[120px] py-[110px] text-center">
-        <h2 className="font-heading font-medium text-[28px] md:text-[42px] leading-[1.12] tracking-[-0.02em] mb-6">
-          Core comes with <span className="italic text-gold-text">every agent.</span>
+        <h2 className="neb-display text-[28px] md:text-[42px] mb-6">
+          Core comes with <span className="text-gold-display">every agent.</span>
         </h2>
         <p className="text-[16px] leading-[1.65] text-muted max-w-[480px] mx-auto mb-9">
           There is no separate Core plan. Run Orbit, Gravity or Pulsar and Core is already

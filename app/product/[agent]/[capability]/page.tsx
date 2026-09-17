@@ -68,11 +68,11 @@ export default function CapabilityPage({
         <div className="max-w-[880px]">
           <SectionLabel className="mb-[24px] block">{cap.eyebrow}</SectionLabel>
           <h1
-            className="font-heading font-medium text-[38px] md:text-[58px] leading-[1.08] tracking-[-0.02em] mb-[26px]"
+            className="neb-display text-[38px] md:text-[58px] mb-[26px]"
             style={{ textWrap: 'pretty' }}
           >
             {cap.headline}{' '}
-            <span className="italic text-gold-display">{cap.headlineEmphasis}</span>
+            <span className="text-gold-display">{cap.headlineEmphasis}</span>
           </h1>
           <p className="text-[17.5px] leading-[1.65] text-muted max-w-[640px] mb-9">{cap.subheadline}</p>
           <Link
@@ -96,8 +96,8 @@ export default function CapabilityPage({
       <section className="px-6 md:px-12 lg:px-[120px] py-[100px]">
         <div className="max-w-[640px] mb-[52px]">
           <SectionLabel className="mb-[20px] block">How it works</SectionLabel>
-          <h2 className="font-heading font-medium text-[30px] md:text-[42px] leading-[1.14] tracking-[-0.02em]">
-            Three steps, <span className="italic text-gold-text">start to finish.</span>
+          <h2 className="neb-display text-[30px] md:text-[42px]">
+            Three steps, <span className="text-gold-display">start to finish.</span>
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
@@ -120,8 +120,8 @@ export default function CapabilityPage({
         <div className="grid lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] gap-x-[80px] gap-y-10">
           <div>
             <SectionLabel className="mb-[20px] block">What you get</SectionLabel>
-            <h2 className="font-heading font-medium text-[30px] md:text-[40px] leading-[1.14] tracking-[-0.02em]">
-              Concretely, <span className="italic text-gold-text">this.</span>
+            <h2 className="neb-display text-[30px] md:text-[40px]">
+              Concretely, <span className="text-gold-display">this.</span>
             </h2>
           </div>
           <div className="flex flex-col gap-4">
@@ -141,8 +141,8 @@ export default function CapabilityPage({
       <section className="px-6 md:px-12 lg:px-[120px] py-[100px]">
         <div className="max-w-[640px] mb-[44px]">
           <SectionLabel className="mb-[20px] block">Questions</SectionLabel>
-          <h2 className="font-heading font-medium text-[30px] md:text-[42px] leading-[1.14] tracking-[-0.02em]">
-            The ones people <span className="italic text-gold-text">actually ask.</span>
+          <h2 className="neb-display text-[30px] md:text-[42px]">
+            The ones people <span className="text-gold-display">actually ask.</span>
           </h2>
         </div>
         <FaqList faqs={cap.faqs} />
@@ -177,11 +177,11 @@ export default function CapabilityPage({
           style={{ background: 'radial-gradient(50% 70% at 50% 100%, rgba(245,166,35,0.10) 0%, rgba(245,166,35,0) 62%)' }}
         />
         <div className="relative">
-          <h2 className="font-heading font-medium text-[30px] md:text-[46px] leading-[1.1] tracking-[-0.02em] mb-5">
+          <h2 className="neb-display text-[30px] md:text-[46px] mb-5">
             {agent.cta ? (
-              <>{agent.name}, running on your business.{' '}<span className="italic text-gold-display">See it for yourself.</span></>
+              <>{agent.name}, running on your business.{' '}<span className="text-gold-display">See it for yourself.</span></>
             ) : (
-              <>Give it a URL.{' '}<span className="italic text-gold-display">See what it makes of you.</span></>
+              <>Give it a URL.{' '}<span className="text-gold-display">See what it makes of you.</span></>
             )}
           </h2>
           <p className="text-[16px] leading-[1.65] text-muted max-w-[460px] mx-auto mb-9">

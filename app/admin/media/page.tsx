@@ -28,7 +28,7 @@ export default function AdminMediaPage() {
       </Link>
 
       <SectionLabel className="mb-[22px] block">Media slots</SectionLabel>
-      <h1 className="font-heading font-medium text-[34px] md:text-[46px] leading-[1.1] tracking-[-0.02em] mb-4">
+      <h1 className="neb-display text-[34px] md:text-[46px] mb-4">
         {filled} of {mediaSlots.length} slots filled.
       </h1>
       <p className="text-[16px] leading-[1.65] text-muted max-w-[68ch] mb-3">

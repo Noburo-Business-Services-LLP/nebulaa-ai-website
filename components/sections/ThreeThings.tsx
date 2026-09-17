@@ -38,9 +38,9 @@ export default function ThreeThings() {
         </motion.div>
         <motion.h2
           variants={fadeUpVariant}
-          className="font-heading text-[33px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium"
+          className="neb-display text-[33px] md:text-[50px]"
         >
-          Agent intelligence, <span className="italic text-gold-text">running twenty-four seven.</span>
+          Agent intelligence, <span className="text-gold-display">running twenty-four seven.</span>
         </motion.h2>
       </motion.div>
 

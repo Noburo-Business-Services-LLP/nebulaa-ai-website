@@ -49,10 +49,10 @@ export default function IndustryPage({ params }: { params: { industry: string } 
       {/* Hero */}
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[90px] max-w-[900px]">
         <SectionLabel className="mb-[26px] block">{data.eyebrow}</SectionLabel>
-        <h1 className="font-heading font-medium text-[38px] md:text-[60px] leading-[1.1] tracking-[-0.02em] mb-[28px]" style={{ textWrap: 'pretty' }}>
+        <h1 className="neb-display text-[38px] md:text-[60px] mb-[28px]" style={{ textWrap: 'pretty' }}>
           {data.headline}
           <br />
-          <span className="italic text-gold-text">{data.headlineEmphasis}</span>
+          <span className="text-gold-display">{data.headlineEmphasis}</span>
         </h1>
         <p className="text-[17px] leading-[1.65] text-muted max-w-[620px] mb-9">
           {data.subheadline}
@@ -103,7 +103,7 @@ export default function IndustryPage({ params }: { params: { industry: string } 
       {/* Use cases */}
       <section className="px-6 md:px-12 lg:px-[120px] py-[100px]">
         <h2 className="font-heading font-medium text-[28px] md:text-4xl mb-8">
-          How Nebulaa helps <span className="italic text-gold-text">{data.name.toLowerCase()}</span>
+          How Nebulaa helps <span className="text-gold-display">{data.name.toLowerCase()}</span>
         </h2>
         <div className="flex flex-col gap-4">
           {data.useCases.map((uc, i) => (
@@ -129,7 +129,7 @@ export default function IndustryPage({ params }: { params: { industry: string } 
             <div className="max-w-[640px] mb-9">
               <SectionLabel className="mb-[18px] block">What the output looks like</SectionLabel>
               <h2 className="font-heading font-medium text-[28px] md:text-4xl mb-3.5">
-                The kind of post Gravity writes <span className="italic text-gold-text">for this sector.</span>
+                The kind of post Gravity writes <span className="text-gold-display">for this sector.</span>
               </h2>
               <p className="text-[15px] leading-[1.65] text-muted">
                 Illustrative of the format and tone — not a client&apos;s published campaign.
@@ -149,10 +149,10 @@ export default function IndustryPage({ params }: { params: { industry: string } 
           style={{ background: 'radial-gradient(50% 70% at 50% 100%, rgba(245,166,35,0.10) 0%, rgba(245,166,35,0) 62%)' }}
         />
         <div className="relative">
-          <h2 className="font-heading font-medium text-[32px] md:text-[50px] leading-[1.1] tracking-[-0.02em] mb-6">
+          <h2 className="neb-display text-[32px] md:text-[50px] mb-6">
             Built for {data.name.toLowerCase()}.
             <br />
-            <span className="italic text-gold-text">Ready in a minute.</span>
+            <span className="text-gold-display">Ready in a minute.</span>
           </h2>
           <p className="text-[16px] leading-[1.65] text-muted max-w-[480px] mx-auto mb-9">
             Give Nebulaa your website URL. It learns your brand and starts building the content queue —

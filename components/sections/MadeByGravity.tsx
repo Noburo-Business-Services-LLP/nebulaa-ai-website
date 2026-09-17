@@ -66,9 +66,9 @@ export default function MadeByGravity() {
         </motion.div>
         <motion.h2
           variants={fadeUpVariant}
-          className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium mb-[26px]"
+          className="neb-display text-[34px] md:text-[50px] mb-[26px]"
         >
-          Not mockups. <span className="italic text-gold-text">Actual posts, actually published.</span>
+          Not mockups. <span className="text-gold-display">Actual posts, actually published.</span>
         </motion.h2>
         <motion.p
           variants={fadeUpVariant}

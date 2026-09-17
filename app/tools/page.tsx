@@ -28,10 +28,10 @@ export default function ToolsPage() {
         <div className="neb-glow-wash" />
         <div className="relative">
           <SectionLabel className="mb-[26px] block">Free tools · no signup</SectionLabel>
-          <h1 className="font-heading font-medium text-[42px] md:text-[64px] leading-[1.06] tracking-[-0.02em] mb-7" style={{ textWrap: 'pretty' }}>
+          <h1 className="neb-display text-[42px] md:text-[64px] mb-7" style={{ textWrap: 'pretty' }}>
             Every free tool we&apos;ve got,
             <br />
-            <span className="italic text-gold-text">one page, no catch.</span>
+            <span className="text-gold-display">one page, no catch.</span>
           </h1>
           <p className="text-[17px] md:text-[18px] leading-[1.65] text-muted max-w-[600px]">
             Each one runs on the same model that writes for Gravity. No signup, no card, no follow-up sequence afterwards — given what Pulsar does for a living, that would be a bit much. Use them forever and never speak to us. But if you&apos;re opening four of them every Monday, you already know what the product is for.
@@ -84,8 +84,8 @@ export default function ToolsPage() {
         <div className="bg-surface border border-gold/[0.18] rounded-[24px] p-10 md:p-[62px] grid md:grid-cols-[1.3fr_1fr] gap-10 md:gap-[60px] items-center shadow-[inset_0_1px_0_0_rgba(255,214,150,0.07)]">
           <div>
             <SectionLabel className="mb-[22px] block">When one tool stops being enough</SectionLabel>
-            <h2 className="font-heading font-medium text-[32px] md:text-[42px] leading-[1.14] tracking-[-0.02em] mb-5">
-              These make one thing. <span className="italic text-gold-text">Gravity makes all of it, every morning.</span>
+            <h2 className="neb-display text-[32px] md:text-[42px] mb-5">
+              These make one thing. <span className="text-gold-display">Gravity makes all of it, every morning.</span>
             </h2>
             <p className="text-[15.5px] md:text-base leading-[1.68] text-muted max-w-[520px]">
               A tool forgets you the moment you close the tab. The product remembers your voice, your customers and your calendar — and it doesn&apos;t wait to be asked.

@@ -54,7 +54,7 @@ export default function Newsletter() {
           <SectionLabel className="mb-[22px] block">Weekly GTM Intel</SectionLabel>
         </motion.div>
         <motion.h2 variants={fadeUpVariant} className="font-heading text-[42px] leading-[1.12] tracking-[-0.02em] font-medium mb-5">
-          GTM tips. Weekly. <span className="italic text-gold-text">No fluff.</span>
+          GTM tips. Weekly. <span className="text-gold-display">No fluff.</span>
         </motion.h2>
         <motion.p variants={fadeUpVariant} className="font-body text-[16px] leading-[1.68] text-muted mb-10 max-w-[440px] mx-auto">
           What founders using Nebulaa are learning right now — experiments, data, and what&apos;s actually working.

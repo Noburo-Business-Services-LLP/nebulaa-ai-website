@@ -50,9 +50,9 @@ export default function PricingPage() {
     <main className="bg-ground text-ink min-h-screen">
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[80px] max-w-[860px]">
         <SectionLabel className="mb-[26px] block">Pricing</SectionLabel>
-        <h1 className="font-heading font-medium text-[40px] md:text-[60px] leading-[1.08] tracking-[-0.02em] mb-[26px]" style={{ textWrap: 'pretty' }}>
+        <h1 className="neb-display text-[40px] md:text-[60px] mb-[26px]" style={{ textWrap: 'pretty' }}>
           Two ways to buy.{' '}
-          <span className="italic text-gold-display">One engine underneath.</span>
+          <span className="text-gold-display">One engine underneath.</span>
         </h1>
         <p className="text-[17.5px] leading-[1.65] text-muted max-w-[620px]">
           Run the software yourself, or have our team run the whole marketing function for you. The
@@ -115,7 +115,7 @@ export default function PricingPage() {
       <section className="px-6 md:px-12 lg:px-[120px] py-[110px]">
         <div className="max-w-[680px]">
           <SectionLabel className="mb-[22px] block">Managed services</SectionLabel>
-          <h2 className="font-heading font-medium text-4xl md:text-[46px] leading-[1.12] tracking-[-0.02em] mb-5">
+          <h2 className="neb-display text-4xl md:text-[46px] mb-5">
             Why there&apos;s no price on this page.
           </h2>
           <p className="text-[16.5px] leading-[1.68] text-muted mb-5">

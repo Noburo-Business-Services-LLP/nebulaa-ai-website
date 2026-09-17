@@ -20,7 +20,7 @@ export default function BlogPreview() {
             <SectionLabel className="mb-[22px] block">The Playbook</SectionLabel>
           </motion.div>
           <motion.h2 variants={fadeUpVariant} className="font-heading text-[42px] leading-[1.12] tracking-[-0.02em] font-medium">
-            Notes from <span className="italic text-gold-text">the work.</span>
+            Notes from <span className="text-gold-display">the work.</span>
           </motion.h2>
         </div>
         <motion.a

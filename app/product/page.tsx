@@ -23,9 +23,9 @@ export default function ProductPage() {
     <main className="bg-ground text-ink min-h-screen">
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[90px] max-w-[880px]">
         <SectionLabel className="mb-[26px] block">The product</SectionLabel>
-        <h1 className="font-heading font-medium text-[40px] md:text-[62px] leading-[1.06] tracking-[-0.02em] mb-[26px]" style={{ textWrap: 'pretty' }}>
+        <h1 className="neb-display text-[40px] md:text-[62px] mb-[26px]" style={{ textWrap: 'pretty' }}>
           Three agents.{' '}
-          <span className="italic text-gold-display">One engine underneath.</span>
+          <span className="text-gold-display">One engine underneath.</span>
         </h1>
         <p className="text-[18px] leading-[1.65] text-muted max-w-[640px]">
           Orbit finds and qualifies who is worth talking to. Gravity makes the marketing that gives
@@ -108,8 +108,8 @@ export default function ProductPage() {
       <hr className="border-t border-rule" />
 
       <section className="px-6 md:px-12 lg:px-[120px] py-[100px] text-center">
-        <h2 className="font-heading font-medium text-[28px] md:text-[42px] leading-[1.12] tracking-[-0.02em] mb-5">
-          Or have our team <span className="italic text-gold-text">run all three for you.</span>
+        <h2 className="neb-display text-[28px] md:text-[42px] mb-5">
+          Or have our team <span className="text-gold-display">run all three for you.</span>
         </h2>
         <p className="text-[16px] leading-[1.65] text-muted max-w-[520px] mx-auto mb-9">
           Same agents underneath, with our team planning, producing and reporting on top of them —

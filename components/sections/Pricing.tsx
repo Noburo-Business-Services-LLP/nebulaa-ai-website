@@ -140,8 +140,8 @@ export default function Pricing() {
         className="max-w-[620px] mb-[46px]"
       >
         <motion.div variants={fadeUpVariant}><SectionLabel className="mb-[22px] block">Pricing</SectionLabel></motion.div>
-        <motion.h2 variants={fadeUpVariant} className="font-heading font-medium text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] mb-5">
-          Cheaper than the hire. <span className="italic text-gold-text">Faster than the agency.</span>
+        <motion.h2 variants={fadeUpVariant} className="neb-display text-[34px] md:text-[50px] mb-5">
+          Cheaper than the hire. <span className="text-gold-display">Faster than the agency.</span>
         </motion.h2>
         <motion.p variants={fadeUpVariant} className="font-body text-[17px] leading-[1.68] text-muted">
           A marketing executive costs ₹30,000–50,000 a month, plus tools, plus six weeks of interviews, plus the morning they hand in their notice. This starts working on Thursday.

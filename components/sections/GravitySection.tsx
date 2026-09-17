@@ -45,9 +45,9 @@ export default function GravitySection() {
           </motion.div>
           <motion.h2
             variants={fadeUpVariant}
-            className="font-heading text-[34px] md:text-[50px] leading-[1.14] md:leading-[1.12] tracking-[-0.02em] font-medium mb-[26px]"
+            className="neb-display text-[34px] md:text-[50px] mb-[26px]"
           >
-            Stop planning content. <span className="italic text-gold-text">Start approving it.</span>
+            Stop planning content. <span className="text-gold-display">Start approving it.</span>
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}

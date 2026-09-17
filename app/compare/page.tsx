@@ -21,8 +21,8 @@ export default function CompareHubPage() {
     <main className="bg-ground text-ink min-h-screen">
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[90px] max-w-[820px]">
         <SectionLabel className="mb-[26px] block">Comparisons</SectionLabel>
-        <h1 className="font-heading font-medium text-[38px] md:text-[58px] leading-[1.1] tracking-[-0.02em] mb-[26px]">
-          Nebulaa vs <span className="italic text-gold-text">the alternatives.</span>
+        <h1 className="neb-display text-[38px] md:text-[58px] mb-[26px]">
+          Nebulaa vs <span className="text-gold-display">the alternatives.</span>
         </h1>
         <p className="text-[17px] leading-[1.65] text-muted max-w-[620px]">
           Most tools do one part of the job — scheduling, or writing, or outreach. Here&apos;s exactly

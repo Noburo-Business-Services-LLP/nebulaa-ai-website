@@ -19,9 +19,9 @@ export default function WorkHubPage() {
     <main className="bg-ground text-ink min-h-screen">
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[90px] max-w-[860px]">
         <SectionLabel className="mb-[26px] block">Engagements</SectionLabel>
-        <h1 className="font-heading font-medium text-[40px] md:text-[60px] leading-[1.06] tracking-[-0.02em] mb-[26px]" style={{ textWrap: 'pretty' }}>
+        <h1 className="neb-display text-[40px] md:text-[60px] mb-[26px]" style={{ textWrap: 'pretty' }}>
           Three shapes of work.{' '}
-          <span className="italic text-gold-display">Yours is one of them.</span>
+          <span className="text-gold-display">Yours is one of them.</span>
         </h1>
         <p className="text-[17.5px] leading-[1.65] text-muted max-w-[640px]">
           Every engagement gets scoped individually, but they fall into three shapes. Knowing which

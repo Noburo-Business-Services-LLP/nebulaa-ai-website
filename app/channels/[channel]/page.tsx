@@ -61,10 +61,10 @@ export default function ChannelPage({ params }: { params: { channel: string } })
             </span>
           </div>
           <h1
-            className="font-heading font-medium text-[38px] md:text-[58px] leading-[1.08] tracking-[-0.02em] mb-[26px]"
+            className="neb-display text-[38px] md:text-[58px] mb-[26px]"
             style={{ textWrap: 'pretty' }}
           >
-            {ch.headline} <span className="italic text-gold-display">{ch.headlineEmphasis}</span>
+            {ch.headline} <span className="text-gold-display">{ch.headlineEmphasis}</span>
           </h1>
           <p className="text-[17.5px] leading-[1.65] text-muted max-w-[640px] mb-9">{ch.subheadline}</p>
           <Link
@@ -82,8 +82,8 @@ export default function ChannelPage({ params }: { params: { channel: string } })
         <div className="grid lg:grid-cols-[minmax(0,400px)_minmax(0,1fr)] gap-x-[80px] gap-y-10">
           <div>
             <SectionLabel className="mb-[20px] block">What we do here</SectionLabel>
-            <h2 className="font-heading font-medium text-[30px] md:text-[40px] leading-[1.14] tracking-[-0.02em]">
-              On this channel, <span className="italic text-gold-text">specifically.</span>
+            <h2 className="neb-display text-[30px] md:text-[40px]">
+              On this channel, <span className="text-gold-display">specifically.</span>
             </h2>
           </div>
           <div>
@@ -113,8 +113,8 @@ export default function ChannelPage({ params }: { params: { channel: string } })
       <section className="px-6 md:px-12 lg:px-[120px] py-[100px]">
         <div className="max-w-[640px] mb-[44px]">
           <SectionLabel className="mb-[20px] block">Questions</SectionLabel>
-          <h2 className="font-heading font-medium text-[30px] md:text-[42px] leading-[1.14] tracking-[-0.02em]">
-            About this channel, <span className="italic text-gold-text">honestly.</span>
+          <h2 className="neb-display text-[30px] md:text-[42px]">
+            About this channel, <span className="text-gold-display">honestly.</span>
           </h2>
         </div>
         <FaqList faqs={ch.faqs} />

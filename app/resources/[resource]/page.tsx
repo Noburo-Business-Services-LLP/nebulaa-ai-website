@@ -49,7 +49,7 @@ export default function ResourcePage({ params }: { params: { resource: string } 
             {r.pages && <span className="text-[12.5px] text-faint">{r.pages}</span>}
           </div>
           <h1
-            className="font-heading font-medium text-[36px] md:text-[52px] leading-[1.1] tracking-[-0.02em] mb-[20px]"
+            className="neb-display text-[36px] md:text-[52px] mb-[20px]"
             style={{ textWrap: 'pretty' }}
           >
             {r.title}

@@ -2,6 +2,7 @@ import Hero from '@/components/sections/Hero'
 import SiteBackground from '@/components/ui/SiteBackground'
 import ClientStrip from '@/components/sections/ClientStrip'
 import GenerationTicker from '@/components/ui/GenerationTicker'
+import AgentEcosystem from '@/components/sections/AgentEcosystem'
 import ThreeThings from '@/components/sections/ThreeThings'
 import SharedMemory from '@/components/sections/SharedMemory'
 import GravitySection from '@/components/sections/GravitySection'
@@ -25,6 +26,7 @@ export default function Home() {
       <Hero />
       <GenerationTicker />
       <ClientStrip />
+      <AgentEcosystem />
       <ThreeThings />
       <SharedMemory />
       <EntryFork />

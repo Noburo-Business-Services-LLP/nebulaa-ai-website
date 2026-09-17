@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import HudCard from '@/components/ui/HudCard'
 
 export default function BlogEmailCapture() {
   const [name, setName] = useState('')
@@ -28,23 +29,23 @@ export default function BlogEmailCapture() {
 
   if (status === 'success') {
     return (
-      <div className="mt-14 bg-green-50 dark:bg-green-500/8 border border-green-200 dark:border-green-500/20 rounded-2xl p-6 text-center">
-        <h3 className="font-heading text-lg font-bold text-brand-text dark:text-white mb-1">You&apos;re in.</h3>
-        <p className="font-body text-sm text-brand-muted dark:text-white/50">
+      <HudCard halo="cyan" className="mt-14 p-6 text-center">
+        <h3 className="font-heading text-lg font-bold text-ink mb-1">You&apos;re in.</h3>
+        <p className="font-body text-sm text-muted">
           One email a week. Nothing else.
         </p>
-      </div>
+      </HudCard>
     )
   }
 
   return (
-    <div className="mt-14 bg-[#F9F6EE] dark:bg-[#111110] border border-brand-border dark:border-white/8 rounded-2xl p-6">
+    <HudCard halo="amber" className="mt-14 p-6">
       <div className="flex items-start gap-4">
         <div className="flex-1">
-          <h3 className="font-heading text-lg font-bold text-brand-text dark:text-white mb-1">
+          <h3 className="font-heading text-lg font-bold text-ink mb-1">
             Get GTM playbooks that actually work
           </h3>
-          <p className="font-body text-sm text-brand-muted dark:text-white/50 mb-4">
+          <p className="font-body text-sm text-muted mb-4">
             One email a week. Actionable tips for founders building in India. No fluff, no spam — ever.
           </p>
           <form onSubmit={submit} className="flex flex-col sm:flex-row gap-2">
@@ -53,7 +54,7 @@ export default function BlogEmailCapture() {
               value={name}
               onChange={e => setName(e.target.value)}
               placeholder="Your name"
-              className="flex-1 border border-brand-border dark:border-white/10 dark:bg-white/5 dark:text-white rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-brand-gold transition-colors placeholder:text-brand-muted dark:placeholder:text-white/30"
+              className="flex-1 border border-rule bg-surface-2 text-ink rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-gold transition-colors placeholder:text-faint"
             />
             <input
               type="email"
@@ -61,12 +62,12 @@ export default function BlogEmailCapture() {
               onChange={e => setEmail(e.target.value)}
               placeholder="your@email.com"
               required
-              className="flex-1 border border-brand-border dark:border-white/10 dark:bg-white/5 dark:text-white rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-brand-gold transition-colors placeholder:text-brand-muted dark:placeholder:text-white/30"
+              className="flex-1 border border-rule bg-surface-2 text-ink rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-gold transition-colors placeholder:text-faint"
             />
             <button
               type="submit"
               disabled={status === 'loading' || !email.trim()}
-              className="bg-brand-gold text-brand-black font-body font-semibold rounded-xl px-5 py-2.5 text-sm hover:bg-brand-gold-dim transition-all disabled:opacity-60 whitespace-nowrap"
+              className="bg-gold text-[#1A1208] font-body font-semibold rounded-xl px-5 py-2.5 text-sm hover:brightness-105 transition-all disabled:opacity-60 whitespace-nowrap"
             >
               {status === 'loading' ? 'Joining...' : 'Join free →'}
             </button>
@@ -74,11 +75,11 @@ export default function BlogEmailCapture() {
           {status === 'error' && (
             <p className="font-body text-xs text-red-400 mt-2">Something went wrong — try again or email us directly.</p>
           )}
-          <p className="font-body text-xs text-brand-muted dark:text-white/30 mt-2">
+          <p className="font-body text-xs text-faint mt-2">
             Unsubscribe anytime.
           </p>
         </div>
       </div>
-    </div>
+    </HudCard>
   )
 }

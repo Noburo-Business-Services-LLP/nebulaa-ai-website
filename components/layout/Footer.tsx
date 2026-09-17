@@ -28,7 +28,7 @@ const freeLinks = [
   { name: '30 free tools', href: '/tools' },
   { name: 'Downloads', href: '/resources' },
   { name: 'Compare', href: '/compare' },
-  { name: 'Playbook', href: '/blog' },
+  { name: 'Nebulaa Labs', href: '/blog' },
 ]
 
 function FooterNewsletter() {

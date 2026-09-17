@@ -27,7 +27,7 @@ const RESOURCES_LINKS = [
   { name: 'Engagements', desc: 'The three shapes of managed work, and what each includes', href: '/work', icon: Briefcase },
   { name: 'By industry', desc: 'How Gravity and Pulsar run per vertical', href: '/for', icon: Building2 },
   { name: 'Compare', desc: 'Nebulaa vs Buffer, Hootsuite, Jasper and more', href: '/compare', icon: Scale },
-  { name: 'Playbook', desc: 'What we try, what the numbers say, what changes', href: '/blog', icon: ScrollText },
+  { name: 'Nebulaa Labs', desc: 'Experiments, systems, signals — what we try and what changes', href: '/blog', icon: ScrollText },
 ]
 
 const MOBILE_LINKS = [
@@ -44,7 +44,7 @@ const MOBILE_LINKS = [
   { label: 'By industry', href: '/for' },
   { label: 'Compare', href: '/compare' },
   { label: 'Pricing', href: '/pricing' },
-  { label: 'Playbook', href: '/blog' },
+  { label: 'Nebulaa Labs', href: '/blog' },
 ]
 
 export default function Navbar() {

@@ -103,11 +103,11 @@ export default function HashtagGenerator() {
   return (
     <div className="space-y-6">
       {/* Inputs */}
-      <div className="bg-brand-off-white dark:bg-[#111110] rounded-2xl p-6 border border-brand-border dark:border-white/8">
+      <div className="bg-surface-2 rounded-2xl p-6 border border-rule">
         <div className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="sm:col-span-1">
-              <label className="font-body text-sm font-semibold text-brand-text dark:text-white block mb-2">
+              <label className="font-body text-sm font-semibold text-ink block mb-2">
                 Your topic or niche
               </label>
               <input
@@ -116,15 +116,15 @@ export default function HashtagGenerator() {
                 onChange={e => setTopic(e.target.value)}
                 onKeyDown={e => e.key === 'Enter' && generate()}
                 placeholder="e.g. B2B SaaS marketing, fitness coaching, sustainable fashion"
-                className="w-full border border-brand-border dark:border-white/10 dark:bg-white/5 dark:text-white rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-brand-gold transition-colors placeholder:text-brand-muted dark:placeholder:text-white/30"
+                className="w-full border border-rule bg-surface-2 text-ink rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-gold transition-colors placeholder:text-muted"
               />
             </div>
             <div>
-              <label className="font-body text-sm font-semibold text-brand-text dark:text-white block mb-2">Platform</label>
+              <label className="font-body text-sm font-semibold text-ink block mb-2">Platform</label>
               <select
                 value={platform}
                 onChange={e => setPlatform(e.target.value as Platform)}
-                className="w-full border border-brand-border dark:border-white/10 dark:bg-[#1A1815] dark:text-white rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-brand-gold transition-colors"
+                className="w-full border border-rule bg-surface-2 text-ink rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-gold transition-colors"
               >
                 <option value="instagram">Instagram</option>
                 <option value="linkedin">LinkedIn</option>
@@ -135,7 +135,7 @@ export default function HashtagGenerator() {
           <button
             onClick={generate}
             disabled={!topic.trim()}
-            className="flex items-center gap-2 bg-brand-gold text-brand-black font-body font-semibold rounded-full px-6 py-3 hover:bg-brand-gold-dim transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:scale-[1.02]"
+            className="flex items-center gap-2 bg-gold text-[#1A1208] font-body font-semibold rounded-full px-6 py-3 hover:brightness-110 transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:scale-[1.02]"
           >
             <Hash size={16} />
             Generate 30 Hashtags
@@ -150,16 +150,16 @@ export default function HashtagGenerator() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="bg-white dark:bg-[#1A1815] rounded-2xl border border-brand-border dark:border-white/8 overflow-hidden"
+            className="bg-surface rounded-2xl border border-rule overflow-hidden"
           >
-            <div className="flex items-center justify-between px-5 py-3 border-b border-brand-border dark:border-white/8">
+            <div className="flex items-center justify-between px-5 py-3 border-b border-rule">
               <div className="flex items-center gap-3">
-                <span className="font-body text-sm font-semibold text-brand-text dark:text-white">30 Hashtags for {platform}</span>
-                <span className="font-body text-xs text-brand-muted dark:text-white/40">{charCount} chars</span>
+                <span className="font-body text-sm font-semibold text-ink">30 Hashtags for {platform}</span>
+                <span className="font-body text-xs text-muted">{charCount} chars</span>
               </div>
               <button
                 onClick={() => copyGroup('all')}
-                className="flex items-center gap-1.5 font-body text-xs font-semibold text-brand-gold hover:text-brand-gold-dim transition-colors"
+                className="flex items-center gap-1.5 font-body text-xs font-semibold text-gold-text hover:text-gold-text-dim transition-colors"
               >
                 {copied === 'all' ? <><Check size={12} />Copied!</> : <><Copy size={12} />Copy all 30</>}
               </button>
@@ -170,14 +170,14 @@ export default function HashtagGenerator() {
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <div>
-                    <p className="font-body text-xs font-bold uppercase tracking-widest text-brand-muted dark:text-white/40">
+                    <p className="font-body text-xs font-bold uppercase tracking-widest text-muted">
                       High Reach
                     </p>
-                    <p className="font-body text-[10px] text-brand-muted dark:text-white/30">1M+ posts — broad discovery</p>
+                    <p className="font-body text-[10px] text-faint">1M+ posts — broad discovery</p>
                   </div>
                   <button
                     onClick={() => copyGroup('top')}
-                    className="flex items-center gap-1 font-body text-xs text-brand-muted dark:text-white/40 hover:text-brand-gold transition-colors"
+                    className="flex items-center gap-1 font-body text-xs text-muted hover:text-gold-text transition-colors"
                   >
                     {copied === 'top' ? <Check size={10} /> : <Copy size={10} />}
                     <span className="ml-0.5">Copy</span>
@@ -185,7 +185,7 @@ export default function HashtagGenerator() {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {result.top.map(h => (
-                    <span key={h} className="font-body text-xs bg-brand-gold/10 dark:bg-brand-gold/15 text-brand-gold px-2.5 py-1 rounded-lg border border-brand-gold/20">
+                    <span key={h} className="font-body text-xs bg-gold/10 text-gold-text px-2.5 py-1 rounded-lg border border-gold/20">
                       {h}
                     </span>
                   ))}
@@ -196,14 +196,14 @@ export default function HashtagGenerator() {
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <div>
-                    <p className="font-body text-xs font-bold uppercase tracking-widest text-brand-muted dark:text-white/40">
+                    <p className="font-body text-xs font-bold uppercase tracking-widest text-muted">
                       Medium Reach
                     </p>
-                    <p className="font-body text-[10px] text-brand-muted dark:text-white/30">100K–1M posts — better visibility</p>
+                    <p className="font-body text-[10px] text-faint">100K–1M posts — better visibility</p>
                   </div>
                   <button
                     onClick={() => copyGroup('medium')}
-                    className="flex items-center gap-1 font-body text-xs text-brand-muted dark:text-white/40 hover:text-brand-gold transition-colors"
+                    className="flex items-center gap-1 font-body text-xs text-muted hover:text-gold-text transition-colors"
                   >
                     {copied === 'medium' ? <Check size={10} /> : <Copy size={10} />}
                     <span className="ml-0.5">Copy</span>
@@ -222,14 +222,14 @@ export default function HashtagGenerator() {
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <div>
-                    <p className="font-body text-xs font-bold uppercase tracking-widest text-brand-muted dark:text-white/40">
+                    <p className="font-body text-xs font-bold uppercase tracking-widest text-muted">
                       Niche
                     </p>
-                    <p className="font-body text-[10px] text-brand-muted dark:text-white/30">Under 100K — targeted, less competition</p>
+                    <p className="font-body text-[10px] text-faint">Under 100K — targeted, less competition</p>
                   </div>
                   <button
                     onClick={() => copyGroup('niche')}
-                    className="flex items-center gap-1 font-body text-xs text-brand-muted dark:text-white/40 hover:text-brand-gold transition-colors"
+                    className="flex items-center gap-1 font-body text-xs text-muted hover:text-gold-text transition-colors"
                   >
                     {copied === 'niche' ? <Check size={10} /> : <Copy size={10} />}
                     <span className="ml-0.5">Copy</span>
@@ -245,8 +245,8 @@ export default function HashtagGenerator() {
               </div>
             </div>
 
-            <div className="px-5 py-3 bg-brand-gold/5 dark:bg-brand-gold/10 border-t border-brand-border dark:border-white/5">
-              <p className="font-body text-xs text-brand-muted dark:text-white/50">
+            <div className="px-5 py-3 bg-gold/5 border-t border-rule">
+              <p className="font-body text-xs text-muted">
                 💡 Best strategy: Use 3–5 high reach + 3–5 medium + 2–3 niche per post. Rotate sets weekly to avoid shadowban.
               </p>
             </div>

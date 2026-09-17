@@ -37,8 +37,8 @@ export default function ParticleField({ height = 520, readout, className = '', v
           <div className="neb-field-hot" />
           <div className="neb-halo" />
           {/* orbital rings */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-brand-gold/[0.16]" style={{ width: 300, height: 300 }} />
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-brand-gold/[0.08]" style={{ width: 440, height: 440 }} />
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-gold/[0.16]" style={{ width: 300, height: 300 }} />
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-gold/[0.08]" style={{ width: 440, height: 440 }} />
           {/* core */}
           <div
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[54px] h-[54px] rounded-full"

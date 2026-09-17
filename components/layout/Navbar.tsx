@@ -7,7 +7,7 @@ import { ChevronDown, Menu, X, Radar, MessageSquareText, Orbit, BrainCircuit, Wr
 import SoundToggle from '@/components/ui/SoundToggle'
 import Wordmark from '@/components/ui/Wordmark'
 import StatusIndicator from '@/components/ui/StatusIndicator'
-import { soundEngine } from '@/lib/soundEngine'
+import Button from '@/components/ui/Button'
 import { trackCTAClick } from '@/lib/analytics/track'
 
 const GOLD_DOT_STYLE = {
@@ -108,7 +108,7 @@ export default function Navbar() {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-surface-2 border-l-2 border-transparent hover:border-l-brand-gold transition-all group"
+                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-surface-2 border-l-2 border-transparent hover:border-l-gold transition-all group"
                       >
                         <span className="w-8 h-8 rounded-lg bg-gold-wash flex items-center justify-center flex-shrink-0">
                           <item.icon size={15} className="text-gold-text" />
@@ -179,7 +179,7 @@ export default function Navbar() {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-surface-2 border-l-2 border-transparent hover:border-l-brand-gold transition-all group"
+                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-surface-2 border-l-2 border-transparent hover:border-l-gold transition-all group"
                       >
                         <span className="w-8 h-8 rounded-lg bg-gold-wash flex items-center justify-center flex-shrink-0">
                           <item.icon size={15} className="text-gold-text" />
@@ -207,13 +207,13 @@ export default function Navbar() {
             <a href="#" className="font-body text-sm text-muted hover:text-ink transition-colors">
               Sign in
             </a>
-            <a
+            <Button
               href="/pricing"
-              onClick={() => { soundEngine.playClick(); trackCTAClick('start_free', 'navbar_desktop') }}
-              className="font-body text-sm font-semibold bg-brand-gold text-brand-black rounded-full px-[22px] py-[11px] shadow-[0_4px_18px_rgba(245,166,35,0.20)] hover:bg-brand-gold-dim transition-all"
+              size="sm"
+              onClick={() => trackCTAClick('start_free', 'navbar_desktop')}
             >
               Start free
-            </a>
+            </Button>
           </div>
 
           {/* Mobile hamburger & sound */}
@@ -263,13 +263,13 @@ export default function Navbar() {
               >
                 Sign in
               </a>
-              <a
+              <Button
                 href="/pricing"
-                className="font-body text-sm font-semibold bg-brand-gold text-brand-black rounded-full px-5 py-3.5 text-center hover:bg-brand-gold-dim transition-all"
+                block
                 onClick={() => { setMobileOpen(false); trackCTAClick('start_free', 'navbar_mobile') }}
               >
                 Start free
-              </a>
+              </Button>
             </div>
           </motion.div>
         )}

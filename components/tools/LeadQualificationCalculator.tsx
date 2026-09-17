@@ -161,15 +161,15 @@ export default function LeadQualificationCalculator() {
         {questions.map((q, qi) => (
           <div
             key={q.id}
-            className="bg-brand-off-white dark:bg-[#111110] rounded-2xl p-5 border border-brand-border dark:border-white/8"
+            className="bg-surface-2 rounded-2xl p-5 border border-rule"
           >
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-gold/15 text-brand-gold font-body text-xs font-bold flex items-center justify-center mt-0.5">
+              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-gold/15 text-gold-text font-body text-xs font-bold flex items-center justify-center mt-0.5">
                 {qi + 1}
               </span>
               <div>
-                <p className="font-body text-[10px] font-bold uppercase tracking-widest text-brand-muted dark:text-white/40 mb-1">{q.category}</p>
-                <p className="font-body text-sm font-semibold text-brand-text dark:text-white">{q.text}</p>
+                <p className="font-body text-[10px] font-bold uppercase tracking-widest text-muted mb-1">{q.category}</p>
+                <p className="font-body text-sm font-semibold text-ink">{q.text}</p>
               </div>
             </div>
             <div className="space-y-2 pl-9">
@@ -178,8 +178,8 @@ export default function LeadQualificationCalculator() {
                   key={opt.label}
                   className={`flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-all border ${
                     answers[q.id] === opt.score
-                      ? 'border-brand-gold bg-brand-gold/10 dark:bg-brand-gold/10'
-                      : 'border-transparent hover:bg-white dark:hover:bg-white/5 hover:border-brand-border'
+                      ? 'border-gold bg-gold/10'
+                      : 'border-transparent hover:bg-white dark:hover:bg-white/5 hover:border-rule'
                   }`}
                 >
                   <input
@@ -188,10 +188,10 @@ export default function LeadQualificationCalculator() {
                     value={opt.score}
                     checked={answers[q.id] === opt.score}
                     onChange={() => setAnswers(prev => ({ ...prev, [q.id]: opt.score }))}
-                    className="accent-brand-gold"
+                    className="accent-gold"
                   />
-                  <span className="font-body text-sm text-brand-text dark:text-white">{opt.label}</span>
-                  <span className="ml-auto font-body text-xs font-bold text-brand-muted dark:text-white/30">
+                  <span className="font-body text-sm text-ink">{opt.label}</span>
+                  <span className="ml-auto font-body text-xs font-bold text-faint">
                     +{opt.score}
                   </span>
                 </label>
@@ -203,20 +203,20 @@ export default function LeadQualificationCalculator() {
 
       {/* Progress indicator */}
       <div className="flex items-center gap-3">
-        <div className="flex-1 bg-brand-warm-gray dark:bg-white/10 rounded-full h-1.5">
+        <div className="flex-1 bg-surface-2 rounded-full h-1.5">
           <div
-            className="bg-brand-gold h-1.5 rounded-full transition-all duration-500"
+            className="bg-gold h-1.5 rounded-full transition-all duration-500"
             style={{ width: `${(totalAnswered / questions.length) * 100}%` }}
           />
         </div>
-        <span className="font-body text-xs text-brand-muted dark:text-white/40">{totalAnswered}/{questions.length} answered</span>
+        <span className="font-body text-xs text-muted">{totalAnswered}/{questions.length} answered</span>
       </div>
 
       {/* Calculate button */}
       <button
         onClick={() => setCalculated(true)}
         disabled={!allAnswered}
-        className="w-full flex items-center justify-center gap-2 bg-brand-gold text-brand-black font-body font-semibold rounded-full px-6 py-3.5 hover:bg-brand-gold-dim transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:scale-[1.01]"
+        className="w-full flex items-center justify-center gap-2 bg-gold text-[#1A1208] font-body font-semibold rounded-full px-6 py-3.5 hover:brightness-110 transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:scale-[1.01]"
       >
         Calculate Lead Score
       </button>
@@ -228,29 +228,29 @@ export default function LeadQualificationCalculator() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="bg-white dark:bg-[#1A1815] rounded-2xl border border-brand-border dark:border-white/8 overflow-hidden"
+            className="bg-surface rounded-2xl border border-rule overflow-hidden"
           >
             <div className="p-6">
               {/* Score */}
               <div className="text-center mb-6">
                 <div className="text-5xl mb-3">{result.emoji}</div>
                 <h3 className={`font-heading font-bold text-2xl mb-1 ${result.color}`}>{result.label}</h3>
-                <p className="font-body text-4xl font-bold text-brand-text dark:text-white">{pct}<span className="text-lg font-normal text-brand-muted dark:text-white/40">/100</span></p>
+                <p className="font-body text-4xl font-bold text-ink">{pct}<span className="text-lg font-normal text-muted">/100</span></p>
               </div>
 
               {/* Score bar */}
               <div className="mb-6">
-                <div className="bg-brand-warm-gray dark:bg-white/10 rounded-full h-3">
+                <div className="bg-surface-2 rounded-full h-3">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${pct}%` }}
                     transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-                    className="bg-brand-gold h-3 rounded-full"
+                    className="bg-gold h-3 rounded-full"
                   />
                 </div>
                 <div className="flex justify-between mt-1.5">
-                  <span className="font-body text-[10px] text-brand-muted dark:text-white/30">Cold</span>
-                  <span className="font-body text-[10px] text-brand-muted dark:text-white/30">Hot</span>
+                  <span className="font-body text-[10px] text-faint">Cold</span>
+                  <span className="font-body text-[10px] text-faint">Hot</span>
                 </div>
               </div>
 
@@ -262,38 +262,38 @@ export default function LeadQualificationCalculator() {
                   const catMax = catQuestions.reduce((sum, q) => sum + Math.max(...q.options.map(o => o.score)), 0)
                   const catPct = catMax > 0 ? Math.round((catScore / catMax) * 100) : 0
                   return (
-                    <div key={cat} className="bg-brand-off-white dark:bg-white/5 rounded-xl p-3">
-                      <p className="font-body text-xs font-bold text-brand-muted dark:text-white/40 uppercase tracking-widest mb-2">{cat}</p>
-                      <div className="bg-brand-warm-gray dark:bg-white/10 rounded-full h-1.5 mb-1.5">
+                    <div key={cat} className="bg-surface-2 rounded-xl p-3">
+                      <p className="font-body text-xs font-bold text-muted uppercase tracking-widest mb-2">{cat}</p>
+                      <div className="bg-surface-2 rounded-full h-1.5 mb-1.5">
                         <div
-                          className="bg-brand-gold h-1.5 rounded-full"
+                          className="bg-gold h-1.5 rounded-full"
                           style={{ width: `${catPct}%` }}
                         />
                       </div>
-                      <p className="font-body text-xs font-bold text-brand-text dark:text-white">{catPct}%</p>
+                      <p className="font-body text-xs font-bold text-ink">{catPct}%</p>
                     </div>
                   )
                 })}
               </div>
 
               {/* Summary */}
-              <div className="bg-brand-off-white dark:bg-white/5 rounded-xl p-4 mb-4">
-                <p className="font-body text-sm text-brand-text dark:text-white mb-2">{result.description}</p>
-                <p className="font-body text-sm font-semibold text-brand-gold">Next step: {result.action}</p>
+              <div className="bg-surface-2 rounded-xl p-4 mb-4">
+                <p className="font-body text-sm text-ink mb-2">{result.description}</p>
+                <p className="font-body text-sm font-semibold text-gold-text">Next step: {result.action}</p>
               </div>
 
               <button
                 onClick={reset}
-                className="w-full font-body text-sm text-brand-muted dark:text-white/50 hover:text-brand-text dark:hover:text-white transition-colors py-2"
+                className="w-full font-body text-sm text-muted hover:text-ink transition-colors py-2"
               >
                 Score another lead →
               </button>
             </div>
 
-            <div className="px-5 py-3 bg-brand-gold/5 dark:bg-brand-gold/10 border-t border-brand-border dark:border-white/5">
-              <p className="font-body text-xs text-brand-muted dark:text-white/50">
+            <div className="px-5 py-3 bg-gold/5 border-t border-rule">
+              <p className="font-body text-xs text-muted">
                 💡 Pulsar by Nebulaa automatically qualifies your leads and routes hot ones to you in real-time.{' '}
-                <a href="/pricing" className="text-brand-gold hover:underline">Try it free →</a>
+                <a href="/pricing" className="text-gold-text hover:underline">Try it free →</a>
               </p>
             </div>
           </motion.div>

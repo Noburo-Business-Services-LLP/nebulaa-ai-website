@@ -89,15 +89,15 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   const otherTools = tools.filter(t => t.slug !== params.slug).slice(0, 5)
 
   return (
-    <main className="bg-white dark:bg-brand-black min-h-screen pt-20">
+    <main className="bg-ground min-h-screen pt-20">
       {/* Breadcrumb */}
       <div className="max-w-6xl mx-auto px-4 md:px-8 py-4">
-        <nav className="flex items-center gap-2 font-body text-xs text-brand-muted dark:text-white/40">
-          <Link href="/" className="hover:text-brand-gold transition-colors">Home</Link>
+        <nav className="flex items-center gap-2 font-body text-xs text-muted">
+          <Link href="/" className="hover:text-gold-text transition-colors">Home</Link>
           <span>/</span>
-          <Link href="/tools" className="hover:text-brand-gold transition-colors">Tools</Link>
+          <Link href="/tools" className="hover:text-gold-text transition-colors">Tools</Link>
           <span>/</span>
-          <span className="text-brand-text dark:text-white/70">{tool.name}</span>
+          <span className="text-ink-2">{tool.name}</span>
         </nav>
       </div>
 
@@ -107,10 +107,10 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           <div>
             {/* Header */}
             <div className="mb-8">
-              <h1 className="font-heading font-bold text-3xl md:text-4xl text-brand-text dark:text-white mb-2">
+              <h1 className="font-heading font-bold text-3xl md:text-4xl text-ink mb-2">
                 {tool.name}
               </h1>
-              <p className="font-body text-base text-brand-muted dark:text-white/60">{tool.description}</p>
+              <p className="font-body text-base text-ink-2">{tool.description}</p>
             </div>
             {/* Tool component */}
             <ToolComponent />
@@ -119,8 +119,8 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           {/* Sidebar */}
           <aside>
             {/* Other tools */}
-            <div className="bg-brand-off-white dark:bg-[#111110] rounded-2xl p-5 border border-brand-border dark:border-white/8 mb-6 sticky top-24">
-              <p className="font-body text-xs font-bold uppercase tracking-widest text-brand-muted dark:text-white/40 mb-4">
+            <div className="bg-surface-2 rounded-2xl p-5 border border-rule mb-6 sticky top-24">
+              <p className="font-body text-xs font-bold uppercase tracking-widest text-muted mb-4">
                 More Free Tools
               </p>
               <div className="space-y-2">
@@ -128,16 +128,16 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                   <Link
                     key={t.slug}
                     href={`/tools/${t.slug}`}
-                    className="flex items-center gap-2 p-2.5 rounded-xl hover:bg-brand-warm-gray dark:hover:bg-white/5 transition-all group"
+                    className="flex items-center gap-2 p-2.5 rounded-xl hover:bg-surface-2 transition-all group"
                   >
-                    <span className="font-body text-sm text-brand-text dark:text-white group-hover:text-brand-gold transition-colors leading-snug">
+                    <span className="font-body text-sm text-ink group-hover:text-gold-text transition-colors leading-snug">
                       {t.name}
                     </span>
                   </Link>
                 ))}
                 <Link
                   href="/tools"
-                  className="block mt-3 text-center font-body text-xs font-semibold text-brand-gold hover:underline"
+                  className="block mt-3 text-center font-body text-xs font-semibold text-gold-text hover:underline"
                 >
                   View all {tools.length} free tools →
                 </Link>
@@ -145,16 +145,16 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
             </div>
 
             {/* Nebulaa CTA */}
-            <div className="bg-brand-gold/10 dark:bg-brand-gold/10 rounded-2xl p-5 border border-brand-gold/20">
-              <p className="font-heading font-bold text-base text-brand-text dark:text-white mb-2">
+            <div className="bg-gold/10 rounded-2xl p-5 border border-gold/20">
+              <p className="font-heading font-bold text-base text-ink mb-2">
                 Want this done for you?
               </p>
-              <p className="font-body text-xs text-brand-muted dark:text-white/60 mb-4">
+              <p className="font-body text-xs text-ink-2 mb-4">
                 Gravity does this automatically every day. No manual input needed.
               </p>
               <a
                 href="/pricing"
-                className="block text-center bg-brand-gold text-brand-black font-body font-semibold text-sm rounded-full px-4 py-2.5 hover:bg-brand-gold-dim transition-all"
+                className="block text-center bg-gold text-[#1A1208] font-body font-semibold text-sm rounded-full px-4 py-2.5 hover:brightness-110 transition-all"
               >
                 Try Nebulaa free →
               </a>

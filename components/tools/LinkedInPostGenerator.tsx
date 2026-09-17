@@ -219,10 +219,10 @@ export default function LinkedInPostGenerator() {
   return (
     <div className="space-y-6">
       {/* Inputs */}
-      <div className="bg-brand-off-white dark:bg-[#111110] rounded-2xl p-6 border border-brand-border dark:border-white/8">
+      <div className="bg-surface-2 rounded-2xl p-6 border border-rule">
         <div className="space-y-4">
           <div>
-            <label className="font-body text-sm font-semibold text-brand-text dark:text-white block mb-2">
+            <label className="font-body text-sm font-semibold text-ink block mb-2">
               What&apos;s your post about?
             </label>
             <textarea
@@ -230,16 +230,16 @@ export default function LinkedInPostGenerator() {
               onChange={e => setTopic(e.target.value)}
               rows={3}
               placeholder="e.g. 'cold outreach for B2B founders' or 'why I stopped using spreadsheets'"
-              className="w-full border border-brand-border dark:border-white/10 dark:bg-white/5 dark:text-white rounded-xl px-4 py-3 font-body text-sm resize-none outline-none focus:border-brand-gold transition-colors placeholder:text-brand-muted dark:placeholder:text-white/30"
+              className="w-full border border-rule bg-surface-2 text-ink rounded-xl px-4 py-3 font-body text-sm resize-none outline-none focus:border-gold transition-colors placeholder:text-muted"
             />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="font-body text-sm font-semibold text-brand-text dark:text-white block mb-2">Tone</label>
+              <label className="font-body text-sm font-semibold text-ink block mb-2">Tone</label>
               <select
                 value={tone}
                 onChange={e => setTone(e.target.value)}
-                className="w-full border border-brand-border dark:border-white/10 dark:bg-[#1A1815] dark:text-white rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-brand-gold transition-colors"
+                className="w-full border border-rule bg-surface-2 text-ink rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-gold transition-colors"
               >
                 <option value="storytelling">Storytelling</option>
                 <option value="professional">Professional / List</option>
@@ -251,7 +251,7 @@ export default function LinkedInPostGenerator() {
           <button
             onClick={generate}
             disabled={!topic.trim()}
-            className="flex items-center gap-2 bg-brand-gold text-brand-black font-body font-semibold rounded-full px-6 py-3 hover:bg-brand-gold-dim transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:scale-[1.02]"
+            className="flex items-center gap-2 bg-gold text-[#1A1208] font-body font-semibold rounded-full px-6 py-3 hover:brightness-110 transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:scale-[1.02]"
           >
             <Wand2 size={16} />
             Generate Post
@@ -266,33 +266,33 @@ export default function LinkedInPostGenerator() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="bg-white dark:bg-[#1A1815] rounded-2xl border border-brand-border dark:border-white/8 overflow-hidden"
+            className="bg-surface rounded-2xl border border-rule overflow-hidden"
           >
-            <div className="flex items-center justify-between px-5 py-3 border-b border-brand-border dark:border-white/8">
-              <span className="font-body text-sm font-semibold text-brand-text dark:text-white">Your LinkedIn Post</span>
+            <div className="flex items-center justify-between px-5 py-3 border-b border-rule">
+              <span className="font-body text-sm font-semibold text-ink">Your LinkedIn Post</span>
               <div className="flex items-center gap-3">
                 <button
                   onClick={regenerate}
-                  className="flex items-center gap-1.5 font-body text-xs font-semibold text-brand-muted dark:text-white/50 hover:text-brand-text dark:hover:text-white transition-colors"
+                  className="flex items-center gap-1.5 font-body text-xs font-semibold text-muted hover:text-ink transition-colors"
                 >
                   <RefreshCw size={12} />
                   Try another
                 </button>
                 <button
                   onClick={copy}
-                  className="flex items-center gap-1.5 font-body text-xs font-semibold text-brand-gold hover:text-brand-gold-dim transition-colors"
+                  className="flex items-center gap-1.5 font-body text-xs font-semibold text-gold-text hover:text-gold-text-dim transition-colors"
                 >
                   {copied ? <><Check size={12} />Copied!</> : <><Copy size={12} />Copy</>}
                 </button>
               </div>
             </div>
             <div className="p-5">
-              <pre className="font-body text-sm text-brand-text dark:text-white whitespace-pre-wrap leading-relaxed">{output}</pre>
+              <pre className="font-body text-sm text-ink whitespace-pre-wrap leading-relaxed">{output}</pre>
             </div>
-            <div className="px-5 py-3 bg-brand-gold/5 dark:bg-brand-gold/10 border-t border-brand-border dark:border-white/5">
-              <p className="font-body text-xs text-brand-muted dark:text-white/50">
+            <div className="px-5 py-3 bg-gold/5 border-t border-rule">
+              <p className="font-body text-xs text-muted">
                 💡 Tip: Customize the post with your personal experience for 3x more engagement. Want this automated daily?{' '}
-                <a href="/pricing" className="text-brand-gold hover:underline">Try Gravity →</a>
+                <a href="/pricing" className="text-gold-text hover:underline">Try Gravity →</a>
               </p>
             </div>
           </motion.div>

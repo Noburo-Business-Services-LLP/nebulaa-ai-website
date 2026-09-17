@@ -106,10 +106,10 @@ export default function GTMLaunchChecklist() {
 
   const getMilestoneMessage = () => {
     if (overallPct === 100) return { msg: "You're launch-ready. Ship it! 🚀", color: 'text-green-500' }
-    if (overallPct >= 75) return { msg: "Almost there! Finish the last stretch.", color: 'text-brand-gold' }
+    if (overallPct >= 75) return { msg: "Almost there! Finish the last stretch.", color: 'text-gold-text' }
     if (overallPct >= 50) return { msg: "Halfway done. Great momentum.", color: 'text-blue-500' }
-    if (overallPct >= 25) return { msg: "Good start. Keep going.", color: 'text-brand-muted dark:text-white/50' }
-    return { msg: "Start checking off items below.", color: 'text-brand-muted dark:text-white/50' }
+    if (overallPct >= 25) return { msg: "Good start. Keep going.", color: 'text-muted' }
+    return { msg: "Start checking off items below.", color: 'text-muted' }
   }
 
   const milestone = getMilestoneMessage()
@@ -138,28 +138,28 @@ export default function GTMLaunchChecklist() {
   return (
     <div className="space-y-6">
       {/* Overall progress */}
-      <div className="bg-brand-off-white dark:bg-[#111110] rounded-2xl p-5 border border-brand-border dark:border-white/8">
+      <div className="bg-surface-2 rounded-2xl p-5 border border-rule">
         <div className="flex items-center justify-between mb-3">
           <div>
-            <p className="font-body text-sm font-semibold text-brand-text dark:text-white">
+            <p className="font-body text-sm font-semibold text-ink">
               {completedCount} / {totalItems} completed
             </p>
             <p className={`font-body text-xs mt-0.5 ${milestone.color}`}>{milestone.msg}</p>
           </div>
           <div className="text-right">
-            <p className="font-heading font-bold text-3xl text-brand-gold">{overallPct}%</p>
+            <p className="font-heading font-bold text-3xl text-gold-text">{overallPct}%</p>
           </div>
         </div>
-        <div className="bg-brand-warm-gray dark:bg-white/10 rounded-full h-2">
+        <div className="bg-surface-2 rounded-full h-2">
           <motion.div
-            className="bg-brand-gold h-2 rounded-full transition-all duration-500"
+            className="bg-gold h-2 rounded-full transition-all duration-500"
             style={{ width: `${overallPct}%` }}
           />
         </div>
         <div className="mt-4 flex justify-end">
           <button
             onClick={exportChecklist}
-            className="flex items-center gap-1.5 font-body text-xs font-semibold text-brand-muted dark:text-white/50 hover:text-brand-gold transition-colors"
+            className="flex items-center gap-1.5 font-body text-xs font-semibold text-muted hover:text-gold-text transition-colors"
           >
             <Download size={13} />
             Export as .txt
@@ -175,19 +175,19 @@ export default function GTMLaunchChecklist() {
         return (
           <div
             key={cat.name}
-            className="bg-white dark:bg-[#1A1815] rounded-2xl border border-brand-border dark:border-white/8 overflow-hidden"
+            className="bg-surface rounded-2xl border border-rule overflow-hidden"
           >
             {/* Category header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-brand-border dark:border-white/8 bg-brand-off-white dark:bg-[#111110]">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-rule bg-surface-2">
               <div className="flex items-center gap-2">
                 <span className="text-xl">{cat.emoji}</span>
-                <span className="font-heading font-bold text-sm text-brand-text dark:text-white">{cat.name}</span>
+                <span className="font-heading font-bold text-sm text-ink">{cat.name}</span>
               </div>
               <div className="flex items-center gap-3">
-                <span className="font-body text-xs text-brand-muted dark:text-white/40">{catCompleted}/{cat.items.length}</span>
-                <div className="w-16 bg-brand-warm-gray dark:bg-white/10 rounded-full h-1.5">
+                <span className="font-body text-xs text-muted">{catCompleted}/{cat.items.length}</span>
+                <div className="w-16 bg-surface-2 rounded-full h-1.5">
                   <div
-                    className="bg-brand-gold h-1.5 rounded-full transition-all duration-300"
+                    className="bg-gold h-1.5 rounded-full transition-all duration-300"
                     style={{ width: `${catPct}%` }}
                   />
                 </div>
@@ -195,22 +195,22 @@ export default function GTMLaunchChecklist() {
             </div>
 
             {/* Items */}
-            <div className="divide-y divide-brand-border dark:divide-white/5">
+            <div className="divide-y divide-rule">
               {cat.items.map(item => (
                 <label
                   key={item.id}
-                  className="flex items-start gap-3 px-5 py-3.5 cursor-pointer hover:bg-brand-off-white dark:hover:bg-white/3 transition-colors group"
+                  className="flex items-start gap-3 px-5 py-3.5 cursor-pointer hover:bg-surface-2 transition-colors group"
                 >
                   <div className="flex-shrink-0 mt-0.5">
                     <div
                       className={`w-4 h-4 rounded border-2 flex items-center justify-center transition-all ${
                         checked.has(item.id)
-                          ? 'bg-brand-gold border-brand-gold'
-                          : 'border-brand-border dark:border-white/20 group-hover:border-brand-gold'
+                          ? 'bg-gold border-gold'
+                          : 'border-rule-2 group-hover:border-gold'
                       }`}
                     >
                       {checked.has(item.id) && (
-                        <svg className="w-2.5 h-2.5 text-brand-black" fill="currentColor" viewBox="0 0 12 12">
+                        <svg className="w-2.5 h-2.5 text-[#1A1208]" fill="currentColor" viewBox="0 0 12 12">
                           <path d="M10 3L5 8.5 2 5.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                         </svg>
                       )}
@@ -225,8 +225,8 @@ export default function GTMLaunchChecklist() {
                   <span
                     className={`font-body text-sm leading-relaxed transition-colors ${
                       checked.has(item.id)
-                        ? 'text-brand-muted dark:text-white/30 line-through'
-                        : 'text-brand-text dark:text-white'
+                        ? 'text-faint line-through'
+                        : 'text-ink'
                     }`}
                   >
                     {item.text}
@@ -239,9 +239,9 @@ export default function GTMLaunchChecklist() {
       })}
 
       <div className="px-1">
-        <p className="font-body text-xs text-brand-muted dark:text-white/50">
+        <p className="font-body text-xs text-muted">
           💡 Want Gravity to handle the Content and Outreach sections automatically?{' '}
-          <a href="/pricing" className="text-brand-gold hover:underline">Try Nebulaa free →</a>
+          <a href="/pricing" className="text-gold-text hover:underline">Try Nebulaa free →</a>
         </p>
       </div>
     </div>

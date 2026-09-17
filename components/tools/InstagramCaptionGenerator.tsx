@@ -153,10 +153,10 @@ export default function InstagramCaptionGenerator() {
   return (
     <div className="space-y-6">
       {/* Inputs */}
-      <div className="bg-brand-off-white dark:bg-[#111110] rounded-2xl p-6 border border-brand-border dark:border-white/8">
+      <div className="bg-surface-2 rounded-2xl p-6 border border-rule">
         <div className="space-y-4">
           <div>
-            <label className="font-body text-sm font-semibold text-brand-text dark:text-white block mb-2">
+            <label className="font-body text-sm font-semibold text-ink block mb-2">
               Describe your post
             </label>
             <textarea
@@ -164,28 +164,28 @@ export default function InstagramCaptionGenerator() {
               onChange={e => setDesc(e.target.value)}
               rows={3}
               placeholder="e.g. 'behind the scenes of building my SaaS in 60 days' or 'new product launch for eco water bottles'"
-              className="w-full border border-brand-border dark:border-white/10 dark:bg-white/5 dark:text-white rounded-xl px-4 py-3 font-body text-sm resize-none outline-none focus:border-brand-gold transition-colors placeholder:text-brand-muted dark:placeholder:text-white/30"
+              className="w-full border border-rule bg-surface-2 text-ink rounded-xl px-4 py-3 font-body text-sm resize-none outline-none focus:border-gold transition-colors placeholder:text-muted"
             />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="font-body text-sm font-semibold text-brand-text dark:text-white block mb-2">
-                Brand / Account name <span className="font-normal text-brand-muted dark:text-white/40">(optional)</span>
+              <label className="font-body text-sm font-semibold text-ink block mb-2">
+                Brand / Account name <span className="font-normal text-muted">(optional)</span>
               </label>
               <input
                 type="text"
                 value={brand}
                 onChange={e => setBrand(e.target.value)}
                 placeholder="e.g. Nebulaa.ai"
-                className="w-full border border-brand-border dark:border-white/10 dark:bg-white/5 dark:text-white rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-brand-gold transition-colors placeholder:text-brand-muted dark:placeholder:text-white/30"
+                className="w-full border border-rule bg-surface-2 text-ink rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-gold transition-colors placeholder:text-muted"
               />
             </div>
             <div>
-              <label className="font-body text-sm font-semibold text-brand-text dark:text-white block mb-2">Tone</label>
+              <label className="font-body text-sm font-semibold text-ink block mb-2">Tone</label>
               <select
                 value={tone}
                 onChange={e => setTone(e.target.value)}
-                className="w-full border border-brand-border dark:border-white/10 dark:bg-[#1A1815] dark:text-white rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-brand-gold transition-colors"
+                className="w-full border border-rule bg-surface-2 text-ink rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-gold transition-colors"
               >
                 <option value="casual">Casual / Relatable</option>
                 <option value="inspirational">Inspirational</option>
@@ -197,7 +197,7 @@ export default function InstagramCaptionGenerator() {
           <button
             onClick={generate}
             disabled={!desc.trim()}
-            className="flex items-center gap-2 bg-brand-gold text-brand-black font-body font-semibold rounded-full px-6 py-3 hover:bg-brand-gold-dim transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:scale-[1.02]"
+            className="flex items-center gap-2 bg-gold text-[#1A1208] font-body font-semibold rounded-full px-6 py-3 hover:brightness-110 transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:scale-[1.02]"
           >
             <Wand2 size={16} />
             Generate Caption
@@ -215,46 +215,46 @@ export default function InstagramCaptionGenerator() {
             className="space-y-5"
           >
             {/* Caption */}
-            <div className="bg-white dark:bg-[#1A1815] rounded-2xl border border-brand-border dark:border-white/8 overflow-hidden">
-              <div className="flex items-center justify-between px-5 py-3 border-b border-brand-border dark:border-white/8">
-                <span className="font-body text-sm font-semibold text-brand-text dark:text-white">Caption</span>
+            <div className="bg-surface rounded-2xl border border-rule overflow-hidden">
+              <div className="flex items-center justify-between px-5 py-3 border-b border-rule">
+                <span className="font-body text-sm font-semibold text-ink">Caption</span>
                 <button
                   onClick={copyCaption}
-                  className="flex items-center gap-1.5 font-body text-xs font-semibold text-brand-gold hover:text-brand-gold-dim transition-colors"
+                  className="flex items-center gap-1.5 font-body text-xs font-semibold text-gold-text hover:text-gold-text-dim transition-colors"
                 >
                   {copied ? <><Check size={12} />Copied!</> : <><Copy size={12} />Copy</>}
                 </button>
               </div>
               <div className="p-5">
-                <pre className="font-body text-sm text-brand-text dark:text-white whitespace-pre-wrap leading-relaxed">{output}</pre>
+                <pre className="font-body text-sm text-ink whitespace-pre-wrap leading-relaxed">{output}</pre>
               </div>
             </div>
 
             {/* Hashtags */}
             {hashtags && (
-              <div className="bg-white dark:bg-[#1A1815] rounded-2xl border border-brand-border dark:border-white/8 overflow-hidden">
-                <div className="flex items-center justify-between px-5 py-3 border-b border-brand-border dark:border-white/8">
-                  <span className="font-body text-sm font-semibold text-brand-text dark:text-white">30 Hashtags</span>
+              <div className="bg-surface rounded-2xl border border-rule overflow-hidden">
+                <div className="flex items-center justify-between px-5 py-3 border-b border-rule">
+                  <span className="font-body text-sm font-semibold text-ink">30 Hashtags</span>
                   <button
                     onClick={copyHashtags}
-                    className="flex items-center gap-1.5 font-body text-xs font-semibold text-brand-gold hover:text-brand-gold-dim transition-colors"
+                    className="flex items-center gap-1.5 font-body text-xs font-semibold text-gold-text hover:text-gold-text-dim transition-colors"
                   >
                     {copiedHashtags ? <><Check size={12} />Copied!</> : <><Copy size={12} />Copy all</>}
                   </button>
                 </div>
                 <div className="p-5 space-y-4">
                   <div>
-                    <p className="font-body text-xs font-bold text-brand-muted dark:text-white/40 uppercase tracking-widest mb-2">
+                    <p className="font-body text-xs font-bold text-muted uppercase tracking-widest mb-2">
                       High Reach (10)
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {hashtags.top.map(h => (
-                        <span key={h} className="font-body text-xs bg-brand-gold/10 text-brand-gold px-2 py-1 rounded-lg">{h}</span>
+                        <span key={h} className="font-body text-xs bg-gold/10 text-gold-text px-2 py-1 rounded-lg">{h}</span>
                       ))}
                     </div>
                   </div>
                   <div>
-                    <p className="font-body text-xs font-bold text-brand-muted dark:text-white/40 uppercase tracking-widest mb-2">
+                    <p className="font-body text-xs font-bold text-muted uppercase tracking-widest mb-2">
                       Medium Reach (10)
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -264,7 +264,7 @@ export default function InstagramCaptionGenerator() {
                     </div>
                   </div>
                   <div>
-                    <p className="font-body text-xs font-bold text-brand-muted dark:text-white/40 uppercase tracking-widest mb-2">
+                    <p className="font-body text-xs font-bold text-muted uppercase tracking-widest mb-2">
                       Niche (10)
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -278,9 +278,9 @@ export default function InstagramCaptionGenerator() {
             )}
 
             <div className="px-1">
-              <p className="font-body text-xs text-brand-muted dark:text-white/50">
+              <p className="font-body text-xs text-muted">
                 💡 Tip: Post the hashtags in the first comment, not the caption, for a cleaner look. Want automated captions daily?{' '}
-                <a href="/pricing" className="text-brand-gold hover:underline">Try Gravity →</a>
+                <a href="/pricing" className="text-gold-text hover:underline">Try Gravity →</a>
               </p>
             </div>
           </motion.div>

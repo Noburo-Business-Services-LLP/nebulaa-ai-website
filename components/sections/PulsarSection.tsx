@@ -60,7 +60,7 @@ export default function PulsarSection() {
                 key={i}
                 className={
                   bubble.sender === 'outbound'
-                    ? 'self-end max-w-[78%] bg-brand-gold/[0.13] border border-brand-gold/[0.22] rounded-[14px_14px_4px_14px] px-4 py-[13px] text-[13.5px] leading-[1.55] text-white/[0.88]'
+                    ? 'self-end max-w-[78%] bg-gold/[0.13] border border-gold/[0.22] rounded-[14px_14px_4px_14px] px-4 py-[13px] text-[13.5px] leading-[1.55] text-white/[0.88]'
                     : 'self-start max-w-[78%] bg-[#1A1A1A] border border-white/[0.06] rounded-[14px_14px_14px_4px] px-4 py-[13px] text-[13.5px] leading-[1.55] text-white/60'
                 }
               >
@@ -74,7 +74,7 @@ export default function PulsarSection() {
               <SectionLabel tone="onDark" className="mb-[6px] block">Scored &amp; handed over</SectionLabel>
               <div className="text-[13.5px] text-white/75">Bridal · March timeline · booked Saturday</div>
             </div>
-            <div className="font-heading text-[30px] text-brand-gold">86</div>
+            <div className="font-heading text-[30px] text-gold-text">86</div>
           </div>
         </motion.div>
 

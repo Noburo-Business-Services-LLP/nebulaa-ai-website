@@ -8,13 +8,13 @@ export const metadata: Metadata = {
 function Section({ number, title, children }: { number: number; title: string; children: React.ReactNode }) {
   return (
     <section className="mb-10">
-      <h2 className="font-heading font-bold text-xl text-brand-text dark:text-white mb-4 flex items-center gap-3">
-        <span className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-gold/15 text-brand-gold text-sm font-bold flex items-center justify-center">
+      <h2 className="font-heading font-bold text-xl text-ink mb-4 flex items-center gap-3">
+        <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gold/15 text-gold-text text-sm font-bold flex items-center justify-center">
           {number}
         </span>
         {title}
       </h2>
-      <div className="space-y-3 text-brand-muted dark:text-white/70 font-body text-sm leading-relaxed pl-11">
+      <div className="space-y-3 text-ink-2 font-body text-sm leading-relaxed pl-11">
         {children}
       </div>
     </section>
@@ -30,7 +30,7 @@ function Ul({ items }: { items: string[] }) {
     <ul className="space-y-1.5">
       {items.map((item, i) => (
         <li key={i} className="flex items-start gap-2">
-          <span className="text-brand-gold mt-1 flex-shrink-0">•</span>
+          <span className="text-gold-text mt-1 flex-shrink-0">•</span>
           <span>{item}</span>
         </li>
       ))}
@@ -39,7 +39,7 @@ function Ul({ items }: { items: string[] }) {
 }
 
 function SubHeading({ children }: { children: React.ReactNode }) {
-  return <h3 className="font-body font-bold text-brand-text dark:text-white/90 mt-5 mb-2">{children}</h3>
+  return <h3 className="font-body font-bold text-ink-2 mt-5 mb-2">{children}</h3>
 }
 
 export default function PrivacyPolicyPage() {
@@ -48,12 +48,12 @@ export default function PrivacyPolicyPage() {
       <div className="max-w-3xl mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="mb-12">
-          <div className="h-1 w-16 bg-gradient-to-r from-brand-gold to-brand-gold/30 rounded-full mb-6" />
-          <p className="font-body text-xs font-bold tracking-widest uppercase text-brand-gold mb-3">Legal</p>
-          <h1 className="font-heading font-bold text-4xl md:text-5xl text-brand-text dark:text-white tracking-tight mb-4">
+          <div className="h-1 w-16 bg-gradient-to-r from-gold to-gold/30 rounded-full mb-6" />
+          <p className="font-body text-xs font-bold tracking-widest uppercase text-gold-text mb-3">Legal</p>
+          <h1 className="font-heading font-bold text-4xl md:text-5xl text-ink tracking-tight mb-4">
             Privacy Policy
           </h1>
-          <div className="flex flex-wrap gap-4 font-body text-xs text-brand-muted dark:text-white/40">
+          <div className="flex flex-wrap gap-4 font-body text-xs text-muted">
             <span>Effective Date: 10 March 2025</span>
             <span>·</span>
             <span>Version 1.0</span>
@@ -63,19 +63,19 @@ export default function PrivacyPolicyPage() {
         </div>
 
         {/* Intro */}
-        <div className="mb-10 p-5 bg-brand-gold/5 dark:bg-brand-gold/8 border border-brand-gold/20 rounded-2xl font-body text-sm text-brand-muted dark:text-white/60 leading-relaxed">
+        <div className="mb-10 p-5 bg-gold/5 border border-gold/20 rounded-2xl font-body text-sm text-ink-2 leading-relaxed">
           At Nebulaa, we take your privacy seriously. This Privacy Policy describes how Noburo Business Services LLP collects, uses, stores, discloses, and protects your personal information when you use the Nebulaa platform. Please read this policy carefully before providing your information.
         </div>
 
-        <div className="divide-y divide-brand-border dark:divide-white/8">
+        <div className="divide-y divide-rule">
 
           <Section number={1} title="Identity of Data Controller">
             <P>The data controller responsible for your personal data is:</P>
-            <div className="bg-brand-gold/5 dark:bg-white/5 border border-brand-gold/15 rounded-xl p-4 space-y-1">
-              <p className="font-semibold text-brand-text dark:text-white">Noburo Business Services LLP</p>
-              <p className="text-brand-muted dark:text-white/70">Platform: Nebulaa — www.nebulaa.ai</p>
-              <p className="text-brand-muted dark:text-white/70">Registered in India under the Limited Liability Partnership Act, 2008</p>
-              <p className="text-brand-muted dark:text-white/70">Email for support &amp; grievance: <a href="mailto:support@nebulaa.ai" className="text-brand-gold hover:underline">support@nebulaa.ai</a></p>
+            <div className="bg-gold/5 border border-gold/15 rounded-xl p-4 space-y-1">
+              <p className="font-semibold text-ink">Noburo Business Services LLP</p>
+              <p className="text-ink-2">Platform: Nebulaa — www.nebulaa.ai</p>
+              <p className="text-ink-2">Registered in India under the Limited Liability Partnership Act, 2008</p>
+              <p className="text-ink-2">Email for support &amp; grievance: <a href="mailto:support@nebulaa.ai" className="text-gold-text hover:underline">support@nebulaa.ai</a></p>
             </div>
           </Section>
 
@@ -186,7 +186,7 @@ export default function PrivacyPolicyPage() {
               'Right to Restrict Processing: Request that we limit how we use your data in certain circumstances',
               'Right to Grievance Redressal: Lodge a complaint with our Grievance Officer (see Section 12)',
             ]} />
-            <P>To exercise any of these rights, please contact us at <a href="mailto:privacy@nebulaa.ai" className="text-brand-gold hover:underline">privacy@nebulaa.ai</a>. We will respond within 30 days.</P>
+            <P>To exercise any of these rights, please contact us at <a href="mailto:privacy@nebulaa.ai" className="text-gold-text hover:underline">privacy@nebulaa.ai</a>. We will respond within 30 days.</P>
           </Section>
 
           <Section number={10} title="Cookies & Tracking Technologies">
@@ -202,16 +202,16 @@ export default function PrivacyPolicyPage() {
           </Section>
 
           <Section number={11} title="Children's Privacy">
-            <P>The Nebulaa Platform is intended for business users and is not directed at individuals under the age of 18. We do not knowingly collect personal data from minors. If you believe we have inadvertently collected data from a minor, please contact us immediately at <a href="mailto:privacy@nebulaa.ai" className="text-brand-gold hover:underline">privacy@nebulaa.ai</a>.</P>
+            <P>The Nebulaa Platform is intended for business users and is not directed at individuals under the age of 18. We do not knowingly collect personal data from minors. If you believe we have inadvertently collected data from a minor, please contact us immediately at <a href="mailto:privacy@nebulaa.ai" className="text-gold-text hover:underline">privacy@nebulaa.ai</a>.</P>
           </Section>
 
           <Section number={12} title="Grievance Officer">
             <P>In accordance with the Information Technology Act, 2000 and applicable rules, we have appointed a Grievance Officer to address privacy-related concerns:</P>
-            <div className="bg-brand-gold/5 dark:bg-white/5 border border-brand-gold/15 rounded-xl p-4 space-y-1">
-              <p className="text-brand-muted dark:text-white/70"><span className="font-semibold text-brand-text dark:text-white">Grievance Officer:</span> Navaneetha Krishnan</p>
-              <p className="text-brand-muted dark:text-white/70"><span className="font-semibold text-brand-text dark:text-white">Organisation:</span> Noburo Business Services LLP (Nebulaa)</p>
-              <p className="text-brand-muted dark:text-white/70"><span className="font-semibold text-brand-text dark:text-white">Email:</span> <a href="mailto:support@nebulaa.ai" className="text-brand-gold hover:underline">support@nebulaa.ai</a></p>
-              <p className="text-brand-muted dark:text-white/70"><span className="font-semibold text-brand-text dark:text-white">Response Time:</span> We will acknowledge your grievance within 48 hours and resolve it within 30 days.</p>
+            <div className="bg-gold/5 border border-gold/15 rounded-xl p-4 space-y-1">
+              <p className="text-ink-2"><span className="font-semibold text-ink">Grievance Officer:</span> Navaneetha Krishnan</p>
+              <p className="text-ink-2"><span className="font-semibold text-ink">Organisation:</span> Noburo Business Services LLP (Nebulaa)</p>
+              <p className="text-ink-2"><span className="font-semibold text-ink">Email:</span> <a href="mailto:support@nebulaa.ai" className="text-gold-text hover:underline">support@nebulaa.ai</a></p>
+              <p className="text-ink-2"><span className="font-semibold text-ink">Response Time:</span> We will acknowledge your grievance within 48 hours and resolve it within 30 days.</p>
             </div>
           </Section>
 
@@ -224,18 +224,18 @@ export default function PrivacyPolicyPage() {
           </Section>
 
           <Section number={15} title="Contact Us">
-            <div className="bg-brand-gold/5 dark:bg-white/5 border border-brand-gold/15 rounded-xl p-4 space-y-1">
-              <p className="font-semibold text-brand-text dark:text-white">Noburo Business Services LLP</p>
-              <p className="text-brand-muted dark:text-white/70">Platform: Nebulaa — www.nebulaa.ai</p>
-              <p className="text-brand-muted dark:text-white/70">Support Email: <a href="mailto:support@nebulaa.ai" className="text-brand-gold hover:underline">support@nebulaa.ai</a></p>
+            <div className="bg-gold/5 border border-gold/15 rounded-xl p-4 space-y-1">
+              <p className="font-semibold text-ink">Noburo Business Services LLP</p>
+              <p className="text-ink-2">Platform: Nebulaa — www.nebulaa.ai</p>
+              <p className="text-ink-2">Support Email: <a href="mailto:support@nebulaa.ai" className="text-gold-text hover:underline">support@nebulaa.ai</a></p>
             </div>
           </Section>
         </div>
 
         {/* Footer note */}
-        <div className="mt-12 pt-8 border-t border-brand-border dark:border-white/8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <p className="font-body text-xs text-brand-muted dark:text-white/30">Last Updated: 10 March 2025 · Document Version: 1.0</p>
-          <p className="font-body text-xs text-brand-muted dark:text-white/30">© 2025 Noburo Business Services LLP. All rights reserved.</p>
+        <div className="mt-12 pt-8 border-t border-rule flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <p className="font-body text-xs text-faint">Last Updated: 10 March 2025 · Document Version: 1.0</p>
+          <p className="font-body text-xs text-faint">© 2025 Noburo Business Services LLP. All rights reserved.</p>
         </div>
       </div>
     </main>

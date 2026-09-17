@@ -20,7 +20,7 @@ const faqs = [
 function FAQItem({ n, q, a }: { n: number; q: string; a: string }) {
   const [open, setOpen] = useState(false)
   return (
-    <div className={`border-b border-rule transition-all duration-200 ${open ? 'border-l-2 border-l-brand-gold pl-5' : 'pl-0'}`}>
+    <div className={`border-b border-rule transition-all duration-200 ${open ? 'border-l-2 border-l-gold pl-5' : 'pl-0'}`}>
       <button onClick={() => { soundEngine.playClick(); setOpen(!open) }} className="w-full flex items-center justify-between py-6 text-left cursor-pointer group gap-4">
         <span className="flex items-baseline gap-4 pr-4">
           <span className="font-mono text-[12px] text-gold-text/60 flex-shrink-0">{String(n).padStart(2, '0')}</span>

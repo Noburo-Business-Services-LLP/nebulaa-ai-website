@@ -30,7 +30,7 @@ function Stage({
       className="grid md:grid-cols-[132px_minmax(0,1fr)] gap-x-7 gap-y-2.5"
     >
       <div className="flex md:flex-col items-baseline md:items-start gap-2.5 md:gap-1 pt-1">
-        <span className="font-mono text-[11px] tabular-nums text-brand-gold">
+        <span className="font-mono text-[11px] tabular-nums text-gold-text">
           {String(index + 1).padStart(2, '0')}
         </span>
         <span className="text-[12px] uppercase tracking-[0.09em] text-white/40">{label}</span>
@@ -133,7 +133,7 @@ export default function NarrativeDemo() {
                     <div
                       key={i}
                       className={`h-[22px] rounded-[4px] ${
-                        on ? 'bg-brand-gold/25 border border-brand-gold/40' : 'bg-white/[0.03] border border-white/[0.05]'
+                        on ? 'bg-gold/25 border border-gold/40' : 'bg-white/[0.03] border border-white/[0.05]'
                       }`}
                     />
                   )
@@ -156,7 +156,7 @@ export default function NarrativeDemo() {
           {/* 05 — approval */}
           <Stage index={4} label={demoStages[4].label}>
             <div className="flex flex-wrap items-center gap-2.5">
-              <span className="inline-flex items-center gap-2 bg-brand-gold text-[#1A1208] text-[13px] font-semibold rounded-full px-[18px] py-2.5">
+              <span className="inline-flex items-center gap-2 bg-gold text-[#1A1208] text-[13px] font-semibold rounded-full px-[18px] py-2.5">
                 <Check size={14} /> Approve
               </span>
               <span className="text-[13px] text-white/45 border border-white/10 rounded-full px-[16px] py-2.5">
@@ -182,7 +182,7 @@ export default function NarrativeDemo() {
                 <div className="self-start max-w-[80%] bg-[#1E1E1E] border border-white/[0.06] rounded-[13px_13px_13px_4px] px-4 py-3 text-[13.5px] leading-[1.5] text-white/70">
                   {run.reply.inbound}
                 </div>
-                <div className="self-end max-w-[80%] bg-brand-gold/[0.14] border border-brand-gold/25 rounded-[13px_13px_4px_13px] px-4 py-3 text-[13.5px] leading-[1.5] text-white/90">
+                <div className="self-end max-w-[80%] bg-gold/[0.14] border border-gold/25 rounded-[13px_13px_4px_13px] px-4 py-3 text-[13.5px] leading-[1.5] text-white/90">
                   {run.reply.outbound}
                 </div>
                 <div className="self-start max-w-[80%] bg-[#1E1E1E] border border-white/[0.06] rounded-[13px_13px_13px_4px] px-4 py-3 text-[13.5px] leading-[1.5] text-white/70">
@@ -197,7 +197,7 @@ export default function NarrativeDemo() {
                   </div>
                   <div className="text-[13.5px] text-white/75">{run.reply.handover}</div>
                 </div>
-                <div className="font-heading text-[28px] text-brand-gold tabular-nums">{run.reply.score}</div>
+                <div className="font-heading text-[28px] text-gold-text tabular-nums">{run.reply.score}</div>
               </div>
             </div>
           </Stage>

@@ -117,7 +117,7 @@ export default function GravitySection() {
                     key={day}
                     className={`aspect-square rounded-[4px] flex items-center justify-center text-[9.5px] ${
                       on
-                        ? 'bg-brand-gold/[0.22] border border-brand-gold/40 text-brand-gold'
+                        ? 'bg-gold/[0.22] border border-gold/40 text-gold-text'
                         : 'bg-white/[0.03] border border-white/[0.05] text-white/20'
                     }`}
                   >

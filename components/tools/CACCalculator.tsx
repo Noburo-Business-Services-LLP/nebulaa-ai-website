@@ -33,35 +33,35 @@ export default function CACCalculator() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-brand-off-white dark:bg-[#111110] rounded-2xl p-6 border border-brand-border dark:border-white/8">
+      <div className="bg-surface-2 rounded-2xl p-6 border border-rule">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="font-body text-sm font-semibold text-brand-text dark:text-white block mb-2">Marketing Spend (₹)</label>
+            <label className="font-body text-sm font-semibold text-ink block mb-2">Marketing Spend (₹)</label>
             <input type="text" value={marketingSpend} onChange={e => setMarketingSpend(e.target.value)} placeholder="e.g. 50000"
-              className="w-full border border-brand-border dark:border-white/10 dark:bg-white/5 dark:text-white rounded-xl px-4 py-3 font-body text-sm outline-none focus:border-brand-gold transition-colors placeholder:text-brand-muted dark:placeholder:text-white/30" />
-            <p className="font-body text-xs text-brand-muted dark:text-white/30 mt-1">Ads, content, events, tools</p>
+              className="w-full border border-rule bg-surface-2 text-ink rounded-xl px-4 py-3 font-body text-sm outline-none focus:border-gold transition-colors placeholder:text-muted" />
+            <p className="font-body text-xs text-faint mt-1">Ads, content, events, tools</p>
           </div>
           <div>
-            <label className="font-body text-sm font-semibold text-brand-text dark:text-white block mb-2">Sales Spend (₹)</label>
+            <label className="font-body text-sm font-semibold text-ink block mb-2">Sales Spend (₹)</label>
             <input type="text" value={salesSpend} onChange={e => setSalesSpend(e.target.value)} placeholder="e.g. 30000"
-              className="w-full border border-brand-border dark:border-white/10 dark:bg-white/5 dark:text-white rounded-xl px-4 py-3 font-body text-sm outline-none focus:border-brand-gold transition-colors placeholder:text-brand-muted dark:placeholder:text-white/30" />
-            <p className="font-body text-xs text-brand-muted dark:text-white/30 mt-1">Sales team salary + commissions</p>
+              className="w-full border border-rule bg-surface-2 text-ink rounded-xl px-4 py-3 font-body text-sm outline-none focus:border-gold transition-colors placeholder:text-muted" />
+            <p className="font-body text-xs text-faint mt-1">Sales team salary + commissions</p>
           </div>
           <div>
-            <label className="font-body text-sm font-semibold text-brand-text dark:text-white block mb-2">New Customers Acquired</label>
+            <label className="font-body text-sm font-semibold text-ink block mb-2">New Customers Acquired</label>
             <input type="number" value={newCustomers} onChange={e => setNewCustomers(e.target.value)} placeholder="e.g. 8"
-              className="w-full border border-brand-border dark:border-white/10 dark:bg-white/5 dark:text-white rounded-xl px-4 py-3 font-body text-sm outline-none focus:border-brand-gold transition-colors placeholder:text-brand-muted dark:placeholder:text-white/30" />
+              className="w-full border border-rule bg-surface-2 text-ink rounded-xl px-4 py-3 font-body text-sm outline-none focus:border-gold transition-colors placeholder:text-muted" />
           </div>
           <div>
-            <label className="font-body text-sm font-semibold text-brand-text dark:text-white block mb-2">Period</label>
+            <label className="font-body text-sm font-semibold text-ink block mb-2">Period</label>
             <select value={period} onChange={e => setPeriod(e.target.value)}
-              className="w-full border border-brand-border dark:border-white/10 dark:bg-[#1A1815] dark:text-white rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-brand-gold transition-colors">
+              className="w-full border border-rule bg-surface-2 text-ink rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-gold transition-colors">
               <option>Monthly</option><option>Quarterly</option><option>Annually</option>
             </select>
           </div>
         </div>
         <button onClick={calculate} disabled={!newCustomers || totalSpend === 0}
-          className="mt-4 flex items-center gap-2 bg-brand-gold text-brand-black font-body font-semibold rounded-full px-6 py-3 hover:bg-brand-gold-dim transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:scale-[1.02]">
+          className="mt-4 flex items-center gap-2 bg-gold text-[#1A1208] font-body font-semibold rounded-full px-6 py-3 hover:brightness-110 transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:scale-[1.02]">
           💰 Calculate CAC
         </button>
       </div>
@@ -71,29 +71,29 @@ export default function CACCalculator() {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="space-y-4">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {[
-                { label: 'Blended CAC', value: fmt(cac), sub: 'total cost per customer', color: 'text-brand-gold' },
+                { label: 'Blended CAC', value: fmt(cac), sub: 'total cost per customer', color: 'text-gold-text' },
                 { label: 'Marketing CAC', value: fmt(mktCAC), sub: 'from marketing only', color: 'text-ink' },
                 { label: 'Sales CAC', value: fmt(salCAC), sub: 'from sales only', color: 'text-ink' },
               ].map(c => (
-                <div key={c.label} className="bg-white dark:bg-[#1A1815] rounded-2xl p-4 border border-brand-border dark:border-white/8 text-center">
+                <div key={c.label} className="bg-surface rounded-2xl p-4 border border-rule text-center">
                   <p className={`font-heading font-bold text-2xl ${c.color}`}>{c.value}</p>
-                  <p className="font-body text-xs font-semibold text-brand-text dark:text-white mt-1">{c.label}</p>
-                  <p className="font-body text-xs text-brand-muted dark:text-white/40 mt-0.5">{c.sub}</p>
+                  <p className="font-body text-xs font-semibold text-ink mt-1">{c.label}</p>
+                  <p className="font-body text-xs text-muted mt-0.5">{c.sub}</p>
                 </div>
               ))}
             </div>
-            <div className="bg-white dark:bg-[#1A1815] rounded-2xl p-5 border border-brand-border dark:border-white/8">
+            <div className="bg-surface rounded-2xl p-5 border border-rule">
               <p className={`font-body text-sm font-semibold mb-2 ${bench.color}`}>{bench.label}</p>
-              <div className="space-y-2 font-body text-sm text-brand-muted dark:text-white/60">
+              <div className="space-y-2 font-body text-sm text-ink-2">
                 <p>→ Total spend: {fmt(totalSpend)} {period.toLowerCase()}</p>
                 <p>→ Customers acquired: {cust}</p>
                 <p>→ To break even, your LTV must be &gt; {fmt(cac * 3)} (3:1 LTV:CAC ratio)</p>
               </div>
             </div>
-            <div className="bg-brand-gold/5 dark:bg-brand-gold/10 rounded-2xl p-4 border border-brand-gold/20">
-              <p className="font-body text-xs text-brand-muted dark:text-white/50">
+            <div className="bg-gold/5 rounded-2xl p-4 border border-gold/20">
+              <p className="font-body text-xs text-muted">
                 💡 Target LTV:CAC ratio of 3:1 or higher for sustainable growth. Use our Free LTV Calculator to check your ratio.{' '}
-                <a href="/pricing" className="text-brand-gold hover:underline">Try Gravity →</a>
+                <a href="/pricing" className="text-gold-text hover:underline">Try Gravity →</a>
               </p>
             </div>
           </motion.div>

@@ -7,6 +7,7 @@ import { fadeUpVariant, staggerContainer } from '@/lib/animations'
 import { soundEngine } from '@/lib/soundEngine'
 import CoreConsole from '@/components/sections/CoreConsole'
 import StatusIndicator from '@/components/ui/StatusIndicator'
+import Button from '@/components/ui/Button'
 import { trackCTAClick } from '@/lib/analytics/track'
 import { ArrowRight, ArrowDown } from 'lucide-react'
 
@@ -80,14 +81,10 @@ export default function Hero() {
               />
             </div>
 
-            <button
-              type="submit"
-              onMouseEnter={() => soundEngine.playHudHover()}
-              className="inline-flex items-center justify-center gap-2 bg-gold text-[#1A1208] font-semibold text-[15px] px-8 py-4 rounded-full shadow-[0_0_28px_rgba(245,166,35,0.35)] hover:brightness-110 transition-all whitespace-nowrap active:scale-[0.98]"
-            >
+            <Button type="submit" size="lg" silent>
               Start with your URL
               <ArrowRight size={16} />
-            </button>
+            </Button>
           </motion.form>
 
           <motion.div variants={fadeUpVariant} className="flex flex-wrap items-center gap-x-5 gap-y-2">

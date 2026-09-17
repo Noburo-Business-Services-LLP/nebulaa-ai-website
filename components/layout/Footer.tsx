@@ -77,7 +77,7 @@ function FooterNewsletter() {
             <button
               type="submit"
               disabled={state === 'loading'}
-              className="w-full bg-brand-gold text-brand-black font-body font-semibold text-[13px] rounded-lg py-2.5 hover:bg-brand-gold-dim transition-colors disabled:opacity-60"
+              className="w-full bg-gold text-[#1A1208] font-body font-semibold text-[13px] rounded-lg py-2.5 hover:brightness-110 transition-colors disabled:opacity-60"
             >
               {state === 'loading' ? 'Joining...' : 'Get weekly tips'}
             </button>

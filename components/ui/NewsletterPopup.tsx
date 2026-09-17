@@ -92,7 +92,7 @@ export default function NewsletterPopup() {
             <div className="relative w-full max-w-lg bg-surface border border-rule-2 rounded-3xl overflow-hidden shadow-[0_0_120px_rgba(212,175,55,0.1)] pointer-events-auto">
 
               {/* Top accent line */}
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent" />
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
 
               {/* Ambient background glow */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-40 bg-gold/8 blur-3xl rounded-full pointer-events-none" />
@@ -191,7 +191,7 @@ export default function NewsletterPopup() {
                         disabled={state === 'loading'}
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
-                        className="bg-gold text-brand-black font-body font-bold rounded-2xl px-5 py-3 hover:bg-gold-dim transition-all disabled:opacity-60 text-sm whitespace-nowrap shadow-[0_0_20px_rgba(212,175,55,0.25)]"
+                        className="bg-gold text-[#1A1208] font-body font-bold rounded-2xl px-5 py-3 hover:bg-gold-dim transition-all disabled:opacity-60 text-sm whitespace-nowrap shadow-[0_0_20px_rgba(212,175,55,0.25)]"
                       >
                         {state === 'loading' ? '⏳' : 'Join →'}
                       </motion.button>

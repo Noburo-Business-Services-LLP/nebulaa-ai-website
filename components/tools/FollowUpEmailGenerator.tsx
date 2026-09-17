@@ -147,66 +147,66 @@ export default function FollowUpEmailGenerator() {
   return (
     <div className="space-y-6">
       {/* Inputs */}
-      <div className="bg-brand-off-white dark:bg-[#111110] rounded-2xl p-6 border border-brand-border dark:border-white/8">
+      <div className="bg-surface-2 rounded-2xl p-6 border border-rule">
         <div className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="font-body text-sm font-semibold text-brand-text dark:text-white block mb-2">Your name</label>
+              <label className="font-body text-sm font-semibold text-ink block mb-2">Your name</label>
               <input
                 type="text"
                 value={form.yourName}
                 onChange={e => update('yourName', e.target.value)}
                 placeholder="e.g. Navaneeth"
-                className="w-full border border-brand-border dark:border-white/10 dark:bg-white/5 dark:text-white rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-brand-gold transition-colors placeholder:text-brand-muted dark:placeholder:text-white/30"
+                className="w-full border border-rule bg-surface-2 text-ink rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-gold transition-colors placeholder:text-muted"
               />
             </div>
             <div>
-              <label className="font-body text-sm font-semibold text-brand-text dark:text-white block mb-2">Your company</label>
+              <label className="font-body text-sm font-semibold text-ink block mb-2">Your company</label>
               <input
                 type="text"
                 value={form.yourCompany}
                 onChange={e => update('yourCompany', e.target.value)}
                 placeholder="e.g. Nebulaa.ai"
-                className="w-full border border-brand-border dark:border-white/10 dark:bg-white/5 dark:text-white rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-brand-gold transition-colors placeholder:text-brand-muted dark:placeholder:text-white/30"
+                className="w-full border border-rule bg-surface-2 text-ink rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-gold transition-colors placeholder:text-muted"
               />
             </div>
             <div>
-              <label className="font-body text-sm font-semibold text-brand-text dark:text-white block mb-2">Prospect name</label>
+              <label className="font-body text-sm font-semibold text-ink block mb-2">Prospect name</label>
               <input
                 type="text"
                 value={form.prospectName}
                 onChange={e => update('prospectName', e.target.value)}
                 placeholder="e.g. Rahul"
-                className="w-full border border-brand-border dark:border-white/10 dark:bg-white/5 dark:text-white rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-brand-gold transition-colors placeholder:text-brand-muted dark:placeholder:text-white/30"
+                className="w-full border border-rule bg-surface-2 text-ink rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-gold transition-colors placeholder:text-muted"
               />
             </div>
             <div>
-              <label className="font-body text-sm font-semibold text-brand-text dark:text-white block mb-2">Prospect company</label>
+              <label className="font-body text-sm font-semibold text-ink block mb-2">Prospect company</label>
               <input
                 type="text"
                 value={form.prospectCompany}
                 onChange={e => update('prospectCompany', e.target.value)}
                 placeholder="e.g. TechCorp India"
-                className="w-full border border-brand-border dark:border-white/10 dark:bg-white/5 dark:text-white rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-brand-gold transition-colors placeholder:text-brand-muted dark:placeholder:text-white/30"
+                className="w-full border border-rule bg-surface-2 text-ink rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-gold transition-colors placeholder:text-muted"
               />
             </div>
           </div>
           <div>
-            <label className="font-body text-sm font-semibold text-brand-text dark:text-white block mb-2">Your product / service</label>
+            <label className="font-body text-sm font-semibold text-ink block mb-2">Your product / service</label>
             <input
               type="text"
               value={form.product}
               onChange={e => update('product', e.target.value)}
               placeholder="e.g. AI-powered outreach automation for B2B founders"
-              className="w-full border border-brand-border dark:border-white/10 dark:bg-white/5 dark:text-white rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-brand-gold transition-colors placeholder:text-brand-muted dark:placeholder:text-white/30"
+              className="w-full border border-rule bg-surface-2 text-ink rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-gold transition-colors placeholder:text-muted"
             />
           </div>
           <div>
-            <label className="font-body text-sm font-semibold text-brand-text dark:text-white block mb-2">Original touchpoint</label>
+            <label className="font-body text-sm font-semibold text-ink block mb-2">Original touchpoint</label>
             <select
               value={form.touchpoint}
               onChange={e => update('touchpoint', e.target.value)}
-              className="w-full border border-brand-border dark:border-white/10 dark:bg-[#1A1815] dark:text-white rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-brand-gold transition-colors"
+              className="w-full border border-rule bg-surface-2 text-ink rounded-xl px-4 py-2.5 font-body text-sm outline-none focus:border-gold transition-colors"
             >
               <option value="cold_email">Cold email</option>
               <option value="demo_call">Demo call</option>
@@ -217,7 +217,7 @@ export default function FollowUpEmailGenerator() {
           <button
             onClick={generate}
             disabled={!canGenerate}
-            className="flex items-center gap-2 bg-brand-gold text-brand-black font-body font-semibold rounded-full px-6 py-3 hover:bg-brand-gold-dim transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:scale-[1.02]"
+            className="flex items-center gap-2 bg-gold text-[#1A1208] font-body font-semibold rounded-full px-6 py-3 hover:brightness-110 transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:scale-[1.02]"
           >
             <Wand2 size={16} />
             Generate 5-Email Sequence
@@ -241,14 +241,14 @@ export default function FollowUpEmailGenerator() {
                   <button
                     onClick={() => setExpanded(expanded === i ? null : i)}
                     className={`flex-shrink-0 flex flex-col items-center px-3 py-2 rounded-xl transition-all ${
-                      expanded === i ? 'bg-brand-gold text-brand-black' : 'bg-brand-off-white dark:bg-white/5 text-brand-muted dark:text-white/50 hover:bg-brand-warm-gray dark:hover:bg-white/10'
+                      expanded === i ? 'bg-gold text-[#1A1208]' : 'bg-surface-2 text-muted hover:bg-surface-2 dark:hover:bg-white/10'
                     }`}
                   >
                     <span className="text-base">{email.emoji}</span>
                     <span className="font-body text-[10px] font-bold mt-0.5">{email.day}</span>
                   </button>
                   {i < emails.length - 1 && (
-                    <div className="w-4 h-px bg-brand-border dark:bg-white/10 flex-shrink-0" />
+                    <div className="w-4 h-px bg-rule-2 flex-shrink-0" />
                   )}
                 </div>
               ))}
@@ -258,28 +258,28 @@ export default function FollowUpEmailGenerator() {
             {emails.map((email, i) => (
               <div
                 key={i}
-                className="bg-white dark:bg-[#1A1815] rounded-2xl border border-brand-border dark:border-white/8 overflow-hidden"
+                className="bg-surface rounded-2xl border border-rule overflow-hidden"
               >
                 <button
                   onClick={() => setExpanded(expanded === i ? null : i)}
-                  className="w-full flex items-center justify-between px-5 py-4 hover:bg-brand-off-white dark:hover:bg-white/3 transition-colors"
+                  className="w-full flex items-center justify-between px-5 py-4 hover:bg-surface-2 transition-colors"
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-xl">{email.emoji}</span>
                     <div className="text-left">
                       <div className="flex items-center gap-2">
-                        <span className="font-body text-xs font-bold text-brand-gold uppercase tracking-widest">{email.day}</span>
-                        <span className="font-body text-xs text-brand-muted dark:text-white/30">—</span>
-                        <span className="font-body text-xs text-brand-muted dark:text-white/50">{email.label}</span>
+                        <span className="font-body text-xs font-bold text-gold-text uppercase tracking-widest">{email.day}</span>
+                        <span className="font-body text-xs text-faint">—</span>
+                        <span className="font-body text-xs text-muted">{email.label}</span>
                       </div>
-                      <p className="font-body text-sm font-semibold text-brand-text dark:text-white mt-0.5 text-left">
+                      <p className="font-body text-sm font-semibold text-ink mt-0.5 text-left">
                         {email.subject}
                       </p>
                     </div>
                   </div>
                   <ChevronDown
                     size={16}
-                    className={`flex-shrink-0 text-brand-muted dark:text-white/30 transition-transform ${expanded === i ? 'rotate-180' : ''}`}
+                    className={`flex-shrink-0 text-faint transition-transform ${expanded === i ? 'rotate-180' : ''}`}
                   />
                 </button>
 
@@ -293,15 +293,15 @@ export default function FollowUpEmailGenerator() {
                       className="overflow-hidden"
                     >
                       {/* Subject */}
-                      <div className="px-5 py-3 border-t border-brand-border dark:border-white/8 bg-brand-gold/5 dark:bg-brand-gold/5">
+                      <div className="px-5 py-3 border-t border-rule bg-gold/5">
                         <div className="flex items-start justify-between gap-4">
                           <div>
-                            <p className="font-body text-[10px] font-bold uppercase tracking-widest text-brand-muted dark:text-white/40 mb-1">Subject</p>
-                            <p className="font-body text-sm text-brand-text dark:text-white">{email.subject}</p>
+                            <p className="font-body text-[10px] font-bold uppercase tracking-widest text-muted mb-1">Subject</p>
+                            <p className="font-body text-sm text-ink">{email.subject}</p>
                           </div>
                           <button
                             onClick={() => copy(`subject-${i}`, email.subject)}
-                            className="flex-shrink-0 text-brand-muted dark:text-white/30 hover:text-brand-gold transition-colors"
+                            className="flex-shrink-0 text-faint hover:text-gold-text transition-colors"
                           >
                             {copied === `subject-${i}` ? <Check size={13} /> : <Copy size={13} />}
                           </button>
@@ -311,15 +311,15 @@ export default function FollowUpEmailGenerator() {
                       {/* Body */}
                       <div className="p-5">
                         <div className="flex items-start justify-between gap-4 mb-3">
-                          <p className="font-body text-[10px] font-bold uppercase tracking-widest text-brand-muted dark:text-white/40">Body</p>
+                          <p className="font-body text-[10px] font-bold uppercase tracking-widest text-muted">Body</p>
                           <button
                             onClick={() => copy(`body-${i}`, `Subject: ${email.subject}\n\n${email.body}`)}
-                            className="flex items-center gap-1.5 font-body text-xs font-semibold text-brand-gold hover:text-brand-gold-dim transition-colors"
+                            className="flex items-center gap-1.5 font-body text-xs font-semibold text-gold-text hover:text-gold-text-dim transition-colors"
                           >
                             {copied === `body-${i}` ? <><Check size={12} />Copied!</> : <><Copy size={12} />Copy email</>}
                           </button>
                         </div>
-                        <pre className="font-body text-sm text-brand-text dark:text-white whitespace-pre-wrap leading-relaxed">
+                        <pre className="font-body text-sm text-ink whitespace-pre-wrap leading-relaxed">
                           {email.body}
                         </pre>
                       </div>
@@ -330,9 +330,9 @@ export default function FollowUpEmailGenerator() {
             ))}
 
             <div className="px-1">
-              <p className="font-body text-xs text-brand-muted dark:text-white/50">
+              <p className="font-body text-xs text-muted">
                 💡 Pulsar by Nebulaa sends this entire sequence automatically — triggered by your CRM, timed perfectly.{' '}
-                <a href="/pricing" className="text-brand-gold hover:underline">Automate your follow-ups →</a>
+                <a href="/pricing" className="text-gold-text hover:underline">Automate your follow-ups →</a>
               </p>
             </div>
           </motion.div>

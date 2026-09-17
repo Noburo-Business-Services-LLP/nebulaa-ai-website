@@ -60,7 +60,7 @@ export default function DownloadGate({ file, title, source }: Props) {
 
   if (!file) {
     return (
-      <div className="bg-surface border border-rule rounded-[18px] px-7 py-7">
+      <div className="hud-card rounded-[18px] px-7 py-7">
         <p className="neb-label mb-2.5">In preparation</p>
         <p className="text-[15px] leading-[1.65] text-muted">
           This one is still being written. Leave your email on any other download and we will send it
@@ -96,7 +96,7 @@ export default function DownloadGate({ file, title, source }: Props) {
   }
 
   return (
-    <div className="bg-surface border border-rule rounded-[18px] px-7 py-7">
+    <div className="hud-card rounded-[18px] px-7 py-7">
       <p className="neb-label mb-2.5">Get the file</p>
       <p className="text-[15px] leading-[1.6] text-muted mb-5 max-w-[52ch]">
         One email unlocks this and every other download here. No sequence afterwards — you will hear

@@ -15,7 +15,7 @@ function GalleryCard({ item }: { item: GalleryItem }) {
       variants={fadeUpVariant}
       className={`min-h-[280px] rounded-[18px] p-6 flex flex-col ${
         isPopulated
-          ? 'bg-surface border border-rule'
+          ? 'hud-card'
           : 'bg-transparent border border-dashed border-rule-2'
       }`}
     >

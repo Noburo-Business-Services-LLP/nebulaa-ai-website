@@ -62,7 +62,7 @@ export default function ToolsTeaser() {
           <motion.div key={tool.slug} variants={fadeUpVariant}>
             <Link
               href={`/tools/${tool.slug}`}
-              className="block bg-surface border border-rule rounded-2xl px-6 py-[26px] h-full transition-colors hover:border-rule-2"
+              className="block hud-card rounded-2xl px-6 py-[26px] h-full transition-colors hover:border-rule-2"
             >
               <div className="font-body text-[15.5px] font-medium mb-2">{tool.name}</div>
               <div className="font-body text-[13.5px] leading-[1.55] text-muted">{tool.tagline}</div>

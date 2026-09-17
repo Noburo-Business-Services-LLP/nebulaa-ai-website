@@ -36,7 +36,7 @@ export default function CompareHubPage() {
             <Link
               key={c.slug}
               href={`/compare/nebulaa-vs-${c.slug}`}
-              className="group block bg-surface border border-rule rounded-[20px] px-[30px] py-[28px] hover:border-gold/30 transition-colors"
+              className="group block hud-card rounded-[20px] px-[30px] py-[28px] hover:border-gold/30 transition-colors"
             >
               <div className="flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
                 <div className="md:w-[220px] flex-shrink-0">

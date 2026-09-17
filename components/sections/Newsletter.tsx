@@ -74,12 +74,12 @@ export default function Newsletter() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-surface border border-rule rounded-[18px] p-7 text-center"
+              className="hud-card rounded-[18px] p-7 text-center"
             >
               <p className="font-body text-[14.5px] text-muted">You&apos;re already on the list! See you Monday.</p>
             </motion.div>
           ) : (
-            <div className="bg-surface border border-rule rounded-[18px] p-6">
+            <div className="hud-card rounded-[18px] p-6">
               <form onSubmit={submit} className="space-y-3">
                 <input
                   type="text"

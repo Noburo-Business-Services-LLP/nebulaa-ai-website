@@ -67,7 +67,7 @@ export default function ProductPage() {
           {list.map(agent => {
             const caps = capabilitiesFor(agent.id)
             return (
-              <div key={agent.id} className="bg-surface border border-rule rounded-[20px] px-7 md:px-[42px] pt-[44px] pb-10">
+              <div key={agent.id} className="hud-card rounded-[20px] px-7 md:px-[42px] pt-[44px] pb-10">
                 <SectionLabel className="mb-[20px] block">{agent.tagline}</SectionLabel>
                 <h2 className="font-heading font-medium text-[32px] md:text-[38px] leading-[1.1] tracking-[-0.015em] mb-4">
                   {agent.name}

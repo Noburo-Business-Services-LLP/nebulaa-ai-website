@@ -36,7 +36,7 @@ export default function WorkHubPage() {
             <Link
               key={eng.slug}
               href={`/work/${eng.slug}`}
-              className="group block bg-surface border border-rule rounded-[20px] px-7 md:px-[42px] pt-[36px] pb-9 hover:border-gold/30 transition-colors"
+              className="group block hud-card rounded-[20px] px-7 md:px-[42px] pt-[36px] pb-9 hover:border-gold/30 transition-colors"
             >
               <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,340px)] gap-x-[60px] gap-y-5 items-start">
                 <div>

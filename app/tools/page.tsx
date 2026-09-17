@@ -62,7 +62,7 @@ export default function ToolsPage() {
                 <Link
                   key={tool.slug}
                   href={`/tools/${tool.slug}`}
-                  className="group block bg-surface border border-rule rounded-2xl px-6 py-[26px] hover:border-gold/60 transition-all duration-200 hover:-translate-y-0.5"
+                  className="group block hud-card rounded-2xl px-6 py-[26px] hover:border-gold/60 transition-all duration-200 hover:-translate-y-0.5"
                 >
                   <h3 className="text-[15.5px] font-medium mb-[7px] text-ink group-hover:text-gold-text transition-colors leading-snug">
                     {tool.name.replace(/^Free /, '')}

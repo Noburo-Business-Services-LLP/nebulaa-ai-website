@@ -78,7 +78,7 @@ export default function ResourcePage({ params }: { params: { resource: string } 
             <Link
               key={o.slug}
               href={`/resources/${o.slug}`}
-              className="group block bg-surface border border-rule rounded-[18px] px-[26px] pt-[28px] pb-7 hover:border-gold/30 transition-colors"
+              className="group block hud-card rounded-[18px] px-[26px] pt-[28px] pb-7 hover:border-gold/30 transition-colors"
             >
               <h3 className="font-heading font-medium text-[18px] leading-[1.25] mb-2.5">{o.title}</h3>
               <p className="text-[13.5px] leading-[1.6] text-muted mb-4">{o.subtitle}</p>

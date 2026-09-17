@@ -82,7 +82,7 @@ export default function EngagementPage({ params }: { params: { engagement: strin
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {eng.scope.map(group => (
-            <div key={group.group} className="bg-surface border border-rule rounded-[18px] px-[28px] pt-[28px] pb-7">
+            <div key={group.group} className="hud-card rounded-[18px] px-[28px] pt-[28px] pb-7">
               <h3 className="font-heading font-medium text-[19px] mb-5 pb-3.5 border-b border-gold/30">
                 {group.group}
               </h3>
@@ -166,7 +166,7 @@ export default function EngagementPage({ params }: { params: { engagement: strin
             <Link
               key={o.slug}
               href={`/work/${o.slug}`}
-              className="group block bg-surface border border-rule rounded-[18px] px-[28px] pt-[28px] pb-7 hover:border-gold/30 transition-colors"
+              className="group block hud-card rounded-[18px] px-[28px] pt-[28px] pb-7 hover:border-gold/30 transition-colors"
             >
               <h3 className="font-heading font-medium text-[20px] mb-2.5">{o.name}</h3>
               <p className="text-[13.5px] leading-[1.6] text-muted mb-4">{o.summary}</p>

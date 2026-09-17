@@ -52,7 +52,7 @@ export default function FAQ() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={viewportOptions}
-        className="bg-surface border border-rule rounded-[18px] px-8"
+        className="hud-card rounded-[18px] px-8"
       >
         {faqs.map((faq, i) => <FAQItem key={i} q={faq.q} a={faq.a} />)}
       </motion.div>

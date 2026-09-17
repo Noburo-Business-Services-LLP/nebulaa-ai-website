@@ -83,7 +83,7 @@ export default function ServicesPage() {
           {differentiators.map((d, i) => {
             const Icon = differentiatorIcons[i]
             return (
-              <div key={d.title} className="bg-surface border border-rule rounded-[18px] px-[34px] pt-[38px] pb-10">
+              <div key={d.title} className="hud-card rounded-[18px] px-[34px] pt-[38px] pb-10">
                 <span className="inline-flex w-10 h-10 rounded-full bg-gold-wash items-center justify-center mb-5">
                   <Icon size={18} className="text-gold-text" />
                 </span>
@@ -109,7 +109,7 @@ export default function ServicesPage() {
           {capabilities.map((c) => {
             const Icon = capabilityIcons[c.title]
             return (
-              <div key={c.title} className="bg-surface border border-rule rounded-[16px] px-[26px] pt-[30px] pb-8">
+              <div key={c.title} className="hud-card rounded-[16px] px-[26px] pt-[30px] pb-8">
                 <span className="inline-flex w-9 h-9 rounded-full bg-gold-wash items-center justify-center mb-4">
                   <Icon size={16} className="text-gold-text" />
                 </span>

@@ -64,7 +64,7 @@ export default function ChannelsHubPage() {
                   <Link
                     key={ch.slug}
                     href={`/channels/${ch.slug}`}
-                    className="group block bg-surface border border-rule rounded-[18px] px-[28px] pt-[28px] pb-7 hover:border-gold/30 transition-colors"
+                    className="group block hud-card rounded-[18px] px-[28px] pt-[28px] pb-7 hover:border-gold/30 transition-colors"
                   >
                     <div className="flex items-baseline justify-between gap-3 mb-2.5">
                       <h3 className="font-heading font-medium text-[20px]">{ch.name}</h3>

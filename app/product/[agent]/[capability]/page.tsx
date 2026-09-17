@@ -158,7 +158,7 @@ export default function CapabilityPage({
             <Link
               key={s.slug}
               href={`/product/${agent.id}/${s.slug}`}
-              className="group block bg-surface border border-rule rounded-[18px] px-[26px] pt-[28px] pb-7 hover:border-gold/30 transition-colors"
+              className="group block hud-card rounded-[18px] px-[26px] pt-[28px] pb-7 hover:border-gold/30 transition-colors"
             >
               <h3 className="font-heading font-medium text-[19px] mb-2.5">{s.name}</h3>
               <p className="text-[13.5px] leading-[1.6] text-muted mb-4">{s.summary}</p>

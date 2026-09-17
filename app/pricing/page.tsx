@@ -69,7 +69,7 @@ export default function PricingPage() {
               className={`rounded-[20px] px-6 md:px-[42px] pt-[44px] pb-11 ${
                 m.highlight
                   ? 'bg-surface border border-gold/[0.28]'
-                  : 'bg-surface border border-rule'
+                  : 'hud-card'
               }`}
             >
               <SectionLabel tone={m.highlight ? 'gold' : 'muted'} className="mb-[22px] block">

@@ -37,7 +37,7 @@ export default function IndustriesHubPage() {
             <Link
               key={ind.slug}
               href={`/for/${ind.slug}`}
-              className="group block bg-surface border border-rule rounded-[20px] px-[30px] pt-[32px] pb-[30px] hover:border-gold/30 transition-colors"
+              className="group block hud-card rounded-[20px] px-[30px] pt-[32px] pb-[30px] hover:border-gold/30 transition-colors"
             >
               <SectionLabel tone="muted" className="mb-4 block">{ind.name}</SectionLabel>
               <p className="text-[15px] leading-[1.6] text-muted mb-5">{ind.hubBlurb}</p>

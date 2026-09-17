@@ -89,7 +89,7 @@ export default function IndustryPage({ params }: { params: { industry: string } 
         <h2 className="font-heading font-medium text-[28px] md:text-4xl mb-8">Sound familiar?</h2>
         <div className="grid sm:grid-cols-2 gap-3.5">
           {data.painPoints.map((pain, i) => (
-            <div key={i} className="flex items-start gap-3 bg-surface border border-rule rounded-xl p-[18px]">
+            <div key={i} className="flex items-start gap-3 hud-card rounded-xl p-[18px]">
               <X size={15} className="text-red-400/70 mt-0.5 flex-shrink-0" />
               <p className="text-[14.5px] leading-[1.6] text-ink-2">{pain}</p>
             </div>
@@ -106,7 +106,7 @@ export default function IndustryPage({ params }: { params: { industry: string } 
         </h2>
         <div className="flex flex-col gap-4">
           {data.useCases.map((uc, i) => (
-            <div key={i} className="bg-surface border border-rule rounded-2xl p-6 flex items-start gap-5">
+            <div key={i} className="hud-card rounded-2xl p-6 flex items-start gap-5">
               <span className={`inline-block font-body text-[11px] font-bold px-2.5 py-1 rounded-full flex-shrink-0 mt-0.5 ${AGENT_STYLE[uc.agent]}`}>
                 {uc.agent}
               </span>

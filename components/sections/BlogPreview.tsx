@@ -44,7 +44,7 @@ export default function BlogPreview() {
             key={post.slug}
             href={`/blog/${post.slug}`}
             variants={fadeUpVariant}
-            className="bg-surface border border-rule rounded-[18px] overflow-hidden hover:border-gold/[0.18] transition-colors duration-300 group block"
+            className="hud-card rounded-[18px] overflow-hidden hover:border-gold/[0.18] transition-colors duration-300 group block"
           >
             <div className={`h-44 bg-gradient-to-br ${post.headerColor} relative`}>
               <span className="absolute bottom-3 left-4">

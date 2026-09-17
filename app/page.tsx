@@ -1,6 +1,7 @@
 import Hero from '@/components/sections/Hero'
 import ClientStrip from '@/components/sections/ClientStrip'
 import ThreeThings from '@/components/sections/ThreeThings'
+import SharedMemory from '@/components/sections/SharedMemory'
 import GravitySection from '@/components/sections/GravitySection'
 import PulsarSection from '@/components/sections/PulsarSection'
 import MadeByGravity from '@/components/sections/MadeByGravity'
@@ -21,6 +22,7 @@ export default function Home() {
       <Hero />
       <ClientStrip />
       <ThreeThings />
+      <SharedMemory />
       <EntryFork />
       <NarrativeDemo />
       <GravitySection />

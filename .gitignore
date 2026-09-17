@@ -38,3 +38,6 @@ next-env.d.ts
 
 # sst
 .sst/
+
+# sst / opennext build output
+.open-next/

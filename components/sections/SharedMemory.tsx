@@ -40,7 +40,7 @@ export default function SharedMemory() {
         className="max-w-[720px] mb-[64px]"
       >
         <motion.div variants={fadeUpVariant}>
-          <SectionLabel className="mb-[22px] block">One memory, three agents</SectionLabel>
+          <SectionLabel className="mb-[22px] block">One memory, three engines</SectionLabel>
         </motion.div>
         <motion.h2
           variants={fadeUpVariant}

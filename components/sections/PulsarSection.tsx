@@ -86,7 +86,7 @@ export default function PulsarSection() {
           viewport={viewportOptions}
         >
           <motion.div variants={fadeUpVariant}>
-            <SectionLabel className="mb-[22px] block">Pulsar — the outreach half</SectionLabel>
+            <SectionLabel className="mb-[22px] block">Pulsar // Engagement</SectionLabel>
           </motion.div>
           <motion.h2
             variants={fadeUpVariant}

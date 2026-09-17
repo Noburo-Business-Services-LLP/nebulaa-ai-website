@@ -62,7 +62,7 @@ export default function CorePage() {
           <p className="text-[18px] leading-[1.65] text-muted max-w-[660px] mb-9">
             Core connects what happens across Orbit, Gravity and Pulsar — observing actions,
             outcomes and signals, and turning activity into learning, and learning into a better
-            next action. It comes with every agent. There is nothing separate to buy.
+            next action. It comes with every engine. There is nothing separate to buy.
           </p>
           <a
             href="#learning-loop"
@@ -169,7 +169,7 @@ export default function CorePage() {
       {/* Close */}
       <section className="px-6 md:px-12 lg:px-[120px] py-[110px] text-center">
         <h2 className="neb-display text-[28px] md:text-[42px] mb-6">
-          Core comes with <span className="text-gold-display">every agent.</span>
+          Core comes with <span className="text-gold-display">every engine.</span>
         </h2>
         <p className="text-[16px] leading-[1.65] text-muted max-w-[480px] mx-auto mb-9">
           There is no separate Core plan. Run Orbit, Gravity or Pulsar and Core is already
@@ -179,7 +179,7 @@ export default function CorePage() {
           href="/product"
           className="inline-flex items-center gap-2 bg-gold text-[#1A1208] text-[15px] font-semibold px-[30px] py-[15px] rounded-full hover:brightness-105 transition"
         >
-          See all three agents <ArrowRight size={15} />
+          See all three engines <ArrowRight size={15} />
         </Link>
       </section>
     </main>

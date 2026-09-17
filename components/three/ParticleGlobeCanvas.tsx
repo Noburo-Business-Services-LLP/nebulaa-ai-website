@@ -40,7 +40,12 @@ export default function ParticleGlobeCanvas({ className = '', interactive = true
     container.appendChild(renderer.domElement)
 
     // ─── Create 3D Particle Constellation (Sphere + Orbitals + Core) ───
-    const PARTICLE_COUNT = 3200
+    // Phones get a sparser field: the design direction calls for fewer
+    // decorative particles on mobile, and 3,200 points is real work for a
+    // mid-range phone GPU on a page that is mostly text.
+    const PARTICLE_COUNT = width < 768 ? 1400 : 3200
+    /** Three quarters of the field is the sphere; the rest forms the outer rings. */
+    const SPHERE_COUNT = Math.floor(PARTICLE_COUNT * 0.75)
     const geometry = new THREE.BufferGeometry()
     const positions = new Float32Array(PARTICLE_COUNT * 3)
     const basePositions = new Float32Array(PARTICLE_COUNT * 3)
@@ -64,9 +69,9 @@ export default function ParticleGlobeCanvas({ className = '', interactive = true
       let x = 0, y = 0, z = 0
       let c = goldColor
 
-      if (i < 2400) {
+      if (i < SPHERE_COUNT) {
         // Main planetary sphere
-        const yCoord = 1 - (i / (2400 - 1)) * 2 // -1 to 1
+        const yCoord = 1 - (i / (SPHERE_COUNT - 1)) * 2 // -1 to 1
         const radiusAtY = Math.sqrt(1 - yCoord * yCoord)
         const theta = phi * i
 

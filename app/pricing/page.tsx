@@ -33,7 +33,7 @@ const models = [
   {
     label: 'The team',
     title: 'We run it',
-    body: 'Strategy, content, production, campaigns and on-ground activation, handled end to end by our team — running on the same three agents.',
+    body: 'Strategy, content, production, campaigns and on-ground activation, handled end to end by our team — running on the same three engines.',
     points: [
       'Scoped per engagement, quoted after a call',
       'Media spend and creator fees billed at actuals',
@@ -52,7 +52,7 @@ export default function PricingPage() {
         <SectionLabel className="mb-[26px] block">Pricing</SectionLabel>
         <h1 className="neb-display text-[40px] md:text-[60px] mb-[26px]" style={{ textWrap: 'pretty' }}>
           Two ways to buy.{' '}
-          <span className="text-gold-display">One engine underneath.</span>
+          <span className="text-gold-display">One core underneath.</span>
         </h1>
         <p className="text-[17.5px] leading-[1.65] text-muted max-w-[620px]">
           Run the software yourself, or have our team run the whole marketing function for you. The

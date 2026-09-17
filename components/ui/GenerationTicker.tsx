@@ -3,7 +3,7 @@
 import { Radar, MessageSquareText, Orbit as OrbitIcon } from 'lucide-react'
 
 /**
- * A continuous horizontal strip of what the three agents are actually built
+ * A continuous horizontal strip of what the three engines are actually built
  * to do — a "the system never stops" motif, not a claim about a specific
  * live account. Each line maps to a real capability (see lib/productData.ts);
  * nothing here is invented functionality.

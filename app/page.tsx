@@ -6,6 +6,7 @@ import AgentEcosystem from '@/components/sections/AgentEcosystem'
 import ThreeThings from '@/components/sections/ThreeThings'
 import SharedMemory from '@/components/sections/SharedMemory'
 import GravitySection from '@/components/sections/GravitySection'
+import OrbitSection from '@/components/sections/OrbitSection'
 import PulsarSection from '@/components/sections/PulsarSection'
 import MadeByGravity from '@/components/sections/MadeByGravity'
 import EntryFork from '@/components/sections/EntryFork'
@@ -31,7 +32,9 @@ export default function Home() {
       <SharedMemory />
       <EntryFork />
       <NarrativeDemo />
+      {/* Gravity creates, Orbit finds, Pulsar engages — the master copy's order. */}
       <GravitySection />
+      <OrbitSection />
       <PulsarSection />
       <MadeByGravity />
       <Pricing />

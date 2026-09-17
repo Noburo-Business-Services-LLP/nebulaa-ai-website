@@ -24,8 +24,8 @@ export default function ProductPage() {
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[90px] max-w-[880px]">
         <SectionLabel className="mb-[26px] block">The product</SectionLabel>
         <h1 className="neb-display text-[40px] md:text-[62px] mb-[26px]" style={{ textWrap: 'pretty' }}>
-          Three agents.{' '}
-          <span className="text-gold-display">One engine underneath.</span>
+          Three engines.{' '}
+          <span className="text-gold-display">One core underneath.</span>
         </h1>
         <p className="text-[18px] leading-[1.65] text-muted max-w-[640px]">
           Orbit finds and qualifies who is worth talking to. Gravity makes the marketing that gives

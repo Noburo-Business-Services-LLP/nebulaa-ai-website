@@ -41,7 +41,7 @@ export default function GravitySection() {
           viewport={viewportOptions}
         >
           <motion.div variants={fadeUpVariant}>
-            <SectionLabel className="mb-[22px] block">Gravity — the marketing half</SectionLabel>
+            <SectionLabel className="mb-[22px] block">Gravity // Content</SectionLabel>
           </motion.div>
           <motion.h2
             variants={fadeUpVariant}

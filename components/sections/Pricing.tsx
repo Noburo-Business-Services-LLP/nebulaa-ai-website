@@ -102,7 +102,7 @@ const plans: Plan[] = [
   },
   {
     name: 'All Three Agents',
-    label: 'All three agents · best value',
+    label: 'All three engines · best value',
     tagline: 'Sourcing + Marketing + Outreach',
     monthly: 28000,
     description: 'The whole loop — leads found, content made, customers engaged. ₹9,000 less than buying separately.',

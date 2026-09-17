@@ -22,7 +22,7 @@ const cards = [
     label: 'The team',
     labelGold: true,
     title: 'Someone else runs it',
-    body: 'We drive. Our team plans, writes, ships and chases — with the same agents carrying the volume, which is why we come in under the agency quoting you now. You approve. You never log in.',
+    body: 'We drive. Our team plans, writes, ships and chases — with the same engines carrying the volume, which is why we come in under the agency quoting you now. You approve. You never log in.',
     metaPrimary: 'Managed marketing engagements',
     metaSecondary: 'Scoped per business',
     cta: 'Talk to us',
@@ -52,7 +52,7 @@ export default function EntryFork() {
           Who should be running this — <span className="text-gold-display">you, or us?</span>
         </motion.h2>
         <motion.p variants={fadeUpVariant} className="font-body text-[17px] leading-[1.68] text-muted">
-          Same agents underneath. The only question is whose evening it takes.
+          Same engines underneath. The only question is whose evening it takes.
         </motion.p>
       </motion.div>
 

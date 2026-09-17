@@ -16,7 +16,7 @@ const GOLD_DOT_STYLE = {
 }
 
 const PRODUCT_LINKS = [
-  { name: 'Overview', desc: 'Three agents, one engine underneath', href: '/product', icon: Layers },
+  { name: 'Overview', desc: 'Three engines, one core underneath', href: '/product', icon: Layers },
   { name: 'Core', desc: 'The cross-agent intelligence connecting all three', href: '/product/core', icon: BrainCircuit },
   { name: 'Orbit', desc: 'Lead sourcing, qualification, enrichment, CRM sync', href: '/product/orbit', icon: Orbit },
   { name: 'Gravity', desc: 'Strategy, content, campaigns, creators, inbox, SEO', href: '/product/gravity', icon: Radar },

@@ -16,7 +16,15 @@ import { useEffect, useRef } from 'react'
  * --particle-hot from CSS so it stays correct in both themes without
  * duplicating color logic here.
  */
-export default function ParticleCanvas({ className = '' }: { className?: string }) {
+interface Props {
+  className?: string
+  /** Grid spacing in px — higher means sparser. Default matches the original hero density. */
+  spacing?: number
+  /** Whether the field reacts to the cursor. Off for the page-wide ambient layer, where a canvas spanning the whole document listening on itself would only catch pointer events over empty gaps. */
+  interactive?: boolean
+}
+
+export default function ParticleCanvas({ className = '', spacing = 26, interactive = true }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -40,7 +48,7 @@ export default function ParticleCanvas({ className = '' }: { className?: string 
     }
     let particles: Particle[] = []
 
-    const SPACING = 26
+    const SPACING = spacing
     const MAX_PARTICLES = 1400
 
     function readTokenColor(name: string, fallback: string) {
@@ -145,17 +153,24 @@ export default function ParticleCanvas({ className = '' }: { className?: string 
     const ro = new ResizeObserver(() => { buildField(); draw() })
     ro.observe(canvas)
 
-    canvas.addEventListener('pointermove', onPointerMove)
-    canvas.addEventListener('pointerleave', onPointerLeave)
+    if (interactive) {
+      // Listens on window, not the canvas — a page-spanning ambient layer needs
+      // to track the cursor wherever it is, and must stay pointer-events-none
+      // so it never intercepts clicks meant for real content above it.
+      window.addEventListener('pointermove', onPointerMove)
+      window.addEventListener('pointerleave', onPointerLeave)
+    }
 
     return () => {
       cancelAnimationFrame(raf)
       ro.disconnect()
       io.disconnect()
-      canvas.removeEventListener('pointermove', onPointerMove)
-      canvas.removeEventListener('pointerleave', onPointerLeave)
+      if (interactive) {
+        window.removeEventListener('pointermove', onPointerMove)
+        window.removeEventListener('pointerleave', onPointerLeave)
+      }
     }
-  }, [])
+  }, [spacing, interactive])
 
-  return <canvas ref={canvasRef} className={`block w-full h-full ${className}`} />
+  return <canvas ref={canvasRef} className={`block w-full h-full pointer-events-none ${className}`} />
 }

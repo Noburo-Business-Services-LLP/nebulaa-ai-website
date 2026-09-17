@@ -1,4 +1,5 @@
 import Hero from '@/components/sections/Hero'
+import SiteBackground from '@/components/ui/SiteBackground'
 import ClientStrip from '@/components/sections/ClientStrip'
 import GenerationTicker from '@/components/ui/GenerationTicker'
 import ThreeThings from '@/components/sections/ThreeThings'
@@ -20,6 +21,7 @@ import FinalCTA from '@/components/sections/FinalCTA'
 export default function Home() {
   return (
     <main>
+      <SiteBackground />
       <Hero />
       <GenerationTicker />
       <ClientStrip />

@@ -66,6 +66,16 @@ export default $config({
         SMTP_PASS: process.env.SMTP_PASS ?? '',
         SMTP_FROM: process.env.SMTP_FROM ?? '',
         LEADS_NOTIFY_TO: process.env.LEADS_NOTIFY_TO ?? 'hello@nebulaa.ai',
+
+        // Analytics & ads tags — see lib/analytics/config.ts. Blank disables
+        // that tag entirely (no script loads, nothing breaks). NEXT_PUBLIC_*
+        // vars are inlined at build time, so they must be set in this shell
+        // before `sst deploy`, not just in Lambda's runtime env.
+        NEXT_PUBLIC_GTM_ID: process.env.NEXT_PUBLIC_GTM_ID ?? '',
+        NEXT_PUBLIC_GA4_ID: process.env.NEXT_PUBLIC_GA4_ID ?? '',
+        NEXT_PUBLIC_GOOGLE_ADS_ID: process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? '',
+        NEXT_PUBLIC_META_PIXEL_ID: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? '',
+        META_CAPI_ACCESS_TOKEN: process.env.META_CAPI_ACCESS_TOKEN ?? '',
       },
     })
 

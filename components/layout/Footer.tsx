@@ -10,6 +10,8 @@ const GOLD_DOT_STYLE = {
 
 const productLinks = [
   { name: 'Overview', href: '/product' },
+  { name: 'Core', href: '/product/core' },
+  { name: 'Orbit', href: '/product/orbit' },
   { name: 'Gravity', href: '/product/gravity' },
   { name: 'Pulsar', href: '/product/pulsar' },
   { name: 'Pricing', href: '/pricing' },
@@ -94,9 +96,19 @@ export default function Footer() {
     <footer className="relative border-t border-rule pt-[60px] pb-[50px] px-6 md:px-12 lg:px-[120px]">
       <div className="flex flex-col lg:flex-row items-start justify-between gap-[50px] lg:gap-[70px]">
       <div>
-        <div className="flex items-center gap-[10px] mb-4">
+        <div className="flex items-center gap-[10px] mb-3">
           <div className="w-[17px] h-[17px] rounded-full flex-shrink-0" style={GOLD_DOT_STYLE} />
           <span className="font-heading text-[17px] font-normal text-ink">Nebulaa</span>
+        </div>
+        <p className="font-mono text-[10.5px] tracking-[0.1em] uppercase text-faint mb-1">
+          The AI operating system for business
+        </p>
+        <div className="flex items-center gap-1.5 mb-4">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-60" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+          </span>
+          <span className="font-mono text-[10.5px] tracking-[0.08em] text-muted">CORE // ONLINE</span>
         </div>
         <div className="font-body text-[13px] text-muted leading-[1.7]">
           Chennai, India<br /><a href="mailto:hello@nebulaa.ai" className="hover:text-gold-text transition-colors">hello@nebulaa.ai</a>

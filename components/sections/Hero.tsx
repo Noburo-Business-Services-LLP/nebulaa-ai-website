@@ -6,11 +6,11 @@ import ParticleField from '@/components/ui/ParticleField'
 import { fadeUpVariant, staggerContainer } from '@/lib/animations'
 import { soundEngine } from '@/lib/soundEngine'
 import StatCounter from '@/components/ui/StatCounter'
-import { ArrowRight, ShieldCheck, Zap, Activity, Cpu } from 'lucide-react'
+import { ArrowRight, ShieldCheck, Zap, Activity, Cpu, Orbit as OrbitIcon } from 'lucide-react'
 
 export default function Hero() {
   const [url, setUrl] = useState('')
-  const [activeAgent, setActiveAgent] = useState<'gravity' | 'pulsar'>('gravity')
+  const [activeAgent, setActiveAgent] = useState<'gravity' | 'orbit' | 'pulsar'>('gravity')
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -18,14 +18,14 @@ export default function Hero() {
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  const handleAgentSelect = (agent: 'gravity' | 'pulsar') => {
+  const handleAgentSelect = (agent: 'gravity' | 'orbit' | 'pulsar') => {
     soundEngine.playHudHover()
     setActiveAgent(agent)
   }
 
   return (
     <section className="relative bg-ground min-h-screen pt-36 pb-28 px-6 md:px-12 lg:px-[120px] overflow-hidden flex items-center">
-      {/* 3D WebGL Three.js Particle Constellation Background */}
+      {/* Ambient particle field background */}
       <div className="absolute inset-0 z-0">
         <ParticleField variant="fullbleed" interactive className="absolute inset-0" />
         {/* Soft edge gradients so copy and HUD stay razor-sharp */}
@@ -48,7 +48,7 @@ export default function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
-              <span className="text-ink/80 font-medium">SYSTEM 01 // AUTONOMOUS AGENT CORE</span>
+              <span className="text-ink/80 font-medium">NEBULAA // BUSINESS OPERATING SYSTEM</span>
               <span className="text-white/20">|</span>
               <span className="text-gold/90 font-semibold">ONLINE</span>
             </div>
@@ -150,8 +150,8 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Agent Selectors (Gravity vs Pulsar) */}
-            <div className="grid grid-cols-2 gap-2 mb-6 p-1 bg-white/[0.03] rounded-xl border border-white/[0.06]">
+            {/* Agent Selectors */}
+            <div className="grid grid-cols-3 gap-2 mb-6 p-1 bg-white/[0.03] rounded-xl border border-white/[0.06]">
               <button
                 type="button"
                 onClick={() => handleAgentSelect('gravity')}
@@ -162,7 +162,20 @@ export default function Hero() {
                 }`}
               >
                 <Activity size={13} />
-                <span>GRAVITY (Content)</span>
+                <span>GRAVITY</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => handleAgentSelect('orbit')}
+                className={`flex items-center justify-center gap-2 py-2.5 rounded-lg text-xs font-mono font-medium transition-all ${
+                  activeAgent === 'orbit'
+                    ? 'bg-[#A78BFA]/15 text-[#A78BFA] border border-[#A78BFA]/30 shadow-[0_0_15px_rgba(167,139,250,0.2)]'
+                    : 'text-muted hover:text-white'
+                }`}
+              >
+                <OrbitIcon size={13} />
+                <span>ORBIT</span>
               </button>
 
               <button
@@ -175,7 +188,7 @@ export default function Hero() {
                 }`}
               >
                 <Zap size={13} />
-                <span>PULSAR (Outreach)</span>
+                <span>PULSAR</span>
               </button>
             </div>
 
@@ -209,6 +222,38 @@ export default function Hero() {
                       <div className="font-mono text-[11px] text-sky-400 font-medium mb-0.5">OMNICHANNEL PIPELINE</div>
                       <p className="text-[13px] text-ink-2 leading-snug">
                         18 posts primed across LinkedIn, X &amp; Instagram. Tap approve to publish.
+                      </p>
+                    </div>
+                  </div>
+                </>
+              ) : activeAgent === 'orbit' ? (
+                <>
+                  <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05] flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#A78BFA] mt-1.5 flex-shrink-0 animate-ping" />
+                    <div>
+                      <div className="font-mono text-[11px] text-[#A78BFA] font-medium mb-0.5">LEAD SOURCING SWEEP</div>
+                      <p className="text-[13px] text-ink-2 leading-snug">
+                        Found 18 businesses matching ICP. Maps + a second source, deduplicated.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05] flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 flex-shrink-0" />
+                    <div>
+                      <div className="font-mono text-[11px] text-emerald-400 font-medium mb-0.5">QUALIFICATION FILTER</div>
+                      <p className="text-[13px] text-ink-2 leading-snug">
+                        Phone-reachable, rated 4.2+. Enriched with verified contact emails.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05] flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 flex-shrink-0" />
+                    <div>
+                      <div className="font-mono text-[11px] text-gold/90 font-medium mb-0.5">CRM HANDOFF</div>
+                      <p className="text-[13px] text-ink-2 leading-snug">
+                        6 qualified leads pushed to CRM, assigned round-robin to reps.
                       </p>
                     </div>
                   </div>

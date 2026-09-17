@@ -188,6 +188,45 @@ class SoundEngine {
   }
 
   /**
+   * Sharp mechanical click for an actual press — a button, a link, a toggle.
+   * Distinct from playHudHover (a soft discovery tick on rollover): two
+   * short detuned square-wave blips overlapped for a dry, relay-like snap
+   * rather than a pure tone, closer to a keyboard switch than a beep.
+   */
+  public playClick() {
+    if (!this.isEnabled || !this.ctx || !this.masterGain) return
+    try {
+      const now = this.ctx.currentTime
+
+      const osc1 = this.ctx.createOscillator()
+      const gain1 = this.ctx.createGain()
+      osc1.type = 'square'
+      osc1.frequency.setValueAtTime(2400, now)
+      osc1.frequency.exponentialRampToValueAtTime(1100, now + 0.012)
+      gain1.gain.setValueAtTime(0.025, now)
+      gain1.gain.exponentialRampToValueAtTime(0.0001, now + 0.016)
+
+      const osc2 = this.ctx.createOscillator()
+      const gain2 = this.ctx.createGain()
+      osc2.type = 'square'
+      osc2.frequency.setValueAtTime(3100, now)
+      osc2.frequency.exponentialRampToValueAtTime(1600, now + 0.01)
+      gain2.gain.setValueAtTime(0.015, now)
+      gain2.gain.exponentialRampToValueAtTime(0.0001, now + 0.013)
+
+      osc1.connect(gain1)
+      gain1.connect(this.masterGain)
+      osc2.connect(gain2)
+      gain2.connect(this.masterGain)
+
+      osc1.start(now)
+      osc1.stop(now + 0.018)
+      osc2.start(now)
+      osc2.stop(now + 0.015)
+    } catch {}
+  }
+
+  /**
    * Confirmation chord when toggling sound or selecting an agent
    */
   public playHudActivate() {

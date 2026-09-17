@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import ParticleField from '@/components/ui/ParticleField'
 import { fadeUpVariant, staggerContainer } from '@/lib/animations'
 import { soundEngine } from '@/lib/soundEngine'
+import StatCounter from '@/components/ui/StatCounter'
 import { ArrowRight, ShieldCheck, Zap, Activity, Cpu } from 'lucide-react'
 
 export default function Hero() {
@@ -251,11 +252,11 @@ export default function Hero() {
             <div className="grid grid-cols-3 gap-2 pt-4 border-t border-white/[0.08] text-center font-mono">
               <div className="p-2 rounded-lg bg-white/[0.02]">
                 <div className="text-[10px] text-muted">LATENCY</div>
-                <div className="text-sm font-semibold text-white">14ms</div>
+                <div className="text-sm font-semibold text-white"><StatCounter value={14} suffix="ms" /></div>
               </div>
               <div className="p-2 rounded-lg bg-white/[0.02]">
                 <div className="text-[10px] text-muted">CONFIDENCE</div>
-                <div className="text-sm font-semibold text-emerald-400">99.4%</div>
+                <div className="text-sm font-semibold text-emerald-400"><StatCounter value={99.4} decimals={1} suffix="%" /></div>
               </div>
               <div className="p-2 rounded-lg bg-white/[0.02]">
                 <div className="text-[10px] text-muted">AUTOMATION</div>

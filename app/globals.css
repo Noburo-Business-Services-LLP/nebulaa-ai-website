@@ -286,6 +286,12 @@ body {
   background: radial-gradient(60% 40% at 78% 6%, rgba(245,166,35,0.10) 0%, rgba(245,166,35,0) 60%);
 }
 
+@keyframes neb-scan-sweep {
+  0%   { transform: translateX(-150%); }
+  50%  { transform: translateX(250%); }
+  100% { transform: translateX(250%); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .neb-field-hot, .neb-halo { animation: none; }
 }

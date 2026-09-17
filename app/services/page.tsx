@@ -14,6 +14,7 @@ import MediaSlot from '@/components/ui/MediaSlot'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { servicePages } from '@/lib/servicePageData'
+import StatCounter from '@/components/ui/StatCounter'
 
 export const metadata: Metadata = {
   title: servicesPageMeta.seoTitle,
@@ -180,7 +181,9 @@ export default function ServicesPage() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gold/20 rounded-[16px] overflow-hidden mb-[52px]">
           {deliverableStats.map((s) => (
             <div key={s.label} className="bg-gold px-6 py-8 text-center">
-              <div className="font-heading text-[44px] leading-none text-[#1A1208] mb-2.5">{s.value}</div>
+              <div className="font-heading text-[44px] leading-none text-[#1A1208] mb-2.5">
+                <StatCounter value={Number(s.value)} />
+              </div>
               <div className="font-body text-[11.5px] leading-[1.4] uppercase tracking-[0.07em] text-[#1A1208]/70">
                 {s.label}
               </div>

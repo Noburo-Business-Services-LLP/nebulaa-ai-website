@@ -15,7 +15,7 @@ function Item({ q, a }: Faq) {
   return (
     <div className={`border-b border-rule transition-all duration-200 ${open ? 'border-l-2 border-l-gold pl-5 bg-gold/[0.03]' : 'pl-0'}`}>
       <button
-        onClick={() => { soundEngine.playHudHover(); setOpen(!open) }}
+        onClick={() => { soundEngine.playClick(); setOpen(!open) }}
         aria-expanded={open}
         className="w-full flex items-center justify-between py-5 text-left cursor-pointer group gap-4"
       >

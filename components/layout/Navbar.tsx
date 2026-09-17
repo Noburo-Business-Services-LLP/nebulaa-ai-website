@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { motion, AnimatePresence, useScroll } from 'framer-motion'
 import { ChevronDown, Menu, X, Radar, MessageSquareText, Wrench, ScrollText, Building2, Scale, Layers, Briefcase, Download } from 'lucide-react'
 import SoundToggle from '@/components/ui/SoundToggle'
+import { soundEngine } from '@/lib/soundEngine'
 
 const GOLD_DOT_STYLE = {
   background:
@@ -217,6 +218,7 @@ export default function Navbar() {
             </a>
             <a
               href="/pricing"
+              onClick={() => soundEngine.playClick()}
               className="font-body text-sm font-semibold bg-brand-gold text-brand-black rounded-full px-[22px] py-[11px] shadow-[0_4px_18px_rgba(245,166,35,0.20)] hover:bg-brand-gold-dim transition-all"
             >
               Start free

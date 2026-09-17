@@ -5,7 +5,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import HudCard from '@/components/ui/HudCard'
 import Schema, { breadcrumbSchema } from '@/components/ui/Schema'
 
-const seoTitle = 'Nebulaa Core — The Intelligence Behind the System | Nebulaa'
+const seoTitle = 'Nebulaa Core — The Intelligence Behind the System'
 const seoDescription =
   'Core connects what happens across Orbit, Gravity and Pulsar — observing actions, outcomes and signals, and turning them into what runs next.'
 

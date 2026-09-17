@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { randomUUID } from 'crypto'
 import { readLeads, tryPersistLeads, notifyLead, type Lead } from '@/lib/leadStore'
+import { sendLeadEvent } from '@/lib/analytics/capi'
 
 export async function POST(req: NextRequest) {
   const { name, email, source } = await req.json()
@@ -13,6 +15,9 @@ export async function POST(req: NextRequest) {
   if (leads.some(l => l.email.toLowerCase() === email.toLowerCase())) {
     return NextResponse.json({ success: true, message: 'already_subscribed' })
   }
+
+  // Shared with the browser pixel call so Meta dedupes the two into one Lead.
+  const eventId = randomUUID()
 
   const lead: Lead = {
     id: Date.now().toString(),
@@ -35,5 +40,11 @@ export async function POST(req: NextRequest) {
     )
   }
 
-  return NextResponse.json({ success: true, message: 'subscribed' })
+  await sendLeadEvent({
+    email,
+    eventId,
+    sourceUrl: req.headers.get('referer') || 'https://nebulaa.ai',
+  })
+
+  return NextResponse.json({ success: true, message: 'subscribed', eventId })
 }

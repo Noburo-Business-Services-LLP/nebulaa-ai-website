@@ -48,11 +48,14 @@ export default function ParticleGlobeCanvas({ className = '', interactive = true
     const sizes = new Float32Array(PARTICLE_COUNT)
     const phases = new Float32Array(PARTICLE_COUNT)
 
-    // Color definitions
+    // One palette only — brand amber, a paler amber and a cool near-white.
+    // Cyan and indigo used to live here; they read as a second and third
+    // brand, which is exactly the "generic AI futuristic" look the design
+    // direction rules out. Depth now comes from value, not from extra hues.
     const goldColor = new THREE.Color(0xf5a623)
     const paleGold = new THREE.Color(0xffe1ac)
-    const cyanColor = new THREE.Color(0x38bdf8)
-    const deepBlue = new THREE.Color(0x6366f1)
+    const coolWhite = new THREE.Color(0xdfe4ee)
+    const dimGold = new THREE.Color(0x8a5406)
 
     // Generate Fibonacci Sphere with orbital rings
     const phi = Math.PI * (3 - Math.sqrt(5)) // golden angle
@@ -72,9 +75,10 @@ export default function ParticleGlobeCanvas({ className = '', interactive = true
         y = yCoord * r
         z = Math.sin(theta) * radiusAtY * r
 
-        // Color blend: Gold near equator and tropics, cyan/blue near poles
+        // Warm and lit at the equator, cooling toward the poles — the globe
+        // reads as lit from its middle rather than as two different objects.
         const latNorm = Math.abs(yCoord)
-        c = latNorm < 0.45 ? (Math.random() > 0.3 ? goldColor : paleGold) : (Math.random() > 0.5 ? cyanColor : deepBlue)
+        c = latNorm < 0.45 ? (Math.random() > 0.3 ? goldColor : paleGold) : (Math.random() > 0.55 ? coolWhite : dimGold)
       } else {
         // Outer celestial accretion rings & orbital halos
         const angle = Math.random() * Math.PI * 2
@@ -85,7 +89,7 @@ export default function ParticleGlobeCanvas({ className = '', interactive = true
         y = Math.sin(angle) * ringRadius * tilt + (Math.random() - 0.5) * 0.15
         z = Math.sin(angle) * ringRadius * Math.cos(tilt)
 
-        c = Math.random() > 0.4 ? goldColor : cyanColor
+        c = Math.random() > 0.4 ? goldColor : dimGold
       }
 
       positions[i * 3] = x

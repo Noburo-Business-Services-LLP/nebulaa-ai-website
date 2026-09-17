@@ -42,7 +42,7 @@ export const resources: Resource[] = [
     file: 'nebulaa-festival-marketing-calendar.csv',
     pages: '14 festivals, 5 sectors',
     flagship: true,
-    seoTitle: 'Free Indian Festival Marketing Calendar 2026–27 | Nebulaa',
+    seoTitle: 'Free Indian Festival Marketing Calendar 2026–27',
     seoDescription:
       'Every major Indian festival mapped with the lead time it needs, the sectors it matters most for, and what to plan. Free download.',
   },
@@ -57,7 +57,7 @@ export const resources: Resource[] = [
     file: 'nebulaa-market-entry-playbook.md',
     pages: '4 phases, week by week',
     flagship: true,
-    seoTitle: 'Free New Market Entry Playbook for Consumer Brands | Nebulaa',
+    seoTitle: 'Free New Market Entry Playbook for Consumer Brands',
     seoDescription:
       'A four-month model for entering a new city — demand generation, creators, quick commerce and sampling, sequenced to a launch date.',
   },
@@ -72,7 +72,7 @@ export const resources: Resource[] = [
     file: 'nebulaa-btl-activation-checklist.md',
     pages: '6 stages, pre to post',
     flagship: true,
-    seoTitle: 'Free BTL Activation & Sampling Checklist | Nebulaa',
+    seoTitle: 'Free BTL Activation & Sampling Checklist',
     seoDescription:
       'The operational checklist for running an on-ground sampling or retail activation in India — permissions, staffing, stock, materials and measurement.',
   },
@@ -100,7 +100,7 @@ export const resources: Resource[] = [
     format: 'CSV',
     file: 'nebulaa-content-calendar-template.csv',
     pages: 'One month, pre-filled',
-    seoTitle: 'Free Monthly Social Media Content Calendar Template | Nebulaa',
+    seoTitle: 'Free Monthly Social Media Content Calendar Template',
     seoDescription:
       'A working content calendar with date, platform, format, pillar, hook and status columns, pre-filled with a sample month.',
   },
@@ -114,7 +114,7 @@ export const resources: Resource[] = [
     format: 'PDF',
     file: null,
     pages: 'In preparation',
-    seoTitle: 'Free Monthly Marketing Report Template | Nebulaa',
+    seoTitle: 'Free Monthly Marketing Report Template',
     seoDescription:
       'A one-page monthly marketing report structured around what worked, what did not, why, and what changes next cycle.',
   },

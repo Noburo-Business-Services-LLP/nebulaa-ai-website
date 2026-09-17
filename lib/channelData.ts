@@ -62,7 +62,7 @@ export const channels: Channel[] = [
       { q: 'Can it use my existing business number?', a: 'Usually yes, though a number already registered on the consumer WhatsApp app has to be migrated first. We handle that during onboarding.' },
       { q: 'What about template message rules?', a: 'Business-initiated messages follow WhatsApp template policy. Replies inside an open conversation window are free-form. The system works inside those rules rather than around them.' },
     ],
-    seoTitle: 'WhatsApp Marketing & Enquiry Automation for Indian Businesses | Nebulaa',
+    seoTitle: 'WhatsApp Marketing & Enquiry Automation for Indian Businesses',
     seoDescription:
       'Answer every WhatsApp enquiry within minutes on the official Business API, qualify budget and timeline in conversation, and score every lead.',
   },
@@ -358,7 +358,7 @@ export const channels: Channel[] = [
       { q: 'Which platforms?', a: 'Zepto, Blinkit and Swiggy Instamart are the ones that matter most for Indian FMCG today.' },
       { q: 'Does this work before I have distribution?', a: 'Partly — this is why market-entry engagements start demand generation before launch, so there is interest waiting when stock arrives.' },
     ],
-    seoTitle: 'Quick Commerce Growth — Zepto, Blinkit & Instamart | Nebulaa',
+    seoTitle: 'Quick Commerce Growth — Zepto, Blinkit & Instamart',
     seoDescription:
       'Listing optimisation and geo-targeted campaigns that drive discovery on Zepto, Blinkit and Swiggy Instamart where your product is stocked.',
   },

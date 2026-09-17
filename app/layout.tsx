@@ -4,15 +4,25 @@ import ThemeProvider from '@/components/providers/ThemeProvider'
 import Schema from '@/components/ui/Schema'
 import { organizationSchema } from '@/lib/orgFacts'
 import SiteShell from '@/components/layout/SiteShell'
+import AnalyticsScripts from '@/components/analytics/AnalyticsScripts'
+import { analyticsConfig, hasGTM } from '@/lib/analytics/config'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://nebulaa.ai'),
   title: {
-    default: 'Nebulaa.ai — AI Marketing & Outreach Agents for Founders',
-    template: '%s | Nebulaa.ai',
+    default: 'Nebulaa — The AI Operating System for Business',
+    template: '%s | Nebulaa',
   },
-  description: 'Two AI agents. Your entire GTM. Automated. Gravity posts, Pulsar calls. Built for Indian founders and SMBs. Start free — 100 credits, no card.',
-  keywords: ['AI marketing automation India', 'AI outreach agent', 'GTM for startups', 'WhatsApp sales automation', 'AI sales agent SMB India'],
+  description:
+    'Understand your business. Execute the work. Learn from what happens. Nebulaa runs Gravity, Orbit and Pulsar on one core — connecting content, lead generation and customer engagement into a single operating system.',
+  keywords: [
+    'AI operating system for business',
+    'autonomous AI agents',
+    'AI content engine',
+    'AI lead generation engine',
+    'AI lead engagement engine',
+    'cross-agent intelligence',
+  ],
   alternates: {
     canonical: '/',
   },
@@ -21,18 +31,19 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: 'Nebulaa.ai — Your GTM Team Just Showed Up',
-    description: 'Gravity posts. Pulsar calls. You close.',
+    title: 'Nebulaa — The AI Operating System for Business',
+    description:
+      'Give us a URL. Nebulaa understands the business, activates the engines, executes the work and learns from what happens.',
     url: 'https://nebulaa.ai',
-    siteName: 'Nebulaa.ai',
+    siteName: 'Nebulaa',
     locale: 'en_IN',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     site: '@nebulaaai',
-    title: 'Nebulaa.ai — AI Marketing & Outreach for Founders',
-    description: 'Two AI agents. Your entire GTM. Automated.',
+    title: 'Nebulaa — The AI Operating System for Business',
+    description: 'Gravity creates. Orbit finds. Pulsar engages. Core learns.',
   },
 }
 
@@ -44,8 +55,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet" />
         <Schema data={organizationSchema()} />
+        <AnalyticsScripts />
       </head>
       <body className="bg-ground text-ink font-body antialiased selection:bg-gold/20 selection:text-gold">
+        {hasGTM() && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${analyticsConfig.gtmId}`}
+              height="0"
+              width="0"
+              style={{ display: 'none', visibility: 'hidden' }}
+            />
+          </noscript>
+        )}
         <ThemeProvider>
           <SiteShell>{children}</SiteShell>
         </ThemeProvider>

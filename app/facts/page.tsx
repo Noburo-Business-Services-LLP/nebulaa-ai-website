@@ -11,9 +11,9 @@ import {
 } from '@/lib/orgFacts'
 import SectionLabel from '@/components/ui/SectionLabel'
 
-const seoTitle = 'Nebulaa — Company Facts'
+const seoTitle = '// Facts'
 const seoDescription =
-  'Canonical facts about Nebulaa: what it is, where it is, the two products and their prices, the channels it runs, and how managed services are priced.'
+  'No hype, no inflated claims — just the system. Canonical facts about Nebulaa: what it is, where it is, the engines and their prices, the channels it runs, and how managed services are priced.'
 
 export const metadata: Metadata = {
   title: seoTitle,
@@ -63,7 +63,10 @@ export default function FactsPage() {
               {org.email}
             </a>
           </Row>
-          <Row label="Products">Gravity (marketing) and Pulsar (outreach)</Row>
+          <Row label="The system">
+            Nebulaa Core (cross-agent intelligence), with three engines: Gravity (content &amp; social
+            media), Orbit (lead generation) and Pulsar (lead engagement)
+          </Row>
         </dl>
       </section>
 

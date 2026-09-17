@@ -86,7 +86,7 @@ export const engagements: Engagement[] = [
       { q: 'Do we need to do a shoot?', a: 'Not to start. Most of the first months run on generated creative and what you already have. A shoot becomes worth it once the cadence is established.' },
       { q: 'What if we want to say something specific?', a: 'Tell us and it goes into the plan. The calendar is a working document, not a locked schedule.' },
     ],
-    seoTitle: 'Always-On Content Engagement — Managed Marketing | Nebulaa',
+    seoTitle: 'Always-On Content Engagement — Managed Marketing',
     seoDescription:
       'A consistent monthly content engagement for established brands: planning, production, publishing, enquiry handling and a monthly review.',
   },
@@ -134,7 +134,7 @@ export const engagements: Engagement[] = [
       { q: 'How far ahead should we start?', a: 'Three to four months. Starting a month out still helps, but most of the compounding is lost.' },
       { q: 'Can you run several cities at once?', a: 'Yes, and the model repeats per market. Team and cost scale with the number of cities, which gets scoped up front.' },
     ],
-    seoTitle: 'Market Entry Engagement for New City Launches | Nebulaa',
+    seoTitle: 'Market Entry Engagement for New City Launches',
     seoDescription:
       'A four-month engagement building demand before launch — local content, creators, geo-targeted campaigns, sampling and quick commerce.',
   },
@@ -191,7 +191,7 @@ export const engagements: Engagement[] = [
       { q: 'Do you work with our existing agencies?', a: 'We can, though the reason this works is that the three pillars run together. Splitting them across vendors is usually the problem being solved.' },
       { q: 'How is BTL measured?', a: 'Participation, samples distributed, dealer engagement, and movement in the geo-targeted campaigns running around the same clusters. It is not as clean as a click and we say so.' },
     ],
-    seoTitle: 'Regional Marketing Programme — Organic, Paid & BTL | Nebulaa',
+    seoTitle: 'Regional Marketing Programme — Organic, Paid & BTL',
     seoDescription:
       'Organic content, performance media and on-ground retail activation run as one system across multiple markets, reported together.',
   },

@@ -154,7 +154,7 @@ export const deliverableGroups: DeliverableGroup[] = [
 ]
 
 export const servicesPageMeta = {
-  seoTitle: 'Managed Marketing Services — Nebulaa',
+  seoTitle: 'When You Need the System Built With You — Services',
   seoDescription:
-    'Strategy, content, production, campaigns and on-ground activation, handled by one team under one plan — for brands entering new markets or scaling an existing one.',
+    'AI can execute a lot, but some businesses need strategy, production, activation or market-entry expertise alongside the system. Handled by one team, under one plan.',
 }

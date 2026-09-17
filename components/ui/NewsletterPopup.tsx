@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Check, Mail } from 'lucide-react'
+import { trackLead } from '@/lib/analytics/track'
 
 const DISMISSED_KEY = 'nebulaa_nl_popup_dismissed'
 
@@ -57,6 +58,7 @@ export default function NewsletterPopup() {
       setState(data.message === 'already_subscribed' ? 'duplicate' : 'success')
       if (data.success && data.message !== 'already_subscribed') {
         localStorage.setItem(DISMISSED_KEY, '1')
+        trackLead('newsletter_popup', { eventId: data.eventId })
         setTimeout(() => setVisible(false), 3500)
       }
     } catch {

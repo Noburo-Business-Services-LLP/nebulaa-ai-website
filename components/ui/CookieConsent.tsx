@@ -3,8 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-
-const COOKIE_KEY = 'nebulaa_cookie_consent'
+import { getStoredConsent, setStoredConsent } from '@/lib/analytics/consent'
 
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false)
@@ -12,21 +11,13 @@ export default function CookieConsent() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    try {
-      if (localStorage.getItem(COOKIE_KEY)) return
-    } catch {
-      return
-    }
+    if (getStoredConsent()) return
     const timer = setTimeout(() => setVisible(true), 2500)
     return () => clearTimeout(timer)
   }, [])
 
   const accept = (all: boolean) => {
-    try {
-      localStorage.setItem(COOKIE_KEY, all ? 'all' : 'necessary')
-    } catch {
-      /* storage unavailable — dismiss for this session only */
-    }
+    setStoredConsent(all ? 'all' : 'necessary')
     setAccepted(true)
     setTimeout(() => setVisible(false), 400)
   }
@@ -47,8 +38,9 @@ export default function CookieConsent() {
               <div className="flex-1">
                 <p className="font-body text-[14px] text-ink mb-1.5">Cookies</p>
                 <p className="font-body text-[13px] leading-[1.6] text-muted">
-                  We use a small number of cookies to understand how the site is used. No advertising
-                  trackers. See our{' '}
+                  We use cookies to understand how the site is used and to measure our ads on Google and
+                  Meta. Accept to help us show you more relevant ads, or continue with essential cookies
+                  only. See our{' '}
                   <Link
                     href="/privacy-policy"
                     className="text-ink-2 underline underline-offset-2 hover:text-gold-text transition-colors"

@@ -4,9 +4,9 @@ import { Check, ArrowRight } from 'lucide-react'
 import { compareData } from '@/lib/compareData'
 import SectionLabel from '@/components/ui/SectionLabel'
 
-const seoTitle = 'Nebulaa vs the Alternatives — Every Comparison'
+const seoTitle = 'Tools Solve Tasks. Systems Connect Them.'
 const seoDescription =
-  'How Nebulaa compares to Buffer, Hootsuite, Jasper AI, Clay and Instantly.ai — feature by feature.'
+  'How Nebulaa compares to Buffer, Hootsuite, Jasper AI, Clay and Instantly.ai — where they overlap, where they differ, and whether your work actually works together.'
 
 export const metadata: Metadata = {
   title: seoTitle,

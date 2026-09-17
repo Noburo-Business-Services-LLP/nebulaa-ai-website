@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import HudCard from '@/components/ui/HudCard'
+import { trackLead } from '@/lib/analytics/track'
 
 export default function BlogEmailCapture() {
   const [name, setName] = useState('')
@@ -18,6 +19,8 @@ export default function BlogEmailCapture() {
         body: JSON.stringify({ name: name.trim() || 'Reader', email: email.trim(), source: 'blog-post' }),
       })
       if (res.ok) {
+        const data = await res.json().catch(() => ({}))
+        trackLead('blog_email_capture', { eventId: data.eventId })
         setStatus('success')
       } else {
         setStatus('error')

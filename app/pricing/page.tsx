@@ -5,9 +5,9 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import Pricing from '@/components/sections/Pricing'
 import FAQ from '@/components/sections/FAQ'
 
-const seoTitle = 'Pricing — Nebulaa'
+const seoTitle = 'Choose Your Operating Layer — Pricing'
 const seoDescription =
-  'Gravity from ₹10,000/month, Orbit ₹12,000, Pulsar ₹15,000, all three agents ₹28,000. Annual billing saves 15%. Managed services are scoped per engagement.'
+  'Gravity from ₹10,000/month, Orbit ₹12,000, Pulsar ₹15,000, all three engines ₹28,000 on one core. Annual billing saves 15%. Managed services are scoped per engagement.'
 
 export const metadata: Metadata = {
   title: seoTitle,

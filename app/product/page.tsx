@@ -6,9 +6,9 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import HudCard from '@/components/ui/HudCard'
 import { BrainCircuit } from 'lucide-react'
 
-const seoTitle = 'Product — Orbit, Gravity & Pulsar | Nebulaa'
+const seoTitle = 'The System — Core, Gravity, Orbit & Pulsar'
 const seoDescription =
-  'Three agents on one engine. Orbit finds who to talk to, Gravity gives them a reason to say yes, Pulsar closes the conversation.'
+  'Three engines on one core. Gravity creates, Orbit finds, Pulsar engages, and Core learns from every action, outcome and signal across the system.'
 
 export const metadata: Metadata = {
   title: seoTitle,

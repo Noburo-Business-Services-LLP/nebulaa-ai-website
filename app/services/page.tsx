@@ -13,6 +13,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import MediaSlot from '@/components/ui/MediaSlot'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import TrackedLink from '@/components/ui/TrackedLink'
 import { servicePages } from '@/lib/servicePageData'
 import StatCounter from '@/components/ui/StatCounter'
 
@@ -271,12 +272,13 @@ export default function ServicesPage() {
           <p className="text-[17px] leading-[1.65] text-muted max-w-[480px] mx-auto mb-10">
             Twenty minutes, no deck, no pitch. If we&apos;re the wrong fit we&apos;ll say so on the call and point you somewhere better.
           </p>
-          <a
+          <TrackedLink
+            source="services_page"
             href={`mailto:hello@nebulaa.ai?subject=${encodeURIComponent("Managed services — let's talk")}`}
             className="inline-block bg-gold text-[#1A1208] text-[15px] font-semibold px-[34px] py-4 rounded-full shadow-[0_6px_26px_rgba(245,166,35,0.24)] hover:brightness-105 transition"
           >
             Book a 20-min call
-          </a>
+          </TrackedLink>
         </div>
       </section>
     </main>

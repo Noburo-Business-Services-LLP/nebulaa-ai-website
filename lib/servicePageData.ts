@@ -99,7 +99,7 @@ export const servicePages: ServicePage[] = [
       { q: 'What if the launch date moves?', a: 'It frequently does. The sequence shifts with it — the point is that activity is timed to the date, whenever the date turns out to be.' },
       { q: 'Can you do more than one city?', a: 'Yes, and the model repeats per market. Costs and team scale with the number of cities, which is part of what gets scoped.' },
     ],
-    seoTitle: 'New Market Entry Marketing for FMCG & Consumer Brands | Nebulaa',
+    seoTitle: 'New Market Entry Marketing for FMCG & Consumer Brands',
     seoDescription:
       'Demand generation that starts months before launch — local content, creators, geo-targeted campaigns, sampling and quick-commerce discovery, timed to your launch date.',
   },
@@ -132,7 +132,7 @@ export const servicePages: ServicePage[] = [
       { q: 'Who staffs the activations?', a: 'Promoters and staff are arranged and managed as part of the engagement.' },
       { q: 'How do you measure something on the ground?', a: 'Participation, samples distributed, dealer engagement and the movement in the geo-targeted digital campaigns running around the same clusters. It is not as clean as a click, and we do not pretend otherwise.' },
     ],
-    seoTitle: 'BTL Activation, Sampling & In-Store Demos in India | Nebulaa',
+    seoTitle: 'BTL Activation, Sampling & In-Store Demos in India',
     seoDescription:
       'Sampling drives, promoter-led in-store demos, standees, outdoor activations and vehicle branding, rotated monthly across your priority retail catchments.',
   },
@@ -163,7 +163,7 @@ export const servicePages: ServicePage[] = [
       { q: 'Do you mark up media spend?', a: 'No. Spend is billed at actuals and stays visible to you. Charging a percentage of budget creates an incentive to spend more, which is not an incentive we want.' },
       { q: 'Who owns the ad accounts?', a: 'You do. Accounts stay in your name and the campaign history goes with you if we stop working together.' },
     ],
-    seoTitle: 'Performance Marketing & Paid Media Management | Nebulaa',
+    seoTitle: 'Performance Marketing & Paid Media Management',
     seoDescription:
       'Always-on Meta and Google campaigns geo-targeted around real retail catchments, with media billed at actuals and never marked up.',
   },
@@ -194,7 +194,7 @@ export const servicePages: ServicePage[] = [
       { q: 'Do you guarantee results from creator posts?', a: 'No. We can guarantee the work is briefed, reviewed and measured — not that a given creator will produce a hit.' },
       { q: 'What if a creator does something off-brand?', a: 'Submissions are reviewed before publishing, which is the entire reason the review step exists.' },
     ],
-    seoTitle: 'Regional Influencer & Creator Marketing in India | Nebulaa',
+    seoTitle: 'Regional Influencer & Creator Marketing in India',
     seoDescription:
       'Micro and nano creator campaigns sourced by audience fit rather than follower count, briefed, reviewed before publishing and measured per creator.',
   },
@@ -224,7 +224,7 @@ export const servicePages: ServicePage[] = [
       { q: 'Who owns the footage?', a: 'You do — raw and edited. It stays yours if we stop working together.' },
       { q: 'How often do you shoot?', a: 'Typically a periodic shoot that stocks the content engine for months, rather than a monthly production cycle.' },
     ],
-    seoTitle: 'Content Production, Photography & Brand Films | Nebulaa',
+    seoTitle: 'Content Production, Photography & Brand Films',
     seoDescription:
       'Product photography, brand films, facility stories and short-form video produced in-house, feeding a content engine that runs on them for months.',
   },
@@ -254,7 +254,7 @@ export const servicePages: ServicePage[] = [
       { q: 'How is this different from what Gravity does automatically?', a: 'Gravity builds a working strategy from your website in about a minute, and for a lot of businesses that is genuinely enough. This is for when the positioning itself is the open question.' },
       { q: 'How long does it take?', a: 'Typically the first few weeks of an engagement, running in parallel with early content rather than blocking it.' },
     ],
-    seoTitle: 'Marketing Strategy & Positioning for Indian Brands | Nebulaa',
+    seoTitle: 'Marketing Strategy & Positioning for Indian Brands',
     seoDescription:
       'Positioning, audience definition, content pillars and channel planning — including which channels are not worth your money.',
   },
@@ -284,7 +284,7 @@ export const servicePages: ServicePage[] = [
       { q: 'What if a month goes badly?', a: 'The report says so and says why. A report that never contains bad news is not a report.' },
       { q: 'Can I see the raw data?', a: 'Yes. The accounts are in your name and you have access to everything underneath the report.' },
     ],
-    seoTitle: 'Monthly Marketing Reporting & Review | Nebulaa',
+    seoTitle: 'Monthly Marketing Reporting & Review',
     seoDescription:
       'Every month: what worked, what did not, why, and what changes next cycle — across organic, paid, creator and on-ground activity.',
   },

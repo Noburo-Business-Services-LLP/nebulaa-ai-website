@@ -3,9 +3,9 @@ import { blogPosts } from '@/lib/blogData'
 import { listPublishedPosts, toMeta } from '@/lib/blogStore'
 import BlogList from '@/components/sections/BlogList'
 
-const seoTitle = 'Nebulaa Labs — Experiments, Systems, Signals | Nebulaa'
+const seoTitle = 'Nebulaa Labs — Experiments, Systems, Signals'
 const seoDescription =
-  'What we tried, what the numbers said, what changed. GTM experiments and founder playbooks, no theory.'
+  'Experiments, systems and signals. What we tried, what the numbers said, what changed — and what the system learned from it. No theory.'
 
 export const metadata: Metadata = {
   title: seoTitle,

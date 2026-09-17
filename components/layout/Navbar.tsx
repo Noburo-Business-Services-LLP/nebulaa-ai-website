@@ -1,12 +1,14 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence, useScroll } from 'framer-motion'
 import { ChevronDown, Menu, X, Radar, MessageSquareText, Orbit, BrainCircuit, Wrench, ScrollText, Building2, Scale, Layers, Briefcase, Download } from 'lucide-react'
 import SoundToggle from '@/components/ui/SoundToggle'
+import Wordmark from '@/components/ui/Wordmark'
+import StatusIndicator from '@/components/ui/StatusIndicator'
 import { soundEngine } from '@/lib/soundEngine'
+import { trackCTAClick } from '@/lib/analytics/track'
 
 const GOLD_DOT_STYLE = {
   background:
@@ -71,30 +73,12 @@ export default function Navbar() {
       >
         <div className="flex items-center justify-between py-7 px-6 md:px-12 lg:px-[120px]">
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0">
-            <Image
-              src="/images/logo-light.png"
-              alt="Nebulaa.ai"
-              width={160}
-              height={40}
-              className="h-10 w-auto hover:opacity-80 transition-opacity dark:hidden"
-              priority
-              loading="eager"
-            />
-            <Image
-              src="/images/logo-dark.png"
-              alt=""
-              aria-hidden="true"
-              width={160}
-              height={40}
-              className="h-10 w-auto hover:opacity-80 transition-opacity brightness-110 hidden dark:block"
-              priority
-              loading="eager"
-            />
+          <Link href="/" className="flex-shrink-0" aria-label="Nebulaa — home">
+            <Wordmark className="text-gold hover:opacity-80 transition-opacity" />
           </Link>
 
           {/* Center links — desktop */}
-          <div className="hidden md:flex items-center gap-[38px]">
+          <div className="hidden md:flex items-center gap-7 lg:gap-[38px] ml-8 lg:ml-12">
             {/* Product dropdown */}
             <div
               className="relative"
@@ -216,13 +200,16 @@ export default function Navbar() {
 
           {/* Right CTAs — desktop */}
           <div className="hidden md:flex items-center gap-3.5">
+            <span className="hidden lg:inline-flex whitespace-nowrap">
+              <StatusIndicator tone="active" label="System online" />
+            </span>
             <SoundToggle />
             <a href="#" className="font-body text-sm text-muted hover:text-ink transition-colors">
               Sign in
             </a>
             <a
               href="/pricing"
-              onClick={() => soundEngine.playClick()}
+              onClick={() => { soundEngine.playClick(); trackCTAClick('start_free', 'navbar_desktop') }}
               className="font-body text-sm font-semibold bg-brand-gold text-brand-black rounded-full px-[22px] py-[11px] shadow-[0_4px_18px_rgba(245,166,35,0.20)] hover:bg-brand-gold-dim transition-all"
             >
               Start free
@@ -279,7 +266,7 @@ export default function Navbar() {
               <a
                 href="/pricing"
                 className="font-body text-sm font-semibold bg-brand-gold text-brand-black rounded-full px-5 py-3.5 text-center hover:bg-brand-gold-dim transition-all"
-                onClick={() => setMobileOpen(false)}
+                onClick={() => { setMobileOpen(false); trackCTAClick('start_free', 'navbar_mobile') }}
               >
                 Start free
               </a>

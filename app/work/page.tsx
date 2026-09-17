@@ -4,9 +4,9 @@ import { ArrowRight } from 'lucide-react'
 import { engagements } from '@/lib/engagementData'
 import SectionLabel from '@/components/ui/SectionLabel'
 
-const seoTitle = 'Engagements — How We Work | Nebulaa'
+const seoTitle = 'Nebulaa in the Wild — Real Workflows, Real Outputs'
 const seoDescription =
-  'Three shapes of managed engagement: always-on content, market entry, and multi-market regional programmes. Scope and cadence, written down.'
+  'Objective, system, execution, output, signal, learning. Three shapes of managed engagement: always-on content, market entry, and multi-market regional programmes.'
 
 export const metadata: Metadata = {
   title: seoTitle,

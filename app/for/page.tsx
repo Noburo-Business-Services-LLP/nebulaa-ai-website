@@ -4,9 +4,9 @@ import { ArrowRight } from 'lucide-react'
 import { industries } from '@/lib/industryData'
 import SectionLabel from '@/components/ui/SectionLabel'
 
-const seoTitle = 'Nebulaa by Industry — AI Marketing for Every Vertical'
+const seoTitle = 'AI Workflows Built Around Your Business — By Industry'
 const seoDescription =
-  'How Gravity and Pulsar run for jewellery & retail, textile & apparel, financial services, FMCG & food, and industrial & B2B brands.'
+  'What running the system looks like inside your industry. How Gravity, Orbit and Pulsar operate for jewellery & retail, textile & apparel, financial services, FMCG & food, and industrial & B2B.'
 
 export const metadata: Metadata = {
   title: seoTitle,

@@ -4,9 +4,9 @@ import { ArrowRight } from 'lucide-react'
 import { resources } from '@/lib/resourceData'
 import SectionLabel from '@/components/ui/SectionLabel'
 
-const seoTitle = 'Free Marketing Resources & Templates for Indian Businesses'
+const seoTitle = 'Operating Knowledge for Modern GTM — Resources'
 const seoDescription =
-  'Festival marketing calendar, market entry playbook, BTL activation checklist, content calendar and reporting templates. One email unlocks all of them.'
+  'Templates, checklists and playbooks built to move from planning to action: festival calendar, market entry playbook, BTL activation checklist, content calendar and reporting templates. One email unlocks all of them.'
 
 export const metadata: Metadata = {
   title: seoTitle,

@@ -6,6 +6,7 @@ import { ChevronDown } from 'lucide-react'
 import { soundEngine } from '@/lib/soundEngine'
 import SectionLabel from '@/components/ui/SectionLabel'
 import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animations'
+import Schema, { faqSchema } from '@/components/ui/Schema'
 
 const faqs = [
   { q: 'What happens after the 7-day free trial?', a: "You choose to continue on the plan you started — ₹10,000/month for Gravity, ₹12,000 for Orbit, ₹15,000 for Pulsar, or ₹28,000/month for all three. Annual billing saves 15%. No auto-charge. No surprise invoices. We'll remind you before the trial ends." },
@@ -43,6 +44,7 @@ function FAQItem({ n, q, a }: { n: number; q: string; a: string }) {
 export default function FAQ() {
   return (
     <section className="py-[130px] px-6 md:px-12 lg:px-[120px]">
+      <Schema data={faqSchema(faqs.map(f => ({ q: f.q, a: f.a })))} />
       <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOptions} className="max-w-[640px] mb-[62px]">
         <motion.div variants={fadeUpVariant}>
           <SectionLabel className="mb-[22px] block">FAQ</SectionLabel>

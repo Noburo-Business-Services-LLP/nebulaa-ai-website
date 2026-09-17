@@ -18,7 +18,7 @@ export const org = {
   region: 'Tamil Nadu',
   country: 'IN',
   description:
-    'Nebulaa is a Chennai-based AI marketing company. It builds three agents — Orbit for lead sourcing, Gravity for marketing and Pulsar for outreach — and runs managed marketing engagements for brands across South India.',
+    'Nebulaa is a Chennai-based AI operating system for business. It runs three engines on one core — Gravity for content and social media, Orbit for lead generation and Pulsar for lead engagement, with Nebulaa Core learning from actions, outcomes and signals across all three — and runs managed marketing engagements for brands across South India.',
   founded: '2025',
 } as const
 
@@ -31,30 +31,31 @@ export const ANNUAL_DISCOUNT = 0.15
 export const products = [
   {
     name: 'Orbit',
-    role: 'AI lead sourcing agent',
+    role: 'AI lead generation engine',
     price: 12000,
     description:
       'Finds real businesses matching your target, keeps only phone-reachable leads rated 4.2+, enriches contact emails from their website, drafts a personalized opening message, and pushes qualified leads into your CRM.',
   },
   {
     name: 'Gravity',
-    role: 'AI marketing agent',
+    role: 'AI content & social media engine',
     price: 10000,
     description:
       'Reads a website and builds a marketing strategy from it, plans the month, drafts posts, carousels and reels, tracks competitors, runs campaigns and creator collaborations, and handles the social inbox.',
   },
   {
     name: 'Pulsar',
-    role: 'AI outreach agent',
+    role: 'AI lead engagement engine',
     price: 15000,
     description:
       'Answers enquiries on WhatsApp, email and SMS within minutes, qualifies budget, timeline and fit, scores every lead, and runs broadcasts, automation and voice calling.',
   },
   {
-    name: 'All three agents',
-    role: 'Lead sourcing, marketing and outreach together',
+    name: 'All three engines',
+    role: 'Content, lead generation and engagement on one core',
     price: 28000,
-    description: 'Orbit, Gravity and Pulsar on one account, sharing the same brand memory.',
+    description:
+      'Gravity, Orbit and Pulsar on one account, sharing the same business context and the same learning loop through Nebulaa Core.',
   },
 ] as const
 

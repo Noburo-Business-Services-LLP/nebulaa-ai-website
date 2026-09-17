@@ -7,6 +7,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import MediaSlot from '@/components/ui/MediaSlot'
 import FaqList from '@/components/ui/FaqList'
 import Schema, { breadcrumbSchema, serviceSchema } from '@/components/ui/Schema'
+import TrackedLink from '@/components/ui/TrackedLink'
 
 export function generateStaticParams() {
   return servicePages.map(s => ({ service: s.slug }))
@@ -224,12 +225,13 @@ export default function ServiceDetailPage({ params }: { params: { service: strin
             Twenty minutes, no deck. If we are the wrong fit we will say so on the call and point you
             somewhere better.
           </p>
-          <a
+          <TrackedLink
+            source="service_detail_page"
             href={`mailto:hello@nebulaa.ai?subject=${encodeURIComponent(`${svc.name} — let's talk`)}`}
             className="inline-flex items-center gap-2 bg-gold text-[#1A1208] text-[15px] font-semibold px-[30px] py-[15px] rounded-full hover:brightness-105 transition"
           >
             Book a 20-min call <ArrowRight size={16} />
-          </a>
+          </TrackedLink>
         </div>
       </section>
     </main>

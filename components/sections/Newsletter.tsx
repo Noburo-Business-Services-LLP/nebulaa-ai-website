@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import SectionLabel from '@/components/ui/SectionLabel'
 import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animations'
+import { trackLead } from '@/lib/analytics/track'
 
 export default function Newsletter() {
   const [email, setEmail] = useState('')
@@ -24,6 +25,7 @@ export default function Newsletter() {
       })
       const data = await res.json()
       if (!res.ok) { setError(data.error || 'Something went wrong'); setState('error'); return }
+      if (data.message !== 'already_subscribed') trackLead('newsletter_section', { eventId: data.eventId })
       setState(data.message === 'already_subscribed' ? 'duplicate' : 'success')
     } catch {
       setError('Network error, try again')

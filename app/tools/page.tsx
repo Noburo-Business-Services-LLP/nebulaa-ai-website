@@ -4,12 +4,13 @@ import { tools } from '@/lib/toolsData'
 import SectionLabel from '@/components/ui/SectionLabel'
 
 export const metadata: Metadata = {
-  title: 'Free Marketing Tools for Founders & SMEs — Nebulaa.ai',
-  description: 'Free tools for founders: LinkedIn post generator, cold email generator, hashtag generator, lead qualification calculator, and more. No login required.',
+  title: 'Free Tools for Getting the Work Done',
+  description:
+    'Need a hook? Generate one. Need an ICP? Build one. LinkedIn post generator, cold email generator, hashtag generator, lead qualification calculator and more. No login required.',
   keywords: ['free marketing tools', 'founder tools', 'linkedin post generator', 'cold email generator', 'hashtag generator'],
   openGraph: {
-    title: 'Free Marketing Tools for Founders & SMEs — Nebulaa.ai',
-    description: 'Free tools for founders and SME owners. Generate posts, emails, hashtags, and qualify leads instantly.',
+    title: 'Free Tools for Getting the Work Done',
+    description: 'One tool is useful. A system is different. Generate posts, emails, hooks and ICPs instantly — no login required.',
     type: 'website',
   },
 }

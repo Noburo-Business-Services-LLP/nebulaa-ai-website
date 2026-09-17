@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { soundEngine } from '@/lib/soundEngine'
+import { faqSchema } from '@/components/ui/Schema'
 
 export interface Faq {
   q: string
@@ -51,15 +52,7 @@ function Item({ q, a }: Faq) {
 export default function FaqList({ faqs }: { faqs: Faq[] }) {
   if (faqs.length === 0) return null
 
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map(f => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  }
+  const schema = faqSchema(faqs)
 
   return (
     <>

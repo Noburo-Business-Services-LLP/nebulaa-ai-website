@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { Check, Download, ArrowRight } from 'lucide-react'
+import { trackLead } from '@/lib/analytics/track'
 
 const UNLOCK_KEY = 'nebulaa_downloads_unlocked'
 
@@ -46,11 +47,13 @@ export default function DownloadGate({ file, title, source }: Props) {
         body: JSON.stringify({ email, source: `Download — ${source}` }),
       })
       if (!res.ok) throw new Error('signup failed')
+      const data = await res.json().catch(() => ({}))
       try {
         localStorage.setItem(UNLOCK_KEY, '1')
       } catch {
         /* not fatal — they still get this download */
       }
+      trackLead('download', { item: source, eventId: data.eventId })
       setUnlocked(true)
       setState('idle')
     } catch {

@@ -36,6 +36,11 @@
   --particle:     rgba(23, 23, 26, 0.14);
   --particle-hot: rgba(168, 114, 12, 0.55);
   --label:        var(--muted);
+
+  /* Operating-system surfaces */
+  --grid-line:    rgba(23, 23, 26, 0.045);
+  --panel:        rgba(255, 255, 255, 0.72);
+  --panel-border: rgba(23, 23, 26, 0.10);
 }
 
 .dark {
@@ -57,6 +62,10 @@
   --particle:     rgba(255, 255, 255, 0.20);
   --particle-hot: rgba(255, 214, 150, 0.95);
   --label:        rgba(255, 255, 255, 0.55);
+
+  --grid-line:    rgba(255, 255, 255, 0.032);
+  --panel:        rgba(10, 10, 16, 0.62);
+  --panel-border: rgba(255, 255, 255, 0.09);
 }
 
 /* ─── Reset & base ────────────────────────── */
@@ -284,6 +293,81 @@ body {
   inset: 0;
   pointer-events: none;
   background: radial-gradient(60% 40% at 78% 6%, rgba(245,166,35,0.10) 0%, rgba(245,166,35,0) 60%);
+}
+
+/* ─── Background layer 3: fine technical grid ──────────────────────────────
+   The structural lines under the particle field. Deliberately near-invisible
+   — it should register as engineered space, not as a visible graph. Masked
+   at the edges so it never terminates in a hard line.
+   ───────────────────────────────────────────────────────────────────────── */
+.neb-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 88px 88px;
+  -webkit-mask-image: radial-gradient(ellipse 100% 70% at 50% 40%, #000 20%, transparent 78%);
+  mask-image: radial-gradient(ellipse 100% 70% at 50% 40%, #000 20%, transparent 78%);
+}
+
+/* ─── Background layer 4: ambient amber energy ─────────────────────────────
+   Two slow, offset pools of warmth so the environment is never evenly lit.
+   Amber behaves as energy, never as decoration — hence the very low alpha.
+   ───────────────────────────────────────────────────────────────────────── */
+.neb-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(42% 32% at 82% 12%, rgba(245,166,35,0.075) 0%, rgba(245,166,35,0) 62%),
+    radial-gradient(38% 30% at 12% 82%, rgba(245,166,35,0.045) 0%, rgba(245,166,35,0) 60%);
+}
+
+/* ─── System panel ─────────────────────────────────────────────────────────
+   The operating-system module surface. Flatter and tighter than .hud-card:
+   less blur, a restrained radius and no corner halo, so it reads as an
+   interface panel rather than a marketing card.
+   ───────────────────────────────────────────────────────────────────────── */
+.neb-panel {
+  background: var(--panel);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+}
+
+/* The thin bright line along a panel's top edge — a lit module. */
+.neb-panel-lit {
+  position: relative;
+}
+.neb-panel-lit::after {
+  content: '';
+  position: absolute;
+  inset-inline: 14%;
+  top: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245,166,35,0.55), transparent);
+  pointer-events: none;
+}
+
+/* Divider inside a panel — separates a header row from its body. */
+.neb-panel-rule {
+  border-bottom: 1px solid var(--panel-border);
+}
+
+/* ─── Display typography ───────────────────────────────────────────────────
+   The uppercase headline treatment: architectural, tightly led, lightly
+   tracked. Used for section statements, not for body prose.
+   ───────────────────────────────────────────────────────────────────────── */
+.neb-display {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: 0.005em;
+  text-wrap: balance;
 }
 
 @keyframes neb-scan-sweep {

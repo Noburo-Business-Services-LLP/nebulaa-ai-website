@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
   const { topic, style, ideaPrompt } = await req.json()
 
   const systemPrompt = `You are the content writer for Nebulaa.ai — an agentic AI platform for Indian founders and SMEs.
-Nebulaa has two agents: Gravity (AI marketing — posts content daily) and Pulsar (AI outreach — calls and follows up with leads).
+Nebulaa has three agents: Orbit (AI lead sourcing — finds and qualifies businesses to reach out to), Gravity (AI marketing — posts content daily) and Pulsar (AI outreach — calls and follows up with leads).
 Target audience: Indian founders, early-stage startup CEOs, B2B SaaS founders, SME owners aged 25-45.
 Tone: Gen Z energy — punchy, direct, real, casual. Not corporate at all.
 Always write in first-person founder voice. Use Indian context (₹ not $, Indian cities, Indian startup ecosystem).`

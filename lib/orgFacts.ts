@@ -18,11 +18,24 @@ export const org = {
   region: 'Tamil Nadu',
   country: 'IN',
   description:
-    'Nebulaa is a Chennai-based AI marketing company. It builds two agents — Gravity for marketing and Pulsar for outreach — and runs managed marketing engagements for brands across South India.',
+    'Nebulaa is a Chennai-based AI marketing company. It builds three agents — Orbit for lead sourcing, Gravity for marketing and Pulsar for outreach — and runs managed marketing engagements for brands across South India.',
   founded: '2025',
 } as const
 
+/**
+ * Monthly prices. Annual billing is 15% off, computed from these — see
+ * ANNUAL_DISCOUNT below — never hardcoded a second time.
+ */
+export const ANNUAL_DISCOUNT = 0.15
+
 export const products = [
+  {
+    name: 'Orbit',
+    role: 'AI lead sourcing agent',
+    price: 12000,
+    description:
+      'Finds real businesses matching your target, keeps only phone-reachable leads rated 4.2+, enriches contact emails from their website, drafts a personalized opening message, and pushes qualified leads into your CRM.',
+  },
   {
     name: 'Gravity',
     role: 'AI marketing agent',
@@ -38,10 +51,10 @@ export const products = [
       'Answers enquiries on WhatsApp, email and SMS within minutes, qualifies budget, timeline and fit, scores every lead, and runs broadcasts, automation and voice calling.',
   },
   {
-    name: 'Both agents',
-    role: 'Marketing and outreach together',
-    price: 20000,
-    description: 'Gravity and Pulsar on one account, sharing the same brand memory.',
+    name: 'All three agents',
+    role: 'Lead sourcing, marketing and outreach together',
+    price: 28000,
+    description: 'Orbit, Gravity and Pulsar on one account, sharing the same brand memory.',
   },
 ] as const
 

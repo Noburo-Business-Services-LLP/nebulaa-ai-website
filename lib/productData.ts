@@ -94,9 +94,7 @@ export const agents: Record<AgentId, Agent> = {
     headlineEmphasis: 'there has to be a lead worth having.',
     subheadline:
       'Orbit finds real businesses that match who you sell to, keeps only the ones worth calling, finds a real contact email even when Google never gives you one, drafts the first outreach message, and puts the whole thing straight into your CRM — assigned to a rep, ready to work. Gravity and Pulsar take it from there.',
-    price: 'Early access',
-    priceNote: 'by request — talk to us',
-    cta: { label: 'Get early access', href: 'mailto:hello@nebulaa.ai?subject=Orbit%20early%20access' },
+    price: '₹12,000 / month',
     seoTitle: 'Orbit — AI Lead Sourcing & Qualification Engine | Nebulaa',
     seoDescription:
       'Orbit finds real businesses on Google Maps, filters for quality, enriches contact emails, drafts personalized outreach, and pushes qualified leads into your CRM.',

@@ -7,7 +7,7 @@ import FAQ from '@/components/sections/FAQ'
 
 const seoTitle = 'Pricing — Nebulaa'
 const seoDescription =
-  'Gravity from ₹10,000/month, Pulsar ₹15,000, both agents ₹20,000. Managed services are scoped per engagement.'
+  'Gravity from ₹10,000/month, Orbit ₹12,000, Pulsar ₹15,000, all three agents ₹28,000. Annual billing saves 15%. Managed services are scoped per engagement.'
 
 export const metadata: Metadata = {
   title: seoTitle,
@@ -20,7 +20,7 @@ const models = [
   {
     label: 'The software',
     title: 'You run it',
-    body: 'Gravity and Pulsar, self-serve. Set up in an afternoon, approve from your phone, cancel the month it stops earning its keep.',
+    body: 'Orbit, Gravity and Pulsar, self-serve. Set up in an afternoon, approve from your phone, cancel the month it stops earning its keep.',
     points: [
       'Priced openly — from ₹10,000/month',
       '7-day free trial, no card',
@@ -33,7 +33,7 @@ const models = [
   {
     label: 'The team',
     title: 'We run it',
-    body: 'Strategy, content, production, campaigns and on-ground activation, handled end to end by our team — running on the same two agents.',
+    body: 'Strategy, content, production, campaigns and on-ground activation, handled end to end by our team — running on the same three agents.',
     points: [
       'Scoped per engagement, quoted after a call',
       'Media spend and creator fees billed at actuals',

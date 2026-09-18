@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 import { isAdmin } from '@/lib/adminAuth'
 import { savePublishedPost, getPublishedPost, type StoredPost } from '@/lib/blogStore'
 import { getRepoPost } from '@/lib/blogRepo'
@@ -71,6 +72,13 @@ export async function POST(req: NextRequest) {
   if (!(await savePublishedPost(post))) {
     return NextResponse.json({ error: 'Could not save the post to the store.' }, { status: 503 })
   }
+
+  // Without this, the edit is correctly saved but the post page and /blog
+  // index keep serving whatever they last rendered for up to `revalidate`
+  // seconds (see app/blog/[slug]/page.tsx, app/blog/page.tsx) — "no
+  // redeploy needed" below was only half true until this landed.
+  revalidatePath(`/blog/${slug}`)
+  revalidatePath('/blog')
 
   return NextResponse.json({
     success: true,

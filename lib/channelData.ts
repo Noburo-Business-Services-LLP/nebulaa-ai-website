@@ -75,7 +75,7 @@ export const channels: Channel[] = [
     headline: 'A month of Instagram,',
     headlineEmphasis: 'planned before it starts.',
     subheadline:
-      'Instagram punishes inconsistency more than it punishes mediocrity. Gravity plans the whole month — posts, carousels and reels against your content pillars — drafts every one in your voice, and publishes at the hours your audience is actually awake.',
+      'This is Instagram content planning and automation built for consistency: Instagram punishes inconsistency more than it punishes mediocrity. Gravity plans the whole month — posts, carousels and reels against your content pillars — drafts every one in your voice, and publishes at the hours your audience is actually awake.',
     whatWeDo: [
       'Posts, carousels and reels planned as a month, not a queue',
       'Creative generated from your own brand assets and palette',
@@ -88,7 +88,7 @@ export const channels: Channel[] = [
       { q: 'Can it make reels?', a: 'Yes — scene by scene, with the script written to hook, value and call to action rather than one clip with text over it.' },
       { q: 'What about Stories?', a: 'Feed posts, carousels and reels are what the product publishes. Stories are part of a managed engagement.' },
     ],
-    seoTitle: 'Instagram Content Planning & Automation — Nebulaa',
+    seoTitle: 'Instagram Content Planning & Automation',
     seoDescription:
       'Plan a month of Instagram posts, carousels and reels against your content pillars, drafted in your brand voice and published at peak hours.',
   },
@@ -101,7 +101,7 @@ export const channels: Channel[] = [
     headline: 'Still where a lot of',
     headlineEmphasis: 'your customers are.',
     subheadline:
-      'Facebook is easy to write off and, for a great many Indian businesses, wrong to. For local retail, FMCG and anything with an older or family buyer, it is often the channel producing the most enquiries. Gravity runs it from the same monthly plan.',
+      'This is Facebook page management run from the same monthly plan: easy to write off and, for a great many Indian businesses, wrong to. For local retail, FMCG and anything with an older or family buyer, it is often the channel producing the most enquiries.',
     whatWeDo: [
       'Posts and reels adapted for a Facebook audience, not copy-pasted from Instagram',
       'Page comments and messages in the unified inbox',
@@ -113,7 +113,7 @@ export const channels: Channel[] = [
       { q: 'Do I need a separate content plan?', a: 'No. The same monthly plan covers both, with copy and format adapted per platform.' },
       { q: 'Does it handle Facebook ads?', a: 'Individual posts can be boosted. Full paid campaign management is part of the managed service.' },
     ],
-    seoTitle: 'Facebook Page Content & Management — Nebulaa',
+    seoTitle: 'Facebook Page Content & Management',
     seoDescription:
       'Run your Facebook page from the same monthly content plan, with copy adapted per platform, comments in one inbox and scheduling to peak hours.',
   },
@@ -126,7 +126,7 @@ export const channels: Channel[] = [
     headline: 'Founder-led content,',
     headlineEmphasis: 'without the founder writing it.',
     subheadline:
-      'LinkedIn rewards showing up with a point of view, week after week — which is exactly what a founder running a business does not have time to do. Gravity writes in your voice, against your positioning, so the consistency does not depend on your calendar.',
+      'This is LinkedIn content for founders and B2B who don\'t have time to write it themselves: it rewards showing up with a point of view, week after week. Gravity writes in your voice, against your positioning, so the consistency does not depend on your calendar.',
     whatWeDo: [
       'Posts written in your voice, against your actual positioning',
       'A month planned so consistency does not depend on your week',
@@ -138,7 +138,7 @@ export const channels: Channel[] = [
       { q: 'Company page or personal profile?', a: 'Both work. For most founder-led businesses the personal profile outperforms the company page by a wide margin.' },
       { q: 'Does it connect and message people?', a: 'Not on LinkedIn. Outreach runs on WhatsApp, email and SMS through Pulsar, where it is both more effective and within platform rules.' },
     ],
-    seoTitle: 'LinkedIn Content for Founders & B2B — Nebulaa',
+    seoTitle: 'LinkedIn Content for Founders & B2B',
     seoDescription:
       'Consistent founder-led LinkedIn content written in your voice against your positioning, planned monthly and published without you drafting it.',
   },
@@ -151,7 +151,7 @@ export const channels: Channel[] = [
     headline: 'Short form,',
     headlineEmphasis: 'same plan.',
     subheadline:
-      'X rewards frequency and a point of view more than polish. Gravity works your pillars into short-form posts and threads, so the channel stays alive without becoming another thing to remember.',
+      'This is X (Twitter) content scheduling that rewards frequency and a point of view more than polish. Gravity works your pillars into short-form posts and threads, so the channel stays alive without becoming another thing to remember.',
     whatWeDo: [
       'Short-form posts and threads from your existing pillars',
       'Frequency without a separate content process',
@@ -162,7 +162,7 @@ export const channels: Channel[] = [
       { q: 'Is X worth it for my business?', a: 'For B2B, tech and media-adjacent businesses, often yes. For local retail, usually not — and we will say so rather than sell you a channel that will not produce anything.' },
       { q: 'Can it write threads?', a: 'Yes, built from the same pillars as your longer-form content.' },
     ],
-    seoTitle: 'X (Twitter) Content Scheduling — Nebulaa',
+    seoTitle: 'X (Twitter) Content Scheduling for Brands',
     seoDescription:
       'Short-form posts and threads built from your existing content pillars and scheduled through the day.',
   },
@@ -175,7 +175,7 @@ export const channels: Channel[] = [
     headline: 'The same reel,',
     headlineEmphasis: 'a second audience.',
     subheadline:
-      'A reel that took real effort should not run on one platform. Shorts has a different discovery engine and a longer tail than Instagram, and the marginal cost of publishing there is close to zero.',
+      'This is YouTube Shorts distribution for a reel that already took real effort — it should not run on one platform. Shorts has a different discovery engine and a longer tail than Instagram, and the marginal cost of publishing there is close to zero.',
     whatWeDo: [
       'Reels formatted and published to Shorts alongside Instagram',
       'Titles and descriptions written for YouTube search, not copied from the caption',
@@ -185,7 +185,7 @@ export const channels: Channel[] = [
       { q: 'Do I need a YouTube channel already?', a: 'You need one, but it does not need an audience. Shorts discovery does not depend on subscriber count the way long-form does.' },
       { q: 'Is it the same video as the Instagram reel?', a: 'Usually the same cut, with the title and description written for how people search on YouTube.' },
     ],
-    seoTitle: 'YouTube Shorts Distribution for Brands — Nebulaa',
+    seoTitle: 'YouTube Shorts Distribution for Brands',
     seoDescription:
       'Publish your reels to YouTube Shorts with titles and descriptions written for YouTube search, giving each video a second audience.',
   },
@@ -198,7 +198,7 @@ export const channels: Channel[] = [
     headline: 'For the buyers who',
     headlineEmphasis: 'still prefer it.',
     subheadline:
-      'Dealers, distributors and corporate buyers often want things in writing on email, even when everything else runs on WhatsApp. Pulsar handles it in the same conversation thread, so you read one history rather than three.',
+      'This is email follow-up and lead qualification for dealers, distributors and corporate buyers who want things in writing, even when everything else runs on WhatsApp. Pulsar handles it in the same conversation thread, so you read one history rather than three.',
     whatWeDo: [
       'Replies and follow-up sequences from your own domain',
       'One thread per person across email, WhatsApp and SMS',
@@ -209,7 +209,7 @@ export const channels: Channel[] = [
       { q: 'Is this a newsletter tool?', a: 'No. This is one-to-one sales conversation and follow-up. Newsletters are a different job and belong in a newsletter tool.' },
       { q: 'Does it send from my domain?', a: 'Yes, with the sending records set up properly so mail actually lands.' },
     ],
-    seoTitle: 'Email Follow-up & Lead Qualification — Nebulaa',
+    seoTitle: 'Email Follow-up & Lead Qualification',
     seoDescription:
       'Email handled in the same thread as WhatsApp and SMS, with the same qualification, scoring and follow-up sequences.',
   },
@@ -222,7 +222,7 @@ export const channels: Channel[] = [
     headline: 'Still the one that',
     headlineEmphasis: 'always gets seen.',
     subheadline:
-      'SMS has no algorithm and almost universal reach, which makes it the right fallback for a customer who has not opened WhatsApp in three days — and for anything genuinely time-sensitive.',
+      'This is SMS follow-up and alerts with no algorithm and almost universal reach, which makes it the right fallback for a customer who has not opened WhatsApp in three days — and for anything genuinely time-sensitive.',
     whatWeDo: [
       'Fallback when a WhatsApp or email thread goes quiet',
       'Time-sensitive alerts, confirmations and reminders',
@@ -233,7 +233,7 @@ export const channels: Channel[] = [
       { q: 'Will this annoy people?', a: 'It would, if used for everything. It is a fallback channel and a time-sensitive one, which is why it sits behind WhatsApp rather than beside it.' },
       { q: 'Does it work with DLT registration?', a: 'Indian SMS requires DLT-registered sender IDs and templates. That gets set up during onboarding.' },
     ],
-    seoTitle: 'SMS Follow-up & Alerts — Nebulaa',
+    seoTitle: 'SMS Follow-up & Alerts for Sales Teams',
     seoDescription:
       'SMS as a fallback when other channels go quiet, and for time-sensitive alerts, with replies routed into the same conversation thread.',
   },
@@ -246,7 +246,7 @@ export const channels: Channel[] = [
     headline: 'For the moments a call',
     headlineEmphasis: 'still beats a message.',
     subheadline:
-      'Most of the time a message wins — it is on the customer\'s terms and it leaves a record. But some enquiries deserve a call, and some people never reply to text. The call queue works those in priority order without anyone dialling manually.',
+      'This automated voice follow-up call queue exists because most of the time a message wins — it is on the customer\'s terms and it leaves a record. But some enquiries deserve a call, and some people never reply to text. It works those in priority order without anyone dialling manually.',
     whatWeDo: [
       'A call queue ordered by lead score, not by whoever is free',
       'Calls triggered by silence on messaging channels',
@@ -257,7 +257,7 @@ export const channels: Channel[] = [
       { q: 'Why do you push messaging over calling?', a: 'Because it works better here. Unknown numbers get ignored; WhatsApp gets read. We would rather tell you that than sell you call volume.' },
       { q: 'Is this cold calling?', a: 'No. It works your own enquiries and contacts.' },
     ],
-    seoTitle: 'Automated Voice Follow-up Calls — Nebulaa',
+    seoTitle: 'Automated Voice Follow-up Call Queue',
     seoDescription:
       'A managed call queue that works your own enquiries in priority order, triggered by lead score or silence on messaging channels.',
   },
@@ -270,7 +270,7 @@ export const channels: Channel[] = [
     headline: 'The search that ends',
     headlineEmphasis: 'in someone walking in.',
     subheadline:
-      'For a business with a physical location, the Google listing is often the highest-intent surface there is — someone searching "near me" is already deciding. Our team keeps the profile current, posts to it, and makes sure reviews get answered.',
+      'This is Google Business Profile management for a business with a physical location, where the listing is often the highest-intent surface there is — someone searching "near me" is already deciding. Our team keeps the profile current, posts to it, and makes sure reviews get answered.',
     whatWeDo: [
       'Profile optimisation — categories, attributes, hours, service areas',
       'Posts and offers published to the listing',
@@ -282,7 +282,7 @@ export const channels: Channel[] = [
       { q: 'Can I do this on the self-serve product?', a: 'No — this one is managed. The product publishes to Instagram, Facebook, LinkedIn, X and YouTube.' },
       { q: 'Does it really matter?', a: 'For local retail it is frequently the single highest-intent channel. Someone searching "jewellery shop near me" is much closer to buying than someone scrolling a feed.' },
     ],
-    seoTitle: 'Google Business Profile Management — Nebulaa',
+    seoTitle: 'Google Business Profile Management',
     seoDescription:
       'Profile optimisation, posts, offers and review responses for the listing that wins local "near me" searches.',
   },
@@ -295,7 +295,7 @@ export const channels: Channel[] = [
     headline: 'Where a post keeps',
     headlineEmphasis: 'working for months.',
     subheadline:
-      'Pinterest behaves like a search engine rather than a feed — a pin can still be driving traffic a year after it went up. For visual categories like jewellery, textile, décor and food, that long tail is worth having.',
+      'This is Pinterest marketing for visual brands where it behaves like a search engine rather than a feed — a pin can still be driving traffic a year after it went up. For visual categories like jewellery, textile, décor and food, that long tail is worth having.',
     whatWeDo: [
       'Boards and pins built around how people actually search',
       'Existing creative repurposed rather than made from scratch',
@@ -306,7 +306,7 @@ export const channels: Channel[] = [
       { q: 'Is Pinterest worth it in India?', a: 'For visual, aspirational categories — bridal jewellery, textiles, interiors, food — it produces steady discovery. For most B2B it does not, and we will say so.' },
       { q: 'Do I need new creative for it?', a: 'Generally no. What you are already producing gets repurposed to the format.' },
     ],
-    seoTitle: 'Pinterest Marketing for Visual Brands — Nebulaa',
+    seoTitle: 'Pinterest Marketing for Visual Brands',
     seoDescription:
       'Boards and pins built around search behaviour, giving jewellery, textile, décor and food brands discovery that compounds over months.',
   },
@@ -319,7 +319,7 @@ export const channels: Channel[] = [
     headline: 'Paid that points at',
     headlineEmphasis: 'where you actually sell.',
     subheadline:
-      'Paid media works when it is aimed at a real catchment rather than a whole country. Our team runs always-on Meta and Google campaigns geo-targeted around the markets, neighbourhoods and retail clusters where your product is genuinely available.',
+      'This is Meta and Google Ads for Indian brands aimed at a real catchment rather than a whole country. Our team runs always-on campaigns geo-targeted around the markets, neighbourhoods and retail clusters where your product is genuinely available.',
     whatWeDo: [
       'Always-on awareness, consideration and retargeting campaigns',
       'Geo-targeting around real retail catchments, not whole states',
@@ -345,7 +345,7 @@ export const channels: Channel[] = [
     headline: 'Being listed is not',
     headlineEmphasis: 'the same as being found.',
     subheadline:
-      'Getting onto Zepto, Blinkit or Instamart is the hard part, and most brands stop there — then wonder why the listing does nothing. Our team works the discovery side: listing optimisation, geo-targeted campaigns pointed at live availability, and trial-driving offers.',
+      'This is quick commerce growth for brands already listed on Zepto, Blinkit or Instamart — the hard part is done, and most brands stop there, then wonder why the listing does nothing. Our team works the discovery side: listing optimisation, geo-targeted campaigns and trial-driving offers.',
     whatWeDo: [
       'Listing optimisation so the product is findable in-app',
       'Geo-targeted campaigns aimed at areas where you are actually stocked',

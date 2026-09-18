@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
   await sendLeadEvent({
     email,
     eventId,
-    sourceUrl: req.headers.get('referer') || 'https://nebulaa.ai',
+    sourceUrl: req.headers.get('referer') || 'https://www.nebulaa.ai',
   })
 
   return NextResponse.json({ success: true, message: 'subscribed', eventId })

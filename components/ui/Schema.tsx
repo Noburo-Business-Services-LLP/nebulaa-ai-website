@@ -20,7 +20,7 @@ export function breadcrumbSchema(trail: { name: string; path: string }[]) {
       '@type': 'ListItem',
       position: i + 1,
       name: item.name,
-      item: `https://nebulaa.ai${item.path}`,
+      item: `https://www.nebulaa.ai${item.path}`,
     })),
   }
 }
@@ -38,7 +38,7 @@ export function softwareApplicationSchema(opts: {
     description: opts.description,
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web',
-    url: `https://nebulaa.ai${opts.url}`,
+    url: `https://www.nebulaa.ai${opts.url}`,
     ...(opts.price
       ? {
           offers: {
@@ -58,8 +58,8 @@ export function serviceSchema(opts: { name: string; description: string; url: st
     name: opts.name,
     description: opts.description,
     serviceType: 'Marketing service',
-    url: `https://nebulaa.ai${opts.url}`,
-    provider: { '@type': 'Organization', name: 'Nebulaa', url: 'https://nebulaa.ai' },
+    url: `https://www.nebulaa.ai${opts.url}`,
+    provider: { '@type': 'Organization', name: 'Nebulaa', url: 'https://www.nebulaa.ai' },
     areaServed: { '@type': 'Country', name: 'India' },
   }
 }
@@ -88,8 +88,8 @@ export function articleSchema(opts: {
     headline: opts.headline,
     description: opts.description,
     datePublished: opts.datePublished,
-    url: `https://nebulaa.ai${opts.url}`,
+    url: `https://www.nebulaa.ai${opts.url}`,
     author: { '@type': 'Organization', name: 'Nebulaa' },
-    publisher: { '@type': 'Organization', name: 'Nebulaa', url: 'https://nebulaa.ai' },
+    publisher: { '@type': 'Organization', name: 'Nebulaa', url: 'https://www.nebulaa.ai' },
   }
 }

@@ -18,7 +18,7 @@ import { resources } from '@/lib/resourceData'
  * lists are gone.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://nebulaa.ai'
+  const base = 'https://www.nebulaa.ai'
   const now = new Date()
 
   const entry = (

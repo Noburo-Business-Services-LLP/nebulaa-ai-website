@@ -12,7 +12,7 @@
 export const org = {
   name: 'Nebulaa',
   legalName: 'Noburo Business Services LLP',
-  url: 'https://nebulaa.ai',
+  url: 'https://www.nebulaa.ai',
   email: 'hello@nebulaa.ai',
   city: 'Chennai',
   region: 'Tamil Nadu',

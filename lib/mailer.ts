@@ -44,7 +44,7 @@ export function buildNewsletterHTML(subject: string, content: string): string {
 <body>
 <div class="wrapper">
   <div class="header">
-    <a href="https://nebulaa.ai" class="logo">nebulaa</a>
+    <a href="https://www.nebulaa.ai" class="logo">nebulaa</a>
   </div>
   <div class="body">
     <div class="content">
@@ -53,13 +53,13 @@ export function buildNewsletterHTML(subject: string, content: string): string {
     <div class="cta-block">
       <p style="color:#FFFFFF;font-weight:700;font-size:18px;margin:0 0 8px;">Want all of this automated?</p>
       <p style="color:#9E9890;font-size:14px;margin:0 0 20px;">Gravity posts. Pulsar calls. You just close. 🚀</p>
-      <a href="https://nebulaa.ai/#pricing" class="cta-btn">Start free 7-day trial →</a>
+      <a href="https://www.nebulaa.ai/#pricing" class="cta-btn">Start free 7-day trial →</a>
     </div>
   </div>
   <div class="footer">
     <p>You're getting this because you signed up for Nebulaa or expressed interest in our agents.</p>
     <!-- TODO: add a real contact email here once the owner confirms one -->
-    <p><a href="https://nebulaa.ai">nebulaa.ai</a></p>
+    <p><a href="https://www.nebulaa.ai">nebulaa.ai</a></p>
   </div>
 </div>
 </body>

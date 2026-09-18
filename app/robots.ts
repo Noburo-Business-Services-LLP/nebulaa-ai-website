@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       // The admin surface has no business in an index.
       disallow: ['/admin', '/admin/'],
     },
-    sitemap: 'https://nebulaa.ai/sitemap.xml',
+    sitemap: 'https://www.nebulaa.ai/sitemap.xml',
   }
 }

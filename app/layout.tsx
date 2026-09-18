@@ -8,7 +8,7 @@ import AnalyticsScripts from '@/components/analytics/AnalyticsScripts'
 import { analyticsConfig, hasGTM } from '@/lib/analytics/config'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nebulaa.ai'),
+  metadataBase: new URL('https://www.nebulaa.ai'),
   title: {
     default: 'Nebulaa — The AI Operating System for Business',
     template: '%s | Nebulaa',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: 'Nebulaa — The AI Operating System for Business',
     description:
       'Give us a URL. Nebulaa understands the business, activates the engines, executes the work and learns from what happens.',
-    url: 'https://nebulaa.ai',
+    url: 'https://www.nebulaa.ai',
     siteName: 'Nebulaa',
     locale: 'en_IN',
     type: 'website',

@@ -101,7 +101,7 @@ export default function GravitySection() {
             variants={fadeUpVariant}
             className="neb-display text-[34px] md:text-[50px] mb-[26px]"
           >
-            Gravity turns a month of content into <span className="text-gold-display">a single afternoon of approvals.</span>
+            <span className="text-gold-display">Gravity</span> plans, drafts and schedules a month of content. You approve before anything goes live.
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}

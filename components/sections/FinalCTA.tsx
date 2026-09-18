@@ -27,14 +27,14 @@ export default function FinalCTA() {
         >
           Start with your URL.
           <br />
-          <span className="text-gold-display">See what it makes of you.</span>
+          <span className="text-gold-display">See your first brand analysis in a minute.</span>
         </motion.h2>
 
         <motion.p
           variants={fadeUpVariant}
           className="font-body text-[17.5px] leading-[1.65] text-muted max-w-[500px] mx-auto mb-[42px]"
         >
-          A minute to your first brand read from Nebulaa, the AI marketing platform built for founders. A week to decide whether it deserves your money. No card until you&apos;ve seen it work.
+          Nebulaa reads your website and produces an initial brand analysis in under a minute. Try it free for 7 days — no card required.
         </motion.p>
 
         <motion.div variants={fadeUpVariant} className="flex flex-col sm:flex-row justify-center gap-[14px]">

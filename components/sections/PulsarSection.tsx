@@ -119,7 +119,7 @@ export default function PulsarSection() {
             variants={fadeUpVariant}
             className="neb-display text-[34px] md:text-[50px] mb-[26px]"
           >
-            Pulsar replies <span className="text-gold-display">before the lead messages someone else.</span>
+            <span className="text-gold-display">Pulsar</span> responds to WhatsApp, email and SMS enquiries within minutes.
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}

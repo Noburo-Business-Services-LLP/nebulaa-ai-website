@@ -23,23 +23,24 @@ export const org = {
 } as const
 
 /**
- * Monthly prices. Annual billing is 15% off, computed from these — see
- * ANNUAL_DISCOUNT below — never hardcoded a second time.
+ * Monthly prices. Annual billing is a flat 10% off the 12-month total,
+ * computed from these — see ANNUAL_DISCOUNT below — never hardcoded a
+ * second time.
  */
-export const ANNUAL_DISCOUNT = 0.15
+export const ANNUAL_DISCOUNT = 0.1
 
 export const products = [
   {
     name: 'Orbit',
     role: 'AI lead generation engine',
-    price: 12000,
+    price: 15000,
     description:
       'Finds real businesses matching your target, keeps only phone-reachable leads rated 4.2+, enriches contact emails from their website, drafts a personalized opening message, and pushes qualified leads into your CRM.',
   },
   {
     name: 'Gravity',
     role: 'AI content & social media engine',
-    price: 10000,
+    price: 15000,
     description:
       'Reads a website and builds a marketing strategy from it, plans the month, drafts posts, carousels and reels, tracks competitors, runs campaigns and creator collaborations, and handles the social inbox.',
   },
@@ -53,7 +54,7 @@ export const products = [
   {
     name: 'All three engines',
     role: 'Content, lead generation and engagement on one core',
-    price: 28000,
+    price: 30000,
     description:
       'Gravity, Orbit and Pulsar on one account, sharing the same business context and the same learning loop through Nebulaa Core.',
   },

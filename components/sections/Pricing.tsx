@@ -50,7 +50,7 @@ const plans: Plan[] = [
     name: 'Gravity',
     label: 'Gravity',
     tagline: 'AI Marketing Agent',
-    monthly: 10000,
+    monthly: 15000,
     description: 'A strategy, then a month of content to run it.',
     channels: gravityChannels,
     features: [
@@ -69,7 +69,7 @@ const plans: Plan[] = [
     name: 'Orbit',
     label: 'Orbit',
     tagline: 'AI Lead Sourcing Agent',
-    monthly: 12000,
+    monthly: 15000,
     description: 'Real businesses, qualified and ready to work.',
     channels: orbitChannels,
     features: [
@@ -105,7 +105,7 @@ const plans: Plan[] = [
     name: 'All Three Agents',
     label: 'All three engines · best value',
     tagline: 'Sourcing + Marketing + Outreach',
-    monthly: 28000,
+    monthly: 30000,
     description: 'The whole loop — leads found, content made, customers engaged. Cheaper than buying separately.',
     channels: [...orbitChannels, ...gravityChannels, ...pulsarChannels],
     features: [
@@ -221,7 +221,7 @@ export default function Pricing() {
         </div>
         <div className="flex items-center justify-between gap-4 px-6 md:px-9 py-6 border-t border-gold/[0.18] bg-gold/[0.09]">
           <span className="font-heading text-[17px] font-medium text-gold-text">With Nebulaa</span>
-          <span className="font-digital text-[26px] md:text-[30px] text-gold-text tabular-nums">From ₹{priceFor(10000, annual).display.toLocaleString('en-IN')}/mo</span>
+          <span className="font-digital text-[26px] md:text-[30px] text-gold-text tabular-nums">From ₹{priceFor(15000, annual).display.toLocaleString('en-IN')}/mo</span>
         </div>
       </motion.div>
 

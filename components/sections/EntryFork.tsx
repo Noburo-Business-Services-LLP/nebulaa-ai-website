@@ -11,7 +11,7 @@ const cards = [
     labelGold: false,
     title: "I'll run it myself",
     body: "You drive. Set up in an afternoon, approve the week's posts from your phone in about nine minutes, cancel the month it stops earning its keep.",
-    metaPrimary: 'From ₹10,000/month',
+    metaPrimary: 'From ₹15,000/month',
     metaSecondary: '7-day trial, no card',
     cta: 'See pricing',
     href: '#pricing',

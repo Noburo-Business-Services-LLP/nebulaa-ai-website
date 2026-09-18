@@ -130,7 +130,7 @@ export default async function BlogPost({ params }: Props) {
                 return (
                   <div key={i} className="flex items-start gap-2 my-1.5">
                     <span className="text-gold-text mt-1 flex-shrink-0">•</span>
-                    <p className="font-body text-base text-ink-2 leading-relaxed">{renderInlineMarkdown(line.slice(2))}</p>
+                    <p className="font-body text-base text-ink-2 leading-relaxed text-left md:text-justify">{renderInlineMarkdown(line.slice(2))}</p>
                   </div>
                 )
               if (line.startsWith('---'))
@@ -140,7 +140,7 @@ export default async function BlogPost({ params }: Props) {
               if (line.trim() === '')
                 return <div key={i} className="my-3" />
               return (
-                <p key={i} className="font-body text-base text-ink-2 leading-relaxed my-3">{renderInlineMarkdown(line)}</p>
+                <p key={i} className="font-body text-base text-ink-2 leading-relaxed my-3 text-left md:text-justify">{renderInlineMarkdown(line)}</p>
               )
             })}
           </div>

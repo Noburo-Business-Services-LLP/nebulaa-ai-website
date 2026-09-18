@@ -52,7 +52,7 @@ const config: Config = {
         sans:    ['Inter', 'system-ui', 'sans-serif'],
         // Telemetry, labels, stats, metadata — the "machine" voice
         mono:    ['IBM Plex Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-        digital: ['Orbitron', 'ui-monospace', 'monospace'],
+        digital: ['Rajdhani', 'ui-monospace', 'monospace'],
       },
       fontSize: {
         'display-xl': ['80px', { lineHeight: '0.95', letterSpacing: '-0.03em' }],

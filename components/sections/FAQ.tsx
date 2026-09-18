@@ -9,9 +9,9 @@ import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animatio
 import Schema, { faqSchema } from '@/components/ui/Schema'
 
 const faqs = [
-  { q: 'What happens after the 7-day free trial?', a: "You choose to continue on the plan you started — ₹10,000/month for Gravity, ₹12,000 for Orbit, ₹15,000 for Pulsar, or ₹28,000/month for all three. Annual billing saves 15%. No auto-charge. No surprise invoices. We'll remind you before the trial ends." },
+  { q: 'What happens after the 7-day free trial?', a: "You choose to continue on the plan you started — ₹15,000/month for Gravity, Orbit or Pulsar individually, or ₹30,000/month for all three. Annual billing saves 10%. No auto-charge. No surprise invoices. We'll remind you before the trial ends." },
   { q: 'Do I need a tech team to set this up?', a: 'No. Our onboarding team sets everything up with you. You\'ll be live in under 24 hours. No technical skills required.' },
-  { q: 'Can I use just one agent?', a: 'Yes. Gravity (marketing) is ₹10,000/month, Orbit (lead sourcing) is ₹12,000, Pulsar (outreach) is ₹15,000 — each works on its own. Run all three together for ₹28,000/month, saving ₹9,000 over buying them separately.' },
+  { q: 'Can I use just one agent?', a: 'Yes. Gravity (marketing), Orbit (lead sourcing) and Pulsar (outreach) are ₹15,000/month each, and each works on its own. Run all three together for ₹30,000/month, saving ₹15,000 over buying them separately.' },
   { q: 'What channels does Pulsar support?', a: 'WhatsApp (via API), email, and SMS — plus voice calls where they fit. All from a single setup.' },
   { q: 'How does Gravity learn my brand voice?', a: 'Give it your website URL. In about 60 seconds it extracts your tone, ICP and competitors, and builds a marketing strategy from that. It keeps learning after — the longer it runs, the better it gets at sounding like you.' },
   { q: 'Is this useful for businesses with no online presence yet?', a: 'Yes — Gravity helps you build that presence from scratch. Even if you have zero followers, it starts posting for you on day one.' },

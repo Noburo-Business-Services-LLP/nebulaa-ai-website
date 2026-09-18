@@ -66,7 +66,7 @@ export const agents: Record<AgentId, Agent> = {
     headlineEmphasis: 'Start approving it.',
     subheadline:
       'Gravity is the AI content and social media engine behind all of it: it reads your website, builds a strategy from it, plans the month, drafts every post, carousel and reel to fill that month, and waits for you to tap approve. It also runs your campaigns, your creator collaborations, your inbox and your SEO — most of which nobody realises it does.',
-    price: '₹10,000 / month',
+    price: '₹15,000 / month',
     seoTitle: 'Gravity — AI Content & Social Media Engine',
     seoDescription:
       'Gravity remembers the business, plans the work, creates content, manages approvals, publishes across channels and monitors what happens.',
@@ -94,7 +94,7 @@ export const agents: Record<AgentId, Agent> = {
     headlineEmphasis: 'there has to be a lead worth having.',
     subheadline:
       'Orbit is the AI lead generation engine that finds real businesses matching who you sell to, keeps only the ones worth calling, finds a real contact email even when Google never gives you one, drafts the first outreach message, and puts the whole thing straight into your CRM — assigned to a rep, ready to work. Gravity and Pulsar take it from there.',
-    price: '₹12,000 / month',
+    price: '₹15,000 / month',
     seoTitle: 'Orbit — AI Lead Generation Engine',
     seoDescription:
       'Finding leads is easy. Orbit finds the right ones — turning your ICP into a prospecting engine that sources, qualifies and hands off to Pulsar.',

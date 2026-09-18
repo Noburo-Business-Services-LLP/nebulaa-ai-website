@@ -45,19 +45,139 @@ function pctSafe(part: number, total: number): number {
   return total === 0 ? 0 : Math.round((part / total) * 100)
 }
 
-// ── GSC placeholder — deliberately not faked ────────────────────────────────
-function IndexingCard({ pageCount }: { pageCount: number }) {
-  return (
-    <div className="bg-orange-500/10 border border-orange-500/30 rounded-2xl p-5 flex items-start gap-4">
-      <AlertTriangle size={20} className="text-orange-400 flex-shrink-0 mt-0.5" />
-      <div>
-        <p className="text-white font-body font-semibold text-sm mb-1">Google Search Console isn&apos;t wired up yet</p>
-        <p className="text-white/50 font-body text-xs leading-relaxed">
-          As of the last manual check, GSC showed <span className="text-orange-400 font-semibold">2 of 10 discovered pages indexed</span> against
-          a sitemap of {pageCount} URLs — a real, unresolved problem. This card will show the live number once a Google Cloud service
-          account is connected (Search Console → Settings → Users and permissions → add the service account as a user).
-        </p>
+// ── Google Search Console — real indexing + query data once configured ─────
+interface GscIndexing {
+  configured: boolean
+  error: string | null
+  totalChecked: number
+  indexed: number
+  notIndexed: number
+  pages: { path: string; verdict: string; coverageState: string | null }[]
+}
+interface GscPerformance {
+  configured: boolean
+  error: string | null
+  totalClicks: number
+  totalImpressions: number
+  topQueries: { query: string; clicks: number; impressions: number; ctr: number; position: number }[]
+  pageClicks: { path: string; clicks: number; impressions: number }[]
+}
+
+function IndexingCard({ pageCount, secret }: { pageCount: number; secret: string }) {
+  const [checking, setChecking] = useState(false)
+  const [checked, setChecked] = useState(false)
+  const [indexing, setIndexing] = useState<GscIndexing | null>(null)
+  const [performance, setPerformance] = useState<GscPerformance | null>(null)
+  const [notConfigured, setNotConfigured] = useState(false)
+
+  const check = async () => {
+    setChecking(true)
+    try {
+      const d = await adminFetch<{ indexing: GscIndexing; performance: GscPerformance }>('/api/admin/gsc', secret)
+      if (d) {
+        setIndexing(d.indexing)
+        setPerformance(d.performance)
+        setNotConfigured(!d.indexing.configured)
+        setChecked(true)
+      }
+    } finally {
+      setChecking(false)
+    }
+  }
+
+  if (!checked) {
+    return (
+      <div className="bg-orange-500/10 border border-orange-500/30 rounded-2xl p-5 flex items-start gap-4">
+        <AlertTriangle size={20} className="text-orange-400 flex-shrink-0 mt-0.5" />
+        <div className="flex-1">
+          <p className="text-white font-body font-semibold text-sm mb-1">Google Search Console indexing status</p>
+          <p className="text-white/50 font-body text-xs leading-relaxed mb-3">
+            As of the last manual check, GSC showed <span className="text-orange-400 font-semibold">2 of 10 discovered pages indexed</span> against
+            a sitemap of {pageCount} URLs. If a service account is connected, checking below inspects the ~14 highest-priority hub and product
+            pages — Google&apos;s own URL Inspection API takes roughly 10 seconds per URL, so checking all {pageCount} isn&apos;t practical on demand;
+            full-site indexing coverage is what Search Console&apos;s own UI is for.
+          </p>
+          <button onClick={check} disabled={checking} className="bg-orange-500/20 border border-orange-500/30 text-orange-300 font-body text-xs font-semibold rounded-full px-4 py-2 hover:bg-orange-500/30 transition-all disabled:opacity-50">
+            {checking ? 'Checking priority pages…' : 'Check indexing status now'}
+          </button>
+        </div>
       </div>
+    )
+  }
+
+  if (notConfigured) {
+    return (
+      <div className="bg-orange-500/10 border border-orange-500/30 rounded-2xl p-5 flex items-start gap-4">
+        <AlertTriangle size={20} className="text-orange-400 flex-shrink-0 mt-0.5" />
+        <div>
+          <p className="text-white font-body font-semibold text-sm mb-1">Google Search Console isn&apos;t wired up yet</p>
+          <p className="text-white/50 font-body text-xs leading-relaxed">
+            No service account credentials found (GSC_CLIENT_EMAIL / GSC_PRIVATE_KEY). Once connected — Search Console → Settings →
+            Users and permissions → add the service account as a Restricted user — this card shows live indexing and query data.
+          </p>
+        </div>
+      </div>
+    )
+  }
+
+  if (indexing?.error || performance?.error) {
+    return (
+      <div className="bg-red-500/10 border border-red-500/30 rounded-2xl p-5 flex items-start gap-4">
+        <AlertTriangle size={20} className="text-red-400 flex-shrink-0 mt-0.5" />
+        <div className="flex-1">
+          <p className="text-white font-body font-semibold text-sm mb-1">Search Console request failed</p>
+          <p className="text-white/50 font-body text-xs leading-relaxed mb-3">{indexing?.error || performance?.error}</p>
+          <p className="text-white/30 font-body text-xs leading-relaxed mb-3">
+            Common causes: the API isn&apos;t enabled on the Google Cloud project yet, the service account hasn&apos;t been added as a Search
+            Console user yet (permission changes can take a few minutes to propagate), or GSC_PROPERTY doesn&apos;t match the property&apos;s
+            actual form (domain property → &quot;sc-domain:nebulaa.ai&quot;, URL-prefix property → &quot;https://www.nebulaa.ai/&quot;).
+          </p>
+          <button onClick={check} disabled={checking} className="text-white/50 hover:text-white font-body text-xs font-semibold transition-colors disabled:opacity-50">
+            {checking ? 'Retrying…' : 'Try again'}
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  const idxPct = indexing ? pctSafe(indexing.indexed, indexing.totalChecked) : 0
+
+  return (
+    <div className={`${idxPct < 80 ? 'bg-orange-500/10 border-orange-500/30' : 'bg-green-500/10 border-green-500/30'} border rounded-2xl p-5`}>
+      <div className="flex items-start justify-between gap-4 mb-3">
+        <div>
+          <p className="text-white font-body font-semibold text-sm mb-1">
+            {indexing?.indexed} of {indexing?.totalChecked} priority pages indexed
+          </p>
+          <p className="text-white/50 font-body text-xs">
+            {performance?.totalClicks ?? 0} clicks · {performance?.totalImpressions ?? 0} impressions in the last 28 days
+          </p>
+        </div>
+        <button onClick={check} disabled={checking} className="flex items-center gap-1.5 text-white/40 hover:text-white font-body text-xs font-semibold transition-colors disabled:opacity-50 flex-shrink-0">
+          <RefreshCw size={12} className={checking ? 'animate-spin' : ''} /> Recheck
+        </button>
+      </div>
+      {indexing && indexing.notIndexed > 0 && (
+        <div className="flex flex-wrap gap-1.5 mt-3">
+          {indexing.pages.filter(p => p.verdict !== 'PASS').slice(0, 12).map(p => (
+            <span key={p.path} className="text-white/50 font-mono text-[10px] bg-white/5 rounded-full px-2.5 py-1" title={p.coverageState ?? undefined}>
+              {p.path || '/'} — {p.coverageState ?? p.verdict}
+            </span>
+          ))}
+        </div>
+      )}
+      {performance && performance.topQueries.length > 0 && (
+        <div className="mt-4 pt-4 border-t border-white/10">
+          <p className="text-white/30 font-body text-[10px] font-bold uppercase tracking-widest mb-2">Top queries, last 28 days</p>
+          <div className="flex flex-wrap gap-1.5">
+            {performance.topQueries.slice(0, 10).map(q => (
+              <span key={q.query} className="text-white/60 font-body text-[11px] bg-white/5 rounded-full px-2.5 py-1">
+                {q.query} <span className="text-white/30">· {q.clicks}c / {q.impressions}i</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -279,7 +399,7 @@ function SeoDashboard({ secret }: { secret: string }) {
 
   return (
     <div className="space-y-6">
-      <IndexingCard pageCount={audit.pageCount} />
+      <IndexingCard pageCount={audit.pageCount} secret={secret} />
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard

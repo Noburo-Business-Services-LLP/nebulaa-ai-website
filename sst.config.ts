@@ -94,6 +94,13 @@ export default $config({
         NEXT_PUBLIC_GOOGLE_ADS_ID: process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? '',
         NEXT_PUBLIC_META_PIXEL_ID: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? '',
         META_CAPI_ACCESS_TOKEN: process.env.META_CAPI_ACCESS_TOKEN ?? '',
+
+        // Google Search Console (service account) — see lib/googleSearchConsole.ts.
+        // Blank means the SEO dashboard's indexing card reports itself as
+        // not configured rather than failing.
+        GSC_CLIENT_EMAIL: process.env.GSC_CLIENT_EMAIL ?? '',
+        GSC_PRIVATE_KEY: process.env.GSC_PRIVATE_KEY ?? '',
+        GSC_PROPERTY: process.env.GSC_PROPERTY ?? '',
       },
     })
 

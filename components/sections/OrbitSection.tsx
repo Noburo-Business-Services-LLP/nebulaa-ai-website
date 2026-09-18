@@ -1,7 +1,8 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { Crosshair, Search, Sparkles, Filter, Send, ArrowRight } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
 import HudCard from '@/components/ui/HudCard'
@@ -29,7 +30,76 @@ const PIPELINE = [
   { stage: 'Outreach drafted', count: 34, note: 'Personalised from real context' },
 ]
 
+/**
+ * Same live-console pattern as CoreConsole/GravitySection/PulsarSection —
+ * the funnel narrows one stage at a time instead of appearing fully built,
+ * so the panel reads as a run actually happening.
+ */
+const HANDOFF_STEP = PIPELINE.length + 1
+const TOTAL = HANDOFF_STEP
+const HOLD_STEPS = 16
+const STEP_MS = 600
+
+function useCountUp(target: number, active: boolean, duration = 700) {
+  const [display, setDisplay] = useState(0)
+  useEffect(() => {
+    if (!active) {
+      setDisplay(0)
+      return
+    }
+    const start = performance.now()
+    let raf = 0
+    const tick = (now: number) => {
+      const t = Math.min((now - start) / duration, 1)
+      const eased = t === 1 ? 1 : 1 - Math.pow(2, -10 * t)
+      setDisplay(Math.round(target * eased))
+      if (t < 1) raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+  }, [active, target, duration])
+  return display
+}
+
+function PipelineRow({ row, revealed, isLast }: { row: (typeof PIPELINE)[number]; revealed: boolean; isLast: boolean }) {
+  const count = useCountUp(row.count ?? 0, revealed && row.count !== null)
+  return (
+    <div className={`transition-all duration-400 ${revealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1.5'}`}>
+      <div className="flex items-center justify-between gap-4 py-[11px]">
+        <div className="min-w-0">
+          <div className="font-heading text-[14.5px] font-medium mb-0.5">{row.stage}</div>
+          <div className="neb-label leading-tight">{row.note}</div>
+        </div>
+        {row.count !== null && (
+          <span className="font-digital text-[22px] text-gold-text tabular-nums flex-shrink-0">
+            {count}
+          </span>
+        )}
+      </div>
+      {!isLast && (
+        <div className="flex justify-center py-0.5" aria-hidden="true">
+          <span className="w-px h-3 bg-gradient-to-b from-gold/45 to-transparent" />
+        </div>
+      )}
+    </div>
+  )
+}
+
 export default function OrbitSection() {
+  const reduceMotion = useReducedMotion()
+  const [step, setStep] = useState(reduceMotion ? TOTAL : 0)
+
+  useEffect(() => {
+    if (reduceMotion) return
+    const id = setInterval(() => {
+      setStep(s => (s >= TOTAL + HOLD_STEPS ? 0 : s + 1))
+    }, STEP_MS)
+    return () => clearInterval(id)
+  }, [reduceMotion])
+
+  const rowsShown = Math.max(0, Math.min(step, PIPELINE.length))
+  const handoffShown = step >= HANDOFF_STEP
+
   return (
     <section id="orbit" className="py-[130px] px-6 md:px-12 lg:px-[120px]">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-[90px] items-center">
@@ -84,31 +154,22 @@ export default function OrbitSection() {
           viewport={viewportOptions}
           transition={{ duration: 0.55 }}
         >
-          <HudCard halo="cyan" label="Orbit // prospecting run" status={{ tone: 'active', label: 'Complete' }}>
+          <HudCard
+            halo="cyan"
+            label="Orbit // prospecting run"
+            status={{ tone: handoffShown ? 'active' : 'live', label: handoffShown ? 'Complete' : 'Running' }}
+          >
             <div className="flex flex-col">
               {PIPELINE.map((row, i) => (
-                <div key={row.stage}>
-                  <div className="flex items-center justify-between gap-4 py-[11px]">
-                    <div className="min-w-0">
-                      <div className="font-heading text-[14.5px] font-medium mb-0.5">{row.stage}</div>
-                      <div className="neb-label leading-tight">{row.note}</div>
-                    </div>
-                    {row.count !== null && (
-                      <span className="font-heading text-[22px] text-gold-text tabular-nums flex-shrink-0">
-                        {row.count}
-                      </span>
-                    )}
-                  </div>
-                  {i < PIPELINE.length - 1 && (
-                    <div className="flex justify-center py-0.5" aria-hidden="true">
-                      <span className="w-px h-3 bg-gradient-to-b from-gold/45 to-transparent" />
-                    </div>
-                  )}
-                </div>
+                <PipelineRow key={row.stage} row={row} revealed={i < rowsShown} isLast={i === PIPELINE.length - 1} />
               ))}
 
               {/* The handoff — the point of the whole run */}
-              <div className="flex items-center justify-between gap-4 mt-3 pt-3.5 border-t border-rule">
+              <div
+                className={`flex items-center justify-between gap-4 mt-3 pt-3.5 border-t border-rule transition-all duration-500 ${
+                  handoffShown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1.5'
+                }`}
+              >
                 <span className="neb-label">Handed to Pulsar</span>
                 <StatusIndicator tone="active" label="Engaging" />
               </div>

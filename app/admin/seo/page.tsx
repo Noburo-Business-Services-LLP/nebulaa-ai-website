@@ -5,9 +5,11 @@ import { motion } from 'framer-motion'
 import {
   FileText, Type, AlignLeft, Image as ImageIcon, Link2, Heading1,
   AlertTriangle, CheckCircle2, RefreshCw, ExternalLink, Search,
+  Copy, ChevronDown, ChevronUp, ListChecks,
 } from 'lucide-react'
 import { adminFetch, AuthGate, useAdminAuth } from '@/lib/adminClient'
 import type { AuditSummary, PageAudit } from '@/lib/seoAudit'
+import { buildActionItems, type ActionItem } from '@/lib/seoActions'
 
 // ── Stat card (matches app/admin/page.tsx's visual language) ───────────────
 function StatCard({
@@ -52,6 +54,72 @@ function IndexingCard({ pageCount }: { pageCount: number }) {
           account is connected (Search Console → Settings → Users and permissions → add the service account as a user).
         </p>
       </div>
+    </div>
+  )
+}
+
+// ── Action items — what each flagged number actually means and how to fix it ─
+const SEVERITY_STYLE = {
+  critical: { color: 'text-red-400', bg: 'bg-red-400/10', border: 'border-red-400/20' },
+  warning: { color: 'text-yellow-400', bg: 'bg-yellow-400/10', border: 'border-yellow-400/20' },
+  info: { color: 'text-blue-400', bg: 'bg-blue-400/10', border: 'border-blue-400/20' },
+} as const
+
+function ActionItemCard({ item }: { item: ActionItem }) {
+  const [open, setOpen] = useState(false)
+  const [copied, setCopied] = useState(false)
+  const style = SEVERITY_STYLE[item.severity]
+
+  const copyPrompt = () => {
+    navigator.clipboard.writeText(item.claudeCodePrompt)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  return (
+    <div className={`bg-[#111110] border ${style.border} rounded-2xl overflow-hidden`}>
+      <button onClick={() => setOpen(o => !o)} className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left">
+        <div className="flex items-center gap-3 min-w-0">
+          <span className={`w-7 h-7 rounded-lg ${style.bg} border ${style.border} flex items-center justify-center ${style.color} flex-shrink-0`}>
+            <AlertTriangle size={14} />
+          </span>
+          <p className="text-white font-body font-semibold text-sm truncate">{item.title}</p>
+        </div>
+        {open ? <ChevronUp size={16} className="text-white/40 flex-shrink-0" /> : <ChevronDown size={16} className="text-white/40 flex-shrink-0" />}
+      </button>
+      {open && (
+        <div className="px-5 pb-5 space-y-4">
+          <div>
+            <p className="text-white/30 font-body text-[10px] font-bold uppercase tracking-widest mb-1">What it means</p>
+            <p className="text-white/70 font-body text-xs leading-relaxed">{item.whatItMeans}</p>
+          </div>
+          <div>
+            <p className="text-white/30 font-body text-[10px] font-bold uppercase tracking-widest mb-1">Why it matters</p>
+            <p className="text-white/70 font-body text-xs leading-relaxed">{item.whyItMatters}</p>
+          </div>
+          {item.samplePaths.length > 0 && (
+            <div>
+              <p className="text-white/30 font-body text-[10px] font-bold uppercase tracking-widest mb-1.5">
+                Affected pages {item.affectedCount > item.samplePaths.length && `(${item.samplePaths.length} of ${item.affectedCount} shown)`}
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {item.samplePaths.map(path => (
+                  <span key={path} className="text-white/50 font-mono text-[10px] bg-white/5 rounded-full px-2.5 py-1">{path || '/'}</span>
+                ))}
+              </div>
+            </div>
+          )}
+          <div className="bg-white/3 border border-white/8 rounded-xl p-3.5">
+            <div className="flex items-center justify-between mb-2">
+              <p className="text-white/30 font-body text-[10px] font-bold uppercase tracking-widest">Paste into Claude Code</p>
+              <button onClick={copyPrompt} className="flex items-center gap-1.5 text-brand-gold hover:text-brand-gold-dim font-body text-[11px] font-semibold transition-colors">
+                <Copy size={11} /> {copied ? 'Copied' : 'Copy'}
+              </button>
+            </div>
+            <p className="text-white/60 font-mono text-[11px] leading-relaxed">{item.claudeCodePrompt}</p>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -162,6 +230,8 @@ function SeoDashboard({ secret }: { secret: string }) {
     .filter(p => filter === 'all' || p.error || !p.title || !p.metaDescription || !p.canonicalMatchesWww || p.h1Count !== 1 || p.imagesMissingAlt > 0)
     .filter(p => search === '' || p.path.toLowerCase().includes(search.toLowerCase()))
 
+  const actionItems = buildActionItems(audit)
+
   return (
     <div className="space-y-6">
       <IndexingCard pageCount={audit.pageCount} />
@@ -212,6 +282,19 @@ function SeoDashboard({ secret }: { secret: string }) {
           {...toneFor(audit.missingH1Count + audit.multipleH1Count === 0 ? 100 : 40)}
         />
       </div>
+
+      {/* Action items — what to actually do about the numbers above */}
+      {actionItems.length > 0 && (
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <ListChecks size={16} className="text-brand-gold" />
+            <p className="text-white font-body font-semibold text-sm">{actionItems.length} thing{actionItems.length === 1 ? '' : 's'} to fix, ranked by severity</p>
+          </div>
+          <div className="space-y-2.5">
+            {actionItems.map(item => <ActionItemCard key={item.id} item={item} />)}
+          </div>
+        </div>
+      )}
 
       {/* Page-by-page */}
       <div className="bg-[#111110] border border-white/8 rounded-2xl overflow-hidden">

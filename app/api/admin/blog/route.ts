@@ -6,7 +6,7 @@ import { blogPosts } from '@/lib/blogData'
 export interface AdminPostSummary {
   slug: string
   title: string
-  category: string
+  tags: string[]
   date: string
   /** 'edited' = a repo post with an S3 override; 'published' = created entirely through admin. */
   source: 'repo' | 'edited' | 'published'
@@ -23,12 +23,12 @@ export async function GET(req: NextRequest) {
   const repoRows: AdminPostSummary[] = blogPosts.map(p => {
     const override = overrides.get(p.slug)
     const meta = override ? toMeta(override) : p
-    return { slug: p.slug, title: meta.title, category: meta.category, date: meta.date, source: override ? 'edited' : 'repo' }
+    return { slug: p.slug, title: meta.title, tags: meta.tags, date: meta.date, source: override ? 'edited' : 'repo' }
   })
 
   const newRows: AdminPostSummary[] = published
     .filter(p => !repoSlugs.has(p.slug))
-    .map(p => ({ slug: p.slug, title: p.title, category: p.category, date: p.date, source: 'published' }))
+    .map(p => ({ slug: p.slug, title: p.title, tags: p.tags, date: p.date, source: 'published' }))
 
   return NextResponse.json([...newRows, ...repoRows])
 }

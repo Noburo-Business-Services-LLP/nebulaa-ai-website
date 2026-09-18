@@ -55,9 +55,17 @@ export default async function BlogPost({ params }: Props) {
             ) : (
               <div className={`h-1.5 w-16 bg-gradient-to-r ${post.headerColor} rounded-full mb-6`} />
             )}
-            <span className="inline-block font-body text-xs font-semibold bg-gold text-[#1A1208] px-3 py-1 rounded-full mb-4">
-              {post.category}
-            </span>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {post.tags.map(tag => (
+                <a
+                  key={tag}
+                  href={`/blog?tag=${encodeURIComponent(tag)}`}
+                  className="inline-block font-body text-xs font-semibold bg-gold text-[#1A1208] px-3 py-1 rounded-full hover:brightness-110 transition"
+                >
+                  #{tag}
+                </a>
+              ))}
+            </div>
             <h1 className="font-heading font-bold text-3xl md:text-4xl text-ink leading-tight mb-4 tracking-tight">
               {post.title}
             </h1>

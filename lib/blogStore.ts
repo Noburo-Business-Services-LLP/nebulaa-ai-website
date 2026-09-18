@@ -29,6 +29,20 @@ export interface StoredPost extends BlogPost {
 const KEY_PREFIX = 'blog'
 const postKey = (slug: string) => `${KEY_PREFIX}/${slug}.json`
 
+/**
+ * Posts saved before the category → tags migration have `category: string`
+ * and no `tags` field at all — the type says `tags: string[]` but the JSON
+ * on disk doesn't know that. Reading one as-is hands the rest of the app a
+ * post whose `.tags` is `undefined`, which crashes the first `.map`/
+ * `.includes` call. Normalized on read so a post saved under the old shape
+ * keeps working instead of needing a manual data fix.
+ */
+function migrateLegacyPost(post: StoredPost & { category?: string }): StoredPost {
+  if (Array.isArray(post.tags)) return post
+  const { category, ...rest } = post
+  return { ...rest, tags: category ? [category] : [] }
+}
+
 /** Strip the stored-only fields (content, publishedAt), leaving the shape the blog components expect. */
 export function toMeta(post: StoredPost): BlogPost {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars -- discarded on purpose
@@ -37,7 +51,8 @@ export function toMeta(post: StoredPost): BlogPost {
 }
 
 export async function getPublishedPost(slug: string): Promise<StoredPost | null> {
-  return readJson<StoredPost | null>(postKey(slug), null)
+  const post = await readJson<StoredPost | null>(postKey(slug), null)
+  return post ? migrateLegacyPost(post) : null
 }
 
 export async function savePublishedPost(post: StoredPost): Promise<boolean> {
@@ -55,5 +70,6 @@ export async function listPublishedPosts(): Promise<StoredPost[]> {
 
   return posts
     .filter((p): p is StoredPost => p !== null)
+    .map(migrateLegacyPost)
     .sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''))
 }

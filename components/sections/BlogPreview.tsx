@@ -47,8 +47,10 @@ export default function BlogPreview() {
             className="hud-card rounded-[18px] overflow-hidden hover:border-gold/[0.18] transition-colors duration-300 group block"
           >
             <div className={`h-44 bg-gradient-to-br ${post.headerColor} relative`}>
-              <span className="absolute bottom-3 left-4">
-                <SectionLabel tone="muted">{post.category}</SectionLabel>
+              <span className="absolute bottom-3 left-4 flex flex-wrap gap-1.5">
+                {post.tags.slice(0, 2).map(tag => (
+                  <SectionLabel key={tag} tone="muted">#{tag}</SectionLabel>
+                ))}
               </span>
             </div>
             <div className="p-6">

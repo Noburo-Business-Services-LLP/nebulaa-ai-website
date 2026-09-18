@@ -1,18 +1,25 @@
 'use client'
 
 import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { BlogPost } from '@/lib/blogData'
 import SectionLabel from '@/components/ui/SectionLabel'
 import HudCard from '@/components/ui/HudCard'
 import BlogEmailCapture from '@/components/ui/BlogEmailCapture'
-import { BLOG_CATEGORIES } from '@/lib/blogCategories'
-
-const categories = ['All', ...BLOG_CATEGORIES]
 
 export default function BlogList({ posts }: { posts: BlogPost[] }) {
-  const [activeCategory, setActiveCategory] = useState('All')
-  const filtered = activeCategory === 'All' ? posts : posts.filter(p => p.category === activeCategory)
+  // A tag clicked on a post page (a different route) links here as
+  // /blog?tag=X — read once on mount so that link actually lands filtered
+  // rather than dropping the visitor on the unfiltered index.
+  const searchParams = useSearchParams()
+  const [activeTag, setActiveTag] = useState(searchParams.get('tag') || 'All')
+  // The filter bar is whatever tags actually exist across these posts, not a
+  // fixed list — a tag that no post carries yet shouldn't show as a filter
+  // with nothing behind it, and a new tag typed in the editor appears here
+  // the moment a post uses it.
+  const allTags = ['All', ...Array.from(new Set(posts.flatMap(p => p.tags)))]
+  const filtered = activeTag === 'All' ? posts : posts.filter(p => p.tags.includes(activeTag))
 
   return (
     <>
@@ -26,19 +33,19 @@ export default function BlogList({ posts }: { posts: BlogPost[] }) {
             <p className="font-body text-base text-muted">No theory. Just what works for founders with no time.</p>
           </div>
 
-          {/* Category filter */}
+          {/* Tag filter */}
           <div className="flex flex-wrap gap-2 mb-10">
-            {categories.map(cat => (
+            {allTags.map(tag => (
               <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
+                key={tag}
+                onClick={() => setActiveTag(tag)}
                 className={`font-body text-sm font-semibold rounded-full px-4 py-1.5 transition-all cursor-pointer ${
-                  activeCategory === cat
+                  activeTag === tag
                     ? 'bg-gold text-[#1A1208]'
                     : 'bg-surface-2 text-muted hover:text-ink border border-rule'
                 }`}
               >
-                {cat}
+                {tag === 'All' ? tag : `#${tag}`}
               </button>
             ))}
           </div>
@@ -62,10 +69,19 @@ export default function BlogList({ posts }: { posts: BlogPost[] }) {
                   className="group block"
                 >
                   <HudCard halo="amber" className="overflow-hidden hover:-translate-y-1 transition-transform duration-300">
-                    <div className={`h-36 bg-gradient-to-br ${post.headerColor} relative`}>
-                      <span className="absolute bottom-3 left-4 font-body text-xs font-semibold bg-gold text-[#1A1208] px-3 py-1 rounded-full">
-                        {post.category}
-                      </span>
+                    <div className={`h-36 bg-gradient-to-br ${post.headerColor} relative flex items-end gap-1.5 p-4 flex-wrap`}>
+                      {post.tags.slice(0, 2).map(tag => (
+                        <button
+                          key={tag}
+                          onClick={e => {
+                            e.preventDefault()
+                            setActiveTag(tag)
+                          }}
+                          className="font-body text-xs font-semibold bg-gold text-[#1A1208] px-3 py-1 rounded-full hover:brightness-110 transition"
+                        >
+                          #{tag}
+                        </button>
+                      ))}
                     </div>
                     <div className="p-5">
                       <h2 className="font-heading font-semibold text-base text-ink mb-2 group-hover:text-gold-text transition-colors leading-snug">

@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server'
 import { isAdmin } from '@/lib/adminAuth'
 import { savePublishedPost, getPublishedPost, type StoredPost } from '@/lib/blogStore'
 import { getRepoPost } from '@/lib/blogRepo'
-import { BLOG_CATEGORIES } from '@/lib/blogCategories'
 
 const HEADER_COLORS = [
   'from-brand-gold/25 to-brand-gold/5',
@@ -29,11 +28,16 @@ function readTime(content: string): string {
 export async function POST(req: NextRequest) {
   if (!isAdmin(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
-  const { slug, title, content, category, excerpt, heroImage, date, author } = await req.json()
+  const { slug, title, content, tags, excerpt, heroImage, date, author } = await req.json()
 
   if (!slug || !title || !content) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
   }
+
+  const cleanTags: string[] =
+    Array.isArray(tags) && tags.length
+      ? Array.from(new Set(tags.map((t: unknown) => String(t).trim()).filter(Boolean)))
+      : []
 
   if (!/^[a-z0-9-]+$/.test(slug)) {
     return NextResponse.json(
@@ -53,7 +57,7 @@ export async function POST(req: NextRequest) {
     slug,
     title,
     excerpt: (excerpt || title).replace(/[#*`_~\[\]]/g, '').trim().slice(0, 160),
-    category: (BLOG_CATEGORIES as readonly string[]).includes(category) ? category : base?.category ?? 'Pillar',
+    tags: cleanTags.length ? cleanTags : base?.tags ?? [],
     readTime: readTime(content),
     date: date || base?.date || new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
     author: author || base?.author || 'Nebulaa Team',

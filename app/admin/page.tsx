@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { blogIdeas, newsletterIdeas, type ContentIdea } from '@/lib/contentIdeas'
 import { Users, FileText, Send, TrendingUp, ChevronUp, ChevronDown, Eye, BarChart2, Globe, BookOpen } from 'lucide-react'
 import { adminFetch, AuthGate, useAdminAuth } from '@/lib/adminClient'
-import { BLOG_CATEGORIES } from '@/lib/blogCategories'
 
 // ── Types ──────────────────────────────────────────────────────────────────
 interface Lead { id: string; name: string; email: string; source: string; date: string; tags: string[] }
@@ -675,7 +674,6 @@ function BlogWriter({ secret }: { secret: string }) {
   const [topic, setTopic] = useState('')
   const [style, setStyle] = useState('Gen Z — punchy, direct, casual with emojis')
   const [selectedIdea, setSelectedIdea] = useState<ContentIdea | null>(null)
-  const [category, setCategory] = useState<string>(BLOG_CATEGORIES[0])
   const [generating, setGenerating] = useState(false)
   const [publishing, setPublishing] = useState(false)
   const [result, setResult] = useState<{ content: string; title: string; slug: string } | null>(null)
@@ -702,10 +700,25 @@ function BlogWriter({ secret }: { secret: string }) {
     setPublishing(true)
     try {
       const excerpt = result.content.replace(/^#.+\n/m, '').replace(/[#*`\n]/g, ' ').trim().slice(0, 160)
+      // Tags are read from the generated content rather than picked from a
+      // list — a post can be more than one thing, and asking someone to
+      // hand-pick from a fixed category on every quick publish is exactly
+      // the friction this flow is for avoiding.
+      let tags: string[] = []
+      try {
+        const tagRes = await adminFetch<{ tags: string[] }>('/api/admin/suggest-tags', secret, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title: result.title, excerpt, content: result.content }),
+        })
+        tags = tagRes?.tags ?? []
+      } catch {
+        /* tagging is best-effort — a post with no tags yet can still be edited in /admin/blog */
+      }
       const data = await adminFetch<{ url: string }>('/api/admin/publish-blog', secret, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ slug: result.slug, title: result.title, content: result.content, category, excerpt }),
+        body: JSON.stringify({ slug: result.slug, title: result.title, content: result.content, tags, excerpt }),
       })
       if (data) setPublished(data.url)
     } catch (e) { setError(String(e)) } finally { setPublishing(false) }
@@ -754,14 +767,6 @@ function BlogWriter({ secret }: { secret: string }) {
                 <option value="Professional but direct — no fluff, data-driven">Professional / Data</option>
                 <option value="Storytelling — first-person founder story, emotional arc">Storytelling</option>
                 <option value="Contrarian hot-take — challenge conventional wisdom">Hot Take</option>
-              </select>
-            </div>
-            <div>
-              <label className="text-white/60 text-xs font-body font-semibold block mb-2">Category</label>
-              <select value={category} onChange={e => setCategory(e.target.value)} className="w-full bg-[#1A1815] border border-white/10 text-white rounded-xl px-3 py-2 font-body text-sm outline-none focus:border-brand-gold">
-                {BLOG_CATEGORIES.map(c => (
-                  <option key={c} value={c}>{c}</option>
-                ))}
               </select>
             </div>
           </div>

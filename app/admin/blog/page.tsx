@@ -2,18 +2,16 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, Save, Sparkles, Upload, ExternalLink, FileEdit } from 'lucide-react'
+import { ArrowLeft, Save, Sparkles, Upload, ExternalLink, FileEdit, X, Wand2 } from 'lucide-react'
 import { adminFetch, AuthGate, useAdminAuth } from '@/lib/adminClient'
 import { invalidateMediaManifest } from '@/lib/mediaManifestClient'
 import { mediaUrl } from '@/lib/mediaUrl'
-import { BLOG_CATEGORIES } from '@/lib/blogCategories'
-
-const CATEGORIES = BLOG_CATEGORIES
+import { SUGGESTED_TAGS } from '@/lib/blogTags'
 
 interface PostSummary {
   slug: string
   title: string
-  category: string
+  tags: string[]
   date: string
   source: 'repo' | 'edited' | 'published'
 }
@@ -21,14 +19,14 @@ interface PostSummary {
 interface PostDraft {
   slug: string
   title: string
-  category: string
+  tags: string[]
   excerpt: string
   content: string
   heroImage?: string
   isRepoPost?: boolean
 }
 
-const EMPTY_DRAFT: PostDraft = { slug: '', title: '', category: CATEGORIES[0], excerpt: '', content: '' }
+const EMPTY_DRAFT: PostDraft = { slug: '', title: '', tags: [], excerpt: '', content: '' }
 
 const SOURCE_LABEL: Record<PostSummary['source'], string> = {
   repo: 'Original',
@@ -75,7 +73,7 @@ function PostList({
           >
             <p className="text-[13.5px] font-medium text-ink leading-snug line-clamp-1">{p.title}</p>
             <p className="text-[11.5px] text-faint mt-0.5">
-              {p.category} · {SOURCE_LABEL[p.source]}
+              {p.tags.length ? p.tags.join(', ') : 'No tags'} · {SOURCE_LABEL[p.source]}
             </p>
           </button>
         ))}
@@ -96,9 +94,41 @@ function Editor({ secret, draft, setDraft, onSaved }: {
   const [error, setError] = useState('')
   const [aiTopic, setAiTopic] = useState('')
   const [generating, setGenerating] = useState(false)
+  const [tagInput, setTagInput] = useState('')
+  const [suggesting, setSuggesting] = useState(false)
   const fileRef = useRef<HTMLInputElement>(null)
 
   const isNew = !draft.slug
+
+  const addTag = (raw: string) => {
+    const tag = raw.trim()
+    if (!tag || draft.tags.includes(tag)) return
+    setDraft({ ...draft, tags: [...draft.tags, tag] })
+  }
+  const removeTag = (tag: string) => setDraft({ ...draft, tags: draft.tags.filter(t => t !== tag) })
+
+  const suggestTags = async () => {
+    if (!draft.title.trim() || !draft.content.trim()) {
+      setError('Write a title and some content first — there\'s nothing to read yet')
+      return
+    }
+    setSuggesting(true)
+    setError('')
+    try {
+      const res = await adminFetch<{ tags: string[] }>('/api/admin/suggest-tags', secret, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: draft.title, excerpt: draft.excerpt, content: draft.content }),
+      })
+      if (res) {
+        const merged = Array.from(new Set([...draft.tags, ...res.tags]))
+        setDraft({ ...draft, tags: merged })
+      }
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Could not suggest tags')
+    }
+    setSuggesting(false)
+  }
 
   const save = async () => {
     if (!draft.title.trim() || !draft.content.trim()) {
@@ -205,16 +235,57 @@ function Editor({ secret, draft, setDraft, onSaved }: {
           className="w-full bg-surface-2 border border-rule rounded-xl px-4 py-3 text-[16px] font-medium outline-none focus:border-gold"
         />
 
-        <div className="flex flex-wrap gap-3">
-          <select
-            value={draft.category}
-            onChange={e => setDraft({ ...draft, category: e.target.value })}
-            className="bg-surface-2 border border-rule rounded-xl px-3.5 py-2.5 text-[13.5px] outline-none focus:border-gold"
-          >
-            {CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
-          </select>
+        <div>
+          <div className="flex items-center justify-between mb-2">
+            <p className="text-[12px] text-muted">Tags</p>
+            <button
+              onClick={suggestTags}
+              disabled={suggesting}
+              className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-gold-text hover:gap-2 transition-all disabled:opacity-50"
+            >
+              <Wand2 size={12} /> {suggesting ? 'Reading the post…' : 'Suggest tags'}
+            </button>
+          </div>
+          <div className="flex flex-wrap gap-2 mb-2.5">
+            {draft.tags.map(tag => (
+              <span
+                key={tag}
+                className="inline-flex items-center gap-1.5 bg-gold-wash border border-gold/25 text-gold-text text-[12.5px] rounded-full pl-3 pr-1.5 py-1"
+              >
+                #{tag}
+                <button onClick={() => removeTag(tag)} className="hover:text-red-400 transition">
+                  <X size={11} />
+                </button>
+              </span>
+            ))}
+            {draft.tags.length === 0 && <span className="text-[12.5px] text-faint">No tags yet</span>}
+          </div>
+          <div className="flex flex-wrap gap-2 items-center">
+            <input
+              value={tagInput}
+              onChange={e => setTagInput(e.target.value)}
+              onKeyDown={e => {
+                if (e.key === 'Enter' || e.key === ',') {
+                  e.preventDefault()
+                  addTag(tagInput)
+                  setTagInput('')
+                }
+              }}
+              placeholder="Type a tag, press Enter"
+              className="flex-1 min-w-[160px] bg-surface-2 border border-rule rounded-lg px-3 py-1.5 text-[12.5px] outline-none focus:border-gold"
+            />
+            {SUGGESTED_TAGS.filter(t => !draft.tags.includes(t)).slice(0, 6).map(t => (
+              <button
+                key={t}
+                onClick={() => addTag(t)}
+                className="text-[11.5px] text-muted border border-rule rounded-full px-2.5 py-1 hover:border-gold hover:text-gold-text transition"
+              >
+                + {t}
+              </button>
+            ))}
+          </div>
           {draft.slug && (
-            <span className="text-[13px] text-faint self-center">/blog/{draft.slug}</span>
+            <span className="text-[13px] text-faint mt-2 block">/blog/{draft.slug}</span>
           )}
         </div>
 

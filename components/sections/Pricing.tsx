@@ -13,10 +13,15 @@ const gravityChannels = [Linkedin, Instagram, Twitter]
 const pulsarChannels = [WhatsAppIcon, Mail, MessageSquare]
 const orbitChannels = [MapPin, Building2]
 
+// One line per agent this replaces, not just the content/response half of
+// it — the total is compared against the three-agent bundle (see priceFor
+// calls below), so leaving out lead sourcing entirely would understate
+// what "doing it yourself" actually costs and overstate the multiple.
 const replaces = [
   { item: 'A marketing hire', cost: '₹30,000–50,000/mo' },
   { item: 'A designer for creatives', cost: '₹12,000–20,000/mo' },
   { item: 'Scheduling & content tools', cost: '₹3,000–5,000/mo' },
+  { item: 'An SDR to source leads', cost: '₹25,000–40,000/mo' },
   { item: 'WhatsApp Business API / CRM', cost: '₹5,000–10,000/mo' },
   { item: 'Someone to answer leads fast', cost: '₹8,000–12,000/mo' },
   { item: 'Weeks spent interviewing', cost: '4–6 weeks, before they start' },
@@ -24,11 +29,13 @@ const replaces = [
 
 // The other half of the same comparison — asserting a total without
 // itemising our side is only doing half the arithmetic for the reader.
+// One line per agent, matching the three roles `replaces` covers above.
 const included = [
   'Strategy and ICP, built from your URL',
   'A month of content planned and drafted',
   'Posts, carousels and AI reels',
   'Competitor tracking and counter-content',
+  'Leads sourced, qualified and CRM-ready',
   'WhatsApp, email and SMS handled',
   'Live on Thursday, not in six weeks',
 ]
@@ -148,13 +155,78 @@ export default function Pricing() {
         </motion.p>
       </motion.div>
 
-      {/* Monthly / annual toggle */}
+      {/* Side-by-side cost comparison — the total leads, the itemised
+          arithmetic backs it up below for anyone who wants to check it,
+          instead of making that arithmetic the first thing a reader has
+          to wade through. */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={viewportOptions}
+        transition={{ duration: 0.6 }}
+        className="mb-[62px]"
+      >
+        <div className="flex items-center justify-center gap-3 mb-6">
+          <span className="h-px flex-1 bg-rule max-w-[100px]" />
+          <span className="font-mono text-[12px] text-gold-text tracking-wide whitespace-nowrap">
+            ~{Math.round(83000 / priceFor(30000, annual).display)}× cheaper than hiring it out
+          </span>
+          <span className="h-px flex-1 bg-rule max-w-[100px]" />
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-5 items-stretch">
+          {/* The manual stack */}
+          <div className="hud-card rounded-[20px] overflow-hidden flex flex-col">
+            <div className="px-6 md:px-8 pt-7 pb-6 border-b border-rule">
+              <div className="flex items-center justify-between mb-4">
+                <span className="neb-label">Doing it yourself</span>
+                <StatusIndicator tone="idle" label="Manual stack" pulse={false} />
+              </div>
+              <span className="font-digital text-[34px] md:text-[40px] text-muted tabular-nums leading-none">
+                ₹83,000–137,000<span className="text-[18px] md:text-[22px]">+/mo</span>
+              </span>
+            </div>
+            <div className="px-6 md:px-8 py-2 flex-1">
+              {replaces.map(row => (
+                <div key={row.item} className="flex items-center justify-between gap-4 py-3.5 border-b border-rule last:border-b-0">
+                  <span className="font-body text-[13.5px] text-faint">{row.item}</span>
+                  <span className="font-mono text-[12px] text-faint text-right tabular-nums whitespace-nowrap">{row.cost}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Nebulaa */}
+          <div className="rounded-[20px] overflow-hidden flex flex-col bg-gold/[0.05] border border-gold/[0.22] shadow-[inset_0_1px_0_0_rgba(255,214,150,0.07),0_18px_60px_rgba(245,166,35,0.07)]">
+            <div className="px-6 md:px-8 pt-7 pb-6 border-b border-gold/[0.18]">
+              <div className="flex items-center justify-between mb-4">
+                <span className="neb-label neb-label-gold">With Nebulaa</span>
+                <StatusIndicator tone="active" label="Nebulaa" />
+              </div>
+              <span className="font-digital text-[34px] md:text-[40px] text-gold-text tabular-nums leading-none">
+                ₹{priceFor(30000, annual).display.toLocaleString('en-IN')}<span className="text-[18px] md:text-[22px]">/mo</span>
+              </span>
+            </div>
+            <div className="px-6 md:px-8 py-2 flex-1">
+              {included.map(item => (
+                <div key={item} className="flex items-center gap-3 py-3.5 border-b border-gold/[0.14] last:border-b-0">
+                  <Check size={15} className="text-gold-text flex-shrink-0" />
+                  <span className="font-body text-[13.5px] text-ink-2">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Monthly / annual toggle — sits right above the plans it controls,
+          after the reader has already seen why the price is worth it. */}
       <motion.div
         variants={fadeUpVariant}
         initial="hidden"
         whileInView="visible"
         viewport={viewportOptions}
-        className="flex items-center gap-4 mb-[52px]"
+        className="flex items-center gap-4 mb-[38px]"
       >
         <div className="hud-card inline-flex items-center rounded-full p-1">
           <button
@@ -179,70 +251,6 @@ export default function Pricing() {
         <span className="font-mono text-[12px] text-gold-text tracking-wide">
           {Math.round(ANNUAL_DISCOUNT * 100)}% OFF, BILLED ANNUALLY
         </span>
-      </motion.div>
-
-      {/* Side-by-side cost comparison — the total leads, the itemised
-          arithmetic backs it up below for anyone who wants to check it,
-          instead of making that arithmetic the first thing a reader has
-          to wade through. */}
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={viewportOptions}
-        transition={{ duration: 0.6 }}
-        className="mb-[62px]"
-      >
-        <div className="flex items-center justify-center gap-3 mb-6">
-          <span className="h-px flex-1 bg-rule max-w-[100px]" />
-          <span className="font-mono text-[12px] text-gold-text tracking-wide whitespace-nowrap">
-            ~{Math.round(58000 / priceFor(15000, annual).display)}× cheaper than hiring it out
-          </span>
-          <span className="h-px flex-1 bg-rule max-w-[100px]" />
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-5 items-stretch">
-          {/* The manual stack */}
-          <div className="hud-card rounded-[20px] overflow-hidden flex flex-col">
-            <div className="px-6 md:px-8 pt-7 pb-6 border-b border-rule">
-              <div className="flex items-center justify-between mb-4">
-                <span className="neb-label">Doing it yourself</span>
-                <StatusIndicator tone="idle" label="Manual stack" pulse={false} />
-              </div>
-              <span className="font-digital text-[34px] md:text-[40px] text-muted tabular-nums leading-none">
-                ₹58,000–97,000<span className="text-[18px] md:text-[22px]">+/mo</span>
-              </span>
-            </div>
-            <div className="px-6 md:px-8 py-2 flex-1">
-              {replaces.map(row => (
-                <div key={row.item} className="flex items-center justify-between gap-4 py-3.5 border-b border-rule last:border-b-0">
-                  <span className="font-body text-[13.5px] text-faint">{row.item}</span>
-                  <span className="font-mono text-[12px] text-faint text-right tabular-nums whitespace-nowrap">{row.cost}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Nebulaa */}
-          <div className="rounded-[20px] overflow-hidden flex flex-col bg-gold/[0.05] border border-gold/[0.22] shadow-[inset_0_1px_0_0_rgba(255,214,150,0.07),0_18px_60px_rgba(245,166,35,0.07)]">
-            <div className="px-6 md:px-8 pt-7 pb-6 border-b border-gold/[0.18]">
-              <div className="flex items-center justify-between mb-4">
-                <span className="neb-label neb-label-gold">With Nebulaa</span>
-                <StatusIndicator tone="active" label="Nebulaa" />
-              </div>
-              <span className="font-digital text-[34px] md:text-[40px] text-gold-text tabular-nums leading-none">
-                From ₹{priceFor(15000, annual).display.toLocaleString('en-IN')}<span className="text-[18px] md:text-[22px]">/mo</span>
-              </span>
-            </div>
-            <div className="px-6 md:px-8 py-2 flex-1">
-              {included.map(item => (
-                <div key={item} className="flex items-center gap-3 py-3.5 border-b border-gold/[0.14] last:border-b-0">
-                  <Check size={15} className="text-gold-text flex-shrink-0" />
-                  <span className="font-body text-[13.5px] text-ink-2">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
       </motion.div>
 
       {/* 4 cards */}

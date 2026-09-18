@@ -50,7 +50,7 @@ export default function FAQ() {
           <SectionLabel className="mb-[22px] block">FAQ</SectionLabel>
         </motion.div>
         <motion.h2 variants={fadeUpVariant} className="neb-display text-[34px] md:text-[50px]">
-          The questions you&apos;re <span className="text-gold-display">actually asking.</span>
+          Frequently asked <span className="text-gold-display">questions.</span>
         </motion.h2>
       </motion.div>
 

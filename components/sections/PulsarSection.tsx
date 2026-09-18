@@ -125,7 +125,7 @@ export default function PulsarSection() {
             variants={fadeUpVariant}
             className="font-body text-[17px] leading-[1.68] text-muted max-w-[480px] mb-[34px]"
           >
-            It happens mid-billing, mid-invoice, mid-everything — and by the time you&rsquo;re free, they&rsquo;ve already messaged someone else. Pulsar replies in minutes, asks the questions you&rsquo;d ask, and hands you only the ones worth your afternoon.
+            Enquiries arrive while you are busy with other things, and by the time you are free, the lead has often gone elsewhere. Pulsar replies within minutes, asks the qualifying questions you would ask, and brings only the qualified leads to you.
           </motion.p>
           <motion.div variants={fadeUpVariant} className="flex flex-col gap-4">
             {bullets.map(({ icon: Icon, text }) => (

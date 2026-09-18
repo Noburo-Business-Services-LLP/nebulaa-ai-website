@@ -54,10 +54,10 @@ export default function Newsletter() {
           <SectionLabel className="mb-[22px] block">Weekly GTM Intel</SectionLabel>
         </motion.div>
         <motion.h2 variants={fadeUpVariant} className="font-heading text-[42px] leading-[1.12] tracking-[-0.02em] font-medium mb-5">
-          GTM tips. Weekly. <span className="text-gold-display">No fluff.</span>
+          Practical GTM tips, <span className="text-gold-display">sent every week.</span>
         </motion.h2>
         <motion.p variants={fadeUpVariant} className="font-body text-[16px] leading-[1.68] text-muted mb-10 max-w-[440px] mx-auto">
-          What founders using Nebulaa are learning right now — experiments, data, and what&apos;s actually working.
+          Real experiments and data from founders using Nebulaa, showing what is currently working.
         </motion.p>
 
         <motion.div variants={fadeUpVariant} className="max-w-[420px] mx-auto">
@@ -67,9 +67,9 @@ export default function Newsletter() {
               animate={{ opacity: 1, scale: 1 }}
               className="bg-surface border border-gold/[0.18] rounded-[18px] p-7 text-center"
             >
-              <p className="font-heading text-[19px] font-medium text-gold-text mb-1">You&apos;re in!</p>
+              <p className="font-heading text-[19px] font-medium text-gold-text mb-1">You&apos;re subscribed.</p>
               <p className="font-body text-[14.5px] text-muted">
-                {name ? `Hey ${name}! ` : ''}Expect GTM gold in your inbox every Monday at 8 AM.
+                {name ? `Thanks, ${name}. ` : ''}You&apos;ll get GTM tips every Monday at 8 AM.
               </p>
             </motion.div>
           ) : state === 'duplicate' ? (
@@ -78,7 +78,7 @@ export default function Newsletter() {
               animate={{ opacity: 1, scale: 1 }}
               className="hud-card rounded-[18px] p-7 text-center"
             >
-              <p className="font-body text-[14.5px] text-muted">You&apos;re already on the list! See you Monday.</p>
+              <p className="font-body text-[14.5px] text-muted">You&apos;re already subscribed. See you Monday.</p>
             </motion.div>
           ) : (
             <div className="hud-card rounded-[18px] p-6">

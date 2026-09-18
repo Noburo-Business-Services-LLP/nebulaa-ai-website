@@ -10,22 +10,22 @@ const SIGNALS = [
   {
     icon: MessageSquareQuote,
     label: 'Copy & hooks',
-    body: 'Which opening line actually got a reply, which caption fell flat — the tone that works for your audience specifically, not audiences in general.',
+    body: 'Tracks which opening lines get replies and which captions underperform, learning the tone that works for your specific audience.',
   },
   {
     icon: Hash,
     label: 'Hashtags & reach',
-    body: 'The tags pulling reach this month, dropped the moment they stop, replaced without you asking.',
+    body: 'Tracks which tags are driving reach this month and automatically replaces the ones that stop working.',
   },
   {
     icon: Sparkles,
     label: 'Visual style',
-    body: 'The colours, the framing, the format your customers stop scrolling for — read from what performed, not guessed at.',
+    body: 'Learns the colours, framing and format that get your customers to stop scrolling, based on what has actually performed.',
   },
   {
     icon: Clock,
     label: 'Timing & CTA',
-    body: 'When your audience is actually online, and which call-to-action moves them — learned per account, not copied from a playbook.',
+    body: 'Learns when your audience is online and which call-to-action moves them, specific to each account.',
   },
 ]
 
@@ -46,13 +46,13 @@ export default function SharedMemory() {
           variants={fadeUpVariant}
           className="neb-display text-[33px] md:text-[50px] mb-6"
         >
-          Compounding intelligence, <span className="text-gold-display">not a clean slate.</span>
+          <span className="text-gold-display">One memory</span>, shared across all three engines.
         </motion.h2>
         <motion.p variants={fadeUpVariant} className="text-[16.5px] leading-[1.7] text-muted">
           Orbit, Gravity and Pulsar read from and write to the same memory. What gets engagement,
-          what gets a reply, what a lead responds to — none of it evaporates after the post goes up
-          or the conversation ends. It shapes what runs next, on that account, for that audience.
-          Not a template getting reused. A system that knows your business better with every week it runs.
+          what gets a reply, and what a lead responds to all feeds back into future work on that
+          account, for that audience. The system gets better at your business with every week it runs,
+          rather than starting over each time.
         </motion.p>
       </motion.div>
 

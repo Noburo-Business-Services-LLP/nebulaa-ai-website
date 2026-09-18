@@ -14,7 +14,7 @@ import { fadeUpVariant, slideInLeft, staggerContainer, viewportOptions } from '@
 const bullets = [
   { icon: Target, text: 'Builds your marketing strategy first — ICP, channels, what to say' },
   { icon: CalendarCheck, text: 'Plans the month, then executes it — posts, carousels, reels' },
-  { icon: Radar, text: 'Watches your rivals and drafts the counter-post, not just a report' },
+  { icon: Radar, text: 'Monitors competitors and drafts a response post automatically' },
   { icon: TrendingUp, text: 'Gets sharper over time — it remembers what worked' },
   { icon: CircleCheck, text: 'Nothing publishes until you tap approve' },
 ]
@@ -107,7 +107,7 @@ export default function GravitySection() {
             variants={fadeUpVariant}
             className="font-body text-[17px] leading-[1.68] text-muted max-w-[480px] mb-[34px]"
           >
-            Gravity starts by understanding you: your customers, your channels, what actually works. Then it plans the month and drafts the posts, carousels and reels to fill it, watching your rivals so your content never plays catch-up. Your part is the last step — tap approve.
+            Gravity starts by learning your business: your customers, your channels, and what actually works for you. It plans the month and drafts the posts, carousels and reels to fill it, while tracking competitors so your content stays current. You approve before anything publishes.
           </motion.p>
           <motion.div variants={fadeUpVariant} className="flex flex-col gap-4">
             {bullets.map(({ icon: Icon, text }) => (

@@ -148,10 +148,10 @@ export default function Pricing() {
       >
         <motion.div variants={fadeUpVariant}><SectionLabel className="mb-[22px] block">Pricing</SectionLabel></motion.div>
         <motion.h2 variants={fadeUpVariant} className="neb-display text-[34px] md:text-[50px] mb-5">
-          Cheaper than the hire. <span className="text-gold-display">Faster than the agency.</span>
+          <span className="text-gold-display">Nebulaa</span> costs less than a hire and moves faster than an agency.
         </motion.h2>
         <motion.p variants={fadeUpVariant} className="font-body text-[17px] leading-[1.68] text-muted">
-          A marketing executive costs ₹30,000–50,000 a month, plus tools, plus six weeks of interviews, plus the morning they hand in their notice. This starts working on Thursday.
+          A marketing executive costs ₹30,000–50,000 a month, plus tools and roughly six weeks to hire. Nebulaa is set up and running within a week.
         </motion.p>
       </motion.div>
 

@@ -120,9 +120,9 @@ export default function OrbitSection() {
             variants={fadeUpVariant}
             className="font-body text-[17px] leading-[1.68] text-muted max-w-[480px] mb-[34px]"
           >
-            Finding leads is easy. Finding the right ones, understanding them and preparing outreach
-            that reads like a person wrote it is the system Orbit is built around — it turns your
-            ideal customer profile into a prospecting engine, then hands the warm ones to Pulsar.
+            Orbit turns your ideal customer profile into a prospecting engine. It finds real businesses
+            that match, verifies and qualifies them, drafts outreach that reads naturally, and hands
+            the warm ones to Pulsar.
           </motion.p>
 
           <motion.div variants={fadeUpVariant} className="flex flex-col gap-4 mb-9">

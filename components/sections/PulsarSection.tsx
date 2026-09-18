@@ -119,7 +119,7 @@ export default function PulsarSection() {
             variants={fadeUpVariant}
             className="neb-display text-[34px] md:text-[50px] mb-[26px]"
           >
-            Follow-up <span className="text-gold-display">without the backlog.</span>
+            Pulsar replies <span className="text-gold-display">before the lead messages someone else.</span>
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}

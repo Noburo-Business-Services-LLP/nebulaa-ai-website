@@ -101,7 +101,7 @@ export default function GravitySection() {
             variants={fadeUpVariant}
             className="neb-display text-[34px] md:text-[50px] mb-[26px]"
           >
-            Your content system. <span className="text-gold-display">Always moving.</span>
+            Gravity turns a month of content into <span className="text-gold-display">a single afternoon of approvals.</span>
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}

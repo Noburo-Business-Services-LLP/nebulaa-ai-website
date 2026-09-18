@@ -14,7 +14,7 @@ const steps = [
   {
     n: '02',
     title: 'A month planned and shipped, unattended',
-    body: 'Not a post at a time — a month, mapped out and drafted in your voice: posts, carousels, the occasional reel. Diwali and Pongal are already in the plan, so you never wake up on the day with nothing ready.',
+    body: 'A whole month gets mapped out and drafted in your voice at once — posts, carousels, the occasional reel. Diwali and Pongal are already in the plan, so you never wake up on the day with nothing ready.',
   },
   {
     n: '03',

@@ -52,7 +52,7 @@ export default function PricingPage() {
         <SectionLabel className="mb-[26px] block">Pricing</SectionLabel>
         <h1 className="neb-display text-[40px] md:text-[60px] mb-[26px]" style={{ textWrap: 'pretty' }}>
           Two ways to buy.{' '}
-          <span className="text-gold-display">One core underneath.</span>
+          <span className="text-gold-display">Same agents, either way.</span>
         </h1>
         <p className="text-[17.5px] leading-[1.65] text-muted max-w-[620px]">
           Nebulaa pricing is simple either way: run the software yourself, or have our team run the whole

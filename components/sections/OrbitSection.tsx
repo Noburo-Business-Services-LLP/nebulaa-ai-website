@@ -114,8 +114,8 @@ export default function OrbitSection() {
             <SectionLabel className="mb-[22px] block">Orbit // Lead generation</SectionLabel>
           </motion.div>
           <motion.h2 variants={fadeUpVariant} className="neb-display text-[34px] md:text-[50px] mb-[26px]">
-            Find the right people.{' '}
-            <span className="text-gold-display">Before the conversation.</span>
+            Most leads aren&rsquo;t worth the first message.{' '}
+            <span className="text-gold-display">Orbit finds out before you send it.</span>
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}

@@ -4,6 +4,7 @@ import { blogPosts, type BlogPost } from '@/lib/blogData'
 import { getPublishedPost, toMeta } from '@/lib/blogStore'
 import { getRepoPost, getRepoContent, stripFrontmatter } from '@/lib/blogRepo'
 import { mediaUrl } from '@/lib/mediaUrl'
+import { renderInlineMarkdown } from '@/lib/renderInlineMarkdown'
 import BlogEmailCapture from '@/components/ui/BlogEmailCapture'
 import HudCard from '@/components/ui/HudCard'
 
@@ -73,26 +74,31 @@ export default async function BlogPost({ params }: Props) {
           <div className="prose-nebulaa">
             {body.split('\n').map((line, i) => {
               if (line.startsWith('# '))
-                return <h1 key={i} className="font-heading text-3xl font-bold text-ink mt-10 mb-4 tracking-tight">{line.slice(2)}</h1>
+                return <h1 key={i} className="font-heading text-3xl font-bold text-ink mt-10 mb-4 tracking-tight">{renderInlineMarkdown(line.slice(2))}</h1>
               if (line.startsWith('## '))
-                return <h2 key={i} className="font-heading text-2xl font-bold text-ink mt-8 mb-3 tracking-tight">{line.slice(3)}</h2>
+                return <h2 key={i} className="font-heading text-2xl font-bold text-ink mt-8 mb-3 tracking-tight">{renderInlineMarkdown(line.slice(3))}</h2>
               if (line.startsWith('### '))
-                return <h3 key={i} className="font-heading text-xl font-semibold text-ink-2 mt-6 mb-2">{line.slice(4)}</h3>
+                return <h3 key={i} className="font-heading text-xl font-semibold text-ink-2 mt-6 mb-2">{renderInlineMarkdown(line.slice(4))}</h3>
+              // A line that is bold/italic in its entirety reads as a standalone
+              // callout rather than a sentence with an emphasized word — kept
+              // distinct from the general paragraph case below, which now
+              // handles **bold**/*italic* mixed into running text instead of
+              // leaving the literal asterisks in, e.g. inside a bullet.
               if (line.startsWith('**') && line.endsWith('**') && line.length > 4)
-                return <p key={i} className="font-body text-base font-bold text-ink my-2">{line.slice(2, -2)}</p>
+                return <p key={i} className="font-body text-base font-bold text-ink my-2">{renderInlineMarkdown(line.slice(2, -2))}</p>
               if (line.startsWith('*') && line.endsWith('*') && line.length > 2)
-                return <p key={i} className="font-body text-sm text-muted italic my-2">{line.slice(1, -1)}</p>
+                return <p key={i} className="font-body text-sm text-muted italic my-2">{renderInlineMarkdown(line.slice(1, -1))}</p>
               if (line.startsWith('> '))
                 return (
                   <blockquote key={i} className="border-l-4 border-gold pl-4 my-4">
-                    <p className="font-body text-base text-ink-2 italic">{line.slice(2)}</p>
+                    <p className="font-body text-base text-ink-2 italic">{renderInlineMarkdown(line.slice(2))}</p>
                   </blockquote>
                 )
               if (line.startsWith('- ') || line.startsWith('• '))
                 return (
                   <div key={i} className="flex items-start gap-2 my-1.5">
                     <span className="text-gold-text mt-1 flex-shrink-0">•</span>
-                    <p className="font-body text-base text-ink-2 leading-relaxed">{line.slice(2)}</p>
+                    <p className="font-body text-base text-ink-2 leading-relaxed">{renderInlineMarkdown(line.slice(2))}</p>
                   </div>
                 )
               if (line.startsWith('---'))
@@ -102,7 +108,7 @@ export default async function BlogPost({ params }: Props) {
               if (line.trim() === '')
                 return <div key={i} className="my-3" />
               return (
-                <p key={i} className="font-body text-base text-ink-2 leading-relaxed my-3">{line}</p>
+                <p key={i} className="font-body text-base text-ink-2 leading-relaxed my-3">{renderInlineMarkdown(line)}</p>
               )
             })}
           </div>

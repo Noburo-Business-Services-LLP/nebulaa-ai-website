@@ -6,15 +6,9 @@ import { ArrowLeft, Save, Sparkles, Upload, ExternalLink, FileEdit } from 'lucid
 import { adminFetch, AuthGate, useAdminAuth } from '@/lib/adminClient'
 import { invalidateMediaManifest } from '@/lib/mediaManifestClient'
 import { mediaUrl } from '@/lib/mediaUrl'
+import { BLOG_CATEGORIES } from '@/lib/blogCategories'
 
-const CATEGORIES = [
-  'GTM Experiments',
-  'Founder Mistakes',
-  'Comparisons',
-  'Founder Playbook',
-  'GTM Strategy',
-  'Marketing Automation',
-]
+const CATEGORIES = BLOG_CATEGORIES
 
 interface PostSummary {
   slug: string

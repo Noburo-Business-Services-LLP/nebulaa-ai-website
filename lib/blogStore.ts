@@ -29,18 +29,11 @@ export interface StoredPost extends BlogPost {
 const KEY_PREFIX = 'blog'
 const postKey = (slug: string) => `${KEY_PREFIX}/${slug}.json`
 
-/** Strip the stored-only fields, leaving the shape the blog components expect. */
+/** Strip the stored-only fields (content, publishedAt), leaving the shape the blog components expect. */
 export function toMeta(post: StoredPost): BlogPost {
-  return {
-    slug: post.slug,
-    title: post.title,
-    excerpt: post.excerpt,
-    category: post.category,
-    readTime: post.readTime,
-    date: post.date,
-    author: post.author,
-    headerColor: post.headerColor,
-  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- discarded on purpose
+  const { content, publishedAt, ...meta } = post
+  return meta
 }
 
 export async function getPublishedPost(slug: string): Promise<StoredPost | null> {

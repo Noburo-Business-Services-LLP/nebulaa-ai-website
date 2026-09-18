@@ -44,3 +44,8 @@ next-env.d.ts
 
 # local dev-server data store (production uses the S3 DATA_BUCKET instead)
 /data/
+
+# local dev-server media uploads (production uses the S3 MEDIA_BUCKET instead)
+# — README.md stays, it documents the folder for anyone opening it directly.
+/public/media/*
+!/public/media/README.md

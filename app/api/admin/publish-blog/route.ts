@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { isAdmin } from '@/lib/adminAuth'
 import { savePublishedPost, getPublishedPost, type StoredPost } from '@/lib/blogStore'
 import { getRepoPost } from '@/lib/blogRepo'
+import { BLOG_CATEGORIES } from '@/lib/blogCategories'
 
 const HEADER_COLORS = [
   'from-brand-gold/25 to-brand-gold/5',
@@ -11,15 +12,6 @@ const HEADER_COLORS = [
   'from-orange-500/20 to-orange-400/5',
   'from-pink-500/20 to-pink-400/5',
   'from-cyan-500/20 to-cyan-400/5',
-]
-
-const CATEGORIES = [
-  'GTM Experiments',
-  'Founder Mistakes',
-  'Comparisons',
-  'Founder Playbook',
-  'GTM Strategy',
-  'Marketing Automation',
 ]
 
 /** Roughly 200 words a minute, which is the usual reading estimate. */
@@ -61,7 +53,7 @@ export async function POST(req: NextRequest) {
     slug,
     title,
     excerpt: (excerpt || title).replace(/[#*`_~\[\]]/g, '').trim().slice(0, 160),
-    category: CATEGORIES.includes(category) ? category : base?.category ?? 'Founder Playbook',
+    category: (BLOG_CATEGORIES as readonly string[]).includes(category) ? category : base?.category ?? 'Pillar',
     readTime: readTime(content),
     date: date || base?.date || new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
     author: author || base?.author || 'Nebulaa Team',

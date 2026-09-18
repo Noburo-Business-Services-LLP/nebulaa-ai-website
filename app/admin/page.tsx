@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { blogIdeas, newsletterIdeas, type ContentIdea } from '@/lib/contentIdeas'
 import { Users, FileText, Send, TrendingUp, ChevronUp, ChevronDown, Eye, BarChart2, Globe, BookOpen } from 'lucide-react'
 import { adminFetch, AuthGate, useAdminAuth } from '@/lib/adminClient'
+import { BLOG_CATEGORIES } from '@/lib/blogCategories'
 
 // ── Types ──────────────────────────────────────────────────────────────────
 interface Lead { id: string; name: string; email: string; source: string; date: string; tags: string[] }
@@ -674,7 +675,7 @@ function BlogWriter({ secret }: { secret: string }) {
   const [topic, setTopic] = useState('')
   const [style, setStyle] = useState('Gen Z — punchy, direct, casual with emojis')
   const [selectedIdea, setSelectedIdea] = useState<ContentIdea | null>(null)
-  const [category, setCategory] = useState('Founder Playbook')
+  const [category, setCategory] = useState<string>(BLOG_CATEGORIES[0])
   const [generating, setGenerating] = useState(false)
   const [publishing, setPublishing] = useState(false)
   const [result, setResult] = useState<{ content: string; title: string; slug: string } | null>(null)
@@ -758,7 +759,7 @@ function BlogWriter({ secret }: { secret: string }) {
             <div>
               <label className="text-white/60 text-xs font-body font-semibold block mb-2">Category</label>
               <select value={category} onChange={e => setCategory(e.target.value)} className="w-full bg-[#1A1815] border border-white/10 text-white rounded-xl px-3 py-2 font-body text-sm outline-none focus:border-brand-gold">
-                {['GTM Experiments', 'Founder Mistakes', 'Comparisons', 'Founder Playbook', 'GTM Strategy', 'Marketing Automation'].map(c => (
+                {BLOG_CATEGORIES.map(c => (
                   <option key={c} value={c}>{c}</option>
                 ))}
               </select>

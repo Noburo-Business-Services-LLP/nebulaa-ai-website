@@ -6,8 +6,9 @@ import type { BlogPost } from '@/lib/blogData'
 import SectionLabel from '@/components/ui/SectionLabel'
 import HudCard from '@/components/ui/HudCard'
 import BlogEmailCapture from '@/components/ui/BlogEmailCapture'
+import { BLOG_CATEGORIES } from '@/lib/blogCategories'
 
-const categories = ['All', 'GTM Experiments', 'Founder Mistakes', 'Comparisons', 'GTM Strategy', 'Marketing Automation', 'Founder Playbook']
+const categories = ['All', ...BLOG_CATEGORIES]
 
 export default function BlogList({ posts }: { posts: BlogPost[] }) {
   const [activeCategory, setActiveCategory] = useState('All')

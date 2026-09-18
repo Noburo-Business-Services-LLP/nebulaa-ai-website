@@ -74,7 +74,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between py-7 px-6 md:px-12 lg:px-[120px]">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0" aria-label="Nebulaa — home">
-            <Wordmark className="text-gold hover:opacity-80 transition-opacity" />
+            <Wordmark className="hover:opacity-80 transition-opacity" />
           </Link>
 
           {/* Center links — desktop */}

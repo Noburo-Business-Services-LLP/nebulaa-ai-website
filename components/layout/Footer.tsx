@@ -93,7 +93,7 @@ export default function Footer() {
     <footer className="relative border-t border-rule pt-[60px] pb-[50px] px-6 md:px-12 lg:px-[120px]">
       <div className="flex flex-col lg:flex-row items-start justify-between gap-[50px] lg:gap-[70px]">
       <div>
-        <Wordmark className="text-gold mb-3.5" />
+        <Wordmark className="mb-3.5" />
         <p className="neb-label mb-2">The AI operating system for business</p>
         <div className="mb-4">
           <StatusIndicator tone="active" label="Core // Online" />

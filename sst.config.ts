@@ -113,6 +113,11 @@ export default $config({
         GSC_CLIENT_EMAIL: process.env.GSC_CLIENT_EMAIL ?? '',
         GSC_PRIVATE_KEY: process.env.GSC_PRIVATE_KEY ?? '',
         GSC_PROPERTY: process.env.GSC_PROPERTY ?? '',
+
+        // GA4 (see lib/googleAnalytics.ts) — reuses the GSC service account
+        // above, just needs that account added as a GA4 Viewer and this
+        // numeric property ID (not the NEXT_PUBLIC_GA4_ID gtag ID).
+        GA4_PROPERTY_ID: process.env.GA4_PROPERTY_ID ?? '',
       },
     })
 

@@ -184,6 +184,127 @@ function IndexingCard({ pageCount, secret }: { pageCount: number; secret: string
   )
 }
 
+// ── GA4 — real traffic per page, once connected ─────────────────────────────
+interface GaTraffic {
+  configured: boolean
+  error: string | null
+  totalSessions: number
+  totalActiveUsers: number
+  totalConversions: number
+  organicSessions: number
+  topChannels: { channel: string; sessions: number }[]
+  topPages: { path: string; sessions: number; activeUsers: number; conversions: number }[]
+}
+
+function AnalyticsCard({ secret }: { secret: string }) {
+  const [checking, setChecking] = useState(false)
+  const [checked, setChecked] = useState(false)
+  const [traffic, setTraffic] = useState<GaTraffic | null>(null)
+  const [notConfigured, setNotConfigured] = useState(false)
+
+  const check = async () => {
+    setChecking(true)
+    try {
+      const d = await adminFetch<{ traffic: GaTraffic }>('/api/admin/ga4', secret)
+      if (d) {
+        setTraffic(d.traffic)
+        setNotConfigured(!d.traffic.configured)
+        setChecked(true)
+      }
+    } finally {
+      setChecking(false)
+    }
+  }
+
+  if (!checked) {
+    return (
+      <div className="bg-orange-500/10 border border-orange-500/30 rounded-2xl p-5 flex items-start gap-4">
+        <AlertTriangle size={20} className="text-orange-400 flex-shrink-0 mt-0.5" />
+        <div className="flex-1">
+          <p className="text-white font-body font-semibold text-sm mb-1">Google Analytics traffic</p>
+          <p className="text-white/50 font-body text-xs leading-relaxed mb-3">
+            Sessions, users and conversions per page over the last 28 days — the piece the indexing/query numbers above can&apos;t
+            answer: did a title or content fix actually move real traffic, not just search-result signals.
+          </p>
+          <button onClick={check} disabled={checking} className="bg-orange-500/20 border border-orange-500/30 text-orange-300 font-body text-xs font-semibold rounded-full px-4 py-2 hover:bg-orange-500/30 transition-all disabled:opacity-50">
+            {checking ? 'Loading traffic…' : 'Load GA4 traffic'}
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  if (notConfigured) {
+    return (
+      <div className="bg-orange-500/10 border border-orange-500/30 rounded-2xl p-5 flex items-start gap-4">
+        <AlertTriangle size={20} className="text-orange-400 flex-shrink-0 mt-0.5" />
+        <div>
+          <p className="text-white font-body font-semibold text-sm mb-1">GA4 reporting isn&apos;t wired up yet</p>
+          <p className="text-white/50 font-body text-xs leading-relaxed">
+            Needs GA4_PROPERTY_ID (the numeric property ID — Admin → Property details — not the G-XXXX gtag ID already live on
+            the site) and the same service account as Search Console, added as a Viewer in GA4 → Admin → Property access
+            management.
+          </p>
+        </div>
+      </div>
+    )
+  }
+
+  if (traffic?.error) {
+    return (
+      <div className="bg-red-500/10 border border-red-500/30 rounded-2xl p-5 flex items-start gap-4">
+        <AlertTriangle size={20} className="text-red-400 flex-shrink-0 mt-0.5" />
+        <div className="flex-1">
+          <p className="text-white font-body font-semibold text-sm mb-1">GA4 request failed</p>
+          <p className="text-white/50 font-body text-xs leading-relaxed mb-3">{traffic.error}</p>
+          <button onClick={check} disabled={checking} className="text-white/50 hover:text-white font-body text-xs font-semibold transition-colors disabled:opacity-50">
+            {checking ? 'Retrying…' : 'Try again'}
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="bg-green-500/10 border border-green-500/30 rounded-2xl p-5">
+      <div className="flex items-start justify-between gap-4 mb-3">
+        <div>
+          <p className="text-white font-body font-semibold text-sm mb-1">
+            {traffic?.totalSessions ?? 0} sessions · {traffic?.organicSessions ?? 0} from organic search
+          </p>
+          <p className="text-white/50 font-body text-xs">
+            {traffic?.totalActiveUsers ?? 0} active users · {traffic?.totalConversions ?? 0} conversions in the last 28 days
+          </p>
+        </div>
+        <button onClick={check} disabled={checking} className="flex items-center gap-1.5 text-white/40 hover:text-white font-body text-xs font-semibold transition-colors disabled:opacity-50 flex-shrink-0">
+          <RefreshCw size={12} className={checking ? 'animate-spin' : ''} /> Refresh
+        </button>
+      </div>
+      {traffic && traffic.topChannels.length > 0 && (
+        <div className="flex flex-wrap gap-1.5 mt-3">
+          {traffic.topChannels.slice(0, 8).map(c => (
+            <span key={c.channel} className="text-white/50 font-mono text-[10px] bg-white/5 rounded-full px-2.5 py-1">
+              {c.channel} · {c.sessions}
+            </span>
+          ))}
+        </div>
+      )}
+      {traffic && traffic.topPages.length > 0 && (
+        <div className="mt-4 pt-4 border-t border-white/10">
+          <p className="text-white/30 font-body text-[10px] font-bold uppercase tracking-widest mb-2">Top landing pages, last 28 days</p>
+          <div className="flex flex-wrap gap-1.5">
+            {traffic.topPages.slice(0, 12).map(p => (
+              <span key={p.path} className="text-white/60 font-body text-[11px] bg-white/5 rounded-full px-2.5 py-1">
+                {p.path} <span className="text-white/30">· {p.sessions}s / {p.conversions}conv</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
 // ── History — every past run, so "are we improving" has an answer ──────────
 function trendArrow(current: number, previous: number | undefined) {
   if (previous === undefined || current === previous) return null
@@ -482,6 +603,7 @@ function SeoDashboard({ secret }: { secret: string }) {
   return (
     <div className="space-y-6">
       <IndexingCard pageCount={audit.pageCount} secret={secret} />
+      <AnalyticsCard secret={secret} />
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard

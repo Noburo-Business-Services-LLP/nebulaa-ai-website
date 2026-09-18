@@ -1,10 +1,14 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
-import { Target, CalendarCheck, Radar, TrendingUp, CircleCheck, Linkedin, Instagram, Twitter } from 'lucide-react'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
+import {
+  Target, CalendarCheck, Radar, TrendingUp, CircleCheck,
+  Linkedin, Instagram, Twitter, Clapperboard, Image as ImageIcon, Layers, Inbox,
+} from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
 import HudCard from '@/components/ui/HudCard'
+import StatusIndicator from '@/components/ui/StatusIndicator'
 import { fadeUpVariant, slideInLeft, staggerContainer, viewportOptions } from '@/lib/animations'
 
 const bullets = [
@@ -21,88 +25,64 @@ const channels = [
   { icon: Twitter, name: 'X' },
 ]
 
-const stats = [
-  { label: 'Queued', value: 18, suffix: '' },
-  { label: 'Formats', value: 3, suffix: '' },
-  { label: 'Your time', value: 9, suffix: 'min' },
+const WEEKDAYS = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
+/** 18 scheduled days across a 4-week view. Each cell's format cycles
+ *  reel/carousel/image so the grid reads as actual posts, not a bare
+ *  schedule of numbers. */
+const SCHEDULED = new Set([1, 2, 4, 5, 6, 7, 9, 11, 13, 14, 16, 18, 20, 21, 23, 25, 27, 28])
+const FORMAT_ICONS = [Clapperboard, Layers, ImageIcon]
+
+const STUDIO_JOBS = [
+  { icon: Clapperboard, title: 'Diwali collection teaser', kind: 'Reel', state: 'Rendering' },
+  { icon: Layers, title: 'New arrivals — 6 slides', kind: 'Carousel', state: 'Ready' },
+  { icon: ImageIcon, title: 'Bridal set — product shot', kind: 'Image', state: 'Ready' },
 ]
 
-const WEEKDAYS = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
-/** 18 scheduled days across a 4-week view — matches the "Queued: 18" stat below. */
-const SCHEDULED = new Set([1, 2, 4, 5, 6, 7, 9, 11, 13, 14, 16, 18, 20, 21, 23, 25, 27, 28])
+const INBOX_ROWS = [
+  { icon: Instagram, from: '@ananya.k', channel: 'Instagram DM', msg: 'Do you ship to Bangalore?', state: 'Replied' },
+  { icon: Linkedin, from: 'Rohit Sharma', channel: 'LinkedIn comment', msg: 'Loved the Diwali carousel!', state: 'Replied' },
+  { icon: Twitter, from: '@styled_by_mira', channel: 'X mention', msg: 'tagged you in a repost', state: 'Drafting' },
+]
 
 /**
- * Same live-console pattern as the hero's CoreConsole: a fixed step counter
- * drives a self-running build sequence — the month fills in week by week,
- * then a drafted post appears, then this month's numbers land — so the
- * panel reads as a system doing the work, not a static screenshot of one.
+ * Three capability screens cycling on one HudCard, the same live-console
+ * pattern as the hero's CoreConsole — a single tick counter drives which
+ * screen is active and how far its own reveal has progressed, so the panel
+ * keeps demonstrating what Gravity actually does (plans the month, makes
+ * the assets, handles the inbox) instead of freezing on one static screen.
+ * Rows are flat — a divider line, no per-row box — matching Orbit's panel
+ * right below it rather than the boxed-card look this used to have.
  */
-const WEEKS_REVEALED = 4
-const DRAFT_STEP = WEEKS_REVEALED + 1
-const BUTTONS_STEP = DRAFT_STEP + 1
-const STATS_STEP = BUTTONS_STEP + 1
-const TOTAL = STATS_STEP
-const HOLD_STEPS = 16
-const STEP_MS = 560
-
-function useCountUp(target: number, active: boolean, duration = 700) {
-  const [display, setDisplay] = useState(0)
-  useEffect(() => {
-    if (!active) {
-      setDisplay(0)
-      return
-    }
-    const start = performance.now()
-    let raf = 0
-    const tick = (now: number) => {
-      const t = Math.min((now - start) / duration, 1)
-      const eased = t === 1 ? 1 : 1 - Math.pow(2, -10 * t)
-      setDisplay(Math.round(target * eased))
-      if (t < 1) raf = requestAnimationFrame(tick)
-    }
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
-  }, [active, target, duration])
-  return display
-}
-
-function StatCell({ label, value, suffix, active }: { label: string; value: number; suffix: string; active: boolean }) {
-  const display = useCountUp(value, active)
-  return (
-    <div
-      className={`bg-surface-2 border rounded-xl p-[15px] transition-all duration-500 ${
-        active ? 'border-rule opacity-100 translate-y-0' : 'border-rule opacity-0 translate-y-1.5'
-      }`}
-    >
-      <SectionLabel tone="onDark" className="mb-[7px] block">{label}</SectionLabel>
-      <div className="font-digital text-[27px] text-ink tabular-nums">
-        {display}
-        {suffix && <span className="text-[15px] text-muted">{suffix}</span>}
-      </div>
-    </div>
-  )
-}
+const SCREENS = [
+  { key: 'calendar', label: "Gravity // this month's plan", span: 8 },
+  { key: 'studio', label: 'Gravity // content studio', span: 6 },
+  { key: 'inbox', label: 'Gravity // unified inbox', span: 6 },
+] as const
+const TOTAL = SCREENS.reduce((sum, s) => sum + s.span, 0)
+const STEP_MS = 580
 
 export default function GravitySection() {
   const reduceMotion = useReducedMotion()
-  const [step, setStep] = useState(reduceMotion ? TOTAL : 0)
+  const [tick, setTick] = useState(reduceMotion ? TOTAL - 1 : 0)
 
   useEffect(() => {
-    if (reduceMotion) {
-      setStep(TOTAL)
-      return
-    }
-    const id = setInterval(() => {
-      setStep(s => (s >= TOTAL + HOLD_STEPS ? 0 : s + 1))
-    }, STEP_MS)
+    if (reduceMotion) return
+    const id = setInterval(() => setTick(t => (t + 1) % TOTAL), STEP_MS)
     return () => clearInterval(id)
   }, [reduceMotion])
 
-  const weeksShown = Math.max(0, Math.min(step, WEEKS_REVEALED))
-  const draftShown = step >= DRAFT_STEP
-  const buttonsShown = step >= BUTTONS_STEP
-  const statsShown = step >= STATS_STEP
-  const scanPct = Math.min(100, Math.round((step / TOTAL) * 100))
+  let acc = 0
+  let screenIndex = 0
+  let localTick = 0
+  for (let i = 0; i < SCREENS.length; i++) {
+    if (tick < acc + SCREENS[i].span) {
+      screenIndex = i
+      localTick = tick - acc
+      break
+    }
+    acc += SCREENS[i].span
+  }
+  const screen = SCREENS[screenIndex]
 
   return (
     <section id="gravity" className="py-[130px] px-6 md:px-12 lg:px-[120px]">
@@ -152,88 +132,183 @@ export default function GravitySection() {
           </motion.a>
         </motion.div>
 
-        {/* Right — product panel, a live-running build sequence rather than a static mock */}
+        {/* Right — three capability screens, cycling on one live panel */}
         <motion.div
           variants={slideInLeft}
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
         >
-          <HudCard
-            halo="amber"
-            label="Gravity // this month's plan"
-            status={{ tone: scanPct < 100 ? 'live' : 'active', label: scanPct < 100 ? 'Planning' : 'Live' }}
-          >
-            {/* Build progress — same telemetry bar as the hero console */}
-            <div className="mb-4">
-              <div className="flex items-baseline justify-between mb-2">
-                <span className="neb-label">{scanPct < 100 ? 'Filling the month' : 'Plan ready'}</span>
-                <span className="font-mono text-[12px] text-gold-text tabular-nums">{scanPct}%</span>
-              </div>
-              <div className="h-[3px] rounded-full bg-white/[0.07] overflow-hidden">
-                <div
-                  className="h-full bg-gold rounded-full transition-[width] duration-500 ease-out"
-                  style={{ width: `${scanPct}%`, boxShadow: '0 0 10px rgba(245,166,35,0.5)' }}
-                />
-              </div>
-            </div>
-
-            {/* Month view — weeks fill in as the plan is built */}
-            <div className="bg-surface-2 border border-rule rounded-[14px] p-[17px] mb-[14px]">
-              <div className="grid grid-cols-7 gap-[5px] mb-2">
-                {WEEKDAYS.map((d, i) => (
-                  <div key={i} className="text-[9.5px] text-center text-faint tracking-[0.04em]">
-                    {d}
-                  </div>
-                ))}
-              </div>
-              <div className="grid grid-cols-7 gap-[5px]">
-                {Array.from({ length: 28 }, (_, i) => i + 1).map((day) => {
-                  const week = Math.floor((day - 1) / 7)
-                  const revealed = week < weeksShown
-                  const on = revealed && SCHEDULED.has(day)
-                  return (
-                    <div
-                      key={day}
-                      className={`aspect-square rounded-[4px] flex items-center justify-center text-[9.5px] transition-all duration-300 ${
-                        !revealed
-                          ? 'bg-white/[0.015] border border-white/[0.03] text-transparent'
-                          : on
-                          ? 'bg-gold/[0.22] border border-gold/40 text-gold-text'
-                          : 'bg-white/[0.03] border border-white/[0.05] text-faint'
-                      }`}
-                    >
-                      {day}
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* Drafted post — appears once the plan is built */}
-            <div
-              className={`bg-surface-2 border border-rule rounded-[14px] p-5 mb-[14px] transition-all duration-500 ${
-                draftShown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
-              }`}
-            >
-              <SectionLabel tone="onDark" className="mb-3 block">Tuesday · LinkedIn</SectionLabel>
-              <p className="font-body text-[14.5px] leading-[1.6] text-ink-2 mb-4">
-                Most of our customers don&rsquo;t compare us to other jewellers. They compare us to the shop their mother trusted for thirty years. That&rsquo;s the bar.
-              </p>
-              <div className={`flex gap-2 transition-opacity duration-400 ${buttonsShown ? 'opacity-100' : 'opacity-0'}`}>
-                <span className="text-[11px] text-muted border border-rule-2 rounded-full px-[11px] py-1">Approve</span>
-                <span className="text-[11px] text-muted border border-rule-2 rounded-full px-[11px] py-1">Rewrite</span>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-3 gap-[10px]">
-              {stats.map((stat) => (
-                <StatCell key={stat.label} {...stat} active={statsShown} />
-              ))}
+          <HudCard halo="amber" label={screen.label} status={screenStatus(screen.key, localTick)}>
+            <div className="min-h-[290px]">
+              <AnimatePresence mode="wait">
+                {screen.key === 'calendar' && (
+                  <motion.div key="calendar" {...crossfade}>
+                    <CalendarScreen localTick={localTick} />
+                  </motion.div>
+                )}
+                {screen.key === 'studio' && (
+                  <motion.div key="studio" {...crossfade}>
+                    <StudioScreen localTick={localTick} />
+                  </motion.div>
+                )}
+                {screen.key === 'inbox' && (
+                  <motion.div key="inbox" {...crossfade}>
+                    <InboxScreen localTick={localTick} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </HudCard>
         </motion.div>
       </div>
     </section>
+  )
+}
+
+const crossfade = {
+  initial: { opacity: 0, y: 6 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -6 },
+  transition: { duration: 0.35 },
+}
+
+function screenStatus(key: (typeof SCREENS)[number]['key'], localTick: number): { tone: 'live' | 'active'; label: string } {
+  if (key === 'calendar') return localTick < 4 ? { tone: 'live', label: 'Planning' } : { tone: 'active', label: 'Live' }
+  if (key === 'studio') return localTick < 3 ? { tone: 'live', label: 'Rendering' } : { tone: 'active', label: 'Ready' }
+  return localTick < 3 ? { tone: 'live', label: 'Scanning' } : { tone: 'active', label: 'Auto-replying' }
+}
+
+function CalendarScreen({ localTick }: { localTick: number }) {
+  const weeksShown = Math.max(0, Math.min(localTick, 4))
+  const scanPct = Math.min(100, Math.round((weeksShown / 4) * 100))
+
+  return (
+    <div>
+      <div className="mb-4">
+        <div className="flex items-baseline justify-between mb-2">
+          <span className="neb-label">{scanPct < 100 ? 'Filling the month' : 'Plan ready'}</span>
+          <span className="font-mono text-[12px] text-gold-text tabular-nums">{scanPct}%</span>
+        </div>
+        <div className="h-[3px] rounded-full bg-white/[0.07] overflow-hidden">
+          <div
+            className="h-full bg-gold rounded-full transition-[width] duration-500 ease-out"
+            style={{ width: `${scanPct}%`, boxShadow: '0 0 10px rgba(245,166,35,0.5)' }}
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-7 gap-[5px] mb-2">
+        {WEEKDAYS.map((d, i) => (
+          <div key={i} className="text-[9.5px] text-center text-faint tracking-[0.04em]">
+            {d}
+          </div>
+        ))}
+      </div>
+      <div className="grid grid-cols-7 gap-[5px] mb-4">
+        {Array.from({ length: 28 }, (_, i) => i + 1).map((day) => {
+          const week = Math.floor((day - 1) / 7)
+          const revealed = week < weeksShown
+          const on = revealed && SCHEDULED.has(day)
+          const FormatIcon = FORMAT_ICONS[day % FORMAT_ICONS.length]
+          return (
+            <div
+              key={day}
+              className={`aspect-square rounded-[4px] flex items-center justify-center transition-all duration-300 ${
+                !revealed
+                  ? 'bg-white/[0.015] border border-white/[0.03]'
+                  : on
+                  ? 'bg-gold/[0.18] border border-gold/40'
+                  : 'bg-white/[0.03] border border-white/[0.05]'
+              }`}
+            >
+              {on && <FormatIcon size={10} className="text-gold-text" strokeWidth={2.25} />}
+            </div>
+          )
+        })}
+      </div>
+
+      <div className="flex items-center gap-4 pt-3.5 border-t border-rule">
+        <span className="flex items-center gap-1.5 text-[11.5px] text-faint">
+          <Clapperboard size={11} className="text-gold-text" /> Reels
+        </span>
+        <span className="flex items-center gap-1.5 text-[11.5px] text-faint">
+          <Layers size={11} className="text-gold-text" /> Carousels
+        </span>
+        <span className="flex items-center gap-1.5 text-[11.5px] text-faint">
+          <ImageIcon size={11} className="text-gold-text" /> Images
+        </span>
+        <span className="ml-auto font-heading text-[15px] text-gold-text tabular-nums">18 queued</span>
+      </div>
+    </div>
+  )
+}
+
+function StudioScreen({ localTick }: { localTick: number }) {
+  const rowsShown = Math.max(0, Math.min(localTick, STUDIO_JOBS.length))
+  return (
+    <div className="flex flex-col">
+      {STUDIO_JOBS.map((job, i) => {
+        const shown = i < rowsShown
+        const rendering = job.state === 'Rendering'
+        return (
+          <div
+            key={job.title}
+            className={`flex items-center justify-between gap-4 py-[13px] transition-all duration-400 ${
+              i > 0 ? 'border-t border-rule' : ''
+            } ${shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1.5'}`}
+          >
+            <div className="flex items-center gap-3 min-w-0">
+              <span className="flex-shrink-0 w-[26px] h-[26px] rounded-full bg-gold-wash flex items-center justify-center">
+                <job.icon size={13} className="text-gold-text" />
+              </span>
+              <div className="min-w-0">
+                <div className="font-heading text-[14px] font-medium truncate">{job.title}</div>
+                <div className="neb-label leading-tight">{job.kind}</div>
+              </div>
+            </div>
+            {rendering ? (
+              <StatusIndicator tone="live" label="Rendering" />
+            ) : (
+              <StatusIndicator tone="active" label="Ready" pulse={false} />
+            )}
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+function InboxScreen({ localTick }: { localTick: number }) {
+  const rowsShown = Math.max(0, Math.min(localTick, INBOX_ROWS.length))
+  return (
+    <div className="flex flex-col">
+      <div className="flex items-center gap-2 pb-3 mb-1 border-b border-rule">
+        <Inbox size={13} className="text-gold-text" />
+        <span className="neb-label">Every DM, comment and mention — one queue</span>
+      </div>
+      {INBOX_ROWS.map((row, i) => {
+        const shown = i < rowsShown
+        return (
+          <div
+            key={row.from}
+            className={`flex items-center justify-between gap-4 py-[13px] transition-all duration-400 ${
+              i > 0 ? 'border-t border-rule' : ''
+            } ${shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1.5'}`}
+          >
+            <div className="flex items-center gap-3 min-w-0">
+              <span className="flex-shrink-0 w-[26px] h-[26px] rounded-full bg-gold-wash flex items-center justify-center">
+                <row.icon size={13} className="text-gold-text" />
+              </span>
+              <div className="min-w-0">
+                <div className="font-heading text-[13.5px] font-medium truncate">{row.from}</div>
+                <div className="font-body text-[12.5px] text-muted truncate">{row.msg}</div>
+              </div>
+            </div>
+            <StatusIndicator tone={row.state === 'Replied' ? 'active' : 'live'} label={row.state} pulse={row.state !== 'Replied'} />
+          </div>
+        )
+      })}
+    </div>
   )
 }

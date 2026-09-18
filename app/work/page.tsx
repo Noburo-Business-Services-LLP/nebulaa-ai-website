@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import { engagements } from '@/lib/engagementData'
 import SectionLabel from '@/components/ui/SectionLabel'
 
-const seoTitle = 'Nebulaa in the Wild — Real Workflows, Real Outputs'
+const seoTitle = 'AI Marketing Case Studies — Nebulaa in the Wild'
 const seoDescription =
   'Objective, system, execution, output, signal, learning — three shapes of managed engagement: always-on content, market entry, regional programmes.'
 
@@ -24,8 +24,8 @@ export default function WorkHubPage() {
           <span className="text-gold-display">Yours is one of them.</span>
         </h1>
         <p className="text-[17.5px] leading-[1.65] text-muted max-w-[640px]">
-          Every engagement gets scoped individually, but they fall into three shapes. Knowing which
-          one you are asking for is most of what a first call establishes — so here they are, with
+          These AI marketing case studies show every engagement gets scoped individually, but they fall into three shapes.
+          Knowing which one you are asking for is most of what a first call establishes — so here they are, with
           what each actually includes.
         </p>
       </section>

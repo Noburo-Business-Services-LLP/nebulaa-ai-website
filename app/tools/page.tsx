@@ -4,12 +4,12 @@ import { tools } from '@/lib/toolsData'
 import SectionLabel from '@/components/ui/SectionLabel'
 
 export const metadata: Metadata = {
-  title: 'Free Tools for Getting the Work Done',
+  title: 'Free AI Marketing Tools — No Login Required',
   description:
     'Need a hook? Generate one. LinkedIn post generator, cold email generator, hashtag generator, lead qualification calculator and more. No login required.',
   keywords: ['free marketing tools', 'founder tools', 'linkedin post generator', 'cold email generator', 'hashtag generator'],
   openGraph: {
-    title: 'Free Tools for Getting the Work Done',
+    title: 'Free AI Marketing Tools — No Login Required',
     description: 'One tool is useful. A system is different. Generate posts, emails and hooks instantly — no login required.',
     type: 'website',
   },
@@ -34,7 +34,7 @@ export default function ToolsPage() {
             <span className="text-gold-display">one page, no catch.</span>
           </h1>
           <p className="text-[17px] md:text-[18px] leading-[1.65] text-muted max-w-[600px]">
-            Each one runs on the same model that writes for Gravity. No signup, no card, no follow-up sequence afterwards — given what Pulsar does for a living, that would be a bit much. Use them forever and never speak to us. But if you&apos;re opening four of them every Monday, you already know what the product is for.
+            These free AI marketing tools each run on the same model that writes for Gravity. No signup, no card, no follow-up sequence afterwards — given what Pulsar does for a living, that would be a bit much. Use them forever and never speak to us. But if you&apos;re opening four of them every Monday, you already know what the product is for.
           </p>
         </div>
       </section>

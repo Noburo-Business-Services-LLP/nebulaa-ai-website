@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Hero from '@/components/sections/Hero'
 import ClientStrip from '@/components/sections/ClientStrip'
 import GenerationTicker from '@/components/ui/GenerationTicker'
@@ -14,6 +15,16 @@ import Pricing from '@/components/sections/Pricing'
 import FAQ from '@/components/sections/FAQ'
 import Newsletter from '@/components/sections/Newsletter'
 import FinalCTA from '@/components/sections/FinalCTA'
+
+const seoTitle = 'AI Marketing Platform for Indian Businesses'
+const seoDescription =
+  'Nebulaa is the AI marketing platform that understands your business, activates the right engines, executes the work and learns from what happens next.'
+
+export const metadata: Metadata = {
+  title: seoTitle,
+  description: seoDescription,
+  openGraph: { title: seoTitle, description: seoDescription },
+}
 
 /**
  * Free tools and the blog are deliberately absent — they exist to earn search

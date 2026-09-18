@@ -111,7 +111,7 @@ export const capabilities: Capability[] = [
     headline: 'It starts by reading',
     headlineEmphasis: 'your website.',
     subheadline:
-      'Most tools ask you to fill in a brief. Gravity starts from your URL: it works out how you talk, who buys from you, which channels are worth your time, and who you are actually competing against — then writes the strategy everything else runs from.',
+      'This is an AI marketing strategy from website URL alone, no brief required. Gravity starts from your URL: it works out how you talk, who buys from you, which channels are worth your time, and who you are actually competing against — then writes the strategy everything else runs from.',
     summary: 'Reads your URL and builds the strategy — tone, ICP, channels, competitors.',
     steps: [
       { title: 'Give it a URL', body: 'No brief to write, no onboarding call to sit through. Your website already contains most of what a strategist would ask you for.' },
@@ -330,7 +330,7 @@ export const capabilities: Capability[] = [
     headline: 'Creator collaborations,',
     headlineEmphasis: 'run properly.',
     subheadline:
-      'Regional creators are the most under-used channel available to an Indian brand, and the most chaotic to manage — a spreadsheet of names, a WhatsApp group and a lot of chasing. Gravity runs the whole thing: creator list, collaboration briefs, submissions, approvals and performance.',
+      'Gravity is the influencer collaboration management tool built for this: regional creators are the most under-used channel available to an Indian brand, and the most chaotic to manage — a spreadsheet of names, a WhatsApp group and a lot of chasing. Gravity runs the whole thing.',
     summary: 'Creator lists, briefs, submissions and performance in one place.',
     steps: [
       { title: 'Build the creator list', body: 'Regional micro and nano creators whose audience actually overlaps with your buyer, with their own profiles and history.' },
@@ -362,7 +362,7 @@ export const capabilities: Capability[] = [
     headline: 'Every comment and DM,',
     headlineEmphasis: 'in one place.',
     subheadline:
-      'Publishing is only half of social. The other half is the comments, DMs and questions that arrive afterwards — across every platform, at every hour. Gravity pulls them into one inbox and drafts the replies.',
+      'Publishing is only half of social. The other half is the comments, DMs and questions that arrive afterwards — across every platform, at every hour. Gravity\'s unified social media inbox pulls them into one place and drafts the replies.',
     summary: 'Comments, DMs and mentions across platforms, with replies drafted.',
     steps: [
       { title: 'Everything lands in one place', body: 'Comments, direct messages and mentions from every connected platform, in a single stream.' },
@@ -393,7 +393,7 @@ export const capabilities: Capability[] = [
     headline: 'The searches you are',
     headlineEmphasis: 'not showing up for.',
     subheadline:
-      'Social gets you known; search gets you found by someone already looking. The SEO assistant works out which terms your customers actually use, what your competitors rank for that you do not, and what to fix.',
+      'Social gets you known; search gets you found by someone already looking. The AI SEO assistant works out which terms your customers actually use, what your competitors rank for that you do not, and what to fix.',
     summary: 'Keywords, metadata, hashtags and search-side competitor gaps.',
     steps: [
       { title: 'Find the terms that matter', body: 'What your customers actually type, including the local and regional phrasing national tools miss.' },
@@ -412,7 +412,7 @@ export const capabilities: Capability[] = [
       { q: 'Does it work for local search?', a: 'That is the case it is most useful for — "near me" and city-qualified searches are where a local business gets found.' },
       { q: 'Will it write blog posts too?', a: 'It handles the search side — terms, metadata, gaps. Long-form content is part of the managed service.' },
     ],
-    seoTitle: 'SEO Assistant — Keywords & Metadata | Gravity',
+    seoTitle: 'AI SEO Assistant — Keywords & Metadata',
     seoDescription:
       'Find the search terms your customers use, the gaps where competitors are visible and you are not, and generate the metadata to fix it.',
   },
@@ -454,7 +454,7 @@ export const capabilities: Capability[] = [
     headline: 'It gets better',
     headlineEmphasis: 'the longer it runs.',
     subheadline:
-      'A tool that starts from zero every session never gets good at your business. Gravity remembers what it wrote, what you changed, what performed and what you rejected — and the work in month six is better than the work in month one because of it.',
+      'Gravity\'s AI brand memory for marketing means it never starts from zero: it remembers what it wrote, what you changed, what performed and what you rejected — and the work in month six is better than the work in month one because of it.',
     summary: 'Remembers what worked, what you changed, and what you rejected.',
     steps: [
       { title: 'It records what happened', body: 'What was published, what you edited before approving, and what you turned down outright.' },
@@ -548,7 +548,7 @@ export const capabilities: Capability[] = [
     headline: 'The channel your customers',
     headlineEmphasis: 'actually use.',
     subheadline:
-      'In India the enquiry does not arrive by email. It arrives on WhatsApp, often at nine on a Sunday night, and whoever replies first usually gets the sale. Pulsar answers in minutes, in your voice, and asks the questions you would have asked.',
+      'This is WhatsApp enquiry automation built for India: the enquiry does not arrive by email, it arrives on WhatsApp, often at nine on a Sunday night, and whoever replies first usually gets the sale. Pulsar answers in minutes, in your voice.',
     summary: 'Replies to WhatsApp enquiries in minutes, in your voice.',
     steps: [
       { title: 'The enquiry lands', body: 'Someone messages your business number — from an ad, a post, your Google listing or a friend passing on the number.' },
@@ -612,7 +612,7 @@ export const capabilities: Capability[] = [
     headline: 'Reach everyone at once,',
     headlineEmphasis: 'without sounding like spam.',
     subheadline:
-      'A new scheme, a festival offer, a new collection — sometimes you need to tell everyone. Broadcasts send to a segment of your contacts and, crucially, handle every reply that comes back as a real conversation.',
+      'This is WhatsApp broadcast marketing done right: a new scheme, a festival offer, a new collection — sometimes you need to tell everyone. Broadcasts send to a segment of your contacts and, crucially, handle every reply as a real conversation.',
     summary: 'Segment, send, and handle every reply as a conversation.',
     steps: [
       { title: 'Pick who it goes to', body: 'Segment by source, score, past interest or how recently they were in touch — not just everyone in the list.' },
@@ -631,7 +631,7 @@ export const capabilities: Capability[] = [
       { q: 'What if a hundred people reply at once?', a: 'That is the case this is built for. Every reply gets answered and qualified in parallel rather than queuing behind your team.' },
       { q: 'Can I broadcast on email and SMS too?', a: 'Yes — the same segment can be reached on whichever channel that contact actually responds on.' },
     ],
-    seoTitle: 'WhatsApp Broadcast with Reply Handling — Pulsar',
+    seoTitle: 'WhatsApp Broadcast Marketing — Pulsar',
     seoDescription:
       'Send segmented, personalised broadcasts on the official WhatsApp API, and have every reply handled as a qualified conversation.',
   },
@@ -735,7 +735,7 @@ export const capabilities: Capability[] = [
     headline: 'It only answers',
     headlineEmphasis: 'what you have told it.',
     subheadline:
-      'An agent that invents an answer about your pricing or your terms is worse than no agent at all. The knowledge base is the boundary: your products, policies, schemes and answers, and an instruction to hand over rather than guess.',
+      'This AI sales agent knowledge base is the boundary: your products, policies, schemes and answers, and an instruction to hand over rather than guess. An agent that invents an answer about your pricing is worse than no agent at all.',
     summary: 'Your products, policies and answers — the boundary it works inside.',
     steps: [
       { title: 'Load what it needs to know', body: 'Products, pricing rules, schemes, policies, delivery terms and the questions you answer every week.' },
@@ -753,7 +753,7 @@ export const capabilities: Capability[] = [
       { q: 'How much do I need to load in?', a: 'Start with the twenty questions you answer every week. That covers most enquiries, and the gaps report tells you what to add next.' },
       { q: 'Can different agents know different things?', a: 'Yes — a dealer agent and a retail agent should not be working from the same pricing.' },
     ],
-    seoTitle: 'Grounded Knowledge Base for AI Agents — Pulsar',
+    seoTitle: 'AI Sales Agent Knowledge Base — Pulsar',
     seoDescription:
       'Load your products, policies and schemes so agents answer from what you actually told them, and hand over rather than guess.',
   },

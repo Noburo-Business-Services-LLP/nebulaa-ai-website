@@ -34,7 +34,7 @@ export default function FinalCTA() {
           variants={fadeUpVariant}
           className="font-body text-[17.5px] leading-[1.65] text-muted max-w-[500px] mx-auto mb-[42px]"
         >
-          A minute to your first brand read. A week to decide whether any of this deserves your money. No card until you&apos;ve seen it work.
+          A minute to your first brand read from Nebulaa, the AI marketing platform built for founders. A week to decide whether it deserves your money. No card until you&apos;ve seen it work.
         </motion.p>
 
         <motion.div variants={fadeUpVariant} className="flex flex-col sm:flex-row justify-center gap-[14px]">

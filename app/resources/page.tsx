@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import { resources } from '@/lib/resourceData'
 import SectionLabel from '@/components/ui/SectionLabel'
 
-const seoTitle = 'Operating Knowledge for Modern GTM — Resources'
+const seoTitle = 'AI Marketing Resources — Operating Knowledge'
 const seoDescription =
   'Templates and playbooks to move from planning to action: festival calendar, market entry playbook, BTL checklist, content calendar. One email unlocks all.'
 
@@ -26,8 +26,8 @@ export default function ResourcesHubPage() {
           <span className="text-gold-display">handed over.</span>
         </h1>
         <p className="text-[17.5px] leading-[1.65] text-muted max-w-[640px]">
-          Built for Indian businesses and tuned to how the year actually runs here. One email
-          unlocks the set — no drip sequence afterwards. {ready} available now, the rest in
+          These AI marketing resources are built for Indian businesses and tuned to how the year actually
+          runs here. One email unlocks the set — no drip sequence afterwards. {ready} available now, the rest in
           preparation.
         </p>
       </section>

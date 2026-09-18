@@ -11,7 +11,7 @@ import {
 } from '@/lib/orgFacts'
 import SectionLabel from '@/components/ui/SectionLabel'
 
-const seoTitle = '// Facts'
+const seoTitle = 'Nebulaa Results and Proof — Facts'
 const seoDescription =
   'No hype, no inflated claims — just the system: what Nebulaa is, the engines and their prices, the channels it runs, how managed services are priced.'
 
@@ -45,8 +45,8 @@ export default function FactsPage() {
           <span className="text-gold-display">on one page.</span>
         </h1>
         <p className="text-[17px] leading-[1.65] text-muted max-w-[640px]">
-          Pricing, products, location and capabilities, stated once. If a figure appears anywhere
-          else on this site, it comes from here — so a summary of us should never find two different
+          This is Nebulaa results and proof: pricing, products, location and capabilities, stated once. If a figure
+          appears anywhere else on this site, it comes from here — so a summary of us should never find two different
           answers to the same question.
         </p>
       </section>

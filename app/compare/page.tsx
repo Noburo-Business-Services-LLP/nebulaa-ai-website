@@ -4,7 +4,7 @@ import { Check, ArrowRight } from 'lucide-react'
 import { compareData } from '@/lib/compareData'
 import SectionLabel from '@/components/ui/SectionLabel'
 
-const seoTitle = 'Tools Solve Tasks. Systems Connect Them.'
+const seoTitle = 'AI Marketing Platform Comparison — Nebulaa'
 const seoDescription =
   'How Nebulaa compares to Buffer, Hootsuite, Jasper AI, Clay and Instantly.ai — where they overlap, where they differ, what actually works together.'
 
@@ -25,8 +25,8 @@ export default function CompareHubPage() {
           Nebulaa vs <span className="text-gold-display">the alternatives.</span>
         </h1>
         <p className="text-[17px] leading-[1.65] text-muted max-w-[620px]">
-          Most tools do one part of the job — scheduling, or writing, or outreach. Here&apos;s exactly
-          where Nebulaa is stronger, and where the other tool genuinely wins, feature by feature.
+          This AI marketing platform comparison covers tools that do one part of the job — scheduling, or writing,
+          or outreach. Here&apos;s exactly where Nebulaa is stronger, and where the other tool genuinely wins, feature by feature.
         </p>
       </section>
 

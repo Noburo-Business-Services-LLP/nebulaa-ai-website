@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import { industries } from '@/lib/industryData'
 import SectionLabel from '@/components/ui/SectionLabel'
 
-const seoTitle = 'AI Workflows Built Around Your Business'
+const seoTitle = 'AI Marketing by Industry'
 const seoDescription =
   'How Gravity, Orbit and Pulsar operate inside your industry — jewellery, textile, financial services, FMCG, industrial & B2B, and more.'
 
@@ -25,9 +25,9 @@ export default function IndustriesHubPage() {
           Every industry sells <span className="text-gold-display">differently.</span>
         </h1>
         <p className="text-[17px] leading-[1.65] text-muted max-w-[620px]">
-          A jewellery brand sells on trust built over decades. A snack brand entering a new city needs
-          demand waiting before launch. Gravity and Pulsar adapt to how your business actually sells —
-          here&apos;s what that looks like for each one we run today.
+          This is AI marketing by industry: a jewellery brand sells on trust built over decades, a snack brand
+          entering a new city needs demand waiting before launch. Gravity and Pulsar adapt to how your business
+          actually sells — here&apos;s what that looks like for each one we run today.
         </p>
       </section>
 

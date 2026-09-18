@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import { channels, type RunBy } from '@/lib/channelData'
 import SectionLabel from '@/components/ui/SectionLabel'
 
-const seoTitle = 'One System. Every Channel.'
+const seoTitle = 'WhatsApp Marketing Automation & Every Channel'
 const seoDescription =
   'Your channels are execution surfaces connected to one business context: WhatsApp, Instagram, Facebook, LinkedIn, X, YouTube, email, SMS, voice and more.'
 
@@ -42,8 +42,8 @@ export default function ChannelsHubPage() {
           <span className="text-gold-display">And who runs it.</span>
         </h1>
         <p className="text-[17.5px] leading-[1.65] text-muted max-w-[640px]">
-          Some of these the product publishes to on its own. Some need our team. The difference matters
-          when you are deciding what to buy, so it is marked on every one rather than blurred together.
+          From WhatsApp marketing automation to every other channel you use — some of these the product publishes
+          to on its own, some need our team. The difference matters when you are deciding what to buy, so it is marked on every one rather than blurred together.
         </p>
       </section>
 

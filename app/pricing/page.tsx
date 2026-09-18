@@ -5,7 +5,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import Pricing from '@/components/sections/Pricing'
 import FAQ from '@/components/sections/FAQ'
 
-const seoTitle = 'Choose Your Operating Layer — Pricing'
+const seoTitle = 'Nebulaa Pricing — Choose Your Operating Layer'
 const seoDescription =
   'Gravity from ₹10,000/month, Orbit ₹12,000/month, Pulsar ₹15,000/month, all three engines ₹28,000/month on one core. Annual billing saves 15%.'
 
@@ -55,8 +55,8 @@ export default function PricingPage() {
           <span className="text-gold-display">One core underneath.</span>
         </h1>
         <p className="text-[17.5px] leading-[1.65] text-muted max-w-[620px]">
-          Run the software yourself, or have our team run the whole marketing function for you. The
-          agents are the same either way — the difference is whose evening it takes.
+          Nebulaa pricing is simple either way: run the software yourself, or have our team run the whole
+          marketing function for you. The agents are the same either way — the difference is whose evening it takes.
         </p>
       </section>
 

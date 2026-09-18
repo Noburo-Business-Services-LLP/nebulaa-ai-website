@@ -49,7 +49,7 @@ export const channels: Channel[] = [
     headline: 'In India, the enquiry',
     headlineEmphasis: 'arrives on WhatsApp.',
     subheadline:
-      'Not email, not a contact form. Someone messages your business number, usually outside working hours, and whoever answers first tends to get the sale. Pulsar replies within minutes on the official Business API, qualifies what it can, and hands you the ones worth your time.',
+      'This is WhatsApp marketing automation India businesses actually need: not email, not a contact form. Someone messages your business number, usually outside working hours, and whoever answers first tends to get the sale. Pulsar replies within minutes on the official Business API.',
     whatWeDo: [
       'Replies within minutes, at any hour, in your brand voice',
       'Budget, timeline and fit established in conversation',

@@ -14,6 +14,10 @@ declare module "sst" {
       "name": string
       "type": "sst.aws.Bucket"
     }
+    "Metrics": {
+      "name": string
+      "type": "sst.aws.Dynamo"
+    }
     "Site": {
       "type": "sst.aws.Nextjs"
       "url": string

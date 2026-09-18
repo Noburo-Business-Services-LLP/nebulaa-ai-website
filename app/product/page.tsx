@@ -6,7 +6,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import HudCard from '@/components/ui/HudCard'
 import { BrainCircuit } from 'lucide-react'
 
-const seoTitle = 'The System — Core, Gravity, Orbit & Pulsar'
+const seoTitle = 'AI Marketing Automation Platform'
 const seoDescription =
   'Three engines on one core. Gravity creates, Orbit finds, Pulsar engages, and Core learns from every action, outcome and signal across the system.'
 
@@ -28,9 +28,9 @@ export default function ProductPage() {
           <span className="text-gold-display">One core underneath.</span>
         </h1>
         <p className="text-[18px] leading-[1.65] text-muted max-w-[640px]">
-          Orbit finds and qualifies who is worth talking to. Gravity makes the marketing that gives
-          them a reason to say yes. Pulsar answers them before they go somewhere else. All three share
-          the same brand memory, so what one learns the others already know.
+          Nebulaa is the AI marketing automation platform where Orbit finds and qualifies who is worth talking to,
+          Gravity makes the marketing that gives them a reason to say yes, and Pulsar answers them before
+          they go somewhere else. All three share the same brand memory, so what one learns the others already know.
         </p>
       </section>
 

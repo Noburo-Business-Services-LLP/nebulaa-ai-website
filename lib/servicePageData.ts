@@ -99,9 +99,9 @@ export const servicePages: ServicePage[] = [
       { q: 'What if the launch date moves?', a: 'It frequently does. The sequence shifts with it — the point is that activity is timed to the date, whenever the date turns out to be.' },
       { q: 'Can you do more than one city?', a: 'Yes, and the model repeats per market. Costs and team scale with the number of cities, which is part of what gets scoped.' },
     ],
-    seoTitle: 'New Market Entry Marketing for FMCG & Consumer Brands',
+    seoTitle: 'New Market Entry Marketing — FMCG Brands',
     seoDescription:
-      'Demand generation that starts months before launch — local content, creators, geo-targeted campaigns, sampling and quick-commerce discovery, timed to your launch date.',
+      'Demand generation before launch — local content, creators, geo-targeted campaigns, sampling and quick-commerce discovery, timed to launch.',
   },
   {
     slug: 'btl-activation',

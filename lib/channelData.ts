@@ -62,7 +62,7 @@ export const channels: Channel[] = [
       { q: 'Can it use my existing business number?', a: 'Usually yes, though a number already registered on the consumer WhatsApp app has to be migrated first. We handle that during onboarding.' },
       { q: 'What about template message rules?', a: 'Business-initiated messages follow WhatsApp template policy. Replies inside an open conversation window are free-form. The system works inside those rules rather than around them.' },
     ],
-    seoTitle: 'WhatsApp Marketing & Enquiry Automation for Indian Businesses',
+    seoTitle: 'WhatsApp Marketing for Indian Businesses',
     seoDescription:
       'Answer every WhatsApp enquiry within minutes on the official Business API, qualify budget and timeline in conversation, and score every lead.',
   },
@@ -332,7 +332,7 @@ export const channels: Channel[] = [
       { q: 'Do you mark up media spend?', a: 'No. Spend is billed at actuals and stays visible — the retainer covers management, not a cut of your budget.' },
       { q: 'Can I see what it is doing?', a: 'Yes. Monthly reporting covers what ran, what worked and what changes next.' },
     ],
-    seoTitle: 'Meta & Google Ads Management for Indian Brands — Nebulaa',
+    seoTitle: 'Meta & Google Ads for Indian Brands',
     seoDescription:
       'Always-on Meta and Google campaigns geo-targeted around real retail catchments, with media billed at actuals and never marked up.',
   },

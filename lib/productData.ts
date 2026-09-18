@@ -69,7 +69,7 @@ export const agents: Record<AgentId, Agent> = {
     price: '₹10,000 / month',
     seoTitle: 'Gravity — AI Content & Social Media Engine',
     seoDescription:
-      'Gravity remembers the business, plans the work, creates the content, manages approvals, publishes across channels and monitors what happens. Every outcome returns to Core as a signal.',
+      'Gravity remembers the business, plans the work, creates content, manages approvals, publishes across channels and monitors what happens.',
   },
   pulsar: {
     id: 'pulsar',
@@ -83,7 +83,7 @@ export const agents: Record<AgentId, Agent> = {
     price: '₹15,000 / month',
     seoTitle: 'Pulsar — AI Outreach Engine',
     seoDescription:
-      'A lead shouldn\'t disappear because someone forgot to follow up. Pulsar responds, follows up, qualifies and routes conversations across WhatsApp, email, SMS and voice — with humans in control where it matters.',
+      'A lead shouldn\'t disappear because no one followed up. Pulsar responds, qualifies and routes conversations across WhatsApp, email, SMS and voice.',
   },
   orbit: {
     id: 'orbit',
@@ -97,7 +97,7 @@ export const agents: Record<AgentId, Agent> = {
     price: '₹12,000 / month',
     seoTitle: 'Orbit — AI Lead Generation Engine',
     seoDescription:
-      'Finding leads is easy. Orbit finds the right ones — turning your ICP into a prospecting engine that sources, enriches, qualifies and prepares outreach, then hands off to Pulsar.',
+      'Finding leads is easy. Orbit finds the right ones — turning your ICP into a prospecting engine that sources, qualifies and hands off to Pulsar.',
   },
 }
 
@@ -131,7 +131,7 @@ export const capabilities: Capability[] = [
       { q: 'What if the strategy is wrong?', a: 'Edit it. It is a document, not a locked configuration — and everything downstream, including the monthly plan, rebuilds against your version.' },
       { q: 'What if my website is thin or out of date?', a: 'Then it will be working from thin information, and the strategy will show that. You can add context directly, and Gravity keeps refining as it sees what actually performs.' },
     ],
-    seoTitle: 'AI Marketing Strategy from Your Website URL — Gravity',
+    seoTitle: 'AI Marketing Strategy from Your Website — Gravity',
     seoDescription:
       'Gravity reads your website and writes a marketing strategy from it: tone of voice, ideal customer profile, channel plan and the competitors worth watching.',
   },
@@ -165,7 +165,7 @@ export const capabilities: Capability[] = [
     ],
     seoTitle: 'Monthly Content Planning & Calendar — Gravity',
     seoDescription:
-      'Gravity plans a full month of content against your pillars, with Indian festivals and buying seasons already mapped in, and rebuilds the plan when you change it.',
+      'Gravity plans a full month of content against your pillars, with festivals and buying seasons mapped in, and rebuilds when you change it.',
   },
   {
     slug: 'create',
@@ -350,7 +350,7 @@ export const capabilities: Capability[] = [
       { q: 'Who pays the creators?', a: 'Creator fees are billed at actuals and are separate from the retainer — never marked up, never absorbed silently.' },
       { q: 'Can creators see my whole account?', a: 'No. Creators get a portal scoped to their own collaborations and submissions.' },
     ],
-    seoTitle: 'Influencer & Creator Collaboration Management — Gravity',
+    seoTitle: 'Influencer & Creator Collaboration — Gravity',
     seoDescription:
       'Manage regional creators end to end: roster, collaboration briefs, a creator submission portal, approvals and per-creator performance.',
   },
@@ -381,7 +381,7 @@ export const capabilities: Capability[] = [
       { q: 'Will it reply without me?', a: 'Only to what you set auto-reply rules for. Everything else is drafted and waits for you.' },
       { q: 'Does it cover reviews?', a: 'Comments, DMs and mentions on connected platforms today. Google Business reviews are part of the managed service.' },
     ],
-    seoTitle: 'Unified Social Inbox with Drafted Replies — Gravity',
+    seoTitle: 'Unified Social Inbox with Drafted Replies',
     seoDescription:
       'Comments, DMs and mentions from every connected platform in one inbox, with context-aware replies drafted in your brand voice.',
   },
@@ -412,7 +412,7 @@ export const capabilities: Capability[] = [
       { q: 'Does it work for local search?', a: 'That is the case it is most useful for — "near me" and city-qualified searches are where a local business gets found.' },
       { q: 'Will it write blog posts too?', a: 'It handles the search side — terms, metadata, gaps. Long-form content is part of the managed service.' },
     ],
-    seoTitle: 'SEO Assistant — Keywords, Metadata & Gaps | Gravity by Nebulaa',
+    seoTitle: 'SEO Assistant — Keywords & Metadata | Gravity',
     seoDescription:
       'Find the search terms your customers use, the gaps where competitors are visible and you are not, and generate the metadata to fix it.',
   },
@@ -473,7 +473,7 @@ export const capabilities: Capability[] = [
       { q: 'Can I reset it?', a: 'Yes. A rebrand or a change of direction is a good reason to, and you can correct individual entries without wiping everything.' },
       { q: 'Is my data used to train anything else?', a: 'Your brand memory is yours and scoped to your account.' },
     ],
-    seoTitle: 'AI Brand Memory — Learns Your Business Over Time | Gravity',
+    seoTitle: 'AI Brand Memory — Learns Your Business | Gravity',
     seoDescription:
       'Gravity remembers what it wrote, what you edited, what you rejected and what performed — so month six is better than month one.',
   },
@@ -568,7 +568,7 @@ export const capabilities: Capability[] = [
       { q: 'Will customers know it is not me?', a: 'It writes in your voice and it does not pretend to be a person with a name. Most enquiries are answered and handed over before that question comes up.' },
       { q: 'What happens outside business hours?', a: 'That is when it earns its keep. An enquiry at 9pm Sunday gets answered at 9pm Sunday rather than Monday morning, by which point they have messaged someone else.' },
     ],
-    seoTitle: 'WhatsApp Enquiry Automation & Qualification — Pulsar',
+    seoTitle: 'WhatsApp Enquiry Automation — Pulsar',
     seoDescription:
       'Pulsar answers WhatsApp enquiries in minutes on the official Business API, qualifies budget, timeline and fit, and hands over the full conversation.',
   },
@@ -631,7 +631,7 @@ export const capabilities: Capability[] = [
       { q: 'What if a hundred people reply at once?', a: 'That is the case this is built for. Every reply gets answered and qualified in parallel rather than queuing behind your team.' },
       { q: 'Can I broadcast on email and SMS too?', a: 'Yes — the same segment can be reached on whichever channel that contact actually responds on.' },
     ],
-    seoTitle: 'WhatsApp Broadcast with Real Reply Handling — Pulsar',
+    seoTitle: 'WhatsApp Broadcast with Reply Handling — Pulsar',
     seoDescription:
       'Send segmented, personalised broadcasts on the official WhatsApp API, and have every reply handled as a qualified conversation.',
   },
@@ -753,7 +753,7 @@ export const capabilities: Capability[] = [
       { q: 'How much do I need to load in?', a: 'Start with the twenty questions you answer every week. That covers most enquiries, and the gaps report tells you what to add next.' },
       { q: 'Can different agents know different things?', a: 'Yes — a dealer agent and a retail agent should not be working from the same pricing.' },
     ],
-    seoTitle: 'Grounded Knowledge Base for AI Sales Agents — Pulsar',
+    seoTitle: 'Grounded Knowledge Base for AI Agents — Pulsar',
     seoDescription:
       'Load your products, policies and schemes so agents answer from what you actually told them, and hand over rather than guess.',
   },

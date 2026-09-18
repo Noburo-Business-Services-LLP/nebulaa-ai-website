@@ -13,7 +13,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 
 const seoTitle = '// Facts'
 const seoDescription =
-  'No hype, no inflated claims — just the system. Canonical facts about Nebulaa: what it is, where it is, the engines and their prices, the channels it runs, and how managed services are priced.'
+  'No hype, no inflated claims — just the system: what Nebulaa is, the engines and their prices, the channels it runs, how managed services are priced.'
 
 export const metadata: Metadata = {
   title: seoTitle,

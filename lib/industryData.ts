@@ -41,7 +41,7 @@ export const industries: Record<string, IndustryData> = {
     headlineEmphasis: 'thirty years — online, too.',
     subheadline:
       'A jewellery buyer isn\'t comparing catalogues, they\'re comparing trust. Gravity keeps a steady drumbeat of craft, collections and occasions; Pulsar answers the WhatsApp enquiry before they walk into a rival showroom.',
-    seoTitle: 'Nebulaa for Jewellery & Retail — AI Marketing & Outreach',
+    seoTitle: 'Nebulaa for Jewellery & Retail',
     seoDescription:
       'Content and WhatsApp follow-up built for jewellery and retail brands — trusted by Gandhimathi Jewellers.',
     painPoints: [
@@ -69,7 +69,7 @@ export const industries: Record<string, IndustryData> = {
     headlineEmphasis: 'every single day.',
     subheadline:
       'A multi-branch textile business can\'t run content the way a single shop does — every branch, every collection, every regional festival. Gravity plans the month once and adapts it; Pulsar catches every enquiry across every location.',
-    seoTitle: 'Nebulaa for Textile & Apparel — AI Marketing & Outreach',
+    seoTitle: 'Nebulaa for Textile & Apparel',
     seoDescription:
       'Multi-branch content and WhatsApp follow-up for textile and apparel retailers — trusted by JKR Tex.',
     painPoints: [
@@ -97,7 +97,7 @@ export const industries: Record<string, IndustryData> = {
     headlineEmphasis: 'Content has to earn it.',
     subheadline:
       'Chits, lending and financial products sell on trust and clear communication, not hype. Gravity keeps your presence steady and plain-spoken; Pulsar answers "how does this work" the moment someone asks.',
-    seoTitle: 'Nebulaa for Financial Services — AI Marketing & Outreach',
+    seoTitle: 'Nebulaa for Financial Services',
     seoDescription:
       'Steady, trust-first content and WhatsApp follow-up for financial services brands — trusted by TNV Chits.',
     painPoints: [
@@ -124,7 +124,7 @@ export const industries: Record<string, IndustryData> = {
     headlineEmphasis: 'before the product hits the shelf.',
     subheadline:
       'Entering a new market only works if demand is already waiting when you launch. Gravity builds local awareness and content ahead of time; Pulsar and our team run the retail activation that gets you seen once you are on shelf.',
-    seoTitle: 'Nebulaa for FMCG & Food Brands — Market Entry & Growth',
+    seoTitle: 'Nebulaa for FMCG & Food Brands',
     seoDescription:
       'Market-entry content and demand generation for FMCG and food brands entering a new city.',
     painPoints: [
@@ -151,7 +151,7 @@ export const industries: Record<string, IndustryData> = {
     headlineEmphasis: 'one system, not six vendors.',
     subheadline:
       'A regional B2B or industrial brand needs organic content, paid media, dealer support and on-ground activation working together — not five agencies that don\'t talk to each other. One team runs all of it.',
-    seoTitle: 'Nebulaa for Industrial & B2B Brands — Regional Growth',
+    seoTitle: 'Nebulaa for Industrial & B2B Brands',
     seoDescription:
       'Organic content, performance media, dealer support and BTL activation for industrial and B2B brands, run as one system.',
     painPoints: [
@@ -178,9 +178,9 @@ export const industries: Record<string, IndustryData> = {
     headlineEmphasis: 'they can already picture.',
     subheadline:
       'Hospitality sells on atmosphere and on the enquiry answered while someone is still deciding. Gravity keeps the rooms, the food and the season in front of people; Pulsar answers the availability question before they check the next place.',
-    seoTitle: 'Nebulaa for Hospitality — Hotels, Resorts & Restaurants',
+    seoTitle: 'Nebulaa for Hotels & Restaurants',
     seoDescription:
-      'Content and enquiry handling for hotels, resorts and restaurants — seasonal campaigns, review management and WhatsApp enquiries answered before the booking goes elsewhere.',
+      'Content and enquiry handling for hotels, resorts and restaurants — seasonal campaigns and WhatsApp enquiries answered before booking elsewhere.',
     painPoints: [
       'An enquiry about availability that sits unanswered while the guest books somewhere else',
       'Seasonal demand that needs campaigns planned months ahead, not the week before',
@@ -205,7 +205,7 @@ export const industries: Record<string, IndustryData> = {
     headlineEmphasis: 'too much to leave waiting.',
     subheadline:
       'One property enquiry can be worth more than a year of most businesses\' customers, which makes a slow reply extraordinarily expensive. Pulsar qualifies budget, location and timeline the moment it lands; Gravity keeps the projects visible in between.',
-    seoTitle: 'Nebulaa for Real Estate — Property Marketing & Lead Qualification',
+    seoTitle: 'Nebulaa for Real Estate Marketing',
     seoDescription:
       'Project content and instant enquiry qualification for builders and property businesses — budget, location and timeline established before your team calls.',
     painPoints: [
@@ -259,9 +259,9 @@ export const industries: Record<string, IndustryData> = {
     headlineEmphasis: 'in the first reply.',
     subheadline:
       'An auto enquiry is almost always sent to several dealers at once. The one that replies first, with a real answer about variant, price and availability, is usually the one that gets the test drive.',
-    seoTitle: 'Nebulaa for Automobile Dealerships — Enquiry & Content',
+    seoTitle: 'Nebulaa for Automobile Dealerships',
     seoDescription:
-      'Fast enquiry qualification and consistent showroom content for dealerships — variant, finance and availability questions answered before the competing dealer replies.',
+      'Fast enquiry qualification and consistent showroom content for dealerships — questions answered before the competing dealer replies.',
     painPoints: [
       'Enquiries sent to four dealers at once, where the slowest reply loses',
       'Finance and exchange questions that need a fast, accurate answer',

@@ -6,11 +6,11 @@ import SectionLabel from '@/components/ui/SectionLabel'
 export const metadata: Metadata = {
   title: 'Free Tools for Getting the Work Done',
   description:
-    'Need a hook? Generate one. Need an ICP? Build one. LinkedIn post generator, cold email generator, hashtag generator, lead qualification calculator and more. No login required.',
+    'Need a hook? Generate one. LinkedIn post generator, cold email generator, hashtag generator, lead qualification calculator and more. No login required.',
   keywords: ['free marketing tools', 'founder tools', 'linkedin post generator', 'cold email generator', 'hashtag generator'],
   openGraph: {
     title: 'Free Tools for Getting the Work Done',
-    description: 'One tool is useful. A system is different. Generate posts, emails, hooks and ICPs instantly — no login required.',
+    description: 'One tool is useful. A system is different. Generate posts, emails and hooks instantly — no login required.',
     type: 'website',
   },
 }

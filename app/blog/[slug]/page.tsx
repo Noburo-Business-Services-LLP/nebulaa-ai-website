@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { blogPosts, type BlogPost } from '@/lib/blogData'
@@ -21,6 +22,25 @@ export function generateStaticParams() {
 
 export const dynamicParams = true
 export const revalidate = 300
+
+/**
+ * Without this, every post fell through to the root layout's site-wide
+ * default description — which is how 13 different posts ended up with the
+ * exact same 213-character meta description. Each post already has a real,
+ * specific excerpt written for it; this is the only place that was never
+ * reading it.
+ */
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const stored = await getPublishedPost(params.slug)
+  const post = stored ? toMeta(stored) : getRepoPost(params.slug)
+  if (!post) return {}
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    openGraph: { title: post.title, description: post.excerpt },
+  }
+}
 
 export default async function BlogPost({ params }: Props) {
   // S3 is checked first: it's the override layer for any slug, so an edit

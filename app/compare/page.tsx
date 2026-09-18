@@ -6,7 +6,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 
 const seoTitle = 'Tools Solve Tasks. Systems Connect Them.'
 const seoDescription =
-  'How Nebulaa compares to Buffer, Hootsuite, Jasper AI, Clay and Instantly.ai — where they overlap, where they differ, and whether your work actually works together.'
+  'How Nebulaa compares to Buffer, Hootsuite, Jasper AI, Clay and Instantly.ai — where they overlap, where they differ, what actually works together.'
 
 export const metadata: Metadata = {
   title: seoTitle,

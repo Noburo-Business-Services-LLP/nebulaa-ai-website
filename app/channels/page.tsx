@@ -6,7 +6,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 
 const seoTitle = 'One System. Every Channel.'
 const seoDescription =
-  'Your channels are execution surfaces, connected to the same business context and learning loop: WhatsApp, Instagram, Facebook, LinkedIn, X, YouTube Shorts, email, SMS, voice, Google Business, Pinterest, paid media and quick commerce.'
+  'Your channels are execution surfaces connected to one business context: WhatsApp, Instagram, Facebook, LinkedIn, X, YouTube, email, SMS, voice and more.'
 
 export const metadata: Metadata = {
   title: seoTitle,

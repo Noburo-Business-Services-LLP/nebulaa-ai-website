@@ -86,7 +86,7 @@ export const resources: Resource[] = [
     format: 'PDF',
     file: null,
     pages: 'In preparation',
-    seoTitle: 'Free WhatsApp Business Reply Templates for Indian Businesses',
+    seoTitle: 'Free WhatsApp Reply Templates (India)',
     seoDescription:
       'Opening replies, qualifying questions and follow-ups for WhatsApp business enquiries, written for how Indian customers actually message.',
   },
@@ -100,7 +100,7 @@ export const resources: Resource[] = [
     format: 'CSV',
     file: 'nebulaa-content-calendar-template.csv',
     pages: 'One month, pre-filled',
-    seoTitle: 'Free Monthly Social Media Content Calendar Template',
+    seoTitle: 'Free Content Calendar Template',
     seoDescription:
       'A working content calendar with date, platform, format, pillar, hook and status columns, pre-filled with a sample month.',
   },

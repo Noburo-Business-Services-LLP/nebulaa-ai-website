@@ -6,7 +6,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 
 const seoTitle = 'Nebulaa in the Wild — Real Workflows, Real Outputs'
 const seoDescription =
-  'Objective, system, execution, output, signal, learning. Three shapes of managed engagement: always-on content, market entry, and multi-market regional programmes.'
+  'Objective, system, execution, output, signal, learning — three shapes of managed engagement: always-on content, market entry, regional programmes.'
 
 export const metadata: Metadata = {
   title: seoTitle,

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: '%s | Nebulaa',
   },
   description:
-    'Understand your business. Execute the work. Learn from what happens. Nebulaa runs Gravity, Orbit and Pulsar on one core — connecting content, lead generation and customer engagement into a single operating system.',
+    'Nebulaa runs Gravity, Orbit and Pulsar on one core — understanding your business, executing the work, and learning from what happens next.',
   keywords: [
     'AI operating system for business',
     'autonomous AI agents',

@@ -1,7 +1,6 @@
 'use client'
 
-import { useState } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { BlogPost } from '@/lib/blogData'
 import SectionLabel from '@/components/ui/SectionLabel'
@@ -10,10 +9,19 @@ import BlogEmailCapture from '@/components/ui/BlogEmailCapture'
 
 export default function BlogList({ posts }: { posts: BlogPost[] }) {
   // A tag clicked on a post page (a different route) links here as
-  // /blog?tag=X — read once on mount so that link actually lands filtered
-  // rather than dropping the visitor on the unfiltered index.
-  const searchParams = useSearchParams()
-  const [activeTag, setActiveTag] = useState(searchParams.get('tag') || 'All')
+  // /blog?tag=X. Reading that via next/navigation's useSearchParams forces
+  // this whole component behind a Suspense boundary with no server-rendered
+  // fallback content — so the entire index, h1 included, was invisible to
+  // any crawler that doesn't execute JS. Reading it from window.location
+  // after mount instead means the full unfiltered index (every post, real
+  // h1) is in the initial HTML always; the tag pre-select just applies a
+  // beat later, which is an acceptable trade for a page that's supposed to
+  // be found.
+  const [activeTag, setActiveTag] = useState('All')
+  useEffect(() => {
+    const tag = new URLSearchParams(window.location.search).get('tag')
+    if (tag) setActiveTag(tag)
+  }, [])
   // The filter bar is whatever tags actually exist across these posts, not a
   // fixed list — a tag that no post carries yet shouldn't show as a filter
   // with nothing behind it, and a new tag typed in the editor appears here

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { Suspense } from 'react'
 import { blogPosts } from '@/lib/blogData'
 import { listPublishedPosts, toMeta } from '@/lib/blogStore'
 import BlogList from '@/components/sections/BlogList'
@@ -29,12 +28,5 @@ export default async function BlogPage() {
   const newSlugs = new Set(blogPosts.map(p => p.slug))
   const brandNew = published.filter(p => !newSlugs.has(p.slug)).map(toMeta)
 
-  return (
-    // BlogList reads ?tag= via useSearchParams, which the App Router
-    // requires a Suspense boundary for — otherwise the whole route bails
-    // out of static rendering.
-    <Suspense fallback={null}>
-      <BlogList posts={[...brandNew, ...merged]} />
-    </Suspense>
-  )
+  return <BlogList posts={[...brandNew, ...merged]} />
 }

@@ -6,7 +6,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 
 const seoTitle = 'Operating Knowledge for Modern GTM — Resources'
 const seoDescription =
-  'Templates, checklists and playbooks built to move from planning to action: festival calendar, market entry playbook, BTL activation checklist, content calendar and reporting templates. One email unlocks all of them.'
+  'Templates and playbooks to move from planning to action: festival calendar, market entry playbook, BTL checklist, content calendar. One email unlocks all.'
 
 export const metadata: Metadata = {
   title: seoTitle,

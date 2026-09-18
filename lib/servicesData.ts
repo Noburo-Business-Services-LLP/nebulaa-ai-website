@@ -156,5 +156,5 @@ export const deliverableGroups: DeliverableGroup[] = [
 export const servicesPageMeta = {
   seoTitle: 'When You Need the System Built With You — Services',
   seoDescription:
-    'AI can execute a lot, but some businesses need strategy, production, activation or market-entry expertise alongside the system. Handled by one team, under one plan.',
+    'Businesses need strategy, production, activation or market-entry expertise alongside the system — handled by one team, under one plan.',
 }

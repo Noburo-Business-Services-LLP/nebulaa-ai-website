@@ -75,37 +75,7 @@ export default function PulsarSection() {
   return (
     <section id="pulsar" className="py-[130px] px-6 md:px-12 lg:px-[120px]">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-[90px] items-center">
-        {/* Left — three capability screens, cycling on one live panel */}
-        <motion.div
-          variants={slideInRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOptions}
-        >
-          <HudCard halo="cyan" label={screen.label} status={screenStatus(screen.key, localTick)}>
-            <div className="min-h-[290px]">
-              <AnimatePresence mode="wait">
-                {screen.key === 'conversation' && (
-                  <motion.div key="conversation" {...crossfade}>
-                    <ConversationScreen localTick={localTick} />
-                  </motion.div>
-                )}
-                {screen.key === 'calling' && (
-                  <motion.div key="calling" {...crossfade}>
-                    <CallingScreen localTick={localTick} />
-                  </motion.div>
-                )}
-                {screen.key === 'outreach' && (
-                  <motion.div key="outreach" {...crossfade}>
-                    <OutreachScreen localTick={localTick} />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </HudCard>
-        </motion.div>
-
-        {/* Right — copy */}
+        {/* Left — copy */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -148,6 +118,36 @@ export default function PulsarSection() {
           <motion.a variants={fadeUpVariant} href="#how-it-works" className="mt-[26px] inline-block text-[15px] text-gold-text hover:underline">
             See how Pulsar works →
           </motion.a>
+        </motion.div>
+
+        {/* Right — three capability screens, cycling on one live panel */}
+        <motion.div
+          variants={slideInRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+        >
+          <HudCard halo="cyan" label={screen.label} status={screenStatus(screen.key, localTick)}>
+            <div className="min-h-[290px]">
+              <AnimatePresence mode="wait">
+                {screen.key === 'conversation' && (
+                  <motion.div key="conversation" {...crossfade}>
+                    <ConversationScreen localTick={localTick} />
+                  </motion.div>
+                )}
+                {screen.key === 'calling' && (
+                  <motion.div key="calling" {...crossfade}>
+                    <CallingScreen localTick={localTick} />
+                  </motion.div>
+                )}
+                {screen.key === 'outreach' && (
+                  <motion.div key="outreach" {...crossfade}>
+                    <OutreachScreen localTick={localTick} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </HudCard>
         </motion.div>
       </div>
     </section>

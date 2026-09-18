@@ -9,7 +9,7 @@ const steps = [
   {
     n: '01',
     title: 'Full brand context, one pass',
-    body: 'Paste your website. A minute later it knows your tone, who buys from you, and what your three closest rivals put out this week. No brief to write. No onboarding call to sit through.',
+    body: 'Paste your website. Within a minute, Nebulaa identifies your tone, your customers, and what your three closest competitors are currently posting — no brief to write, no onboarding call required.',
   },
   {
     n: '02',
@@ -19,7 +19,7 @@ const steps = [
   {
     n: '03',
     title: 'Every enquiry answered live',
-    body: 'An enquiry at nine on a Sunday night doesn’t wait for Monday. Pulsar replies in minutes, asks what you’d have asked, and brings you in once there’s a real buyer on the other end.',
+    body: 'Pulsar replies to enquiries within minutes, at any hour, asking the same questions you would ask. You are brought in once there is a qualified buyer on the other end.',
   },
 ]
 
@@ -40,7 +40,7 @@ export default function ThreeThings() {
           variants={fadeUpVariant}
           className="neb-display text-[33px] md:text-[50px]"
         >
-          Agent intelligence, <span className="text-gold-display">running twenty-four seven.</span>
+          Agent intelligence, <span className="text-gold-display">running 24/7.</span>
         </motion.h2>
       </motion.div>
 
@@ -54,7 +54,7 @@ export default function ThreeThings() {
         {steps.map((step, i) => (
           <motion.div key={step.n} variants={fadeUpVariant}>
             <HudCard halo={i === 1 ? 'cyan' : 'amber'} className="p-9 h-full">
-              <div className="font-mono text-[46px] text-gold-text/35 leading-none mb-7">{step.n}</div>
+              <div className="font-digital text-[46px] text-gold-text/35 leading-none mb-7">{step.n}</div>
               <h3 className="font-heading text-[25px] font-medium mb-3.5">{step.title}</h3>
               <p className="font-body text-[15px] leading-[1.68] text-muted">{step.body}</p>
             </HudCard>

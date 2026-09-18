@@ -25,14 +25,14 @@ const ENGINES = [
     name: 'Orbit',
     role: 'AI lead generation engine',
     icon: OrbitIcon,
-    purpose: 'Finds, enriches, qualifies and prepares the right prospects for outreach.',
+    purpose: 'Sources leads that match your ideal customer profile, verifies and qualifies them, and prepares them for outreach.',
   },
   {
     id: 'pulsar',
     name: 'Pulsar',
     role: 'AI outreach engine',
     icon: MessageSquareText,
-    purpose: 'Responds, follows up, qualifies and keeps customer conversations moving.',
+    purpose: 'Handles WhatsApp, email and SMS conversations, following up and qualifying each lead until it is ready to hand off.',
   },
 ]
 

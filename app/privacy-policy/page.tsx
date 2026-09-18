@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — Nebulaa.ai',
-  description: 'Privacy Policy for Nebulaa (Noburo Business Services LLP). How we collect, use, store, and protect your personal information.',
+  title: 'Privacy Policy — How Nebulaa Handles Your Data',
+  description: 'Nebulaa privacy policy: how Nebulaa (Noburo Business Services LLP) collects, uses, stores, and protects your personal information.',
 }
 
 function Section({ number, title, children }: { number: number; title: string; children: React.ReactNode }) {

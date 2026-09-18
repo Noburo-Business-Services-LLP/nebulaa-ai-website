@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Terms & Conditions — Nebulaa.ai',
-  description: 'Terms & Conditions of Service for Nebulaa (Noburo Business Services LLP). Please read before using the Nebulaa platform.',
+  title: 'Terms of Service — Nebulaa Platform Rules',
+  description: 'Nebulaa terms of service: the terms and conditions for Noburo Business Services LLP that govern use of the Nebulaa platform.',
 }
 
 function Section({ number, title, children }: { number: number; title: string; children: React.ReactNode }) {

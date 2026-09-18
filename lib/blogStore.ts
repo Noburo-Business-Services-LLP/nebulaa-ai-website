@@ -12,8 +12,14 @@ import type { BlogPost } from '@/lib/blogData'
  *
  * Posts now live as data. The repo's `blogPosts` array stays exactly as it is
  * and keeps generating static pages at build time; anything published since
- * the last deploy is read from S3 and rendered on demand. Neither source knows
- * about the other beyond slug precedence.
+ * the last deploy is read from S3 and rendered on demand.
+ *
+ * S3 is the override layer for ANY slug, including ones that also exist in
+ * the repo: editing a repo post through /admin/blog saves the edited version
+ * here, and the render path checks S3 first. That is an unambiguous rule —
+ * "S3 present means it's the current version" — so there is never a question
+ * of which of two copies is live, only whether an edit has happened since
+ * the last deploy.
  */
 export interface StoredPost extends BlogPost {
   content: string

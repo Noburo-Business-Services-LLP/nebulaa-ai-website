@@ -714,6 +714,12 @@ function BlogWriter({ secret }: { secret: string }) {
     <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-6">
       {/* Ideas sidebar */}
       <div className="space-y-2">
+        <a
+          href="/admin/blog"
+          className="block text-center text-xs font-body font-bold text-brand-gold border border-brand-gold/30 rounded-xl px-3 py-2.5 mb-4 hover:bg-brand-gold/10 transition-colors"
+        >
+          Edit existing posts &amp; images →
+        </a>
         <p className="text-white/40 text-xs font-body font-bold uppercase tracking-widest mb-3">Content Ideas</p>
         {blogIdeas.map(idea => (
           <button

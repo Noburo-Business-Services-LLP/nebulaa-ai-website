@@ -1,8 +1,9 @@
 import { notFound } from 'next/navigation'
-import { blogPosts } from '@/lib/blogData'
+import Image from 'next/image'
+import { blogPosts, type BlogPost } from '@/lib/blogData'
 import { getPublishedPost, toMeta } from '@/lib/blogStore'
-import fs from 'fs'
-import path from 'path'
+import { getRepoPost, getRepoContent, stripFrontmatter } from '@/lib/blogRepo'
+import { mediaUrl } from '@/lib/mediaUrl'
 import BlogEmailCapture from '@/components/ui/BlogEmailCapture'
 import HudCard from '@/components/ui/HudCard'
 
@@ -20,41 +21,25 @@ export function generateStaticParams() {
 export const dynamicParams = true
 export const revalidate = 300
 
-/** The .mdx files that ship with the repo. */
-function getRepoContent(slug: string): string | null {
-  const filePath = path.join(process.cwd(), 'content', 'blog', `${slug}.mdx`)
-  if (!fs.existsSync(filePath)) return null
-  return fs.readFileSync(filePath, 'utf-8')
-}
-
 export default async function BlogPost({ params }: Props) {
-  const repoPost = blogPosts.find(p => p.slug === params.slug)
+  // S3 is checked first: it's the override layer for any slug, so an edit
+  // made through /admin/blog to a repo post is what renders here, not the
+  // frozen-at-last-deploy .mdx file. See lib/blogStore.ts.
+  let post: BlogPost | undefined
+  let raw: string | null = null
 
-  let post = repoPost as (typeof blogPosts)[number] | undefined
-  let raw = repoPost ? getRepoContent(params.slug) : null
-
-  if (!raw) {
-    const stored = await getPublishedPost(params.slug)
-    if (stored) {
-      post = toMeta(stored)
-      raw = stored.content
-    }
+  const stored = await getPublishedPost(params.slug)
+  if (stored) {
+    post = toMeta(stored)
+    raw = stored.content
+  } else {
+    post = getRepoPost(params.slug)
+    raw = post ? getRepoContent(params.slug) : null
   }
 
   if (!post || !raw) notFound()
 
-  // Simple MDX → HTML conversion for static rendering. Strips YAML
-  // frontmatter properly — everything between the first two `---` delimiter
-  // lines, not just the delimiters themselves, which the previous filter
-  // missed, leaking "title: ..." etc. into the rendered body as text.
-  const lines = raw.split('\n')
-  let body = raw
-  if (lines[0]?.trim() === '---') {
-    const closingIndex = lines.slice(1).findIndex(l => l.trim() === '---')
-    if (closingIndex !== -1) {
-      body = lines.slice(closingIndex + 2).join('\n')
-    }
-  }
+  const body = stripFrontmatter(raw)
 
   return (
     <>
@@ -62,8 +47,13 @@ export default async function BlogPost({ params }: Props) {
         <div className="max-w-2xl mx-auto px-4 md:px-8">
           {/* Header */}
           <div className="mb-12">
-            {/* Hero gradient bar */}
-            <div className={`h-1.5 w-16 bg-gradient-to-r ${post.headerColor} rounded-full mb-6`} />
+            {post.heroImage ? (
+              <div className="relative w-full aspect-[16/9] rounded-[16px] overflow-hidden mb-7">
+                <Image src={mediaUrl(post.heroImage)} alt={post.title} fill priority className="object-cover" />
+              </div>
+            ) : (
+              <div className={`h-1.5 w-16 bg-gradient-to-r ${post.headerColor} rounded-full mb-6`} />
+            )}
             <span className="inline-block font-body text-xs font-semibold bg-gold text-[#1A1208] px-3 py-1 rounded-full mb-4">
               {post.category}
             </span>

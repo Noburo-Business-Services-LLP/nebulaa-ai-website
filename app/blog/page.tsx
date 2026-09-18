@@ -19,10 +19,14 @@ export const revalidate = 300
 
 export default async function BlogPage() {
   const published = await listPublishedPosts()
-  const repoSlugs = new Set(blogPosts.map(p => p.slug))
+  const overrides = new Map(published.map(p => [p.slug, toMeta(p)]))
 
-  // Repo posts win on a slug clash — they are the ones with a static page.
-  const extra = published.filter(p => !repoSlugs.has(p.slug)).map(toMeta)
+  // An S3 entry for a repo slug is an edit made through /admin/blog — its
+  // metadata (title, excerpt, category…) is what should show in the list,
+  // same as the post page itself preferring S3 content. See lib/blogStore.ts.
+  const merged = blogPosts.map(p => overrides.get(p.slug) ?? p)
+  const newSlugs = new Set(blogPosts.map(p => p.slug))
+  const brandNew = published.filter(p => !newSlugs.has(p.slug)).map(toMeta)
 
-  return <BlogList posts={[...extra, ...blogPosts]} />
+  return <BlogList posts={[...brandNew, ...merged]} />
 }

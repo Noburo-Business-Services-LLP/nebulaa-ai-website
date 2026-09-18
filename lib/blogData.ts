@@ -7,6 +7,8 @@ export interface BlogPost {
   date: string
   author: string
   headerColor: string
+  /** Media store key (see lib/mediaStore.ts). Falls back to headerColor's gradient when unset. */
+  heroImage?: string
 }
 
 export const blogPosts: BlogPost[] = [

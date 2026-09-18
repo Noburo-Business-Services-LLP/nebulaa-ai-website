@@ -81,12 +81,16 @@ export default async function BlogPost({ params }: Props) {
           {/* Body */}
           <div className="prose-nebulaa">
             {body.split('\n').map((line, i) => {
+              // Headings inside the body start one level below the page's own
+              // <h1> (the post title, rendered above) so a post never ends up
+              // with two/three h1s just because its markdown used "# " for a
+              // section heading.
               if (line.startsWith('# '))
-                return <h1 key={i} className="font-heading text-3xl font-bold text-ink mt-10 mb-4 tracking-tight">{renderInlineMarkdown(line.slice(2))}</h1>
+                return <h2 key={i} className="font-heading text-3xl font-bold text-ink mt-10 mb-4 tracking-tight">{renderInlineMarkdown(line.slice(2))}</h2>
               if (line.startsWith('## '))
-                return <h2 key={i} className="font-heading text-2xl font-bold text-ink mt-8 mb-3 tracking-tight">{renderInlineMarkdown(line.slice(3))}</h2>
+                return <h3 key={i} className="font-heading text-2xl font-bold text-ink mt-8 mb-3 tracking-tight">{renderInlineMarkdown(line.slice(3))}</h3>
               if (line.startsWith('### '))
-                return <h3 key={i} className="font-heading text-xl font-semibold text-ink-2 mt-6 mb-2">{renderInlineMarkdown(line.slice(4))}</h3>
+                return <h4 key={i} className="font-heading text-xl font-semibold text-ink-2 mt-6 mb-2">{renderInlineMarkdown(line.slice(4))}</h4>
               // A line that is bold/italic in its entirety reads as a standalone
               // callout rather than a sentence with an emphasized word — kept
               // distinct from the general paragraph case below, which now

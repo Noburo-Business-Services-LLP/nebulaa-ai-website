@@ -1099,6 +1099,9 @@ export default function AdminPage() {
             ))}
           </div>
           <div className="flex items-center gap-4">
+            <a href="/admin/seo" className="text-white/40 hover:text-brand-gold font-body text-xs transition-colors whitespace-nowrap">
+              SEO
+            </a>
             <a href="/admin/media" className="text-white/40 hover:text-brand-gold font-body text-xs transition-colors whitespace-nowrap">
               media slots
             </a>

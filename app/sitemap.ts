@@ -9,6 +9,43 @@ import { servicePages } from '@/lib/servicePageData'
 import { engagements } from '@/lib/engagementData'
 import { resources } from '@/lib/resourceData'
 
+export const SITE_BASE = 'https://www.nebulaa.ai'
+
+/**
+ * Every path the site actually serves, in the same order the sitemap lists
+ * them — the single source of truth for "how many pages does the site
+ * have," reused by the SEO audit crawler (lib/seoAudit.ts) so that number
+ * can never drift between the two.
+ */
+export function getSitePaths(): string[] {
+  return [
+    '',
+    '/pricing',
+    '/services',
+    '/product',
+    '/channels',
+    '/work',
+    '/for',
+    '/compare',
+    '/tools',
+    '/blog',
+    '/resources',
+    '/facts',
+    ...Object.keys(agents).map(id => `/product/${id}`),
+    ...capabilities.map(c => `/product/${c.agent}/${c.slug}`),
+    ...channels.map(c => `/channels/${c.slug}`),
+    ...servicePages.map(s => `/services/${s.slug}`),
+    ...engagements.map(e => `/work/${e.slug}`),
+    ...Object.keys(industries).map(slug => `/for/${slug}`),
+    ...Object.keys(compareData).map(slug => `/compare/nebulaa-vs-${slug}`),
+    ...tools.map(t => `/tools/${t.slug}`),
+    ...blogPosts.map(p => `/blog/${p.slug}`),
+    ...resources.map(r => `/resources/${r.slug}`),
+    '/privacy-policy',
+    '/terms',
+  ]
+}
+
 /**
  * Everything here is derived from the data that generates the pages, never
  * from a hand-kept list. The previous version had drifted badly — it was
@@ -18,7 +55,7 @@ import { resources } from '@/lib/resourceData'
  * lists are gone.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://www.nebulaa.ai'
+  const base = SITE_BASE
   const now = new Date()
 
   const entry = (

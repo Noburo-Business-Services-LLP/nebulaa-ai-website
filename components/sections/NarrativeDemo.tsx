@@ -30,7 +30,7 @@ function Stage({
       className="grid md:grid-cols-[132px_minmax(0,1fr)] gap-x-7 gap-y-2.5"
     >
       <div className="flex md:flex-col items-baseline md:items-start gap-2.5 md:gap-1 pt-1">
-        <span className="font-mono text-[11px] tabular-nums text-gold-text">
+        <span className="font-digital text-[11px] tabular-nums text-gold-text">
           {String(index + 1).padStart(2, '0')}
         </span>
         <span className="text-[12px] uppercase tracking-[0.09em] text-white/40">{label}</span>
@@ -49,8 +49,7 @@ export default function NarrativeDemo() {
       <div className="max-w-[680px] mb-[46px]">
         <SectionLabel className="mb-[22px] block">One run, start to finish</SectionLabel>
         <h2 className="neb-display text-[34px] md:text-[50px] mb-5">
-          One URL in.{' '}
-          <span className="text-gold-display">A growth engine running end to end.</span>
+          <span className="text-gold-display">One URL in.</span> Here is what runs end to end.
         </h2>
         <p className="font-body text-[17px] leading-[1.68] text-muted">
           The same seven steps run for any business. Pick a sector and follow one all the way

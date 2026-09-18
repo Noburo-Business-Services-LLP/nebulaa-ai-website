@@ -53,7 +53,7 @@ export const servicePages: ServicePage[] = [
     headline: 'Start building the market',
     headlineEmphasis: 'before you are on the shelf.',
     subheadline:
-      'Most brands enter a new city by sorting distribution first and marketing second, then wonder why the stock sits. We run it the other way round: demand generation starts months before launch, so there is already interest waiting when the product arrives.',
+      'This is new market entry marketing for FMCG brands, run backwards from how most brands do it: sorting distribution first and marketing second, then wondering why the stock sits. Demand generation starts months before launch, so there is already interest waiting when the product arrives.',
     howItWorks: [
       { title: 'Pick the market and the date', body: 'One city, one launch window. Everything else works backwards from it.' },
       { title: 'Build awareness first', body: 'Local content, creators and geo-targeted campaigns run in the months before anything is on a shelf.' },
@@ -112,7 +112,7 @@ export const servicePages: ServicePage[] = [
     headline: 'The part that happens',
     headlineEmphasis: 'off the screen.',
     subheadline:
-      'Someone has to stand in the aisle and hand your product to a customer. No software does that, which is exactly why it works — and why almost every AI marketing tool competing with us simply cannot offer it.',
+      'This is BTL activation, sampling and in-store demos in India — someone has to stand in the aisle and hand your product to a customer. No software does that, which is exactly why it works — and why almost every AI marketing tool competing with us simply cannot offer it.',
     howItWorks: [
       { title: 'Pick the catchments', body: 'The neighbourhoods, stores and clusters where your product is actually available and your buyer actually shops.' },
       { title: 'Run a monthly cycle', body: 'Activation days rotate across priority areas rather than firing once and stopping.' },
@@ -144,7 +144,7 @@ export const servicePages: ServicePage[] = [
     headline: 'Paid pointed at where',
     headlineEmphasis: 'you actually sell.',
     subheadline:
-      'National targeting wastes most of a regional brand\'s budget. We run always-on Meta and Google campaigns geo-targeted around the specific markets, neighbourhoods and retail clusters where your product is available and your buyer is standing.',
+      'This is performance marketing and paid media management built for regional brands, since national targeting wastes most of the budget. We run always-on Meta and Google campaigns geo-targeted around the specific markets, neighbourhoods and retail clusters where your product is available.',
     howItWorks: [
       { title: 'Map the catchments', body: 'Where the product is stocked, where the buyer lives, and which clusters are worth concentrating spend around.' },
       { title: 'Run always-on', body: 'Awareness, consideration and retargeting running continuously rather than in campaign bursts.' },
@@ -175,7 +175,7 @@ export const servicePages: ServicePage[] = [
     headline: 'Local credibility,',
     headlineEmphasis: 'borrowed properly.',
     subheadline:
-      'A regional creator with eight thousand engaged followers in your city is usually worth more than a national name with two million spread across the country. We source them, brief them, review what they produce and measure what it did.',
+      'This is regional influencer and creator marketing in India: a creator with eight thousand engaged followers in your city is usually worth more than a national name with two million spread across the country. We source them, brief them, review what they produce and measure what it did.',
     howItWorks: [
       { title: 'Source for fit, not follower count', body: 'Micro and nano creators whose audience genuinely overlaps with your buyer, in your market and language.' },
       { title: 'Brief and coordinate', body: 'What is being made, when it goes out, what must be said and what must not.' },
@@ -206,7 +206,7 @@ export const servicePages: ServicePage[] = [
     headline: 'Somebody still has to',
     headlineEmphasis: 'make the thing.',
     subheadline:
-      'Generated creative covers a great deal, but not a product shoot, a facility film or a founder interview. Our team produces the assets that need producing, and Gravity handles the volume around them.',
+      'This is content production, photography and brand films for what generated creative cannot cover — a product shoot, a facility film or a founder interview. Our team produces the assets that need producing, and Gravity handles the volume around them.',
     howItWorks: [
       { title: 'Work out what needs shooting', body: 'What genuinely requires a camera, versus what can be produced without one.' },
       { title: 'Produce it', body: 'Product and facility photography, brand films, leadership and culture video, shot to a plan rather than ad hoc.' },
@@ -236,7 +236,7 @@ export const servicePages: ServicePage[] = [
     headline: 'Deciding what to say',
     headlineEmphasis: 'before saying it everywhere.',
     subheadline:
-      'Most marketing problems presented as execution problems are actually positioning problems. Before content gets planned, we work out what the brand stands for, who it is for, and which channels are worth the money.',
+      'This is marketing strategy and positioning for Indian brands, for when most marketing problems presented as execution problems are actually positioning problems. Before content gets planned, we work out what the brand stands for, who it is for, and which channels are worth the money.',
     howItWorks: [
       { title: 'Understand the business', body: 'How you actually sell today, who buys, what the objection is, and where growth is expected to come from.' },
       { title: 'Set the positioning', body: 'What you stand for, said in a way a customer would recognise rather than an internal statement.' },
@@ -266,7 +266,7 @@ export const servicePages: ServicePage[] = [
     headline: 'Four questions,',
     headlineEmphasis: 'answered every month.',
     subheadline:
-      'Most agency reporting is a screenshot of a dashboard with the good numbers circled. Every month we answer the same four questions in plain language: what worked, what did not, why, and what changes next cycle.',
+      'This is monthly marketing reporting and review, not a screenshot of a dashboard with the good numbers circled. Every month we answer the same four questions in plain language: what worked, what did not, why, and what changes next cycle.',
     howItWorks: [
       { title: 'Everything is tracked on its own terms', body: 'Organic reach and engagement, paid CTR, CPC and conversions, creator cost efficiency, and BTL participation. Different work, different measures.' },
       { title: 'It gets written up, not exported', body: 'A monthly report in plain language, not a PDF of charts you have to interpret.' },

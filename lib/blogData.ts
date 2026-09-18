@@ -56,7 +56,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'linkedin-strategy-gravity-runs-for-you',
     title: 'The 7-Step LinkedIn Strategy That Gravity Runs For You (That Would Take You 8 Hours/Week)',
-    excerpt: 'We mapped out the exact content system Gravity uses — from brand voice ingestion to post scheduling — and why it outperforms manual posting every time.',
+    excerpt: 'The 7-step LinkedIn content strategy Gravity runs for you — from brand voice ingestion to post scheduling — and why it outperforms manual posting every time.',
     tags: ['Product Features', 'LinkedIn', 'Content Strategy'],
     readTime: '7 min read',
     date: 'March 5, 2026',
@@ -96,7 +96,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'founder-mistake-hiring-sales-before-product-market-fit',
     title: 'The Mistake 80% of Founders Make: Hiring Sales Before Product-Market Fit',
-    excerpt: 'Hiring a sales team before you\'ve found PMF is the fastest way to burn runway and morale. Here\'s what to do instead.',
+    excerpt: 'Hiring sales before product-market fit is the fastest way to burn runway and morale. Here\'s what to do instead.',
     tags: ['Founder Mistakes'],
     readTime: '6 min read',
     date: 'February 20, 2026',

@@ -50,7 +50,7 @@ export const engagements: Engagement[] = [
     headline: 'The month gets made',
     headlineEmphasis: 'whether you have time or not.',
     subheadline:
-      'The most common engagement, and the least dramatic. An established business with real customers that goes quiet online for weeks at a time because everyone is busy running it. We take the content off the team entirely and keep it moving.',
+      'This is an always-on content engagement for managed marketing — the most common shape, and the least dramatic. An established business with real customers goes quiet online for weeks at a time because everyone is busy running it. We take the content off the team entirely and keep it moving.',
     scope: [
       {
         group: 'Every month',
@@ -99,7 +99,7 @@ export const engagements: Engagement[] = [
     headline: 'Awareness waiting',
     headlineEmphasis: 'when the stock arrives.',
     subheadline:
-      'A brand with a proven product in one market, going into another. The failure mode is sorting distribution first and marketing second, then watching stock sit. This engagement runs demand generation ahead of the launch date, so awareness is already there by the time distribution is sorted.',
+      'This is a market entry engagement for new city launches: a brand with a proven product in one market, going into another. The failure mode is sorting distribution first and marketing second, then watching stock sit. It runs demand generation ahead of the launch date, so awareness is already there.',
     scope: [
       {
         group: 'Demand generation',
@@ -147,7 +147,7 @@ export const engagements: Engagement[] = [
     headline: 'Three pillars,',
     headlineEmphasis: 'one execution system.',
     subheadline:
-      'The largest shape we run. A brand present across several markets or a retail network, where organic content, paid media and on-ground activation all need to happen — and currently happen through different vendors who never speak to each other.',
+      'This is a regional marketing programme running organic, paid and BTL as one system — the largest shape we run. A brand present across several markets or a retail network, where organic content, paid media and on-ground activation currently happen through different vendors who never speak to each other.',
     scope: [
       {
         group: 'Pillar one — organic',

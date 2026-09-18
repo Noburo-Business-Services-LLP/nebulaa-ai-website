@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 import type { BlogPost } from '@/lib/blogData'
 import SectionLabel from '@/components/ui/SectionLabel'
 import HudCard from '@/components/ui/HudCard'
 import BlogEmailCapture from '@/components/ui/BlogEmailCapture'
+import { mediaUrl } from '@/lib/mediaUrl'
 
 export default function BlogList({ posts }: { posts: BlogPost[] }) {
   // A tag clicked on a post page (a different route) links here as
@@ -77,7 +79,13 @@ export default function BlogList({ posts }: { posts: BlogPost[] }) {
                   className="group block"
                 >
                   <HudCard halo="amber" className="overflow-hidden hover:-translate-y-1 transition-transform duration-300">
-                    <div className={`h-36 bg-gradient-to-br ${post.headerColor} relative flex items-end gap-1.5 p-4 flex-wrap`}>
+                    <div className={`h-36 relative flex items-end gap-1.5 p-4 flex-wrap ${post.heroImage ? '' : `bg-gradient-to-br ${post.headerColor}`}`}>
+                      {post.heroImage && (
+                        <>
+                          <Image src={mediaUrl(post.heroImage)} alt="" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                        </>
+                      )}
                       {post.tags.slice(0, 2).map(tag => (
                         <button
                           key={tag}
@@ -85,7 +93,7 @@ export default function BlogList({ posts }: { posts: BlogPost[] }) {
                             e.preventDefault()
                             setActiveTag(tag)
                           }}
-                          className="font-body text-xs font-semibold bg-gold text-[#1A1208] px-3 py-1 rounded-full hover:brightness-110 transition"
+                          className="relative z-10 font-body text-xs font-semibold bg-gold text-[#1A1208] px-3 py-1 rounded-full hover:brightness-110 transition"
                         >
                           #{tag}
                         </button>

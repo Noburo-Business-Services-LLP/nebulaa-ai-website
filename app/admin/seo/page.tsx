@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import {
   FileText, Type, AlignLeft, Image as ImageIcon, Link2, Heading1,
   AlertTriangle, CheckCircle2, RefreshCw, ExternalLink, Search,
-  Copy, ChevronDown, ChevronUp, ListChecks,
+  Copy, ChevronDown, ChevronUp, ListChecks, Braces, Unlink, Target,
 } from 'lucide-react'
 import { adminFetch, AuthGate, useAdminAuth } from '@/lib/adminClient'
 import type { AuditSummary, PageAudit } from '@/lib/seoAudit'
@@ -39,6 +39,10 @@ function toneFor(pct: number): { color: string; bg: string; border: string } {
   if (pct >= 90) return { color: 'text-green-400', bg: 'bg-green-400/10', border: 'border-green-400/20' }
   if (pct >= 60) return { color: 'text-yellow-400', bg: 'bg-yellow-400/10', border: 'border-yellow-400/20' }
   return { color: 'text-red-400', bg: 'bg-red-400/10', border: 'border-red-400/20' }
+}
+
+function pctSafe(part: number, total: number): number {
+  return total === 0 ? 0 : Math.round((part / total) * 100)
 }
 
 // ── GSC placeholder — deliberately not faked ────────────────────────────────
@@ -134,12 +138,33 @@ function ProblemBadge({ ok, label }: { ok: boolean; label: string }) {
   )
 }
 
-function PageRow({ page }: { page: PageAudit }) {
+function PageRow({ page, secret }: { page: PageAudit; secret: string }) {
   const failed = page.error !== null
   const titleOk = Boolean(page.title) && page.titleLength >= 10 && page.titleLength <= 60
   const metaOk = Boolean(page.metaDescription) && page.metaDescriptionLength >= 70 && page.metaDescriptionLength <= 160
   const altOk = page.imageCount === 0 || page.imagesMissingAlt === 0
   const h1Ok = page.h1Count === 1
+  const jsonLdOk = page.jsonLdInvalidCount === 0
+  const keywordOk = !page.targetKeyword || (page.keywordInTitle && page.keywordInH1 && page.keywordInBody)
+
+  const [keywordInput, setKeywordInput] = useState(page.targetKeyword ?? '')
+  const [saving, setSaving] = useState(false)
+  const [saved, setSaved] = useState(false)
+
+  const saveKeyword = async () => {
+    setSaving(true)
+    try {
+      await adminFetch('/api/admin/target-keywords', secret, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ path: page.path, keyword: keywordInput }),
+      })
+      setSaved(true)
+      setTimeout(() => setSaved(false), 1500)
+    } finally {
+      setSaving(false)
+    }
+  }
 
   if (failed) {
     return (
@@ -157,7 +182,7 @@ function PageRow({ page }: { page: PageAudit }) {
           {page.path || '/'} <ExternalLink size={10} className="flex-shrink-0 opacity-50" />
         </a>
       </div>
-      <div className="flex flex-wrap gap-1.5">
+      <div className="flex flex-wrap gap-1.5 mb-2">
         <ProblemBadge ok={titleOk} label={page.title ? `title ${page.titleLength}ch` : 'no title'} />
         <ProblemBadge ok={metaOk} label={page.metaDescription ? `meta ${page.metaDescriptionLength}ch` : 'no meta'} />
         <ProblemBadge ok={page.canonicalMatchesWww} label={page.canonicalMatchesWww ? 'canonical ok' : 'canonical mismatch'} />
@@ -165,6 +190,26 @@ function PageRow({ page }: { page: PageAudit }) {
         {page.imageCount > 0 && (
           <ProblemBadge ok={altOk} label={altOk ? `${page.imageCount} imgs, all alt` : `${page.imagesMissingAlt}/${page.imageCount} missing alt`} />
         )}
+        {page.jsonLdBlockCount > 0 && (
+          <ProblemBadge ok={jsonLdOk} label={jsonLdOk ? `${page.jsonLdBlockCount} schema ok` : `${page.jsonLdInvalidCount} invalid schema`} />
+        )}
+        {page.targetKeyword && <ProblemBadge ok={keywordOk} label={keywordOk ? 'keyword placed' : 'keyword incomplete'} />}
+      </div>
+      <div className="flex items-center gap-2">
+        <input
+          value={keywordInput}
+          onChange={e => setKeywordInput(e.target.value)}
+          onKeyDown={e => e.key === 'Enter' && saveKeyword()}
+          placeholder="Target keyword…"
+          className="flex-1 max-w-xs bg-white/5 border border-white/10 rounded-full px-3 py-1 text-white/70 font-body text-[11px] outline-none focus:border-brand-gold placeholder:text-white/20"
+        />
+        <button
+          onClick={saveKeyword}
+          disabled={saving || keywordInput === (page.targetKeyword ?? '')}
+          className="text-white/40 hover:text-brand-gold font-body text-[10px] font-semibold transition-colors disabled:opacity-30"
+        >
+          {saved ? 'Saved' : saving ? 'Saving…' : 'Save'}
+        </button>
       </div>
     </div>
   )
@@ -281,6 +326,29 @@ function SeoDashboard({ secret }: { secret: string }) {
           icon={<Heading1 size={16} />}
           {...toneFor(audit.missingH1Count + audit.multipleH1Count === 0 ? 100 : 40)}
         />
+        <StatCard
+          label="Structured data coverage"
+          value={`${audit.structuredDataCoverage}%`}
+          sub={audit.invalidStructuredDataCount > 0 ? `${audit.invalidStructuredDataCount} invalid block(s)` : 'pages with valid JSON-LD'}
+          icon={<Braces size={16} />}
+          {...toneFor(audit.structuredDataCoverage)}
+        />
+        <StatCard
+          label="Broken internal links"
+          value={String(audit.brokenInternalLinks.length)}
+          sub="found in nav, footer, and body copy"
+          icon={<Unlink size={16} />}
+          {...toneFor(audit.brokenInternalLinks.length === 0 ? 100 : 30)}
+        />
+        <StatCard
+          label="Target keywords assigned"
+          value={String(audit.pagesWithTargetKeyword)}
+          sub={audit.pagesWithTargetKeyword > 0 ? `${audit.pagesWithKeywordFullyPlaced} fully placed in title/h1/body` : 'set one per page in the table below'}
+          icon={<Target size={16} />}
+          {...(audit.pagesWithTargetKeyword === 0
+            ? { color: 'text-white/40', bg: 'bg-white/5', border: 'border-white/10' }
+            : toneFor(pctSafe(audit.pagesWithKeywordFullyPlaced, audit.pagesWithTargetKeyword)))}
+        />
       </div>
 
       {/* Action items — what to actually do about the numbers above */}
@@ -338,7 +406,7 @@ function SeoDashboard({ secret }: { secret: string }) {
           <div className="p-8 text-center text-white/30 font-body text-sm">No pages match this filter.</div>
         ) : (
           <div className="divide-y divide-white/5 max-h-[600px] overflow-y-auto">
-            {pages.map(page => <PageRow key={page.path} page={page} />)}
+            {pages.map(page => <PageRow key={page.path} page={page} secret={secret} />)}
           </div>
         )}
       </div>

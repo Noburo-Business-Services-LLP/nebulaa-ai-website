@@ -97,6 +97,48 @@ export function buildActionItems(audit: AuditSummary): ActionItem[] {
     })
   }
 
+  if (audit.brokenInternalLinks.length > 0) {
+    items.push({
+      id: 'broken-links',
+      severity: 'critical',
+      title: `${audit.brokenInternalLinks.length} internal link${audit.brokenInternalLinks.length === 1 ? '' : 's'} point at a page that doesn't resolve`,
+      whatItMeans: 'These are links found in the rendered HTML — in nav, footer, body copy, or CTAs — pointing at an internal path that returns an error or times out.',
+      whyItMatters: 'A broken internal link wastes crawl budget and, if a visitor hits it, ends the session on an error page instead of the page you wanted them to see.',
+      affectedCount: audit.brokenInternalLinks.length,
+      samplePaths: audit.brokenInternalLinks.slice(0, 10).map(b => b.targetPath),
+      claudeCodePrompt: `These internal links are broken (target returns an error): ${audit.brokenInternalLinks.slice(0, 10).map(b => `${b.targetPath} (${b.status ?? 'no response'}, linked from ${b.linkedFrom.slice(0, 3).join(', ')})`).join('; ')}. For each, either fix the href where it's wrong, or if the target page genuinely no longer exists, remove the link (and if it was ever in the sitemap, remove it from app/sitemap.ts's getSitePaths too).`,
+    })
+  }
+
+  if (audit.invalidStructuredDataCount > 0) {
+    const bad = p.filter(x => !x.error && x.jsonLdInvalidCount > 0)
+    items.push({
+      id: 'invalid-structured-data',
+      severity: 'warning',
+      title: `${audit.invalidStructuredDataCount} page${audit.invalidStructuredDataCount === 1 ? ' has' : 's have'} broken JSON-LD structured data`,
+      whatItMeans: 'A <script type="application/ld+json"> block on these pages contains text that fails to parse as JSON.',
+      whyItMatters: "Invalid structured data doesn't just fail to help — search engines and AI answer engines ignore the whole block, so any schema (Organization, breadcrumb, product, article) meant to help them understand the page silently does nothing.",
+      affectedCount: bad.length,
+      samplePaths: bad.slice(0, 10).map(x => x.path),
+      claudeCodePrompt: `These pages have a JSON-LD <script type="application/ld+json"> block that fails to parse: ${bad.slice(0, 10).map(x => x.path).join(', ')}. Find where each page renders its Schema component (usually components/ui/Schema.tsx) and check for a value that isn't being serialized correctly — an unescaped string, a circular reference, or raw JS being interpolated instead of JSON.stringify'd data.`,
+    })
+  }
+
+  const withKeyword = p.filter(x => !x.error && x.targetKeyword)
+  const misplaced = withKeyword.filter(x => !(x.keywordInTitle && x.keywordInH1 && x.keywordInBody))
+  if (misplaced.length > 0) {
+    items.push({
+      id: 'keyword-placement',
+      severity: 'info',
+      title: `${misplaced.length} page${misplaced.length === 1 ? '' : 's'} with a target keyword don't fully use it`,
+      whatItMeans: "These pages have a target keyword assigned (via the table below), but it's missing from the title, the h1, or the body text.",
+      whyItMatters: 'A target keyword only works as a ranking signal if it actually appears in the places search engines weight most — title and h1 especially.',
+      affectedCount: misplaced.length,
+      samplePaths: misplaced.slice(0, 10).map(x => x.path),
+      claudeCodePrompt: `These pages have a target keyword assigned but it doesn't appear everywhere it should: ${misplaced.slice(0, 10).map(x => `${x.path} → "${x.targetKeyword}" (title: ${x.keywordInTitle ? 'yes' : 'MISSING'}, h1: ${x.keywordInH1 ? 'yes' : 'MISSING'}, body: ${x.keywordInBody ? 'yes' : 'MISSING'})`).join('; ')}. Rework each page's title/h1/copy to naturally include its target keyword without keyword-stuffing — the phrase should read like something a person would actually write.`,
+    })
+  }
+
   if (audit.totalImages > 0 && audit.imageAltCoverage !== null && audit.imageAltCoverage < 100) {
     const missing = p.filter(x => !x.error && x.imagesMissingAlt > 0)
     items.push({

@@ -4,19 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { blogIdeas, newsletterIdeas, type ContentIdea } from '@/lib/contentIdeas'
 import { Users, FileText, Send, TrendingUp, ChevronUp, ChevronDown, Eye, BarChart2, Globe, BookOpen } from 'lucide-react'
-
-// ── Auth-aware fetch helper ────────────────────────────────────────────────
-// Returns null on 401 (caller decides what to do), throws on other errors
-async function adminFetch<T = unknown>(url: string, secret: string, opts?: RequestInit): Promise<T | null> {
-  const res = await fetch(url, {
-    ...opts,
-    headers: { 'x-admin-secret': secret, ...(opts?.headers ?? {}) },
-  })
-  if (res.status === 401) return null   // caller handles — never auto-reload
-  const data = await res.json() as T & { error?: string }
-  if (data?.error) throw new Error(data.error)
-  return data
-}
+import { adminFetch, AuthGate, useAdminAuth } from '@/lib/adminClient'
 
 // ── Types ──────────────────────────────────────────────────────────────────
 interface Lead { id: string; name: string; email: string; source: string; date: string; tags: string[] }
@@ -44,66 +32,8 @@ interface AnalyticsData {
   referrers: { ref: string; count: number }[]
 }
 
-// ── Auth Gate ──────────────────────────────────────────────────────────────
-function AuthGate({ onAuth }: { onAuth: (secret: string) => void }) {
-  const [value, setValue] = useState('')
-  const [checking, setChecking] = useState(false)
-  const [error, setError] = useState('')
-
-  const tryAuth = async () => {
-    const trimmed = value.trim()
-    if (!trimmed) return
-    setChecking(true)
-    setError('')
-    try {
-      // Verify against a lightweight admin endpoint before granting access
-      const res = await fetch('/api/admin/stats', {
-        headers: { 'x-admin-secret': trimmed },
-      })
-      if (res.status === 401) {
-        setError('Wrong password 💀 try again')
-        setChecking(false)
-        return
-      }
-      // Password is valid — save and proceed
-      sessionStorage.setItem('admin_secret', trimmed)
-      onAuth(trimmed)
-    } catch {
-      setError('Network error — try again')
-    }
-    setChecking(false)
-  }
-
-  return (
-    <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center p-4">
-      <div className="w-full max-w-sm">
-        <div className="text-center mb-8">
-          <p className="text-brand-gold font-heading text-2xl font-bold mb-2">nebulaa admin</p>
-          <p className="text-white/40 text-sm font-body">content studio 🧠</p>
-        </div>
-        <div className="bg-[#111110] border border-white/10 rounded-2xl p-6">
-          <label className="block text-white/60 text-sm font-body mb-2">Admin password</label>
-          <input
-            type="password"
-            value={value}
-            onChange={e => { setValue(e.target.value); setError('') }}
-            onKeyDown={e => e.key === 'Enter' && tryAuth()}
-            placeholder="nebulaa2026"
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white font-body text-sm outline-none focus:border-brand-gold transition-colors placeholder:text-white/20 mb-4"
-          />
-          {error && <p className="text-red-400 text-xs mb-3">{error}</p>}
-          <button
-            onClick={tryAuth}
-            disabled={checking || !value.trim()}
-            className="w-full bg-brand-gold text-brand-black font-body font-bold rounded-xl py-3 hover:bg-brand-gold-dim transition-all disabled:opacity-60"
-          >
-            {checking ? '⏳ Checking...' : 'Let me in →'}
-          </button>
-        </div>
-      </div>
-    </div>
-  )
-}
+// Auth (adminFetch, AuthGate, useAdminAuth) now lives in lib/adminClient —
+// shared across every /admin/* page instead of copy-pasted per page.
 
 // ── Mini Bar Chart ─────────────────────────────────────────────────────────
 function MiniBarChart({ data, color = 'brand-gold' }: { data: { date: string; count: number }[]; color?: string }) {
@@ -1116,22 +1046,8 @@ function ErrorMsg({ text }: { text: string }) {
 
 // ── Main Admin Page ─────────────────────────────────────────────────────────
 export default function AdminPage() {
-  const [secret, setSecret] = useState<string | null>(null)
-  const [verifying, setVerifying] = useState(true)
+  const { secret, setSecret, verifying } = useAdminAuth()
   const [tab, setTab] = useState<'dashboard' | 'website' | 'blog-analytics' | 'nl-analytics' | 'blog' | 'newsletter' | 'leads'>('dashboard')
-
-  useEffect(() => {
-    const saved = sessionStorage.getItem('admin_secret')
-    if (!saved) { setVerifying(false); return }
-    // Re-verify saved session on every page load to catch stale/wrong secrets
-    fetch('/api/admin/stats', { headers: { 'x-admin-secret': saved } })
-      .then(res => {
-        if (res.ok) setSecret(saved)
-        else sessionStorage.removeItem('admin_secret')
-      })
-      .catch(() => {})
-      .finally(() => setVerifying(false))
-  }, [])
 
   if (verifying) return (
     <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center">

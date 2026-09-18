@@ -29,8 +29,24 @@ export default $config({
     // function, never directly from the internet.
     const data = new sst.aws.Bucket('Data')
 
+    // Public asset store for the CMS media manager. Uploads go straight from
+    // the admin's browser to this bucket via a presigned URL — never through
+    // the Lambda function, which has a 6MB request/response payload limit
+    // that a handful of the video assets here would exceed on their own.
+    // Objects are served directly from the bucket's own domain rather than
+    // proxied through the app, so there is no per-request Lambda cost or
+    // latency for images that used to ship as static files in the repo.
+    const media = new sst.aws.Bucket('Media', {
+      access: 'public',
+      cors: {
+        allowOrigins: ['https://www.nebulaa.ai', 'https://nebulaa.ai', 'http://localhost:3000'],
+        allowMethods: ['PUT', 'GET', 'HEAD'],
+        allowHeaders: ['*'],
+      },
+    })
+
     const site = new sst.aws.Nextjs('Site', {
-      link: [data],
+      link: [data, media],
 
       domain: {
         name: 'www.nebulaa.ai',
@@ -55,6 +71,8 @@ export default $config({
 
       environment: {
         DATA_BUCKET: data.name,
+        MEDIA_BUCKET: media.name,
+        NEXT_PUBLIC_MEDIA_DOMAIN: media.domain,
 
         // Supplied from the deploy environment. ADMIN_SECRET unset means the
         // admin API refuses every request — see lib/adminAuth.ts.
@@ -82,6 +100,7 @@ export default $config({
     return {
       url: site.url,
       dataBucket: data.name,
+      mediaBucket: media.name,
     }
   },
 })

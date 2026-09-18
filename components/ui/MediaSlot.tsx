@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { getSlot } from '@/lib/mediaSlots'
-import { presentMedia } from '@/lib/mediaManifest.generated'
+import { getMediaManifest } from '@/lib/mediaManifestClient'
+import { mediaUrl } from '@/lib/mediaUrl'
 
 interface Props {
   /** Slot id from lib/mediaSlots.ts */
@@ -12,11 +13,6 @@ interface Props {
   /** Rendered aspect ratio while empty, e.g. '16 / 10'. */
   ratio?: string
   priority?: boolean
-}
-
-export function isFilled(id: string): boolean {
-  const slot = getSlot(id)
-  return Boolean(slot && presentMedia.includes(slot.file))
 }
 
 const HUD_LINES = [
@@ -66,16 +62,37 @@ function LiveReadout() {
  */
 export default function MediaSlot({ id, className = '', ratio = '16 / 10', priority }: Props) {
   const slot = getSlot(id)
+  // null = not checked yet, so the first render never flashes the empty
+  // placeholder for a slot that is actually filled.
+  const [filled, setFilled] = useState<boolean | null>(null)
+
+  useEffect(() => {
+    if (!slot) return
+    let cancelled = false
+    getMediaManifest().then(keys => {
+      if (!cancelled) setFilled(keys.has(slot.file))
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [slot])
 
   if (!slot) {
     return null
   }
 
-  if (isFilled(id)) {
+  if (filled === null) {
+    // Manifest hasn't resolved yet — an empty box the right size, not the
+    // "awaiting asset" copy, since we don't yet know which is true.
+    return <div className={className} style={{ aspectRatio: ratio }} aria-hidden="true" />
+  }
+
+  if (filled) {
+    const src = mediaUrl(slot.file)
     if (slot.kind === 'video') {
       return (
         <video
-          src={`/media/${slot.file}`}
+          src={src}
           className={`w-full h-auto rounded-[14px] ${className}`}
           autoPlay
           muted
@@ -87,7 +104,7 @@ export default function MediaSlot({ id, className = '', ratio = '16 / 10', prior
     }
     return (
       <Image
-        src={`/media/${slot.file}`}
+        src={src}
         alt={slot.label}
         width={1440}
         height={900}

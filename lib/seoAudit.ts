@@ -2,6 +2,7 @@ import * as cheerio from 'cheerio'
 import { getSitePaths, SITE_BASE } from '@/app/sitemap'
 import { readJson, writeJson } from '@/lib/s3Store'
 import { getTargetKeywords } from '@/lib/targetKeywords'
+import { recordAuditHistory } from '@/lib/auditHistory'
 
 /**
  * On-page SEO audit — crawls every URL the site's own sitemap lists (see
@@ -313,6 +314,7 @@ export async function runAudit(): Promise<AuditSummary> {
   }
 
   await writeJson(AUDIT_KEY, summary)
+  await recordAuditHistory(summary)
   return summary
 }
 

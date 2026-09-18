@@ -6,10 +6,12 @@ import {
   FileText, Type, AlignLeft, Image as ImageIcon, Link2, Heading1,
   AlertTriangle, CheckCircle2, RefreshCw, ExternalLink, Search,
   Copy, ChevronDown, ChevronUp, ListChecks, Braces, Unlink, Target,
+  History,
 } from 'lucide-react'
 import { adminFetch, AuthGate, useAdminAuth } from '@/lib/adminClient'
 import type { AuditSummary, PageAudit } from '@/lib/seoAudit'
 import { buildActionItems, type ActionItem } from '@/lib/seoActions'
+import type { AuditHistoryPoint } from '@/lib/auditHistory'
 
 // ── Stat card (matches app/admin/page.tsx's visual language) ───────────────
 function StatCard({
@@ -176,6 +178,86 @@ function IndexingCard({ pageCount, secret }: { pageCount: number; secret: string
               </span>
             ))}
           </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ── History — every past run, so "are we improving" has an answer ──────────
+function trendArrow(current: number, previous: number | undefined) {
+  if (previous === undefined || current === previous) return null
+  const up = current > previous
+  return (
+    <span className={`font-mono text-[10px] ${up ? 'text-green-400' : 'text-red-400'}`}>
+      {up ? '↑' : '↓'} {Math.abs(current - previous)}
+    </span>
+  )
+}
+
+function HistoryPanel({ secret }: { secret: string }) {
+  const [history, setHistory] = useState<AuditHistoryPoint[] | null>(null)
+  const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    adminFetch<{ history: AuditHistoryPoint[] }>('/api/admin/seo-history', secret)
+      .then(d => { if (d) setHistory(d.history) })
+      .catch(() => setHistory([]))
+  }, [secret])
+
+  if (!history || history.length === 0) return null
+
+  const rows = [...history].reverse() // newest first
+  const cols: { key: keyof AuditHistoryPoint; label: string; suffix?: string }[] = [
+    { key: 'titleCoverage', label: 'Title', suffix: '%' },
+    { key: 'metaDescriptionCoverage', label: 'Meta', suffix: '%' },
+    { key: 'canonicalWwwConsistency', label: 'Canonical', suffix: '%' },
+    { key: 'structuredDataCoverage', label: 'Schema', suffix: '%' },
+    { key: 'brokenInternalLinksCount', label: 'Broken links' },
+    { key: 'missingH1Count', label: 'Missing h1' },
+  ]
+
+  return (
+    <div className="bg-[#111110] border border-white/8 rounded-2xl overflow-hidden">
+      <button onClick={() => setOpen(o => !o)} className="w-full flex items-center justify-between gap-4 px-5 py-4">
+        <div className="flex items-center gap-2.5">
+          <History size={15} className="text-brand-gold" />
+          <p className="text-white font-body font-semibold text-sm">{history.length} past audit run{history.length === 1 ? '' : 's'}</p>
+        </div>
+        {open ? <ChevronUp size={16} className="text-white/40" /> : <ChevronDown size={16} className="text-white/40" />}
+      </button>
+      {open && (
+        <div className="overflow-x-auto">
+          <table className="w-full text-left">
+            <thead>
+              <tr className="border-t border-white/8">
+                <th className="px-5 py-2.5 text-white/30 font-body text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">Run</th>
+                {cols.map(c => (
+                  <th key={c.key} className="px-3 py-2.5 text-white/30 font-body text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">{c.label}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r, i) => {
+                const prev = rows[i + 1]
+                return (
+                  <tr key={r.runAt} className="border-t border-white/5">
+                    <td className="px-5 py-2.5 text-white/60 font-mono text-xs whitespace-nowrap">
+                      {new Date(r.runAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })}
+                    </td>
+                    {cols.map(c => (
+                      <td key={c.key} className="px-3 py-2.5 text-white font-mono text-xs whitespace-nowrap">
+                        <span className="flex items-center gap-1.5">
+                          {r[c.key] ?? '—'}{c.suffix ?? ''}
+                          {trendArrow(Number(r[c.key] ?? 0), prev ? Number(prev[c.key] ?? 0) : undefined)}
+                        </span>
+                      </td>
+                    ))}
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
         </div>
       )}
     </div>
@@ -470,6 +552,8 @@ function SeoDashboard({ secret }: { secret: string }) {
             : toneFor(pctSafe(audit.pagesWithKeywordFullyPlaced, audit.pagesWithTargetKeyword)))}
         />
       </div>
+
+      <HistoryPanel secret={secret} />
 
       {/* Action items — what to actually do about the numbers above */}
       {actionItems.length > 0 && (

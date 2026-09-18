@@ -45,8 +45,19 @@ export default $config({
       },
     })
 
+    // Time-series metrics (SEO audit runs, and anything else that's a
+    // history of snapshots rather than a single current value) — a flat S3
+    // JSON blob is the wrong shape for "every run, forever, queryable by
+    // time," which is exactly what audit history is. Partition key is the
+    // metric stream ("seo-audit"), sort key is the ISO run timestamp, so a
+    // single Query gives back the whole trend in order.
+    const metrics = new sst.aws.Dynamo('Metrics', {
+      fields: { pk: 'string', sk: 'string' },
+      primaryIndex: { hashKey: 'pk', rangeKey: 'sk' },
+    })
+
     const site = new sst.aws.Nextjs('Site', {
-      link: [data, media],
+      link: [data, media, metrics],
 
       domain: {
         name: 'www.nebulaa.ai',
@@ -73,6 +84,7 @@ export default $config({
         DATA_BUCKET: data.name,
         MEDIA_BUCKET: media.name,
         NEXT_PUBLIC_MEDIA_DOMAIN: media.domain,
+        METRICS_TABLE: metrics.name,
 
         // Supplied from the deploy environment. ADMIN_SECRET unset means the
         // admin API refuses every request — see lib/adminAuth.ts.
@@ -108,6 +120,7 @@ export default $config({
       url: site.url,
       dataBucket: data.name,
       mediaBucket: media.name,
+      metricsTable: metrics.name,
     }
   },
 })

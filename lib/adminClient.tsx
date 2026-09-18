@@ -56,10 +56,24 @@ export function useAdminAuth() {
   return { secret, setSecret, verifying }
 }
 
+const EMAIL_KEY = 'admin_email'
+
 export function AuthGate({ onAuth }: { onAuth: (secret: string) => void }) {
+  const [email, setEmail] = useState('')
   const [value, setValue] = useState('')
   const [checking, setChecking] = useState(false)
   const [error, setError] = useState('')
+
+  // Only pre-fills the email field for convenience — there's one shared
+  // ADMIN_SECRET, not a per-user account, so the email is never sent to
+  // the server or checked against anything. It exists purely so a
+  // password manager (Chrome, 1Password, etc.) has a username+password
+  // pair to recognize and offer to save, instead of a lone password
+  // field most managers won't prompt to remember.
+  useEffect(() => {
+    const saved = localStorage.getItem(EMAIL_KEY)
+    if (saved) setEmail(saved)
+  }, [])
 
   const tryAuth = async () => {
     const trimmed = value.trim()
@@ -74,6 +88,7 @@ export function AuthGate({ onAuth }: { onAuth: (secret: string) => void }) {
         return
       }
       sessionStorage.setItem(SESSION_KEY, trimmed)
+      if (email.trim()) localStorage.setItem(EMAIL_KEY, email.trim())
       onAuth(trimmed)
     } catch {
       setError('Network error — try again')
@@ -88,27 +103,44 @@ export function AuthGate({ onAuth }: { onAuth: (secret: string) => void }) {
           <p className="text-brand-gold font-heading text-2xl font-bold mb-2">nebulaa admin</p>
           <p className="text-white/40 text-sm font-body">content studio</p>
         </div>
-        <div className="bg-[#111110] border border-white/10 rounded-2xl p-6">
+        <form
+          onSubmit={e => {
+            e.preventDefault()
+            tryAuth()
+          }}
+          className="bg-[#111110] border border-white/10 rounded-2xl p-6"
+        >
+          <label className="block text-white/60 text-sm font-body mb-2">Email</label>
+          <input
+            type="email"
+            name="email"
+            autoComplete="username"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            placeholder="you@nebulaa.ai"
+            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white font-body text-sm outline-none focus:border-brand-gold transition-colors placeholder:text-white/20 mb-4"
+          />
           <label className="block text-white/60 text-sm font-body mb-2">Admin password</label>
           <input
             type="password"
+            name="password"
+            autoComplete="current-password"
             value={value}
             onChange={e => {
               setValue(e.target.value)
               setError('')
             }}
-            onKeyDown={e => e.key === 'Enter' && tryAuth()}
             className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white font-body text-sm outline-none focus:border-brand-gold transition-colors placeholder:text-white/20 mb-4"
           />
           {error && <p className="text-red-400 text-xs mb-3">{error}</p>}
           <button
-            onClick={tryAuth}
+            type="submit"
             disabled={checking || !value.trim()}
             className="w-full bg-brand-gold text-brand-black font-body font-bold rounded-xl py-3 hover:bg-brand-gold-dim transition-all disabled:opacity-60"
           >
             {checking ? 'Checking...' : 'Let me in →'}
           </button>
-        </div>
+        </form>
       </div>
     </div>
   )

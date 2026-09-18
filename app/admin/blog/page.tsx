@@ -34,6 +34,29 @@ const SOURCE_LABEL: Record<PostSummary['source'], string> = {
   published: 'Published',
 }
 
+/**
+ * Copying an AI chat answer by dragging over the rendered bubble (rather
+ * than using its own "Copy" button) frequently collapses every paragraph,
+ * heading and list item into one flattened line — the breaks only ever
+ * existed as CSS spacing in the chat UI, not as real newline characters, so
+ * a plain paste loses them entirely. This can't be told apart from a
+ * genuinely one-line paste with certainty, so it only kicks in when the
+ * clipboard text is long with next to no line breaks — the unambiguous
+ * signature of a flattened chat answer — and only re-inserts breaks before
+ * markdown block markers (headings, list items) it can identify with
+ * confidence, never mid-sentence.
+ */
+function looksFlattened(text: string): boolean {
+  return text.length > 300 && (text.match(/\n/g)?.length ?? 0) < 2
+}
+
+function reflowFlattenedMarkdown(text: string): string {
+  return text
+    .replace(/([.!?:])\s+(#{1,6}\s)/g, '$1\n\n$2')
+    .replace(/([.!?])\s+(-\s+(?:\*\*|[A-Za-z]))/g, '$1\n\n$2')
+    .replace(/([.!?])\s+(\d+\.\s+(?:\*\*|[A-Za-z]))/g, '$1\n\n$2')
+}
+
 function slugify(title: string) {
   return title
     .toLowerCase()
@@ -321,6 +344,12 @@ function Editor({ secret, draft, setDraft, onSaved }: {
         <textarea
           value={draft.content}
           onChange={e => setDraft({ ...draft, content: e.target.value })}
+          onPaste={e => {
+            const text = e.clipboardData.getData('text/plain')
+            if (!looksFlattened(text)) return // real newlines already — don't touch a normal paste
+            e.preventDefault()
+            document.execCommand('insertText', false, reflowFlattenedMarkdown(text))
+          }}
           placeholder="Post content (Markdown)"
           rows={20}
           className="w-full bg-surface-2 border border-rule rounded-xl px-4 py-3 text-[13.5px] font-mono leading-relaxed outline-none focus:border-gold resize-y"

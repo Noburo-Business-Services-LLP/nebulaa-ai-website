@@ -43,9 +43,7 @@ export default function ServicesPage() {
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[100px] max-w-[900px]">
         <SectionLabel className="mb-[26px] block">Managed services</SectionLabel>
         <h1 className="neb-display text-[42px] md:text-[68px] mb-[30px]" style={{ textWrap: 'pretty' }}>
-          Marketing, run as one system.
-          <br />
-          <span className="text-gold-display">Not five vendors pretending to talk to each other.</span>
+          <span className="text-gold-display">One team</span> runs your entire marketing function.
         </h1>
         <p className="text-[18.5px] leading-[1.65] text-muted max-w-[620px] mb-10">
           Our AI marketing services cover strategy, content, production, campaigns and on-ground activation — handled by one team, under one plan, with one person accountable for all of it. We&apos;re already running this for Gandhimathi Jewellers, JKR Tex and TNV Chits.
@@ -129,7 +127,7 @@ export default function ServicesPage() {
         <div className="max-w-[660px] mb-[52px]">
           <SectionLabel className="mb-[22px] block">The engagement</SectionLabel>
           <h2 className="neb-display text-4xl md:text-[48px] mb-5">
-            Seven things we run. <span className="text-gold-display">Two nobody else can.</span>
+            The <span className="text-gold-display">seven services</span> we deliver.
           </h2>
           <p className="text-[16px] leading-[1.68] text-muted">
             Market entry and BTL activation need people on the ground. No software competitor
@@ -170,7 +168,7 @@ export default function ServicesPage() {
         <div className="max-w-[680px] mb-[52px]">
           <SectionLabel className="mb-[22px] block">What we deliver</SectionLabel>
           <h2 className="neb-display text-4xl md:text-[48px] mb-5">
-            A month of work, <span className="text-gold-display">counted out in advance.</span>
+            A month of deliverables, <span className="text-gold-display">agreed in advance.</span>
           </h2>
           <p className="text-[16px] leading-[1.68] text-muted">
             No retainer that quietly shrinks. Here&apos;s what a full-scope engagement looks like in a
@@ -265,9 +263,9 @@ export default function ServicesPage() {
         />
         <div className="relative">
           <h2 className="neb-display text-[36px] md:text-[56px] mb-6">
-            Tell us what you sell.
+            Tell us about your business.
             <br />
-            <span className="text-gold-display">We&apos;ll tell you what we&apos;d do.</span>
+            <span className="text-gold-display">We&apos;ll outline exactly what we&apos;d do.</span>
           </h2>
           <p className="text-[17px] leading-[1.65] text-muted max-w-[480px] mx-auto mb-10">
             Twenty minutes, no deck, no pitch. If we&apos;re the wrong fit we&apos;ll say so on the call and point you somewhere better.

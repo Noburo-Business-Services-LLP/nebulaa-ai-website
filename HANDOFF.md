@@ -2,11 +2,11 @@
 
 Written because the current session is approaching its usage limit. Read this before doing anything — it's the fastest way to get full context on a very long session's worth of work.
 
-## ⚠️ Most important thing: production is behind `dev`
+## ✅ Update: the copy rewrite is deployed
 
-Everything below is **committed and pushed to `origin/dev`**, but the last `sst deploy --stage production` only covered up through commit `1a093b5`. Commits `1b19749` through `9500acd` (the full sitewide copy rewrite — `/product`, `/services`, `/compare`, `/for`, `/channels`, `/work`, `/tools`, `/resources`, `Footer.tsx`) are **pushed but not live** on www.nebulaa.ai yet.
+The gap noted below (`1b19749` through `9500acd` not live) was closed — deployed to production and spot-checked (8 page types returned 200, two headline strings confirmed live via curl) on 2026-09-19. `HEAD` at deploy time was `38ebc6e`. If more commits have landed on `dev` since then, check `git log` and redeploy — the pattern below still applies.
 
-**To deploy:** `.env.local` has a multi-line `GSC_PRIVATE_KEY` that breaks a plain `source .env.local`. Use this pattern (used all session):
+**To deploy (still the right pattern going forward):** `.env.local` has a multi-line `GSC_PRIVATE_KEY` that breaks a plain `source .env.local`. Use this pattern (used all session):
 
 ```bash
 cd "/Users/dineshkannaa/Documents/0 CONTENT/Claude Agents/nebulaa-ai-website"

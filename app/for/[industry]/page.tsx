@@ -129,7 +129,7 @@ export default function IndustryPage({ params }: { params: { industry: string } 
             <div className="max-w-[640px] mb-9">
               <SectionLabel className="mb-[18px] block">What the output looks like</SectionLabel>
               <h2 className="neb-display text-[28px] md:text-4xl mb-3.5">
-                The kind of post Gravity writes <span className="text-gold-display">for this sector.</span>
+                <span className="text-gold-display">Gravity&apos;s output</span>, shaped for this sector.
               </h2>
               <p className="text-[15px] leading-[1.65] text-muted">
                 Illustrative of the format and tone — not a client&apos;s published campaign.

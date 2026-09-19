@@ -21,8 +21,8 @@ const cards = [
   {
     label: 'The team',
     labelGold: true,
-    title: 'Someone else runs it',
-    body: 'Our team plans, writes, ships and follows up, using the same engines to carry the volume — which is why our pricing comes in under a typical agency quote. You approve the work; you never need to log in.',
+    title: 'The Nebulaa team runs it',
+    body: 'Our team plans, writes, ships and follows up for you, using the same engines to carry the volume. You approve the work; you never need to log in.',
     metaPrimary: 'Managed marketing engagements',
     metaSecondary: 'Scoped per business',
     cta: 'Talk to us',

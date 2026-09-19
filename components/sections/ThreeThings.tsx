@@ -8,17 +8,17 @@ import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animatio
 const steps = [
   {
     n: '01',
-    title: 'Full brand context, one pass',
+    title: 'Understands your business from one URL',
     body: 'Paste your website. Within a minute, Nebulaa identifies your tone, your customers, and what your three closest competitors are currently posting — no brief to write, no onboarding call required.',
   },
   {
     n: '02',
-    title: 'A month planned and shipped, unattended',
+    title: 'Plans a month of content automatically',
     body: 'A whole month gets mapped out and drafted in your voice at once — posts, carousels, the occasional reel. Diwali and Pongal are already in the plan, so you never wake up on the day with nothing ready.',
   },
   {
     n: '03',
-    title: 'Every enquiry answered live',
+    title: 'Answers every enquiry within minutes',
     body: 'Pulsar replies to enquiries within minutes, at any hour, asking the same questions you would ask. You are brought in once there is a qualified buyer on the other end.',
   },
 ]

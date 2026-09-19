@@ -22,16 +22,16 @@ export interface Differentiator {
 
 export const differentiators: Differentiator[] = [
   {
-    title: 'One team, one point of contact',
-    body: "Strategy, content, production, campaigns and on-ground activation — handled by one team, under one plan, with one person accountable for all of it. Not five vendors pretending to talk to each other.",
+    title: 'A single team runs everything',
+    body: 'The same team handles strategy, content, production, campaigns and on-ground activation, under one plan with one person accountable for all of it. You brief one group instead of coordinating five vendors.',
   },
   {
-    title: 'AI-accelerated, not AI-only',
-    body: 'A fast-moving team paired with AI-driven systems for content, scheduling and paid promotions — so organic content, ads and outreach run as one system, not three disconnected efforts.',
+    title: 'AI runs the volume, people run the judgment',
+    body: 'Our team uses AI systems for content, scheduling and paid promotions, so organic content, ads and outreach run from the same plan instead of three separate efforts.',
   },
   {
     title: 'Built around how you sell',
-    body: 'No fragmented vendors. No guessing what’s working. Just marketing built around how your business actually sells.',
+    body: 'We build the plan around how your business actually sells, and report on what is working instead of leaving you to guess.',
   },
 ]
 

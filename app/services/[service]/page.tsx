@@ -95,7 +95,7 @@ export default function ServiceDetailPage({ params }: { params: { service: strin
         <div className="max-w-[640px] mb-[52px]">
           <SectionLabel className="mb-[20px] block">How it works</SectionLabel>
           <h2 className="neb-display text-[30px] md:text-[42px]">
-            The way this <span className="text-gold-display">actually runs.</span>
+            <span className="text-gold-display">Step by step,</span> how this runs.
           </h2>
         </div>
         <div className={`grid gap-6 ${svc.howItWorks.length === 4 ? 'md:grid-cols-4' : 'md:grid-cols-3'}`}>
@@ -119,7 +119,7 @@ export default function ServiceDetailPage({ params }: { params: { service: strin
             <div className="max-w-[660px] mb-[52px]">
               <SectionLabel className="mb-[20px] block">The sequence</SectionLabel>
               <h2 className="neb-display text-[30px] md:text-[42px] mb-4">
-                Four months to <span className="text-gold-display">a launch that lands.</span>
+                The four-month sequence, from entry to <span className="text-gold-display">steady demand.</span>
               </h2>
               <p className="text-[16px] leading-[1.68] text-muted">
                 Working backwards from the date, so demand is already in place when the stock is.
@@ -155,7 +155,7 @@ export default function ServiceDetailPage({ params }: { params: { service: strin
           <div>
             <SectionLabel className="mb-[20px] block">What we run</SectionLabel>
             <h2 className="neb-display text-[30px] md:text-[40px]">
-              What&apos;s <span className="text-gold-display">included.</span>
+              Everything <span className="text-gold-display">included</span> in this engagement.
             </h2>
           </div>
           <div>
@@ -184,7 +184,7 @@ export default function ServiceDetailPage({ params }: { params: { service: strin
         <div className="max-w-[640px] mb-[44px]">
           <SectionLabel className="mb-[20px] block">Questions</SectionLabel>
           <h2 className="neb-display text-[30px] md:text-[42px]">
-            Asked before <span className="text-gold-display">every engagement.</span>
+            What people ask <span className="text-gold-display">before signing.</span>
           </h2>
         </div>
         <FaqList faqs={svc.faqs} />
@@ -218,8 +218,8 @@ export default function ServiceDetailPage({ params }: { params: { service: strin
         />
         <div className="relative">
           <h2 className="neb-display text-[30px] md:text-[46px] mb-5">
-            Describe your business on a call.{' '}
-            <span className="text-gold-display">We&apos;ll send back a written scope.</span>
+            Book a call and we&apos;ll send a written scope within{' '}
+            <span className="text-gold-display">two working days.</span>
           </h2>
           <p className="text-[16px] leading-[1.65] text-muted max-w-[470px] mx-auto mb-9">
             Twenty minutes, no deck. If we are the wrong fit we will say so on the call and point you

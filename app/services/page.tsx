@@ -168,7 +168,7 @@ export default function ServicesPage() {
         <div className="max-w-[680px] mb-[52px]">
           <SectionLabel className="mb-[22px] block">What we deliver</SectionLabel>
           <h2 className="neb-display text-4xl md:text-[48px] mb-5">
-            A month of deliverables, <span className="text-gold-display">agreed in advance.</span>
+            We agree the <span className="text-gold-display">full month&apos;s deliverables</span> with you in advance.
           </h2>
           <p className="text-[16px] leading-[1.68] text-muted">
             No retainer that quietly shrinks. Here&apos;s what a full-scope engagement looks like in a
@@ -241,7 +241,7 @@ export default function ServicesPage() {
         <div className="max-w-[640px] mb-[62px]">
           <SectionLabel className="mb-[22px] block">How we work</SectionLabel>
           <h2 className="neb-display text-4xl md:text-[48px] mb-4">
-            One system, five stages, <span className="text-gold-display">one team accountable end to end.</span>
+            Five stages, run by <span className="text-gold-display">the same team</span> from first draft to report.
           </h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
@@ -263,9 +263,7 @@ export default function ServicesPage() {
         />
         <div className="relative">
           <h2 className="neb-display text-[36px] md:text-[56px] mb-6">
-            Describe your business on a call.
-            <br />
-            <span className="text-gold-display">We&apos;ll send back a written scope.</span>
+            Book a call and we&apos;ll send a written scope within <span className="text-gold-display">two working days.</span>
           </h2>
           <p className="text-[17px] leading-[1.65] text-muted max-w-[480px] mx-auto mb-10">
             Twenty minutes, no deck, no pitch. If we&apos;re the wrong fit we&apos;ll say so on the call and point you somewhere better.

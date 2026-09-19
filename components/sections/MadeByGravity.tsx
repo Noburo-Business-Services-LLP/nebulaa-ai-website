@@ -82,7 +82,7 @@ export default function MadeByGravity() {
           variants={fadeUpVariant}
           className="neb-display text-[34px] md:text-[50px] mb-[26px]"
         >
-          Real posts, <span className="text-gold-display">published on real client accounts.</span>
+          Every post below went out on a real client&apos;s account.
         </motion.h2>
         <motion.p
           variants={fadeUpVariant}

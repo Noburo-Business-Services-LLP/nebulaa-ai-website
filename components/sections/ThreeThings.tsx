@@ -40,7 +40,7 @@ export default function ThreeThings() {
           variants={fadeUpVariant}
           className="neb-display text-[33px] md:text-[50px]"
         >
-          Agent intelligence, <span className="text-gold-display">running 24/7.</span>
+          Three things happen without you opening the app.
         </motion.h2>
       </motion.div>
 

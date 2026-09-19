@@ -4,7 +4,7 @@ Spec: `.claude/brand-voice-guidelines.md` — read that first, especially the "8
 
 ## Currently in progress
 
-Starting group 10 (Footer.tsx + Navbar.tsx).
+All 10 groups done. Final build verification next.
 
 ## Checklist
 
@@ -17,7 +17,7 @@ Starting group 10 (Footer.tsx + Navbar.tsx).
 - [x] 7. `/work` hub + 3 engagement pages
 - [x] 8. `/tools` hub (intro/card copy only, not tool UI)
 - [x] 9. `/resources` hub + resource pages
-- [ ] 10. Footer.tsx + Navbar.tsx (tagline/description text only)
+- [x] 10. Footer.tsx + Navbar.tsx (tagline/description text only)
 
 ## Notes per group
 
@@ -72,3 +72,11 @@ Files touched: `app/tools/page.tsx`. `lib/toolsData.ts` per-tool taglines review
 
 ### 9. `/resources` (done, no changes needed)
 Reviewed `app/resources/page.tsx`, `app/resources/[resource]/page.tsx`, `lib/resourceData.ts` (all 6 entries) and `components/ui/DownloadGate.tsx` in full. Already clean, plain, mechanism-first copy — no tells found. No edits made.
+
+### 10. Footer + Navbar (done)
+Files touched: `components/layout/Footer.tsx`. `components/layout/Navbar.tsx` reviewed — the dropdown item descriptions are short functional nav labels, not marketing prose, no tells found, not touched (note: the actual file locations are `components/layout/`, not `components/sections/` as the brief said).
+- Fixed one fragment-for-rhythm tell in the footer newsletter signup: "Real GTM experiments, every Monday." (near-identical to the guidelines' own cited example "GTM tips. Weekly. No fluff.") → "We send one real GTM experiment every Monday."
+
+## Final verification
+- `npx tsc --noEmit`: clean after every group and on final state.
+- `npm run build`: pending — run this next, from repo root, after `rm -rf .next`.

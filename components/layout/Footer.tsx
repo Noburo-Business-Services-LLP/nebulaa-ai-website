@@ -63,7 +63,7 @@ function FooterNewsletter() {
       ) : (
         <>
           <p className="font-body text-[13px] text-muted leading-[1.6]">
-            Real GTM experiments, every Monday.
+            We send one real GTM experiment every Monday.
           </p>
           <form onSubmit={submit} className="flex flex-col gap-2 mt-1">
             <input

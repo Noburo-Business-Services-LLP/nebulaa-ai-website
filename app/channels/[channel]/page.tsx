@@ -83,7 +83,7 @@ export default function ChannelPage({ params }: { params: { channel: string } })
           <div>
             <SectionLabel className="mb-[20px] block">What we do here</SectionLabel>
             <h2 className="neb-display text-[30px] md:text-[40px]">
-              What runs <span className="text-gold-display">on this channel.</span>
+              <span className="text-gold-display">What runs</span> on this channel.
             </h2>
           </div>
           <div>
@@ -114,7 +114,7 @@ export default function ChannelPage({ params }: { params: { channel: string } })
         <div className="max-w-[640px] mb-[44px]">
           <SectionLabel className="mb-[20px] block">Questions</SectionLabel>
           <h2 className="neb-display text-[30px] md:text-[42px]">
-            About this channel, <span className="text-gold-display">honestly.</span>
+            What people usually ask before signing up.
           </h2>
         </div>
         <FaqList faqs={ch.faqs} />

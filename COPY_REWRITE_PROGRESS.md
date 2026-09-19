@@ -81,3 +81,84 @@ Files touched: `components/layout/Footer.tsx`. `components/layout/Navbar.tsx` re
 - `npx tsc --noEmit`: clean after every group and on final state.
 - `rm -rf .next && npm run build`: clean. Caught and fixed 2 react/no-unescaped-entities lint errors from the "What's included." headings introduced during the pass.
 - Pushed to `origin/dev`.
+
+## Pass 2: repeated-device sweep
+
+Triggered by a specific defect found on `/services` (commit `002a870`, not covered by the per-line
+Pass 1 process): a page can pass the 8-tell test on every individual heading and still read as
+templated if the same heading *shape* (e.g. "plain clause, then a comma or line break, then a
+gold-highlighted payoff clause") repeats across 3+ headings on one page. This pass swept the
+remaining page groups for that specific defect, plus any of the original 8 tells missed the first
+time.
+
+- [x] 1. `/product` — hub, `/product/core`, `/product/[agent]`, `/product/[agent]/[capability]`
+- [x] 2. `/pricing`
+- [x] 3. `/compare` — hub + `/compare/[competitor]` + `lib/compareData.ts`
+- [x] 4. `/for` — hub + `/for/[industry]` + `lib/industryData.ts`
+- [x] 5. `/channels` — hub + `/channels/[channel]` + `lib/channelData.ts`
+- [x] 6. `/work` — hub + `/work/[engagement]` + `lib/engagementData.ts`
+- [x] 7. `/tools` hub copy
+- [x] 8. `/resources` hub copy
+- [x] 9. `Footer.tsx`, `Navbar.tsx`
+- [x] 10. Homepage sections (`components/sections/*`)
+
+### Notes per group
+
+**1. `/product` (real fixes).** `app/product/core/page.tsx` had 5 of its 6 H2/H1 headings using the
+identical plain-clause + gold-trailing-clause shape ("Every action leaves a signal.", "Signals,
+connected across actions and outcomes.", "The system uses what it learns to inform what happens
+next.", plus the H1 and close). Rewrote 3 of them (one dropped the gold span entirely, one moved
+gold to the lead word) so no more than 2 share a shape. The `[agent]/[capability]/page.tsx` template
+— shared across ~26 rendered pages — had 4 of its 5 headings ("Three steps, start to finish.",
+"What's included.", "The ones people actually ask.", plus both close-CTA variants) in the same
+trailing-gold shape; varied "Three steps" (gold moved to lead), "What's included" (gold dropped),
+and both close-CTA variants (gold moved to lead, onto the product name/URL instruction). Hub page
+and `[agent]/page.tsx` template were already varied — not touched.
+
+**2. `/pricing` (clean, no changes).** Only two headings on the page (H1, one H2), not sharing a
+shape. No repeat.
+
+**3. `/compare` (clean, no changes).** Hub and detail template use a literal table/verdict layout
+with plain, ungilded headings throughout — no gold-clause device present at all, so nothing to vary.
+
+**4. `/for` (real fix).** The industry detail template had 3 headings using the trailing-gold-clause
+shape (hero, "The kind of post Gravity writes for this sector.", close). Rewrote the sample-creative
+heading to lead with gold on the noun ("Gravity's output, shaped for this sector.") instead of
+trailing it, leaving only 2 sharing the hero/close shape.
+
+**5. `/channels` (real fix).** The channel detail template had all 3 of its headings (hero, "What
+runs on this channel.", "About this channel, honestly.") in the trailing-gold shape. Moved gold to
+the lead word in the "What runs" heading and rewrote the FAQ heading as a plain declarative with no
+gold span.
+
+**6. `/work` (real fix).** The engagement detail template had 4 of 5 headings in the trailing-gold
+shape (hero, "The scope, written down.", "What the engagement is actually for.", "Before you ask on
+the call."). Moved gold to the lead word in the scope heading and dropped the gold span entirely
+from the "what changes" heading.
+
+**7. `/tools` (clean, no changes).** Only 2 headings on the hub page, not sharing a shape.
+
+**8. `/resources` (clean, no changes).** Only 1 gold heading (H1) on the hub page.
+
+**9. Footer + Navbar (clean, no changes).** No marketing headlines in either file — footer column
+labels and nav dropdown descriptions are short functional labels, not prose subject to the
+rhetorical-device tell.
+
+**10. Homepage sections (real fix).** Read all 12 sections in actual render order (Hero,
+ThreeThings, SharedMemory, EntryFork, NarrativeDemo, GravitySection, OrbitSection, PulsarSection,
+MadeByGravity, FAQ, Newsletter, FinalCTA — not the order listed in the brief, which was alphabetical
+by file rather than page order). Found 4 headings (ThreeThings, MadeByGravity, Newsletter, FAQ) all
+using the plain-clause + gold-trailing-clause shape on one page. Rewrote ThreeThings ("Three things
+happen without you opening the app.") and MadeByGravity ("Every post below went out on a real
+client's account.") as plain declaratives with no gold span, leaving Newsletter and FAQ as the only
+two sharing that shape. Left the 3 product-intro headings (GravitySection/OrbitSection/PulsarSection,
+each "**{ProductName}** does X.") alone — gold there marks the product name per guideline rule 8,
+and the repetition is structural (3 parallel sections each introducing a different named product),
+not a rhetorical trick. Left Hero and FinalCTA's two-sentence gold-second-line shape alone — this is
+the guideline's own cited legitimate exception (both clauses carry real information, not a
+setup/punchline).
+
+### Final verification (Pass 2)
+- `npx tsc --noEmit`: clean after every group and on final state.
+- `rm -rf .next && npm run build`: clean, no new lint errors.
+- Commits pushed to `origin/dev`.

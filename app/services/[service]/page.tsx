@@ -155,7 +155,7 @@ export default function ServiceDetailPage({ params }: { params: { service: strin
           <div>
             <SectionLabel className="mb-[20px] block">What we run</SectionLabel>
             <h2 className="neb-display text-[30px] md:text-[40px]">
-              What's <span className="text-gold-display">included.</span>
+              What&apos;s <span className="text-gold-display">included.</span>
             </h2>
           </div>
           <div>

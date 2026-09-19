@@ -121,7 +121,7 @@ export default function CapabilityPage({
           <div>
             <SectionLabel className="mb-[20px] block">What you get</SectionLabel>
             <h2 className="neb-display text-[30px] md:text-[40px]">
-              What's <span className="text-gold-display">included.</span>
+              What&apos;s <span className="text-gold-display">included.</span>
             </h2>
           </div>
           <div className="flex flex-col gap-4">

@@ -127,7 +127,7 @@ export default function EngagementPage({ params }: { params: { engagement: strin
           <div>
             <SectionLabel className="mb-[20px] block">What changes</SectionLabel>
             <h2 className="neb-display text-[30px] md:text-[40px] mb-4">
-              Described honestly, <span className="text-gold-display">not as a stat.</span>
+              What the engagement is <span className="text-gold-display">actually for.</span>
             </h2>
             <p className="text-[15px] leading-[1.65] text-muted">
               We are not putting numbers on this page until there is published client work we can

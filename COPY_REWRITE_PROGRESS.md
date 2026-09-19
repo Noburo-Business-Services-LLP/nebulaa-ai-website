@@ -4,7 +4,7 @@ Spec: `.claude/brand-voice-guidelines.md` — read that first, especially the "8
 
 ## Currently in progress
 
-Starting group 7 (`/work` hub + 3 engagement pages).
+Starting group 8 (`/tools` hub — intro/card copy only).
 
 ## Checklist
 
@@ -14,7 +14,7 @@ Starting group 7 (`/work` hub + 3 engagement pages).
 - [x] 4. `/compare` hub + 5 comparison pages
 - [x] 5. `/for` hub + 9 industry pages
 - [x] 6. `/channels` hub + ~11 channel pages
-- [ ] 7. `/work` hub + 3 engagement pages
+- [x] 7. `/work` hub + 3 engagement pages
 - [ ] 8. `/tools` hub (intro/card copy only, not tool UI)
 - [ ] 9. `/resources` hub + resource pages
 - [ ] 10. Footer.tsx + Navbar.tsx (tagline/description text only)
@@ -59,3 +59,8 @@ Files touched: `lib/channelData.ts` (all 13 channel entries), `app/channels/[cha
 - Fixed a negation-contrast headline: "Being listed is not the same as being found" → "A listing that exists still has to be found."
 - Fixed two near-duplicate headlines one click apart from other already-touched groups: the voice-calling channel page had the identical headline to the /product/pulsar/voice-calling capability page ("For the moments a call still beats a message") — reworded to "The channel we reach for last, on purpose." The Meta & Google Ads channel page nearly duplicated the /services/performance-marketing headline ("Paid pointed at where you actually sell") — reworded to "Paid media, geo-targeted to a real catchment."
 - Fixed the repeated "On this channel, specifically." template heading (fragment/reveal, same family as "Concretely, this.") → "What runs on this channel."
+
+### 7. `/work` (done)
+Files touched: `lib/engagementData.ts` (all 3 entries), `app/work/[engagement]/page.tsx`. `app/work/page.tsx` reviewed, already clean, not touched.
+- Same "This is [engagement] for X:" opener on 2 of 3 subheadlines. Rewrote both plain.
+- Fixed one negation-contrast template heading: "Described honestly, not as a stat." → "What the engagement is actually for."

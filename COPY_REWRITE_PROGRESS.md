@@ -4,14 +4,14 @@ Spec: `.claude/brand-voice-guidelines.md` — read that first, especially the "8
 
 ## Currently in progress
 
-Starting group 4 (`/compare` hub + 5 comparison pages).
+Starting group 5 (`/for` hub + 9 industry pages).
 
 ## Checklist
 
 - [x] 1. `/product` hub + agent pages + capability pages
 - [x] 2. `/pricing` (final check only — mostly already fixed)
 - [x] 3. `/services` hub + 7 service pages
-- [ ] 4. `/compare` hub + 5 comparison pages
+- [x] 4. `/compare` hub + 5 comparison pages
 - [ ] 5. `/for` hub + 9 industry pages
 - [ ] 6. `/channels` hub + ~11 channel pages
 - [ ] 7. `/work` hub + 3 engagement pages
@@ -42,3 +42,6 @@ Files touched: `app/services/page.tsx`, `app/services/[service]/page.tsx`, `lib/
 - `lib/servicePageData.ts` had the same "This is [service] for [X]:" opener template repeated across all 7 subheadlines. Rewrote all 7 as plain declaratives, keeping every fact.
 - Fixed the repeated "Concretely, this." template heading on the service detail page (same fragment/reveal tell as the product capability template) → "What's included."
 - Did not touch the bracketed-placeholder "kind of shift this typically drives" section per guidelines instruction (did not find one on this page — may be elsewhere or already removed).
+
+### 4. `/compare` (done, no changes needed)
+Reviewed `app/compare/page.tsx`, `app/compare/[competitor]/page.tsx`, `lib/compareData.ts` (all 5 competitor entries) in full against the 8-pattern list. Already clean plain-declarative copy — no negation-openers, no personification, no mirrored wordplay, no repeated formulaic template opener. No edits made.

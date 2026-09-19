@@ -155,7 +155,7 @@ export default function ServiceDetailPage({ params }: { params: { service: strin
           <div>
             <SectionLabel className="mb-[20px] block">What we run</SectionLabel>
             <h2 className="neb-display text-[30px] md:text-[40px]">
-              Concretely, <span className="text-gold-display">this.</span>
+              What's <span className="text-gold-display">included.</span>
             </h2>
           </div>
           <div>
@@ -218,8 +218,8 @@ export default function ServiceDetailPage({ params }: { params: { service: strin
         />
         <div className="relative">
           <h2 className="neb-display text-[30px] md:text-[46px] mb-5">
-            Tell us what you sell.{' '}
-            <span className="text-gold-display">We&apos;ll tell you what we&apos;d do.</span>
+            Describe your business on a call.{' '}
+            <span className="text-gold-display">We&apos;ll send back a written scope.</span>
           </h2>
           <p className="text-[16px] leading-[1.65] text-muted max-w-[470px] mx-auto mb-9">
             Twenty minutes, no deck. If we are the wrong fit we will say so on the call and point you

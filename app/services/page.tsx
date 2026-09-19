@@ -263,9 +263,9 @@ export default function ServicesPage() {
         />
         <div className="relative">
           <h2 className="neb-display text-[36px] md:text-[56px] mb-6">
-            Tell us about your business.
+            Describe your business on a call.
             <br />
-            <span className="text-gold-display">We&apos;ll outline exactly what we&apos;d do.</span>
+            <span className="text-gold-display">We&apos;ll send back a written scope.</span>
           </h2>
           <p className="text-[17px] leading-[1.65] text-muted max-w-[480px] mx-auto mb-10">
             Twenty minutes, no deck, no pitch. If we&apos;re the wrong fit we&apos;ll say so on the call and point you somewhere better.

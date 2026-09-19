@@ -4,13 +4,13 @@ Spec: `.claude/brand-voice-guidelines.md` — read that first, especially the "8
 
 ## Currently in progress
 
-Starting group 3 (`/services` hub + 7 service pages).
+Starting group 4 (`/compare` hub + 5 comparison pages).
 
 ## Checklist
 
 - [x] 1. `/product` hub + agent pages + capability pages
 - [x] 2. `/pricing` (final check only — mostly already fixed)
-- [ ] 3. `/services` hub + 7 service pages
+- [x] 3. `/services` hub + 7 service pages
 - [ ] 4. `/compare` hub + 5 comparison pages
 - [ ] 5. `/for` hub + 9 industry pages
 - [ ] 6. `/channels` hub + ~11 channel pages
@@ -35,3 +35,10 @@ Files touched: `app/product/page.tsx`, `app/product/[agent]/page.tsx`, `app/prod
 Files touched: `app/pricing/page.tsx`. `components/sections/Pricing.tsx` and `components/sections/FAQ.tsx` are homepage components already fixed in an earlier pass — not re-touched, per instructions.
 - One personification tell found and fixed: "cancel the month it stops earning its keep" (this exact phrase is cited as an example in the guidelines file itself) → "cancel any month you decide it is not worth the cost."
 - Rest of the page was already clean plain-declarative copy.
+
+### 3. `/services` (done)
+Files touched: `app/services/page.tsx`, `app/services/[service]/page.tsx`, `lib/servicePageData.ts` (all 7 service entries).
+- Found the exact verbatim example from the guidelines file still live in shipped copy: "Tell us what you sell. We'll tell you what we'd do." (mirrored wordplay tell #6) — present on the hub's close section AND on the per-service template close section (so all 7 service detail pages). Rewrote both to "Describe your business on a call. We'll send back a written scope."
+- `lib/servicePageData.ts` had the same "This is [service] for [X]:" opener template repeated across all 7 subheadlines. Rewrote all 7 as plain declaratives, keeping every fact.
+- Fixed the repeated "Concretely, this." template heading on the service detail page (same fragment/reveal tell as the product capability template) → "What's included."
+- Did not touch the bracketed-placeholder "kind of shift this typically drives" section per guidelines instruction (did not find one on this page — may be elsewhere or already removed).

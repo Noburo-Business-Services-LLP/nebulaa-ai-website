@@ -111,7 +111,7 @@ export const capabilities: Capability[] = [
     headline: 'It starts by reading',
     headlineEmphasis: 'your website.',
     subheadline:
-      'This is an AI marketing strategy from website URL alone, no brief required. Gravity starts from your URL: it works out how you talk, who buys from you, which channels are worth your time, and who you are actually competing against — then writes the strategy everything else runs from.',
+      'Gravity builds a marketing strategy from your website URL alone, with no brief and no onboarding call required. It works out how you talk, who buys from you, which channels are worth your time and who you are actually competing against, then writes the strategy everything else runs from.',
     summary: 'Reads your URL and builds the strategy — tone, ICP, channels, competitors.',
     steps: [
       { title: 'Give it a URL', body: 'No brief to write, no onboarding call to sit through. Your website already contains most of what a strategist would ask you for.' },
@@ -140,10 +140,10 @@ export const capabilities: Capability[] = [
     agent: 'gravity',
     name: 'Content planning',
     eyebrow: 'Gravity · planning',
-    headline: 'It plans the month,',
-    headlineEmphasis: 'not the post.',
+    headline: 'A month of content,',
+    headlineEmphasis: 'planned in advance.',
     subheadline:
-      'This is a monthly content calendar that builds itself: a month planned in advance is the difference between posting consistently and posting when you remember. Gravity maps the whole month against your content pillars — festivals and seasons already in place — so you are never staring at an empty day.',
+      'Gravity builds a full month of content in advance, mapped against your content pillars with festivals and seasons already placed. Planning ahead is what separates posting consistently from posting when you remember to.',
     summary: 'A whole month mapped against your pillars, with festivals already in it.',
     steps: [
       { title: 'The month gets mapped', body: 'Every slot planned against your content pillars, with the format chosen per platform and per objective.' },
@@ -173,9 +173,9 @@ export const capabilities: Capability[] = [
     name: 'Content creation',
     eyebrow: 'Gravity · creation',
     headline: 'Drafted in your voice,',
-    headlineEmphasis: 'not a generic one.',
+    headlineEmphasis: 'from your own site.',
     subheadline:
-      'This is AI content creation in your brand voice, not a generic one: every slot in the plan gets written — copy, creative and hashtags — in the voice the strategy captured from your own site. You are editing a draft that already sounds like you, not starting from a blank prompt box.',
+      'Every slot in the plan gets written — copy, creative and hashtags — in the voice the strategy captured from your own site. You edit finished drafts instead of writing from a blank prompt box.',
     summary: 'Posts, carousels and creative drafted in your brand voice, ready to edit.',
     steps: [
       { title: 'It writes against the plan', body: 'Each slot is drafted to its brief — the pillar, the format, the platform and the objective are already decided.' },
@@ -206,7 +206,7 @@ export const capabilities: Capability[] = [
     headline: 'Reels, without',
     headlineEmphasis: 'a shoot.',
     subheadline:
-      'This is AI reel generation without a shoot: short-form video is where reach is, and it is the first thing a small team stops making because it is the most work. Gravity builds reels scene by scene — script, visuals, pacing and audio — from the same monthly plan.',
+      'Short-form video drives the most reach and is usually the first thing a small team stops making, because it takes the most work. Gravity generates reels without a shoot, building each one scene by scene — script, visuals, pacing and audio — from the same monthly plan.',
     summary: 'Short-form video built scene by scene, from the same plan.',
     steps: [
       { title: 'The script comes from the plan', body: 'A reel slot is briefed like any other — hook, middle, call to action — against a pillar rather than a trend you have to chase.' },
@@ -234,10 +234,10 @@ export const capabilities: Capability[] = [
     agent: 'gravity',
     name: 'Campaigns',
     eyebrow: 'Gravity · campaigns',
-    headline: 'A launch is not',
-    headlineEmphasis: 'a single post.',
+    headline: 'A launch needs',
+    headlineEmphasis: 'more than one post.',
     subheadline:
-      'This is marketing campaign planning for a launch, not a single post: a new collection, a festival offer, a store opening — these need a run of content that builds. Campaigns group the whole sequence, across formats and platforms, against one objective and one date.',
+      'A new collection, a festival offer or a store opening needs a run of content that builds toward one date, across formats and platforms. Campaigns group that whole sequence against one objective and one date, instead of a list of separately scheduled posts.',
     summary: 'Multi-post launches planned as one sequence against one objective.',
     steps: [
       { title: 'Set the objective and the date', body: 'What is launching, when it lands, and what the campaign is for — awareness, footfall, enquiries or sales.' },
@@ -268,7 +268,7 @@ export const capabilities: Capability[] = [
     headline: 'Nothing goes live',
     headlineEmphasis: 'until you say so.',
     subheadline:
-      'This is a content approval workflow built for the fear that comes with any automated marketing tool: waking up to something you would never have written. Gravity queues everything for review — approve, rewrite or reject, from your phone, in the time it takes to drink a coffee.',
+      'Gravity queues everything for review before it publishes — approve, rewrite or reject, from your phone, in the time it takes to drink a coffee. Nothing goes out that you have not seen first.',
     summary: 'Everything queues for review. Approve, rewrite or reject from your phone.',
     steps: [
       { title: 'Drafts queue for review', body: 'Everything Gravity produces lands in a queue rather than going straight out.' },
@@ -299,7 +299,7 @@ export const capabilities: Capability[] = [
     headline: 'It watches your rivals',
     headlineEmphasis: 'and writes the reply.',
     subheadline:
-      'This is a competitor tracking tool that hands you a post, not a report: knowing a competitor ran a festival offer is not useful on its own. Gravity tracks what the businesses competing for your customer are publishing, and drafts the content that answers it.',
+      'Knowing that a competitor ran a festival offer is not useful on its own. Gravity tracks what the businesses competing for your customer are publishing and drafts the post that answers it — a piece of content to approve, not just an alert.',
     summary: 'Tracks rival content and drafts the counter-post, not just a report.',
     steps: [
       { title: 'Competitors get identified', body: 'The strategy pass works out who is competing for your customer. You can add or remove any of them.' },
@@ -424,7 +424,7 @@ export const capabilities: Capability[] = [
     headline: 'Your logo, colours and',
     headlineEmphasis: 'products, on file.',
     subheadline:
-      'This brand asset library is why generated creative actually looks like your brand: generated creative only looks like your brand if the system knows what your brand looks like. Gravity keeps your logo, palette, product photography and store imagery on hand, and builds every visual from them.',
+      'Generated creative only looks like your brand if the system knows what your brand looks like. Gravity keeps your logo, palette, product photography and store imagery on file, and builds every visual from them.',
     summary: 'Logo, palette, product and store imagery, used in every generated visual.',
     steps: [
       { title: 'Upload once', body: 'Logo, brand colours, product shots and store or facility imagery.' },
@@ -485,7 +485,7 @@ export const capabilities: Capability[] = [
     headline: 'Published at the hour',
     headlineEmphasis: 'your audience is awake.',
     subheadline:
-      'This social media scheduling tool handles the timing properly: bring your own creative when you have it, and let it schedule each platform, each format, at the time your audience is actually active rather than whenever you happened to hit post.',
+      'Bring your own creative when you have it, and Gravity schedules each platform and format for the time your audience is actually active, rather than whenever you happened to hit post.',
     summary: 'Bulk upload your own creative and schedule to peak hours per platform.',
     steps: [
       { title: 'Upload what you already have', body: 'Your own photography, video or designs, in bulk rather than one at a time.' },
@@ -516,7 +516,7 @@ export const capabilities: Capability[] = [
     headline: 'What worked,',
     headlineEmphasis: 'and what to do next.',
     subheadline:
-      'This cross-platform marketing analytics view does more than a dashboard that tells you engagement went up: it does not tell you what to do on Monday. Gravity reports across platforms, attributes it to pillars and formats, and turns it into the next month\'s plan.',
+      'A dashboard that tells you engagement went up does not tell you what to do on Monday. Gravity reports across platforms, attributes performance to pillars and formats, and turns it into next month\'s plan.',
     summary: 'Cross-platform performance, tied back to pillars and next month\'s plan.',
     steps: [
       { title: 'Everything in one view', body: 'Performance across every connected platform, rather than five separate native dashboards.' },
@@ -548,7 +548,7 @@ export const capabilities: Capability[] = [
     headline: 'The channel your customers',
     headlineEmphasis: 'actually use.',
     subheadline:
-      'This is WhatsApp enquiry automation built for India: the enquiry does not arrive by email, it arrives on WhatsApp, often at nine on a Sunday night, and whoever replies first usually gets the sale. Pulsar answers in minutes, in your voice.',
+      'In India, most enquiries arrive on WhatsApp rather than email — often at nine on a Sunday night — and whoever replies first usually gets the sale. Pulsar answers within minutes, in your voice.',
     summary: 'Replies to WhatsApp enquiries in minutes, in your voice.',
     steps: [
       { title: 'The enquiry lands', body: 'Someone messages your business number — from an ad, a post, your Google listing or a friend passing on the number.' },
@@ -580,7 +580,7 @@ export const capabilities: Capability[] = [
     headline: 'Your day starts at',
     headlineEmphasis: 'the top of the list.',
     subheadline:
-      'This is lead scoring and qualification built into the conversation itself: most enquiries are not ready to buy, and finding the few that are is what eats the morning. Every conversation is scored on what was actually said, so the list you open is ordered by who is worth calling first.',
+      'Most enquiries are not ready to buy, and finding the few that are is what eats the morning. Pulsar scores every conversation on what was actually said, so the list you open is already ordered by who is worth calling first.',
     summary: 'Every conversation scored on intent, so the list is already ordered.',
     steps: [
       { title: 'Every enquiry becomes a record', body: 'Contact details, source, the full conversation and what was established during it.' },
@@ -612,7 +612,7 @@ export const capabilities: Capability[] = [
     headline: 'Reach everyone at once,',
     headlineEmphasis: 'without sounding like spam.',
     subheadline:
-      'This is WhatsApp broadcast marketing done right: a new scheme, a festival offer, a new collection — sometimes you need to tell everyone. Broadcasts send to a segment of your contacts and, crucially, handle every reply as a real conversation.',
+      'A new scheme, a festival offer, a new collection — sometimes you need to tell everyone at once. Broadcasts send to a segment of your contacts, and every reply is handled as a real conversation rather than left unanswered.',
     summary: 'Segment, send, and handle every reply as a conversation.',
     steps: [
       { title: 'Pick who it goes to', body: 'Segment by source, score, past interest or how recently they were in touch — not just everyone in the list.' },
@@ -643,7 +643,7 @@ export const capabilities: Capability[] = [
     headline: 'For the moments a call',
     headlineEmphasis: 'still beats a message.',
     subheadline:
-      'This automated call queue handles the cases a message can\'t: most of the time a message is better — it is on the customer\'s terms and it leaves a record. But some enquiries deserve a call, and some people simply do not reply to text. It handles those without anyone dialling manually.',
+      'Most of the time a message is better — it is on the customer\'s terms and it leaves a record. But some enquiries deserve a call, and some people simply do not reply to text. Pulsar queues those calls automatically, without anyone dialling manually.',
     summary: 'A call queue for the enquiries where a message is not enough.',
     steps: [
       { title: 'A call gets queued', body: 'Triggered by a score threshold, an unanswered message thread, or a rule you set.' },
@@ -674,7 +674,7 @@ export const capabilities: Capability[] = [
     headline: 'Different conversations',
     headlineEmphasis: 'need different agents.',
     subheadline:
-      'These are configurable AI sales agents, not one generic responder: the way you answer a bridal jewellery enquiry is not the way you answer a dealer asking about bulk pricing. Configure separate agents with their own brief, tone and rules, and route each conversation to the right one.',
+      'The way you answer a bridal jewellery enquiry is not the way you answer a dealer asking about bulk pricing. Configure separate AI agents, each with its own brief, tone and rules, and route each conversation to the right one.',
     summary: 'Separate agents per conversation type, each with its own brief and tone.',
     steps: [
       { title: 'Define the agent', body: 'What it handles, how it should sound, what it must always ask and what it must never say.' },
@@ -704,7 +704,7 @@ export const capabilities: Capability[] = [
     headline: 'Follow-up that happens',
     headlineEmphasis: 'whether you remember or not.',
     subheadline:
-      'This is sales follow-up automation that stays visible: most lost sales are not lost to a competitor, they are lost to nobody following up on day four. Sequences handle the chasing — and the monitor shows you exactly what is running, so it never becomes something happening behind your back.',
+      'Most lost sales are not lost to a competitor — they are lost to nobody following up on day four. Sequences handle the chasing, and a monitor shows exactly what is running, what fired and what stalled.',
     summary: 'Follow-up sequences that run themselves, with a live monitor.',
     steps: [
       { title: 'Build the sequence', body: 'What happens on day one, day three, day seven — and on which channel each step goes out.' },
@@ -735,7 +735,7 @@ export const capabilities: Capability[] = [
     headline: 'It only answers',
     headlineEmphasis: 'what you have told it.',
     subheadline:
-      'This AI sales agent knowledge base is the boundary: your products, policies, schemes and answers, and an instruction to hand over rather than guess. An agent that invents an answer about your pricing is worse than no agent at all.',
+      'Load your products, policies, schemes and answers, and the agent works inside that boundary — handing over rather than guessing. An agent that invents an answer about your pricing is worse than no agent at all.',
     summary: 'Your products, policies and answers — the boundary it works inside.',
     steps: [
       { title: 'Load what it needs to know', body: 'Products, pricing rules, schemes, policies, delivery terms and the questions you answer every week.' },
@@ -765,7 +765,7 @@ export const capabilities: Capability[] = [
     headline: 'Reach people where',
     headlineEmphasis: 'they actually reply.',
     subheadline:
-      'This is email and SMS outreach alongside WhatsApp, not instead of it: WhatsApp carries most of the conversation in this market, but not all of it. Some buyers want email, some only see an SMS, and a dealer network often runs on both. Pulsar works all three from one thread.',
+      'WhatsApp carries most of the conversation in this market, but not all of it. Some buyers want email, some only see an SMS, and a dealer network often runs on both — Pulsar works all three from one thread, alongside WhatsApp rather than in place of it.',
     summary: 'Email and SMS alongside WhatsApp, in one conversation thread.',
     steps: [
       { title: 'One contact, several channels', body: 'A person is one record, whichever channel they came in on.' },
@@ -792,10 +792,10 @@ export const capabilities: Capability[] = [
     agent: 'pulsar',
     name: 'Tasks & activities',
     eyebrow: 'Pulsar · workflow',
-    headline: 'The handover is where',
-    headlineEmphasis: 'most leads die.',
+    headline: 'Handover is where',
+    headlineEmphasis: 'most leads get lost.',
     subheadline:
-      'This is lead handover and task tracking for the moment qualifying a lead stops being enough: somebody then has to do something about it. Tasks put the follow-up on a named person with a date, and the activity trail shows what actually happened rather than what was meant to.',
+      'Qualifying a lead is only half the job — somebody then has to follow up. Tasks put that follow-up on a named person with a date, and the activity trail records what actually happened.',
     summary: 'Named owners, dated follow-ups, and a trail of what actually happened.',
     steps: [
       { title: 'A qualified lead becomes a task', body: 'Assigned to a person with a date, not dropped into a shared inbox to be noticed.' },
@@ -825,7 +825,7 @@ export const capabilities: Capability[] = [
     headline: 'How fast you answer,',
     headlineEmphasis: 'and what it is worth.',
     subheadline:
-      'This is response time and conversion analytics for the number that moves sales most in this market, and almost nobody measures it. Pulsar reports it — by channel, by agent and by person — alongside what those conversations turned into.',
+      'Response time is the number that moves sales most in this market, and almost nobody measures it. Pulsar reports it by channel, by agent and by person, alongside what those conversations turned into.',
     summary: 'Response time, conversion and per-person performance.',
     steps: [
       { title: 'Every conversation is timed', body: 'From enquiry to first reply, and through to handover.' },
@@ -854,9 +854,9 @@ export const capabilities: Capability[] = [
     name: 'Lead sourcing',
     eyebrow: 'Orbit · sourcing',
     headline: 'Real businesses,',
-    headlineEmphasis: 'not a scraped list.',
+    headlineEmphasis: 'matched to who you sell to.',
     subheadline:
-      'This is AI lead sourcing from Google Maps, not a scraped list: tell Orbit what you sell and who buys it — a category, a location. It searches Google Maps and a second, independent source for the same area, so one provider going quiet does not stop the list from filling.',
+      'Tell Orbit what you sell and who buys it — a category, a location — and it searches Google Maps and a second, independent source for the same area. One provider going quiet does not stop the list from filling.',
     summary: 'Searches Google Maps and a second source for real businesses matching your target.',
     steps: [
       { title: 'Describe the target', body: 'A business type and a location — "gyms in Chennai," "interior designers in Coimbatore." No list to upload.' },
@@ -886,7 +886,7 @@ export const capabilities: Capability[] = [
     headline: 'Only the ones',
     headlineEmphasis: 'actually worth calling.',
     subheadline:
-      'This is automated lead qualification, not just sourcing: a sourced list is not a qualified one. Orbit keeps a business only if there is a phone number to actually reach them on and a public rating that suggests they are a going concern worth pursuing — everything else is dropped before it reaches you.',
+      'A sourced list is not a qualified one. Orbit keeps a business only if there is a phone number to reach them on and a public rating that suggests they are a going concern worth pursuing — everything else is dropped before it reaches you.',
     summary: 'Keeps only businesses with a real phone number and a rating of 4.2 or above.',
     steps: [
       { title: 'Phone number required', body: 'No number, no lead. A business you cannot call is not a qualified one, whatever else is on the listing.' },
@@ -912,10 +912,10 @@ export const capabilities: Capability[] = [
     agent: 'orbit',
     name: 'Email enrichment',
     eyebrow: 'Orbit · enrichment',
-    headline: 'Google Maps never',
-    headlineEmphasis: 'gives you an email. Orbit finds one anyway.',
+    headline: 'A contact email,',
+    headlineEmphasis: 'even when Google Maps has none.',
     subheadline:
-      'This website email enrichment step is why the address is real: for any qualified lead with a website, Orbit reads the homepage and the usual contact pages, and pulls out a real business email — filtering out the noreply addresses, the placeholder domains and the junk that scraping usually drags in.',
+      'For any qualified lead with a website, Orbit reads the homepage and the usual contact pages and pulls out a real business email, filtering out noreply addresses, placeholder domains and the junk that scraping usually drags in.',
     summary: 'Reads a lead\'s website to find a real contact email, filtering out noreply addresses and placeholder junk.',
     steps: [
       { title: 'It visits the website', body: 'The homepage first, then the usual contact-page paths — /contact, /about and their common variants.' },
@@ -943,7 +943,7 @@ export const capabilities: Capability[] = [
     headline: 'The first message,',
     headlineEmphasis: 'already written.',
     subheadline:
-      'This is AI-personalized cold outreach, not a template with a name dropped in: every qualified lead gets an opening message drafted around what is actually true about them — whether they have a website, what the business appears to be about.',
+      'Every qualified lead gets an opening message drafted around what is actually true about them — whether they have a website, what the business appears to be about — instead of a template with a name dropped in.',
     summary: 'Drafts an opening outreach message per lead, based on their website and business context.',
     steps: [
       { title: 'Context, not a template', body: 'Website presence and what the listing says about the business shape the message, not a fill-in-the-blank script.' },
@@ -971,7 +971,7 @@ export const capabilities: Capability[] = [
     headline: 'Into the CRM,',
     headlineEmphasis: 'assigned and ready to work.',
     subheadline:
-      'This is automatic CRM sync for qualified leads, not a spreadsheet handoff: Orbit pushes each lead into your CRM as a linked Company, Contact and Pipeline record, and — if you run more than one rep — assigns it to the next one in rotation, so nobody is idle and nobody is flooded.',
+      'Orbit pushes each qualified lead into your CRM as a linked Company, Contact and Pipeline record. If you run more than one rep, it assigns the lead to the next one in rotation, so nobody is idle and nobody is flooded.',
     summary: 'Pushes qualified leads into your CRM as linked records, round-robin assigned across reps.',
     steps: [
       { title: 'Three linked records', body: 'A Company, a Contact tied to it, and a Pipeline record tied to both — so a rep sees the full picture, not a bare contact.' },

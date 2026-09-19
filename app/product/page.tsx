@@ -28,9 +28,10 @@ export default function ProductPage() {
           <span className="text-gold-display">One core underneath.</span>
         </h1>
         <p className="text-[18px] leading-[1.65] text-muted max-w-[640px]">
-          Nebulaa is the AI marketing automation platform where Orbit finds and qualifies who is worth talking to,
-          Gravity makes the marketing that gives them a reason to say yes, and Pulsar answers them before
-          they go somewhere else. All three share the same brand memory, so what one learns the others already know.
+          Nebulaa is an AI marketing automation platform built from three agents on one shared core. Orbit finds
+          and qualifies who is worth talking to, Gravity produces the marketing that reaches them, and Pulsar
+          replies to their messages within minutes. All three read and write to the same brand memory, so
+          information one agent captures is available to the other two immediately.
         </p>
       </section>
 

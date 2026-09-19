@@ -121,7 +121,7 @@ export default function CapabilityPage({
           <div>
             <SectionLabel className="mb-[20px] block">What you get</SectionLabel>
             <h2 className="neb-display text-[30px] md:text-[40px]">
-              Concretely, <span className="text-gold-display">this.</span>
+              What's <span className="text-gold-display">included.</span>
             </h2>
           </div>
           <div className="flex flex-col gap-4">
@@ -181,13 +181,13 @@ export default function CapabilityPage({
             {agent.cta ? (
               <>{agent.name}, running on your business.{' '}<span className="text-gold-display">See it for yourself.</span></>
             ) : (
-              <>Give it a URL.{' '}<span className="text-gold-display">See what it makes of you.</span></>
+              <>Give it a URL.{' '}<span className="text-gold-display">See what it builds from your business.</span></>
             )}
           </h2>
           <p className="text-[16px] leading-[1.65] text-muted max-w-[460px] mx-auto mb-9">
             {agent.cta
               ? `${agent.price} — ${agent.priceNote ?? 'talk to us'}.`
-              : 'Seven days free, no card. If it is not writing something worth publishing by day two, nothing is lost.'}
+              : 'Seven days free, no card required. Most accounts have something worth publishing by day two.'}
           </p>
           <Link
             href={agent.cta?.href ?? '/pricing'}

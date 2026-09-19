@@ -89,7 +89,7 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
         <div className="max-w-[660px] mb-[56px]">
           <SectionLabel className="mb-[20px] block">Everything it does</SectionLabel>
           <h2 className="neb-display text-[32px] md:text-[46px] mb-5">
-            {caps.length} things, <span className="text-gold-display">not one.</span>
+            <span className="text-gold-display">{caps.length} things</span> it does.
           </h2>
           <p className="text-[16px] leading-[1.68] text-muted">
             Most of what {agent.name} does has never been on this website. Each of these is a module

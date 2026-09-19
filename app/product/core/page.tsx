@@ -107,7 +107,7 @@ export default function CorePage() {
         <div className="max-w-[640px] mb-[52px]">
           <SectionLabel className="mb-[20px] block">From activity to signal</SectionLabel>
           <h2 className="neb-display text-[30px] md:text-[44px]">
-            Every action <span className="text-gold-display">leaves a signal.</span>
+            Every action in the system leaves a signal for the next one.
           </h2>
         </div>
         <div className="flex flex-wrap gap-3">
@@ -127,7 +127,7 @@ export default function CorePage() {
         <div className="max-w-[640px] mb-[52px]">
           <SectionLabel className="mb-[20px] block">From signal to learning</SectionLabel>
           <h2 className="neb-display text-[30px] md:text-[44px]">
-            Signals, connected <span className="text-gold-display">across actions and outcomes.</span>
+            <span className="text-gold-display">Signals</span>, connected across actions and outcomes.
           </h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -148,7 +148,7 @@ export default function CorePage() {
         <div className="max-w-[640px] mb-[52px]">
           <SectionLabel className="mb-[20px] block">From learning to the next move</SectionLabel>
           <h2 className="neb-display text-[30px] md:text-[44px] mb-5">
-            The system uses what it learns <span className="text-gold-display">to inform what happens next.</span>
+            The system uses what it learns to decide what runs next.
           </h2>
         </div>
 

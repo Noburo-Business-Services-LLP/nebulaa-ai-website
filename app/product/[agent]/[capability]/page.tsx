@@ -97,7 +97,7 @@ export default function CapabilityPage({
         <div className="max-w-[640px] mb-[52px]">
           <SectionLabel className="mb-[20px] block">How it works</SectionLabel>
           <h2 className="neb-display text-[30px] md:text-[42px]">
-            Three steps, <span className="text-gold-display">start to finish.</span>
+            <span className="text-gold-display">Three steps</span>, start to finish.
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
@@ -121,7 +121,7 @@ export default function CapabilityPage({
           <div>
             <SectionLabel className="mb-[20px] block">What you get</SectionLabel>
             <h2 className="neb-display text-[30px] md:text-[40px]">
-              What&apos;s <span className="text-gold-display">included.</span>
+              Everything included in this module.
             </h2>
           </div>
           <div className="flex flex-col gap-4">
@@ -179,9 +179,9 @@ export default function CapabilityPage({
         <div className="relative">
           <h2 className="neb-display text-[30px] md:text-[46px] mb-5">
             {agent.cta ? (
-              <>{agent.name}, running on your business.{' '}<span className="text-gold-display">See it for yourself.</span></>
+              <><span className="text-gold-display">{agent.name}</span>, running on your business. See it for yourself.</>
             ) : (
-              <>Give it a URL.{' '}<span className="text-gold-display">See what it builds from your business.</span></>
+              <><span className="text-gold-display">Give it a URL.</span> See what it builds from your business.</>
             )}
           </h2>
           <p className="text-[16px] leading-[1.65] text-muted max-w-[460px] mx-auto mb-9">

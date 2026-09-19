@@ -49,7 +49,7 @@ export const channels: Channel[] = [
     headline: 'In India, the enquiry',
     headlineEmphasis: 'arrives on WhatsApp.',
     subheadline:
-      'This is WhatsApp marketing automation India businesses actually need: not email, not a contact form. Someone messages your business number, usually outside working hours, and whoever answers first tends to get the sale. Pulsar replies within minutes on the official Business API.',
+      'In India, the enquiry usually doesn\'t arrive by email or a contact form. Someone messages your business number, often outside working hours, and whoever answers first tends to get the sale. Pulsar replies within minutes on the official WhatsApp Business API.',
     whatWeDo: [
       'Replies within minutes, at any hour, in your brand voice',
       'Budget, timeline and fit established in conversation',
@@ -75,7 +75,7 @@ export const channels: Channel[] = [
     headline: 'A month of Instagram,',
     headlineEmphasis: 'planned before it starts.',
     subheadline:
-      'This is Instagram content planning and automation built for consistency: Instagram punishes inconsistency more than it punishes mediocrity. Gravity plans the whole month — posts, carousels and reels against your content pillars — drafts every one in your voice, and publishes at the hours your audience is actually awake.',
+      'Instagram punishes inconsistency more than it punishes mediocrity. Gravity plans the whole month — posts, carousels and reels against your content pillars — drafts every one in your voice, and publishes at the hours your audience is actually awake.',
     whatWeDo: [
       'Posts, carousels and reels planned as a month, not a queue',
       'Creative generated from your own brand assets and palette',
@@ -101,7 +101,7 @@ export const channels: Channel[] = [
     headline: 'Still where a lot of',
     headlineEmphasis: 'your customers are.',
     subheadline:
-      'This is Facebook page management run from the same monthly plan: easy to write off and, for a great many Indian businesses, wrong to. For local retail, FMCG and anything with an older or family buyer, it is often the channel producing the most enquiries.',
+      'Facebook is easy to write off, and for a great many Indian businesses that is a mistake. For local retail, FMCG and anything with an older or family buyer, it is often the channel producing the most enquiries. Gravity runs it from the same monthly plan as everything else.',
     whatWeDo: [
       'Posts and reels adapted for a Facebook audience, not copy-pasted from Instagram',
       'Page comments and messages in the unified inbox',
@@ -126,7 +126,7 @@ export const channels: Channel[] = [
     headline: 'Founder-led content,',
     headlineEmphasis: 'without the founder writing it.',
     subheadline:
-      'This is LinkedIn content for founders and B2B who don\'t have time to write it themselves: it rewards showing up with a point of view, week after week. Gravity writes in your voice, against your positioning, so the consistency does not depend on your calendar.',
+      'LinkedIn rewards showing up with a point of view, week after week. Gravity writes in your voice, against your positioning, so the consistency does not depend on your calendar.',
     whatWeDo: [
       'Posts written in your voice, against your actual positioning',
       'A month planned so consistency does not depend on your week',
@@ -151,7 +151,7 @@ export const channels: Channel[] = [
     headline: 'Short form,',
     headlineEmphasis: 'same plan.',
     subheadline:
-      'This is X (Twitter) content scheduling that rewards frequency and a point of view more than polish. Gravity works your pillars into short-form posts and threads, so the channel stays alive without becoming another thing to remember.',
+      'X rewards frequency and a point of view more than polish. Gravity works your pillars into short-form posts and threads, so the channel stays alive without becoming another thing to remember.',
     whatWeDo: [
       'Short-form posts and threads from your existing pillars',
       'Frequency without a separate content process',
@@ -175,7 +175,7 @@ export const channels: Channel[] = [
     headline: 'The same reel,',
     headlineEmphasis: 'a second audience.',
     subheadline:
-      'This is YouTube Shorts distribution for a reel that already took real effort — it should not run on one platform. Shorts has a different discovery engine and a longer tail than Instagram, and the marginal cost of publishing there is close to zero.',
+      'A reel that already took real effort to make shouldn\'t run on one platform. Shorts has a different discovery engine and a longer tail than Instagram, and the marginal cost of publishing there is close to zero.',
     whatWeDo: [
       'Reels formatted and published to Shorts alongside Instagram',
       'Titles and descriptions written for YouTube search, not copied from the caption',
@@ -198,7 +198,7 @@ export const channels: Channel[] = [
     headline: 'For the buyers who',
     headlineEmphasis: 'still prefer it.',
     subheadline:
-      'This is email follow-up and lead qualification for dealers, distributors and corporate buyers who want things in writing, even when everything else runs on WhatsApp. Pulsar handles it in the same conversation thread, so you read one history rather than three.',
+      'Dealers, distributors and corporate buyers often want things in writing, even when everything else runs on WhatsApp. Pulsar handles email in the same conversation thread, so you read one history rather than three.',
     whatWeDo: [
       'Replies and follow-up sequences from your own domain',
       'One thread per person across email, WhatsApp and SMS',
@@ -222,7 +222,7 @@ export const channels: Channel[] = [
     headline: 'Still the one that',
     headlineEmphasis: 'always gets seen.',
     subheadline:
-      'This is SMS follow-up and alerts with no algorithm and almost universal reach, which makes it the right fallback for a customer who has not opened WhatsApp in three days — and for anything genuinely time-sensitive.',
+      'SMS has no algorithm and almost universal reach, which makes it the right fallback for a customer who has not opened WhatsApp in three days, and for anything genuinely time-sensitive.',
     whatWeDo: [
       'Fallback when a WhatsApp or email thread goes quiet',
       'Time-sensitive alerts, confirmations and reminders',
@@ -243,10 +243,10 @@ export const channels: Channel[] = [
     runBy: 'pulsar',
     summary: 'A managed call queue for the enquiries a message will not close.',
     eyebrow: 'Channel · Voice',
-    headline: 'For the moments a call',
-    headlineEmphasis: 'still beats a message.',
+    headline: 'The channel we reach for',
+    headlineEmphasis: 'last, on purpose.',
     subheadline:
-      'This automated voice follow-up call queue exists because most of the time a message wins — it is on the customer\'s terms and it leaves a record. But some enquiries deserve a call, and some people never reply to text. It works those in priority order without anyone dialling manually.',
+      'Most of the time a message wins — it is on the customer\'s terms and it leaves a record. But some enquiries deserve a call, and some people never reply to text. Pulsar works those in priority order, without anyone dialling manually.',
     whatWeDo: [
       'A call queue ordered by lead score, not by whoever is free',
       'Calls triggered by silence on messaging channels',
@@ -270,7 +270,7 @@ export const channels: Channel[] = [
     headline: 'The search that ends',
     headlineEmphasis: 'in someone walking in.',
     subheadline:
-      'This is Google Business Profile management for a business with a physical location, where the listing is often the highest-intent surface there is — someone searching "near me" is already deciding. Our team keeps the profile current, posts to it, and makes sure reviews get answered.',
+      'For a business with a physical location, this listing is often the highest-intent surface there is — someone searching "near me" is already deciding. Our team keeps the profile current, posts to it, and makes sure reviews get answered.',
     whatWeDo: [
       'Profile optimisation — categories, attributes, hours, service areas',
       'Posts and offers published to the listing',
@@ -295,7 +295,7 @@ export const channels: Channel[] = [
     headline: 'Where a post keeps',
     headlineEmphasis: 'working for months.',
     subheadline:
-      'This is Pinterest marketing for visual brands where it behaves like a search engine rather than a feed — a pin can still be driving traffic a year after it went up. For visual categories like jewellery, textile, décor and food, that long tail is worth having.',
+      'Pinterest behaves like a search engine rather than a feed — a pin can still be driving traffic a year after it went up. For visual categories like jewellery, textile, décor and food, that long tail is worth having.',
     whatWeDo: [
       'Boards and pins built around how people actually search',
       'Existing creative repurposed rather than made from scratch',
@@ -316,10 +316,10 @@ export const channels: Channel[] = [
     runBy: 'services',
     summary: 'Always-on paid, geo-targeted to the markets and stores that matter.',
     eyebrow: 'Channel · Paid media',
-    headline: 'Paid that points at',
-    headlineEmphasis: 'where you actually sell.',
+    headline: 'Paid media, geo-targeted',
+    headlineEmphasis: 'to a real catchment.',
     subheadline:
-      'This is Meta and Google Ads for Indian brands aimed at a real catchment rather than a whole country. Our team runs always-on campaigns geo-targeted around the markets, neighbourhoods and retail clusters where your product is genuinely available.',
+      'For an Indian brand, paid media works best aimed at a real catchment rather than a whole country. Our team runs always-on Meta and Google campaigns geo-targeted around the markets, neighbourhoods and retail clusters where your product is genuinely available.',
     whatWeDo: [
       'Always-on awareness, consideration and retargeting campaigns',
       'Geo-targeting around real retail catchments, not whole states',
@@ -342,10 +342,10 @@ export const channels: Channel[] = [
     runBy: 'services',
     summary: 'Driving discovery on Zepto, Blinkit and Instamart where you are listed.',
     eyebrow: 'Channel · Quick commerce',
-    headline: 'Being listed is not',
-    headlineEmphasis: 'the same as being found.',
+    headline: 'A listing that exists',
+    headlineEmphasis: 'still has to be found.',
     subheadline:
-      'This is quick commerce growth for brands already listed on Zepto, Blinkit or Instamart — the hard part is done, and most brands stop there, then wonder why the listing does nothing. Our team works the discovery side: listing optimisation, geo-targeted campaigns and trial-driving offers.',
+      'Getting listed on Zepto, Blinkit or Instamart is the hard part for most brands, and many stop there, then wonder why the listing does nothing. Our team works the discovery side: listing optimisation, geo-targeted campaigns and trial-driving offers.',
     whatWeDo: [
       'Listing optimisation so the product is findable in-app',
       'Geo-targeted campaigns aimed at areas where you are actually stocked',

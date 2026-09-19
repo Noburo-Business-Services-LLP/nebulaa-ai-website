@@ -83,7 +83,7 @@ export default function ChannelPage({ params }: { params: { channel: string } })
           <div>
             <SectionLabel className="mb-[20px] block">What we do here</SectionLabel>
             <h2 className="neb-display text-[30px] md:text-[40px]">
-              On this channel, <span className="text-gold-display">specifically.</span>
+              What runs <span className="text-gold-display">on this channel.</span>
             </h2>
           </div>
           <div>

@@ -59,8 +59,8 @@ export default function Hero() {
             variants={fadeUpVariant}
             className="text-[17px] sm:text-[18px] leading-[1.65] text-ink-2 max-w-[560px] mb-9"
           >
-            Give Nebulaa your website. It understands your business, activates the right AI engines,
-            executes the work and learns from what happens next.
+            Nebulaa reads your website to understand your business, then runs the right combination
+            of content, lead generation and outreach for you — and gets better at it every week.
           </motion.p>
 
           <motion.form

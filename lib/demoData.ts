@@ -46,7 +46,7 @@ export const demoRuns: DemoRun[] = [
     who: 'A jewellery showroom in Coimbatore',
     url: 'yourshowroom.com',
     brandRead: {
-      tone: 'Warm, unhurried, family-run — confident without pushing',
+      tone: 'Warm, unhurried and family-run',
       customer: 'Retail buyers 28–48, wedding and festival purchases, Tamil Nadu',
       competitors: '3 nearby showrooms tracked',
     },
@@ -151,7 +151,7 @@ export const demoRuns: DemoRun[] = [
     who: 'A chit fund with four branches',
     url: 'yourchits.com',
     brandRead: {
-      tone: 'Plain-spoken and careful — explains rather than sells',
+      tone: 'Plain-spoken and careful, focused on explaining terms clearly',
       customer: 'Small business owners and salaried savers, 30–55',
       competitors: '3 local operators tracked',
     },

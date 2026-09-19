@@ -4,7 +4,7 @@ Spec: `.claude/brand-voice-guidelines.md` — read that first, especially the "8
 
 ## Currently in progress
 
-Starting group 8 (`/tools` hub — intro/card copy only).
+Starting group 9 (`/resources` hub + resource pages).
 
 ## Checklist
 
@@ -15,7 +15,7 @@ Starting group 8 (`/tools` hub — intro/card copy only).
 - [x] 5. `/for` hub + 9 industry pages
 - [x] 6. `/channels` hub + ~11 channel pages
 - [x] 7. `/work` hub + 3 engagement pages
-- [ ] 8. `/tools` hub (intro/card copy only, not tool UI)
+- [x] 8. `/tools` hub (intro/card copy only, not tool UI)
 - [ ] 9. `/resources` hub + resource pages
 - [ ] 10. Footer.tsx + Navbar.tsx (tagline/description text only)
 
@@ -64,3 +64,8 @@ Files touched: `lib/channelData.ts` (all 13 channel entries), `app/channels/[cha
 Files touched: `lib/engagementData.ts` (all 3 entries), `app/work/[engagement]/page.tsx`. `app/work/page.tsx` reviewed, already clean, not touched.
 - Same "This is [engagement] for X:" opener on 2 of 3 subheadlines. Rewrote both plain.
 - Fixed one negation-contrast template heading: "Described honestly, not as a stat." → "What the engagement is actually for."
+
+### 8. `/tools` (done — hub copy only, per scope)
+Files touched: `app/tools/page.tsx`. `lib/toolsData.ts` per-tool taglines reviewed — already plain functional descriptions ("Write high-engagement LinkedIn posts in 30 seconds" etc.), no tells found, not touched. Individual tool pages/UI intentionally out of scope, not opened.
+- Fixed a self-aware/winking hero paragraph joking about "what Pulsar does for a living" and "use them forever and never speak to us" — rewrote plain, keeping the real claims (no signup, no card, no follow-up).
+- Fixed personification in the bridge-to-product section: "A tool forgets you the moment you close the tab. The product remembers your voice..." → plain description of session memory. Also fixed the adjacent "These make one thing. Gravity makes all of it, every morning." parallel-contrast headline.

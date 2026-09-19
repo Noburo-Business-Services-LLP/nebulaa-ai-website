@@ -34,7 +34,7 @@ export default function ToolsPage() {
             <span className="text-gold-display">one page, no catch.</span>
           </h1>
           <p className="text-[17px] md:text-[18px] leading-[1.65] text-muted max-w-[600px]">
-            These free AI marketing tools each run on the same model that writes for Gravity. No signup, no card, no follow-up sequence afterwards — given what Pulsar does for a living, that would be a bit much. Use them forever and never speak to us. But if you&apos;re opening four of them every Monday, you already know what the product is for.
+            These free AI marketing tools run on the same model that writes for Gravity. There is no signup, no card and no follow-up afterward. Use them once and never come back if that is all you need — but if you find yourself opening four of them every Monday, that is roughly the job Gravity does automatically.
           </p>
         </div>
       </section>
@@ -85,10 +85,10 @@ export default function ToolsPage() {
           <div>
             <SectionLabel className="mb-[22px] block">When one tool stops being enough</SectionLabel>
             <h2 className="neb-display text-[32px] md:text-[42px] mb-5">
-              These make one thing. <span className="text-gold-display">Gravity makes all of it, every morning.</span>
+              Each tool does one thing. <span className="text-gold-display">Gravity plans, drafts and publishes the whole month.</span>
             </h2>
             <p className="text-[15.5px] md:text-base leading-[1.68] text-muted max-w-[520px]">
-              A tool forgets you the moment you close the tab. The product remembers your voice, your customers and your calendar — and it doesn&apos;t wait to be asked.
+              A standalone tool has no memory between sessions. Gravity keeps your brand voice, your customers and your content calendar across every session, and runs on its own schedule rather than waiting to be opened.
             </p>
           </div>
           <div className="flex flex-col gap-[13px]">

@@ -49,7 +49,7 @@ export default function EntryFork() {
           variants={fadeUpVariant}
           className="neb-display text-[34px] md:text-[50px] mb-5"
         >
-          Who should be running this — <span className="text-gold-display">you, or us?</span>
+          <span className="text-gold-display">Two ways to run it:</span> yourself, or with our team.
         </motion.h2>
         <motion.p variants={fadeUpVariant} className="font-body text-[17px] leading-[1.68] text-muted">
           Same engines underneath. The only question is whose evening it takes.

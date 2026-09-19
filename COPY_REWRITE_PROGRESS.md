@@ -4,7 +4,7 @@ Spec: `.claude/brand-voice-guidelines.md` — read that first, especially the "8
 
 ## Currently in progress
 
-Starting group 5 (`/for` hub + 9 industry pages).
+Starting group 6 (`/channels` hub + ~11 channel pages).
 
 ## Checklist
 
@@ -12,7 +12,7 @@ Starting group 5 (`/for` hub + 9 industry pages).
 - [x] 2. `/pricing` (final check only — mostly already fixed)
 - [x] 3. `/services` hub + 7 service pages
 - [x] 4. `/compare` hub + 5 comparison pages
-- [ ] 5. `/for` hub + 9 industry pages
+- [x] 5. `/for` hub + 9 industry pages
 - [ ] 6. `/channels` hub + ~11 channel pages
 - [ ] 7. `/work` hub + 3 engagement pages
 - [ ] 8. `/tools` hub (intro/card copy only, not tool UI)
@@ -45,3 +45,10 @@ Files touched: `app/services/page.tsx`, `app/services/[service]/page.tsx`, `lib/
 
 ### 4. `/compare` (done, no changes needed)
 Reviewed `app/compare/page.tsx`, `app/compare/[competitor]/page.tsx`, `lib/compareData.ts` (all 5 competitor entries) in full against the 8-pattern list. Already clean plain-declarative copy — no negation-openers, no personification, no mirrored wordplay, no repeated formulaic template opener. No edits made.
+
+### 5. `/for` (done)
+Files touched: `app/for/page.tsx`, `lib/industryData.ts` (all 9 industry entries). `app/for/[industry]/page.tsx` reviewed, already clean, not touched.
+- Same systemic tell as groups 1 and 3: every one of the 9 industry subheadlines opened with "This is AI marketing for [X] where/that...". Rewrote all 9 as plain declaratives, keeping every fact and client reference intact.
+- Fixed the hub intro paragraph's "This is AI marketing by industry:" opener.
+- Fixed one headline-level negation echo: "Regional reach, run as one system, not six vendors" (near-duplicate of the homepage's own flagged "not five vendors pretending to talk to each other" example) → "Regional reach, run as one connected system."
+- Left the repeated "Sound familiar?" section label as-is — it's a structural template header (like "How it works"), not one of the 8 named tells, and isn't a marketing punchline in itself.

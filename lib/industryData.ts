@@ -40,7 +40,7 @@ export const industries: Record<string, IndustryData> = {
     headline: 'The shop their mother trusted for',
     headlineEmphasis: 'thirty years — online, too.',
     subheadline:
-      'This is AI marketing for jewellery stores where a buyer isn\'t comparing catalogues, they\'re comparing trust. Gravity keeps a steady drumbeat of craft, collections and occasions; Pulsar answers the WhatsApp enquiry before they walk into a rival showroom.',
+      'A jewellery buyer isn\'t comparing catalogues, they\'re comparing trust. Gravity keeps a steady stream of craft, collections and occasions in front of them; Pulsar answers the WhatsApp enquiry before they walk into a rival showroom.',
     seoTitle: 'AI Marketing for Jewellery & Retail Stores',
     seoDescription:
       'Content and WhatsApp follow-up built for jewellery and retail brands — trusted by Gandhimathi Jewellers.',
@@ -68,7 +68,7 @@ export const industries: Record<string, IndustryData> = {
     headline: 'Six branches, one voice,',
     headlineEmphasis: 'every single day.',
     subheadline:
-      'This is AI marketing for textile and apparel retailers with more than one branch, who can\'t run content the way a single shop does — every branch, every collection, every regional festival. Gravity plans the month once and adapts it; Pulsar catches every enquiry across every location.',
+      'A retailer with more than one branch can\'t run content the way a single shop does — every branch, every collection, every regional festival. Gravity plans the month once and adapts it across branches; Pulsar catches every enquiry across every location.',
     seoTitle: 'AI Marketing for Textile & Apparel Retailers',
     seoDescription:
       'Multi-branch content and WhatsApp follow-up for textile and apparel retailers — trusted by JKR Tex.',
@@ -96,7 +96,7 @@ export const industries: Record<string, IndustryData> = {
     headline: 'Trust is the product.',
     headlineEmphasis: 'Content has to earn it.',
     subheadline:
-      'This is AI marketing for financial services brands where chits, lending and financial products sell on trust and clear communication, not hype. Gravity keeps your presence steady and plain-spoken; Pulsar answers "how does this work" the moment someone asks.',
+      'Chits, lending and financial products sell on trust and clear communication, not hype. Gravity keeps your presence steady and plain-spoken; Pulsar answers "how does this work" the moment someone asks.',
     seoTitle: 'AI Marketing for Financial Services Brands',
     seoDescription:
       'Steady, trust-first content and WhatsApp follow-up for financial services brands — trusted by TNV Chits.',
@@ -123,7 +123,7 @@ export const industries: Record<string, IndustryData> = {
     headline: 'Awareness has to exist',
     headlineEmphasis: 'before the product hits the shelf.',
     subheadline:
-      'This is AI marketing for FMCG and food brands entering a new market, where it only works if demand is already waiting when you launch. Gravity builds local awareness and content ahead of time; Pulsar and our team run the retail activation that gets you seen once you are on shelf.',
+      'A new-market launch only works if demand is already waiting when you arrive. Gravity builds local awareness and content ahead of time; Pulsar and our team run the retail activation that gets you seen once you are on shelf.',
     seoTitle: 'AI Marketing for FMCG & Food Brands',
     seoDescription:
       'Market-entry content and demand generation for FMCG and food brands entering a new city.',
@@ -147,10 +147,10 @@ export const industries: Record<string, IndustryData> = {
     slug: 'industrial-b2b',
     name: 'Industrial & B2B',
     eyebrow: 'For industrial & B2B brands',
-    headline: 'Regional reach, run as',
-    headlineEmphasis: 'one system, not six vendors.',
+    headline: 'Regional reach,',
+    headlineEmphasis: 'run as one connected system.',
     subheadline:
-      'This is AI marketing for industrial and B2B brands that need organic content, paid media, dealer support and on-ground activation working together — not five agencies that don\'t talk to each other. One team runs all of it.',
+      'Organic content, paid media, dealer support and on-ground activation need to work together, not sit with five agencies that don\'t talk to each other. One team runs all of it.',
     seoTitle: 'AI Marketing for Industrial & B2B Brands',
     seoDescription:
       'Organic content, performance media, dealer support and BTL activation for industrial and B2B brands, run as one system.',
@@ -177,7 +177,7 @@ export const industries: Record<string, IndustryData> = {
     headline: 'They book the place',
     headlineEmphasis: 'they can already picture.',
     subheadline:
-      'This is AI marketing for hotels and restaurants that sell on atmosphere and on the enquiry answered while someone is still deciding. Gravity keeps the rooms, the food and the season in front of people; Pulsar answers the availability question before they check the next place.',
+      'Hotels and restaurants sell on atmosphere, and on the enquiry answered while someone is still deciding. Gravity keeps the rooms, the food and the season in front of people; Pulsar answers the availability question before they check the next place.',
     seoTitle: 'AI Marketing for Hotels & Restaurants',
     seoDescription:
       'Content and enquiry handling for hotels, resorts and restaurants — seasonal campaigns and WhatsApp enquiries answered before booking elsewhere.',
@@ -204,7 +204,7 @@ export const industries: Record<string, IndustryData> = {
     headline: 'The enquiry is worth',
     headlineEmphasis: 'too much to leave waiting.',
     subheadline:
-      'This is AI marketing for real estate and builders, where one property enquiry can be worth more than a year of most businesses\' customers, which makes a slow reply extraordinarily expensive. Pulsar qualifies budget, location and timeline the moment it lands; Gravity keeps the projects visible in between.',
+      'One property enquiry can be worth more than a year of most businesses\' customers, which makes a slow reply extraordinarily expensive. Pulsar qualifies budget, location and timeline the moment an enquiry lands; Gravity keeps the projects visible in between.',
     seoTitle: 'AI Marketing for Real Estate & Builders',
     seoDescription:
       'Project content and instant enquiry qualification for builders and property businesses — budget, location and timeline established before your team calls.',
@@ -231,7 +231,7 @@ export const industries: Record<string, IndustryData> = {
     headline: 'A considered purchase',
     headlineEmphasis: 'needs more than one post.',
     subheadline:
-      'This is AI marketing for furniture and appliance retailers selling considered purchases nobody buys from a single ad. They research, compare, ask about warranty and delivery, then visit. Gravity carries the consideration content; Pulsar answers the questions that decide it.',
+      'Furniture and appliances are considered purchases nobody buys from a single ad. Buyers research, compare, ask about warranty and delivery, then visit. Gravity carries the consideration content; Pulsar answers the questions that decide it.',
     seoTitle: 'AI Marketing for Furniture & Appliance Retailers',
     seoDescription:
       'Consideration-stage content and enquiry handling for furniture and appliance retailers — specifications, warranty and delivery questions answered fast.',
@@ -258,7 +258,7 @@ export const industries: Record<string, IndustryData> = {
     headline: 'Test drives are won',
     headlineEmphasis: 'in the first reply.',
     subheadline:
-      'This is AI marketing for automobile dealerships fielding an enquiry almost always sent to several dealers at once. The one that replies first, with a real answer about variant, price and availability, is usually the one that gets the test drive.',
+      'An automobile enquiry is almost always sent to several dealers at once. The one that replies first, with a real answer about variant, price and availability, usually gets the test drive.',
     seoTitle: 'AI Marketing for Automobile Dealerships',
     seoDescription:
       'Fast enquiry qualification and consistent showroom content for dealerships — questions answered before the competing dealer replies.',

@@ -73,7 +73,7 @@ export default function EngagementPage({ params }: { params: { engagement: strin
         <div className="max-w-[660px] mb-[52px]">
           <SectionLabel className="mb-[20px] block">What it includes</SectionLabel>
           <h2 className="neb-display text-[30px] md:text-[42px] mb-4">
-            The scope, <span className="text-gold-display">written down.</span>
+            <span className="text-gold-display">The scope</span>, written down before anything starts.
           </h2>
           <p className="text-[16px] leading-[1.68] text-muted">
             Agreed in writing before anything starts, so the retainer cannot quietly shrink over time.
@@ -127,7 +127,7 @@ export default function EngagementPage({ params }: { params: { engagement: strin
           <div>
             <SectionLabel className="mb-[20px] block">What changes</SectionLabel>
             <h2 className="neb-display text-[30px] md:text-[40px] mb-4">
-              What the engagement is <span className="text-gold-display">actually for.</span>
+              What actually changes once this starts.
             </h2>
             <p className="text-[15px] leading-[1.65] text-muted">
               We are not putting numbers on this page until there is published client work we can

@@ -4,7 +4,7 @@ Spec: `.claude/brand-voice-guidelines.md` — read that first, especially the "8
 
 ## Currently in progress
 
-Starting group 9 (`/resources` hub + resource pages).
+Starting group 10 (Footer.tsx + Navbar.tsx).
 
 ## Checklist
 
@@ -16,7 +16,7 @@ Starting group 9 (`/resources` hub + resource pages).
 - [x] 6. `/channels` hub + ~11 channel pages
 - [x] 7. `/work` hub + 3 engagement pages
 - [x] 8. `/tools` hub (intro/card copy only, not tool UI)
-- [ ] 9. `/resources` hub + resource pages
+- [x] 9. `/resources` hub + resource pages
 - [ ] 10. Footer.tsx + Navbar.tsx (tagline/description text only)
 
 ## Notes per group
@@ -69,3 +69,6 @@ Files touched: `lib/engagementData.ts` (all 3 entries), `app/work/[engagement]/p
 Files touched: `app/tools/page.tsx`. `lib/toolsData.ts` per-tool taglines reviewed — already plain functional descriptions ("Write high-engagement LinkedIn posts in 30 seconds" etc.), no tells found, not touched. Individual tool pages/UI intentionally out of scope, not opened.
 - Fixed a self-aware/winking hero paragraph joking about "what Pulsar does for a living" and "use them forever and never speak to us" — rewrote plain, keeping the real claims (no signup, no card, no follow-up).
 - Fixed personification in the bridge-to-product section: "A tool forgets you the moment you close the tab. The product remembers your voice..." → plain description of session memory. Also fixed the adjacent "These make one thing. Gravity makes all of it, every morning." parallel-contrast headline.
+
+### 9. `/resources` (done, no changes needed)
+Reviewed `app/resources/page.tsx`, `app/resources/[resource]/page.tsx`, `lib/resourceData.ts` (all 6 entries) and `components/ui/DownloadGate.tsx` in full. Already clean, plain, mechanism-first copy — no tells found. No edits made.

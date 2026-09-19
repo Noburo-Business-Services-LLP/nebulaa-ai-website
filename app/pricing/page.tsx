@@ -20,7 +20,7 @@ const models = [
   {
     label: 'The software',
     title: 'You run it',
-    body: 'Orbit, Gravity and Pulsar, self-serve. Set up in an afternoon, approve from your phone, cancel the month it stops earning its keep.',
+    body: 'Orbit, Gravity and Pulsar, self-serve. Set up in an afternoon, approve from your phone, and cancel any month you decide it is not worth the cost.',
     points: [
       'Priced openly — from ₹15,000/month',
       '7-day free trial, no card',

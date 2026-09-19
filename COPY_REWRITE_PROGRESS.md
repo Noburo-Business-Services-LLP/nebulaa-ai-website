@@ -4,12 +4,12 @@ Spec: `.claude/brand-voice-guidelines.md` — read that first, especially the "8
 
 ## Currently in progress
 
-Starting group 2 (`/pricing` final check).
+Starting group 3 (`/services` hub + 7 service pages).
 
 ## Checklist
 
 - [x] 1. `/product` hub + agent pages + capability pages
-- [ ] 2. `/pricing` (final check only — mostly already fixed)
+- [x] 2. `/pricing` (final check only — mostly already fixed)
 - [ ] 3. `/services` hub + 7 service pages
 - [ ] 4. `/compare` hub + 5 comparison pages
 - [ ] 5. `/for` hub + 9 industry pages
@@ -30,3 +30,8 @@ Files touched: `app/product/page.tsx`, `app/product/[agent]/page.tsx`, `app/prod
 - Fixed `/product` hub intro paragraph (stakes-implying "before they go somewhere else") and agent-page "{n} things, not one." negation headline.
 - Fixed repeated capability-page template heading "Concretely, this." (fragment/reveal used on every one of ~20 pages) → "What's included."
 - 22 capability entries + hub + agent template + capability template = effectively touched every product page via the shared data file.
+
+### 2. `/pricing` (done)
+Files touched: `app/pricing/page.tsx`. `components/sections/Pricing.tsx` and `components/sections/FAQ.tsx` are homepage components already fixed in an earlier pass — not re-touched, per instructions.
+- One personification tell found and fixed: "cancel the month it stops earning its keep" (this exact phrase is cited as an example in the guidelines file itself) → "cancel any month you decide it is not worth the cost."
+- Rest of the page was already clean plain-declarative copy.

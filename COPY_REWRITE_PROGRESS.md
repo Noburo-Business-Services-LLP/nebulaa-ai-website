@@ -4,7 +4,7 @@ Spec: `.claude/brand-voice-guidelines.md` — read that first, especially the "8
 
 ## Currently in progress
 
-All 10 groups done. Final build verification next.
+Nothing — all 10 groups done, build verified clean, pushed to origin/dev.
 
 ## Checklist
 
@@ -79,4 +79,5 @@ Files touched: `components/layout/Footer.tsx`. `components/layout/Navbar.tsx` re
 
 ## Final verification
 - `npx tsc --noEmit`: clean after every group and on final state.
-- `npm run build`: pending — run this next, from repo root, after `rm -rf .next`.
+- `rm -rf .next && npm run build`: clean. Caught and fixed 2 react/no-unescaped-entities lint errors from the "What's included." headings introduced during the pass.
+- Pushed to `origin/dev`.

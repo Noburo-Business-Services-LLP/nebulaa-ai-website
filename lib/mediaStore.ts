@@ -42,13 +42,21 @@ export async function listMedia(): Promise<MediaObject[]> {
 
   if (!b) {
     if (!fs.existsSync(localDir)) return []
-    return fs
-      .readdirSync(localDir)
-      .filter(f => !f.startsWith('.') && f !== 'README.md')
-      .map(f => {
-        const stat = fs.statSync(path.join(localDir, f))
-        return { key: f, url: `/media/${f}`, size: stat.size, lastModified: stat.mtime.toISOString() }
-      })
+    const results: MediaObject[] = []
+    const walk = (dir: string, prefix: string) => {
+      for (const f of fs.readdirSync(dir)) {
+        if (f.startsWith('.') || f === 'README.md') continue
+        const full = path.join(dir, f)
+        const stat = fs.statSync(full)
+        if (stat.isDirectory()) {
+          walk(full, `${prefix}${f}/`)
+        } else {
+          results.push({ key: `${prefix}${f}`, url: `/media/${prefix}${f}`, size: stat.size, lastModified: stat.mtime.toISOString() })
+        }
+      }
+    }
+    walk(localDir, '')
+    return results
   }
 
   const { ListObjectsV2Command } = await import('@aws-sdk/client-s3')
@@ -93,8 +101,9 @@ export async function createUploadUrl(key: string, contentType: string): Promise
 
 /** Used only in local dev, where there is no S3 bucket to presign against. */
 export function writeLocalMedia(key: string, buffer: Buffer) {
-  if (!fs.existsSync(localDir)) fs.mkdirSync(localDir, { recursive: true })
-  fs.writeFileSync(path.join(localDir, key), buffer)
+  const target = path.join(localDir, key)
+  fs.mkdirSync(path.dirname(target), { recursive: true })
+  fs.writeFileSync(target, buffer)
 }
 
 export async function deleteMedia(key: string): Promise<void> {

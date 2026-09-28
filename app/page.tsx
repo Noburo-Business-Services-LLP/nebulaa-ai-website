@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/sections/Hero'
 import ClientStrip from '@/components/sections/ClientStrip'
+import ClientGallery from '@/components/sections/ClientGallery'
 import GenerationTicker from '@/components/ui/GenerationTicker'
 import AgentEcosystem from '@/components/sections/AgentEcosystem'
 import ThreeThings from '@/components/sections/ThreeThings'
@@ -36,6 +37,7 @@ export default function Home() {
       <Hero />
       <GenerationTicker />
       <ClientStrip />
+      <ClientGallery />
       <AgentEcosystem />
       <ThreeThings />
       <SharedMemory />

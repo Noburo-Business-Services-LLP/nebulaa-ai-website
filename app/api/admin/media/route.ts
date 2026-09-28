@@ -25,8 +25,11 @@ export async function POST(req: NextRequest) {
   const contentType = req.headers.get('content-type') || 'application/octet-stream'
 
   if (!key) return NextResponse.json({ error: 'x-media-key header required' }, { status: 400 })
-  if (!/^[a-zA-Z0-9._-]+$/.test(key)) {
-    return NextResponse.json({ error: 'Key must be a plain filename — no slashes or spaces' }, { status: 400 })
+  if (!/^(gallery\/)?[\w.-]+$/.test(key)) {
+    return NextResponse.json(
+      { error: 'Key must be a plain filename, optionally prefixed with gallery/ — no spaces or other slashes' },
+      { status: 400 },
+    )
   }
 
   const uploadUrl = await createUploadUrl(key, contentType)

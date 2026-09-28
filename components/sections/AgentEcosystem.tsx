@@ -16,21 +16,21 @@ const ENGINES = [
   {
     id: 'gravity',
     name: 'Gravity',
-    role: 'AI content & social media engine',
+    outcome: 'Content, planned and posted',
     icon: Radar,
     purpose: 'Plans, creates, publishes and monitors your content across the channels your business uses.',
   },
   {
     id: 'orbit',
     name: 'Orbit',
-    role: 'AI lead generation engine',
+    outcome: 'Leads, found and qualified',
     icon: OrbitIcon,
     purpose: 'Sources leads that match your ideal customer profile, verifies and qualifies them, and prepares them for outreach.',
   },
   {
     id: 'pulsar',
     name: 'Pulsar',
-    role: 'AI outreach engine',
+    outcome: 'Conversations, answered and closed',
     icon: MessageSquareText,
     purpose: 'Handles WhatsApp, email and SMS conversations, following up and qualifying each lead until it is ready to hand off.',
   },
@@ -56,15 +56,13 @@ export default function AgentEcosystem() {
         className="max-w-[680px] mb-[72px]"
       >
         <motion.div variants={fadeUpVariant}>
-          <SectionLabel className="mb-[22px] block">03 // The system</SectionLabel>
+          <SectionLabel className="mb-[22px] block">03 // What runs for you</SectionLabel>
         </motion.div>
         <motion.h2
           variants={fadeUpVariant}
           className="neb-display text-[33px] md:text-[50px] text-ink"
         >
-          Three engines.
-          <br />
-          <span className="text-gold-display">One core.</span>
+          <span className="text-gold-display">One system</span> runs your content, your leads and your conversations.
         </motion.h2>
       </motion.div>
 
@@ -157,12 +155,12 @@ export default function AgentEcosystem() {
             >
               <Link href={`/product/${e.id}`} className="group block h-full">
                 <HudCard
-                  label={e.role}
+                  label={`${e.name} engine`}
                   status={{ tone: 'active', label: 'Ready' }}
                   className="h-full group-hover:border-gold/30 transition-colors"
                 >
                   <e.icon size={20} className="text-gold-text mb-4" />
-                  <h3 className="font-heading font-medium text-[19px] mb-1.5">{e.name}</h3>
+                  <h3 className="font-heading font-medium text-[19px] mb-1.5">{e.outcome}</h3>
                   <p className="text-[13.5px] leading-[1.55] text-muted">{e.purpose}</p>
                 </HudCard>
               </Link>
@@ -178,7 +176,7 @@ export default function AgentEcosystem() {
           viewport={viewportOptions}
           className="neb-label text-center mt-14 leading-[2]"
         >
-          Core learns. Gravity creates. Orbit finds. Pulsar engages.
+          Every result feeds back in, so next week is sharper than this one.
         </motion.p>
       </div>
     </section>

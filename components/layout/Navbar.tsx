@@ -16,11 +16,11 @@ const GOLD_DOT_STYLE = {
 }
 
 const PRODUCT_LINKS = [
-  { name: 'Overview', desc: 'Three engines, one core underneath', href: '/product', icon: Layers },
-  { name: 'Core', desc: 'The cross-agent intelligence connecting all three', href: '/product/core', icon: BrainCircuit },
-  { name: 'Orbit', desc: 'Lead sourcing, qualification, enrichment, CRM sync', href: '/product/orbit', icon: Orbit },
-  { name: 'Gravity', desc: 'Strategy, content, campaigns, creators, inbox, SEO', href: '/product/gravity', icon: Radar },
-  { name: 'Pulsar', desc: 'WhatsApp, leads, broadcasts, voice, automation', href: '/product/pulsar', icon: MessageSquareText },
+  { name: 'Overview', desc: 'Everything Nebulaa runs for you, in one place', href: '/product', icon: Layers },
+  { name: 'Content & social', desc: 'Strategy, posts, campaigns and inbox — Gravity', href: '/product/gravity', icon: Radar },
+  { name: 'Leads & prospecting', desc: 'Sourced, qualified and synced to your CRM — Orbit', href: '/product/orbit', icon: Orbit },
+  { name: 'Conversations & outreach', desc: 'WhatsApp, voice and follow-up, automated — Pulsar', href: '/product/pulsar', icon: MessageSquareText },
+  { name: 'How it learns', desc: 'The intelligence connecting all three — Core', href: '/product/core', icon: BrainCircuit },
 ]
 
 const RESOURCES_LINKS = [
@@ -34,10 +34,10 @@ const RESOURCES_LINKS = [
 
 const MOBILE_LINKS = [
   { label: 'Product', href: '/product' },
-  { label: 'Core', href: '/product/core' },
-  { label: 'Orbit', href: '/product/orbit' },
-  { label: 'Gravity', href: '/product/gravity' },
-  { label: 'Pulsar', href: '/product/pulsar' },
+  { label: 'Content & social', href: '/product/gravity' },
+  { label: 'Leads & prospecting', href: '/product/orbit' },
+  { label: 'Conversations & outreach', href: '/product/pulsar' },
+  { label: 'How it learns', href: '/product/core' },
   { label: 'Channels', href: '/channels' },
   { label: 'Services', href: '/services' },
   { label: 'Free tools', href: '/tools' },

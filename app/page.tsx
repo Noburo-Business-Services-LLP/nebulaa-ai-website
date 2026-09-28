@@ -18,7 +18,7 @@ import FinalCTA from '@/components/sections/FinalCTA'
 
 const seoTitle = 'AI Marketing Platform for Indian Businesses'
 const seoDescription =
-  'Nebulaa is the AI marketing platform that understands your business, activates the right engines, executes the work and learns from what happens next.'
+  'Nebulaa reads your website, then plans your content, finds your leads and handles your outreach for you — and gets better at it every week.'
 
 export const metadata: Metadata = {
   title: seoTitle,

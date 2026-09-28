@@ -110,6 +110,62 @@ export const mediaSlots: MediaSlot[] = [
     dimensions: '2880×1800',
     usedOn: '/product/gravity/analytics, /services/reporting',
   },
+  {
+    id: 'gravity-seo',
+    file: 'gravity-seo.png',
+    kind: 'screenshot',
+    label: 'Gravity — SEO assistant',
+    spec: 'The search-term gap view — terms with buying intent competitors rank for and you do not.',
+    dimensions: '2880×1800',
+    usedOn: '/product/gravity/seo-assistant',
+  },
+  {
+    id: 'gravity-ai-memory',
+    file: 'gravity-ai-memory.png',
+    kind: 'screenshot',
+    label: 'Gravity — AI memory',
+    spec: 'What got published, what was edited before approval, and how that is feeding the next month’s plan.',
+    dimensions: '2880×1800',
+    usedOn: '/product/gravity/ai-memory',
+  },
+  {
+    id: 'gravity-upload',
+    file: 'gravity-upload.png',
+    kind: 'screenshot',
+    label: 'Gravity — upload & schedule',
+    spec: 'A bulk upload of the brand’s own photography or video, queued and scheduled per platform.',
+    dimensions: '2880×1800',
+    usedOn: '/product/gravity/upload-schedule',
+  },
+
+  // ── Orbit product screens ───────────────────────────────────────────────
+  {
+    id: 'orbit-sourcing',
+    file: 'orbit-sourcing.png',
+    kind: 'screenshot',
+    label: 'Orbit — lead sourcing',
+    spec: 'Businesses matching an ICP query, with location and category visible. The clearest single proof that Orbit finds real, named businesses rather than a scraped list.',
+    dimensions: '2880×1800',
+    usedOn: 'Homepage Orbit section, /product/orbit/lead-sourcing',
+  },
+  {
+    id: 'orbit-qualification',
+    file: 'orbit-qualification.png',
+    kind: 'screenshot',
+    label: 'Orbit — lead qualification',
+    spec: 'The filtered list after the phone-reachable and rating checks — fewer rows than sourcing, visibly higher quality.',
+    dimensions: '2880×1800',
+    usedOn: '/product/orbit/lead-qualification',
+  },
+  {
+    id: 'orbit-crm',
+    file: 'orbit-crm.png',
+    kind: 'screenshot',
+    label: 'Orbit — CRM sync',
+    spec: 'A lead landing in the CRM already staged: Company, Contact and Pipeline record linked, assigned to a rep.',
+    dimensions: '2880×1800',
+    usedOn: '/product/orbit/crm-sync',
+  },
 
   // ── Pulsar product screens ──────────────────────────────────────────────
   {
@@ -147,6 +203,15 @@ export const mediaSlots: MediaSlot[] = [
     spec: 'The voice calling queue. Confirmed shippable but effectively hidden on the site.',
     dimensions: '2880×1800',
     usedOn: '/product/pulsar/voice-calling',
+  },
+  {
+    id: 'pulsar-automation',
+    file: 'pulsar-automation.png',
+    kind: 'screenshot',
+    label: 'Pulsar — follow-up sequences',
+    spec: 'A running sequence monitor — what’s queued, what fired, what stalled and needs a person.',
+    dimensions: '2880×1800',
+    usedOn: '/product/pulsar/automation',
   },
 
   // ── Client logos ────────────────────────────────────────────────────────

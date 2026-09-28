@@ -7,6 +7,7 @@ import { Crosshair, Search, Sparkles, Filter, Send, ArrowRight } from 'lucide-re
 import SectionLabel from '@/components/ui/SectionLabel'
 import HudCard from '@/components/ui/HudCard'
 import StatusIndicator from '@/components/ui/StatusIndicator'
+import MediaSlot from '@/components/ui/MediaSlot'
 import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animations'
 
 const bullets = [
@@ -134,6 +135,11 @@ export default function OrbitSection() {
                 <span className="text-[15.5px] leading-[1.6] text-ink-2">{text}</span>
               </div>
             ))}
+          </motion.div>
+
+          <motion.div variants={fadeUpVariant} className="mb-[26px] max-w-[440px]">
+            <SectionLabel tone="muted" className="mb-2.5 block">The real screen</SectionLabel>
+            <MediaSlot id="orbit-sourcing" ratio="16 / 10" />
           </motion.div>
 
           <motion.div variants={fadeUpVariant}>

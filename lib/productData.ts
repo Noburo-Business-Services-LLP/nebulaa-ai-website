@@ -877,6 +877,7 @@ export const capabilities: Capability[] = [
     seoTitle: 'AI Lead Sourcing from Google Maps — Orbit',
     seoDescription:
       'Orbit searches Google Maps and a second source for real businesses matching your target category and location, then deduplicates the results.',
+    mediaSlot: 'orbit-sourcing',
   },
   {
     slug: 'lead-qualification',
@@ -906,6 +907,7 @@ export const capabilities: Capability[] = [
     seoTitle: 'Automated Lead Qualification — Orbit',
     seoDescription:
       'Orbit filters sourced businesses down to a phone-reachable shortlist rated 4.2 and above, before any outreach happens.',
+    mediaSlot: 'orbit-qualification',
   },
   {
     slug: 'email-enrichment',
@@ -991,6 +993,7 @@ export const capabilities: Capability[] = [
     seoTitle: 'Automatic CRM Sync for Qualified Leads — Orbit',
     seoDescription:
       'Orbit pushes qualified leads into your CRM as linked Company, Contact and Pipeline records, round-robin assigned across your sales reps.',
+    mediaSlot: 'orbit-crm',
   },
 ]
 

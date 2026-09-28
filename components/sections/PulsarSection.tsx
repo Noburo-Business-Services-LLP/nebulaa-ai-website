@@ -7,6 +7,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import HudCard from '@/components/ui/HudCard'
 import StatusIndicator from '@/components/ui/StatusIndicator'
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
+import MediaSlot from '@/components/ui/MediaSlot'
 import { fadeUpVariant, slideInRight, staggerContainer, viewportOptions } from '@/lib/animations'
 
 const bullets = [
@@ -115,7 +116,12 @@ export default function PulsarSection() {
               </span>
             ))}
           </motion.div>
-          <motion.a variants={fadeUpVariant} href="#how-it-works" className="mt-[26px] inline-block text-[15px] text-gold-text hover:underline">
+          <motion.div variants={fadeUpVariant} className="mt-[30px] max-w-[440px]">
+            <SectionLabel tone="muted" className="mb-2.5 block">The real screen</SectionLabel>
+            <MediaSlot id="pulsar-whatsapp" ratio="16 / 10" />
+          </motion.div>
+
+          <motion.a variants={fadeUpVariant} href="#how-it-works" className="mt-[22px] inline-block text-[15px] text-gold-text hover:underline">
             See exactly how this runs →
           </motion.a>
         </motion.div>

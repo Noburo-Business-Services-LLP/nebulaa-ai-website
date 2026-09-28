@@ -695,6 +695,7 @@ export const capabilities: Capability[] = [
     seoTitle: 'Configurable AI Sales Agents — Pulsar',
     seoDescription:
       'Run separate AI agents for different conversation types, each with its own brief, tone, routing rules and guardrails.',
+    mediaSlot: 'pulsar-ai-agents',
   },
   {
     slug: 'automation',
@@ -756,6 +757,7 @@ export const capabilities: Capability[] = [
     seoTitle: 'AI Sales Agent Knowledge Base — Pulsar',
     seoDescription:
       'Load your products, policies and schemes so agents answer from what you actually told them, and hand over rather than guess.',
+    mediaSlot: 'pulsar-knowledge-base',
   },
   {
     slug: 'email-sms',
@@ -786,6 +788,7 @@ export const capabilities: Capability[] = [
     seoTitle: 'Email & SMS Outreach Alongside WhatsApp — Pulsar',
     seoDescription:
       'Handle email and SMS in the same thread as WhatsApp, with channel fallback and the same qualification on every channel.',
+    mediaSlot: 'pulsar-email-sms',
   },
   {
     slug: 'tasks-activities',
@@ -816,6 +819,7 @@ export const capabilities: Capability[] = [
     seoTitle: 'Lead Handover, Tasks & Activity Tracking — Pulsar',
     seoDescription:
       'Turn qualified leads into dated tasks with named owners, and keep a full activity trail of what actually happened.',
+    mediaSlot: 'pulsar-tasks',
   },
   {
     slug: 'analytics',
@@ -846,6 +850,7 @@ export const capabilities: Capability[] = [
     seoTitle: 'Response Time & Conversion Analytics — Pulsar',
     seoDescription:
       'Measure response time by channel, agent and team member, alongside what those conversations converted into.',
+    mediaSlot: 'pulsar-analytics',
   },
   // ───────────────────────────── Orbit ─────────────────────────────
   {
@@ -936,6 +941,7 @@ export const capabilities: Capability[] = [
     seoTitle: 'Website-Based Email Enrichment — Orbit',
     seoDescription:
       'Orbit reads a qualified lead\'s website to find a real contact email, filtering out noreply addresses and placeholder-domain noise.',
+    mediaSlot: 'orbit-email-enrichment',
   },
   {
     slug: 'personalized-outreach',
@@ -964,6 +970,7 @@ export const capabilities: Capability[] = [
     seoTitle: 'AI-Personalized Cold Outreach Messages — Orbit',
     seoDescription:
       'Orbit drafts a personalized opening outreach message for every qualified lead, based on their real website and business context.',
+    mediaSlot: 'orbit-outreach',
   },
   {
     slug: 'crm-sync',

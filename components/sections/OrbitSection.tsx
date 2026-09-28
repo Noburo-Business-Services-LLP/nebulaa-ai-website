@@ -111,18 +111,18 @@ export default function OrbitSection() {
           viewport={viewportOptions}
         >
           <motion.div variants={fadeUpVariant}>
-            <SectionLabel className="mb-[22px] block">Orbit // Lead generation</SectionLabel>
+            <SectionLabel className="mb-[22px] block">Leads & prospecting // Orbit</SectionLabel>
           </motion.div>
           <motion.h2 variants={fadeUpVariant} className="neb-display text-[34px] md:text-[50px] mb-[26px]">
-            <span className="text-gold-display">Orbit</span> finds and qualifies leads that match your ideal customer profile, then hands the warm ones to Pulsar.
+            <span className="text-gold-display">Leads that actually match,</span> found, qualified and handed off the moment they&apos;re ready to talk.
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}
             className="font-body text-[17px] leading-[1.68] text-muted max-w-[480px] mb-[34px]"
           >
-            Orbit turns your ideal customer profile into a prospecting engine. It finds real businesses
-            that match, verifies and qualifies them, drafts outreach that reads naturally, and hands
-            the warm ones to Pulsar.
+            It turns your ideal customer profile into a prospecting engine, finding real businesses
+            that match, verifying and qualifying them, drafting outreach that reads naturally, and
+            handing the warm ones off the moment they&apos;re ready to talk.
           </motion.p>
 
           <motion.div variants={fadeUpVariant} className="flex flex-col gap-4 mb-9">
@@ -141,7 +141,7 @@ export default function OrbitSection() {
               href="/product/orbit"
               className="inline-flex items-center gap-2 text-[14.5px] font-semibold text-gold-text hover:gap-3 transition-all"
             >
-              Explore Orbit <ArrowRight size={15} />
+              See exactly how this runs <ArrowRight size={15} />
             </Link>
           </motion.div>
         </motion.div>

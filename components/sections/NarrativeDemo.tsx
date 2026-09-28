@@ -249,7 +249,7 @@ export default function NarrativeDemo() {
           href="/product"
           className="inline-flex items-center gap-2 text-[15px] font-semibold text-gold-text hover:gap-3 transition-all"
         >
-          See everything all three engines do <ArrowRight size={15} />
+          See everything Nebulaa runs for you <ArrowRight size={15} />
         </a>
       </div>
     </section>

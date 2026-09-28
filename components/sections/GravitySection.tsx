@@ -95,19 +95,19 @@ export default function GravitySection() {
           viewport={viewportOptions}
         >
           <motion.div variants={fadeUpVariant}>
-            <SectionLabel className="mb-[22px] block">Gravity // Content</SectionLabel>
+            <SectionLabel className="mb-[22px] block">Content & social // Gravity</SectionLabel>
           </motion.div>
           <motion.h2
             variants={fadeUpVariant}
             className="neb-display text-[34px] md:text-[50px] mb-[26px]"
           >
-            <span className="text-gold-display">Gravity</span> plans, drafts and schedules a month of content. You approve before anything goes live.
+            <span className="text-gold-display">A month of content,</span> drafted and scheduled for you. You approve before anything goes live.
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}
             className="font-body text-[17px] leading-[1.68] text-muted max-w-[480px] mb-[34px]"
           >
-            Gravity starts by learning your business: your customers, your channels, and what actually works for you. It plans the month and drafts the posts, carousels and reels to fill it, while tracking competitors so your content stays current. You approve before anything publishes.
+            It starts by learning your business: your customers, your channels, and what actually works for you. Then it plans the month and drafts the posts, carousels and reels to fill it, while tracking competitors so your content stays current. You approve before anything publishes.
           </motion.p>
           <motion.div variants={fadeUpVariant} className="flex flex-col gap-4">
             {bullets.map(({ icon: Icon, text }) => (
@@ -128,7 +128,7 @@ export default function GravitySection() {
             ))}
           </motion.div>
           <motion.a variants={fadeUpVariant} href="#how-it-works" className="mt-[26px] inline-block text-[15px] text-gold-text hover:underline">
-            See how Gravity works →
+            See exactly how this runs →
           </motion.a>
         </motion.div>
 

@@ -40,19 +40,19 @@ export default function SharedMemory() {
         className="max-w-[720px] mb-[64px]"
       >
         <motion.div variants={fadeUpVariant}>
-          <SectionLabel className="mb-[22px] block">One memory, three engines</SectionLabel>
+          <SectionLabel className="mb-[22px] block">One memory, not three silos</SectionLabel>
         </motion.div>
         <motion.h2
           variants={fadeUpVariant}
           className="neb-display text-[33px] md:text-[50px] mb-6"
         >
-          <span className="text-gold-display">One memory</span>, shared across all three engines.
+          <span className="text-gold-display">One memory</span>, shared across everything Nebulaa runs.
         </motion.h2>
         <motion.p variants={fadeUpVariant} className="text-[16.5px] leading-[1.7] text-muted">
-          Orbit, Gravity and Pulsar read from and write to the same memory. What gets engagement,
-          what gets a reply, and what a lead responds to all feeds back into future work on that
-          account, for that audience. The system gets better at your business with every week it runs,
-          rather than starting over each time.
+          Your content, your leads and your conversations all read from and write to the same memory.
+          What gets engagement, what gets a reply, and what a lead responds to all feeds back into
+          future work on that account, for that audience. The system gets better at your business with
+          every week it runs, rather than starting over each time.
         </motion.p>
       </motion.div>
 

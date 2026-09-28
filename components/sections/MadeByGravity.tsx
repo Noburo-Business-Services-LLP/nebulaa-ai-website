@@ -76,7 +76,7 @@ export default function MadeByGravity() {
         className="max-w-[640px] mb-[78px]"
       >
         <motion.div variants={fadeUpVariant}>
-          <SectionLabel className="mb-[22px] block">Made by Gravity</SectionLabel>
+          <SectionLabel className="mb-[22px] block">Real client work // Gravity</SectionLabel>
         </motion.div>
         <motion.h2
           variants={fadeUpVariant}
@@ -88,7 +88,7 @@ export default function MadeByGravity() {
           variants={fadeUpVariant}
           className="font-body text-[17px] leading-[1.68] text-muted max-w-[480px]"
         >
-          Every post below was written by Gravity for a real client and went out on their channels.
+          No stock templates, no placeholder brands. This is what actually got posted, unedited.
         </motion.p>
       </motion.div>
 

@@ -19,7 +19,7 @@ const steps = [
   {
     n: '03',
     title: 'Answers every enquiry within minutes',
-    body: 'Pulsar replies to enquiries within minutes, at any hour, asking the same questions you would ask. You are brought in once there is a qualified buyer on the other end.',
+    body: 'Every enquiry gets a reply within minutes, at any hour, asking the same questions you would ask. You are brought in once there is a qualified buyer on the other end.',
   },
 ]
 

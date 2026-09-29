@@ -1,30 +1,18 @@
 import Image from 'next/image'
 
 /**
- * The official Nebulaa lockup — icon, wordmark and "Founder OS" tagline
- * baked into one horizontal image, supplied in two colourways. The site is
- * dark-mode-only today (see the `dark` class hardcoded on <html> in
- * app/layout.tsx), so only the yellow version ever renders in practice —
- * the light-mode swap via `dark:` is wired in ready for whenever a theme
- * toggle exists, not dead code.
+ * The Nebulaa logo: navy wordmark with the warm sun behind it. One transparent
+ * file that sits on the cream page, in the menu and in the footer.
  */
-export default function Wordmark({ className = '' }: { className?: string }) {
+export default function Wordmark({ className = '', size = 'md' }: { className?: string; size?: 'md' | 'lg' }) {
   return (
     <span className={`inline-flex items-center ${className}`}>
       <Image
-        src="/images/brand/logo-horizontal-light.png"
-        alt="Nebulaa — Founder OS"
-        width={420}
-        height={126}
-        className="block dark:hidden h-7 w-auto"
-        priority
-      />
-      <Image
-        src="/images/brand/logo-horizontal-dark.png"
-        alt="Nebulaa — Founder OS"
-        width={420}
-        height={126}
-        className="hidden dark:block h-7 w-auto"
+        src="/images/brand/logo-nebulaa.png"
+        alt="Nebulaa"
+        width={784}
+        height={360}
+        className={`block w-auto ${size === 'lg' ? 'h-[72px]' : 'h-[52px]'}`}
         priority
       />
     </span>

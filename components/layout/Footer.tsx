@@ -49,7 +49,7 @@ export default function Footer() {
     <footer className="bg-surface-2 text-ink border-t border-rule pt-[64px] pb-28 md:pb-12 px-5 md:px-12 lg:px-[120px]">
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 justify-between">
         <div className="max-w-[340px]">
-          <Wordmark className="mb-5" />
+          <Wordmark size="lg" className="mb-5" />
           <p className="neb-display text-[26px] leading-[1.02] mb-5">
             Your business deserves to <span className="script-accent text-[1.15em]">be seen.</span>
           </p>

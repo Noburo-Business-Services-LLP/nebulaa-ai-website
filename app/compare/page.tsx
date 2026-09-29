@@ -6,7 +6,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 
 const seoTitle = 'AI Marketing Platform Comparison — Nebulaa'
 const seoDescription =
-  'How Nebulaa compares to Buffer, Hootsuite, Jasper AI, Clay and Instantly.ai — where they overlap, where they differ, what actually works together.'
+  'How Nebulaa compares to Buffer, Hootsuite, Jasper AI, Clay and Instantly.ai: where they overlap, where they differ and where each one is stronger.'
 
 export const metadata: Metadata = {
   title: seoTitle,
@@ -25,8 +25,8 @@ export default function CompareHubPage() {
           Nebulaa vs <span className="text-gold-display">the alternatives.</span>
         </h1>
         <p className="text-[17px] leading-[1.65] text-muted max-w-[620px]">
-          This AI marketing platform comparison covers tools that do one part of the job — scheduling, or writing,
-          or outreach. Here&apos;s exactly where Nebulaa is stronger, and where the other tool genuinely wins, feature by feature.
+          This AI marketing platform comparison covers tools that each do one part of the job, such as scheduling,
+          writing or outreach. Each page shows where Nebulaa is stronger and where the other tool wins, feature by feature.
         </p>
       </section>
 

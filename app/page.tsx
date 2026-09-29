@@ -1,21 +1,18 @@
 import type { Metadata } from 'next'
-import Hero from '@/components/sections/Hero'
-import ClientStrip from '@/components/sections/ClientStrip'
-import ClientGallery from '@/components/sections/ClientGallery'
-import GenerationTicker from '@/components/ui/GenerationTicker'
-import AgentEcosystem from '@/components/sections/AgentEcosystem'
-import GravitySection from '@/components/sections/GravitySection'
-import OrbitSection from '@/components/sections/OrbitSection'
-import PulsarSection from '@/components/sections/PulsarSection'
-import EntryFork from '@/components/sections/EntryFork'
+import Hero from '@/components/home/Hero'
+import WorkWall from '@/components/home/WorkWall'
+import WhatYouGet from '@/components/home/WhatYouGet'
+import HowItWorks from '@/components/home/HowItWorks'
+import Industries from '@/components/home/Industries'
+import Fork from '@/components/home/Fork'
+import Testimonials from '@/components/home/Testimonials'
 import Pricing from '@/components/sections/Pricing'
 import FAQ from '@/components/sections/FAQ'
-import Newsletter from '@/components/sections/Newsletter'
-import FinalCTA from '@/components/sections/FinalCTA'
+import Closing from '@/components/home/Closing'
 
-const seoTitle = 'AI Marketing Platform for Indian Businesses'
+const seoTitle = 'Marketing for Indian Businesses: Posts, New Customers and WhatsApp Replies'
 const seoDescription =
-  'Nebulaa reads your website, then plans your content, finds your leads and handles your outreach for you — and gets better at it every week.'
+  'Nebulaa keeps your page active, finds new customers and answers every WhatsApp enquiry within minutes. From ₹999 a month, or let our team run it for you.'
 
 export const metadata: Metadata = {
   title: seoTitle,
@@ -24,26 +21,23 @@ export const metadata: Metadata = {
 }
 
 /**
- * Free tools and the blog are deliberately absent — they exist to earn search
- * traffic, not homepage space. Both remain reachable from the nav and footer.
+ * Ten sections, in the order a visitor's questions come up: is this for me,
+ * does it work, what do I get, how easy is it, is it for my kind of business,
+ * how do I start, what does it cost, can I ask something, can I talk to you.
  */
 export default function Home() {
   return (
     <main>
       <Hero />
-      <GenerationTicker />
-      <ClientStrip />
-      <ClientGallery />
-      <AgentEcosystem />
-      <EntryFork />
-      {/* Gravity creates, Orbit finds, Pulsar engages — the master copy's order. */}
-      <GravitySection />
-      <OrbitSection />
-      <PulsarSection />
+      <WorkWall />
+      <WhatYouGet />
+      <HowItWorks />
+      <Industries />
+      <Fork />
+      <Testimonials />
       <Pricing />
       <FAQ />
-      <Newsletter />
-      <FinalCTA />
+      <Closing />
     </main>
   )
 }

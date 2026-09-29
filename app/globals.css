@@ -361,7 +361,7 @@ body {
   font-weight: 400;
   font-stretch: normal;
   letter-spacing: 0;
-  color: var(--gold-display);
+  color: #E58F00;
 }
 
 @keyframes neb-scan-sweep {

@@ -9,12 +9,12 @@ import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animatio
 import Schema, { faqSchema } from '@/components/ui/Schema'
 
 const faqs = [
-  { q: 'What happens after the 7-day free trial?', a: "You choose to continue on Starter (₹999/month, 60 credits) or Professional (₹1,999/month, 200 credits). Annual billing saves 10%. No auto-charge. No surprise invoices. We'll remind you before the trial ends." },
-  { q: 'Do I need a tech team to set this up?', a: 'No. Our onboarding team sets everything up with you. You\'ll be live in under 24 hours. No technical skills required.' },
-  { q: 'What happens if I run out of credits?', a: "Top up any time from inside the app — nothing pauses while you wait for the plan to reset. If you're consistently running low, moving from Starter to Professional is one click." },
-  { q: 'What channels does Pulsar support?', a: 'WhatsApp (via API), email, and SMS — plus voice calls where they fit. All from a single setup.' },
-  { q: 'How does Gravity learn my brand voice?', a: 'Give it your website URL. In about 60 seconds it extracts your tone, ICP and competitors, and builds a marketing strategy from that. It keeps learning after — the longer it runs, the better it gets at sounding like you.' },
-  { q: 'Is this useful for businesses with no online presence yet?', a: 'Yes — Gravity helps you build that presence from scratch. Even if you have zero followers, it starts posting for you on day one.' },
+  { q: 'How much does it cost?', a: 'Starter is ₹999 a month and Professional is ₹1,999 a month. Paying yearly saves 10%. If you want our team to run everything for you, we quote for your business after a short call.' },
+  { q: 'What happens after the 7-day free trial?', a: "You choose a plan or stop. Nothing is charged automatically, and we remind you before the trial ends." },
+  { q: 'Do I need to do anything technical?', a: 'No. We set it up with you, and you are live within a day. After that you only approve the posts on your phone.' },
+  { q: 'Which platforms and channels do you cover?', a: 'Instagram, Facebook, LinkedIn and X for posts and reels, and WhatsApp, email and SMS for replies.' },
+  { q: 'What if I have no online presence yet?', a: 'That is a good place to start. We build your page from your website or your photos, and begin posting from the first week.' },
+  { q: 'What happens if I run out of credits?', a: 'You can top up any time from inside the app, and nothing pauses while you wait for the plan to reset.' },
 ]
 
 function FAQItem({ n, q, a }: { n: number; q: string; a: string }) {
@@ -50,7 +50,7 @@ export default function FAQ() {
           <SectionLabel className="mb-[22px] block">FAQ</SectionLabel>
         </motion.div>
         <motion.h2 variants={fadeUpVariant} className="neb-display text-[34px] md:text-[50px]">
-          Frequently asked <span className="text-gold-display">questions.</span>
+          Questions <span className="text-gold-display">owners ask.</span>
         </motion.h2>
       </motion.div>
 

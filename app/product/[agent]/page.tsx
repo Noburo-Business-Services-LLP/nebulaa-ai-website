@@ -9,9 +9,9 @@ import Schema, { breadcrumbSchema, softwareApplicationSchema } from '@/component
 import { plans } from '@/lib/orgFacts'
 
 const ROLE: Record<string, string> = {
-  orbit: 'finds and qualifies who is worth talking to',
-  gravity: 'gives them a reason to say yes',
-  pulsar: 'closes the conversation',
+  orbit: 'finds businesses worth talking to',
+  gravity: 'gives people a reason to say yes',
+  pulsar: 'replies and closes the conversation',
 }
 
 export function generateStaticParams() {
@@ -94,8 +94,7 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
             <span className="text-gold-display">{caps.length} things</span> it does.
           </h2>
           <p className="text-[16px] leading-[1.68] text-muted">
-            Most of what {agent.name} does has never been on this website. Each of these is a module
-            that ships in the product today.
+            Each of these is included and working today.
           </p>
         </div>
 
@@ -120,9 +119,9 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
 
       {/* The rest of the pipeline */}
       <section className="px-6 md:px-12 lg:px-[120px] py-[100px]">
-        <SectionLabel tone="muted" className="mb-6 block">The rest of the pipeline</SectionLabel>
+        <SectionLabel tone="muted" className="mb-6 block">{agent.name} {ROLE[agent.id]}</SectionLabel>
         <h2 className="neb-display text-[26px] md:text-[34px] leading-[1.14] mb-8 max-w-[720px]">
-          {agent.name} {ROLE[agent.id]}. Two more agents run the rest of it.
+          Two more parts of Nebulaa work alongside it.
         </h2>
         <div className="grid sm:grid-cols-2 gap-5 max-w-[880px] mb-10">
           {others.map((o, i) => (
@@ -143,7 +142,7 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
           href="/product/core"
           className="inline-flex items-center gap-1.5 font-mono text-[12.5px] text-faint hover:text-gold-text transition-colors"
         >
-          {agent.name} → outcome → Core → learning <ArrowRight size={12} />
+          How Nebulaa learns from your results <ArrowRight size={12} />
         </Link>
       </section>
     </main>

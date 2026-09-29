@@ -60,44 +60,44 @@ export const agents: Record<AgentId, Agent> = {
   gravity: {
     id: 'gravity',
     name: 'Gravity',
-    tagline: 'AI content & social media engine',
+    tagline: 'Content and social media',
     eyebrow: 'Gravity // content',
     headline: 'Stop planning content.',
     headlineEmphasis: 'Start approving it.',
     subheadline:
-      'Gravity is the AI content and social media engine behind all of it: it reads your website, builds a strategy from it, plans the month, drafts every post, carousel and reel to fill that month, and waits for you to tap approve. It also runs your campaigns, your creator collaborations, your inbox and your SEO — most of which nobody realises it does.',
+      'Nebulaa reads your website and plans your month of posts. It drafts every post, carousel and reel, then waits for you to tap approve. It also handles your campaigns, creator collaborations, inbox and SEO.',
     price: 'From ₹999 / month',
     seoTitle: 'Gravity — AI Content & Social Media Engine',
     seoDescription:
-      'Gravity remembers the business, plans the work, creates content, manages approvals, publishes across channels and monitors what happens.',
+      'Nebulaa Gravity plans your month of content, drafts every post, waits for your approval, publishes across channels and shows you what worked.',
   },
   pulsar: {
     id: 'pulsar',
     name: 'Pulsar',
-    tagline: 'AI outreach engine',
+    tagline: 'Replies to your enquiries',
     eyebrow: 'Pulsar // engagement',
-    headline: 'Whoever replies first',
-    headlineEmphasis: 'wins the sale.',
+    headline: 'Every enquiry answered',
+    headlineEmphasis: 'within minutes.',
     subheadline:
-      'Pulsar is the AI outreach engine that answers every enquiry on WhatsApp, email and SMS within minutes, asks the questions you would have asked, scores what comes back, and hands you only the people worth your afternoon. Broadcasts, automation and voice calling run from the same place.',
+      'Nebulaa answers every enquiry on WhatsApp, email and SMS within minutes. It asks the questions you would have asked, scores the replies, and hands you only the people worth your time. Broadcasts, follow-up messages and voice calling are all in the same place.',
     price: 'From ₹999 / month',
     seoTitle: 'Pulsar — AI Outreach Engine',
     seoDescription:
-      'A lead shouldn\'t disappear because no one followed up. Pulsar responds, qualifies and routes conversations across WhatsApp, email, SMS and voice.',
+      'Nebulaa Pulsar replies to enquiries on WhatsApp, email, SMS and voice, asks the right questions and passes the good ones to you.',
   },
   orbit: {
     id: 'orbit',
     name: 'Orbit',
-    tagline: 'AI lead generation engine',
+    tagline: 'Finding new customers',
     eyebrow: 'Orbit // lead generation',
-    headline: 'Before there is a conversation,',
-    headlineEmphasis: 'there has to be a lead worth having.',
+    headline: 'Find businesses',
+    headlineEmphasis: 'that are worth calling.',
     subheadline:
-      'Orbit is the AI lead generation engine that finds real businesses matching who you sell to, keeps only the ones worth calling, finds a real contact email even when Google never gives you one, drafts the first outreach message, and puts the whole thing straight into your CRM — assigned to a rep, ready to work. Gravity and Pulsar take it from there.',
+      'Nebulaa finds real businesses that match who you sell to and keeps only the ones worth calling. It finds a contact email even when Google gives you none, drafts the first message, and adds each lead to your CRM, assigned to a salesperson. Gravity and Pulsar take it from there.',
     price: 'From ₹999 / month',
     seoTitle: 'Orbit — AI Lead Generation Engine',
     seoDescription:
-      'Finding leads is easy. Orbit finds the right ones — turning your ICP into a prospecting engine that sources, qualifies and hands off to Pulsar.',
+      'Finding leads is easy. Nebulaa Orbit finds the right ones: businesses that match who you sell to, checked and passed to Pulsar for follow-up.',
   },
 }
 
@@ -106,34 +106,34 @@ export const capabilities: Capability[] = [
   {
     slug: 'strategy-icp',
     agent: 'gravity',
-    name: 'Strategy & ICP',
+    name: 'Strategy',
     eyebrow: 'Gravity · strategy',
-    headline: 'It starts by reading',
+    headline: 'We start by reading',
     headlineEmphasis: 'your website.',
     subheadline:
-      'Gravity builds a marketing strategy from your website URL alone, with no brief and no onboarding call required. It works out how you talk, who buys from you, which channels are worth your time and who you are actually competing against, then writes the strategy everything else runs from.',
-    summary: 'Reads your URL and builds the strategy — tone, ICP, channels, competitors.',
+      'Nebulaa builds your marketing strategy from your website address alone, with no brief and no onboarding call. It works out how you talk, who buys from you, which channels are worth your time and who you compete with. Then it writes the plan everything else follows.',
+    summary: 'Reads your website and writes your strategy: tone, ideal customers, channels and competitors.',
     steps: [
-      { title: 'Give it a URL', body: 'No brief to write, no onboarding call to sit through. Your website already contains most of what a strategist would ask you for.' },
-      { title: 'It reads the brand', body: 'Tone of voice, what you sell, who buys it, the language they use, and the three or four businesses competing for the same customer.' },
-      { title: 'It writes the strategy', body: 'Positioning, content pillars, channel priorities and posting cadence — a document you can read, argue with and edit.' },
+      { title: 'Give us your website', body: 'No brief to write, no onboarding call to sit through. Your website already contains most of what a strategist would ask you for.' },
+      { title: 'We read your brand', body: 'Your tone of voice, what you sell, who buys it, the words they use, and the three or four businesses competing for the same customer.' },
+      { title: 'We write the plan', body: 'Positioning, content themes, channel priorities and how often to post. It is a document you can read, question and edit.' },
     ],
     whatYouGet: [
       'A written strategy document, not a settings page',
-      'Your ideal customer profile, in plain language',
+      'Your ideal customer, described in plain language',
       'Channel recommendations based on what you sell and to whom',
-      'The competitors worth watching, identified automatically',
-      'Content pillars that the monthly plan is then built against',
+      'The competitors worth watching, found for you',
+      'Content themes that your monthly plan is built on',
     ],
     mediaSlot: 'gravity-strategy',
     faqs: [
       { q: 'How long does it take?', a: 'About a minute from pasting the URL to reading the strategy. There is no onboarding call unless you want one.' },
-      { q: 'What if the strategy is wrong?', a: 'Edit it. It is a document, not a locked configuration — and everything downstream, including the monthly plan, rebuilds against your version.' },
-      { q: 'What if my website is thin or out of date?', a: 'Then it will be working from thin information, and the strategy will show that. You can add context directly, and Gravity keeps refining as it sees what actually performs.' },
+      { q: 'What if the strategy is wrong?', a: 'Edit it. It is a document, not a locked setting, and everything after it, including the monthly plan, is rebuilt from your version.' },
+      { q: 'What if my website is thin or out of date?', a: 'Then the strategy will be thin too. You can add details yourself, and Nebulaa keeps improving it as it sees what performs.' },
     ],
     seoTitle: 'AI Marketing Strategy from Your Website — Gravity',
     seoDescription:
-      'Gravity reads your website and writes a marketing strategy from it: tone of voice, ideal customer profile, channel plan and the competitors worth watching.',
+      'Nebulaa Gravity reads your website and writes a marketing strategy from it: tone of voice, ideal customer, channel plan and the competitors worth watching.',
   },
   {
     slug: 'content-planning',
@@ -143,19 +143,19 @@ export const capabilities: Capability[] = [
     headline: 'A month of content,',
     headlineEmphasis: 'planned in advance.',
     subheadline:
-      'Gravity builds a full month of content in advance, mapped against your content pillars with festivals and seasons already placed. Planning ahead is what separates posting consistently from posting when you remember to.',
-    summary: 'A whole month mapped against your pillars, with festivals already in it.',
+      'Nebulaa plans a full month of content ahead, built on your content themes, with festivals and seasons already placed. Planning ahead is how you post regularly instead of posting when you remember.',
+    summary: 'A whole month planned around your themes, with festivals already in it.',
     steps: [
-      { title: 'The month gets mapped', body: 'Every slot planned against your content pillars, with the format chosen per platform and per objective.' },
-      { title: 'Seasons are already in there', body: 'Diwali, Pongal, Onam, Ugadi and your own buying seasons are planned ahead, not remembered on the morning.' },
-      { title: 'You adjust, it rebuilds', body: 'Move something, drop something, ask for more of one pillar — the rest of the month re-plans around your change.' },
+      { title: 'The month is mapped out', body: 'Every slot is planned around your content themes, with the format chosen for each platform and goal.' },
+      { title: 'Festivals are already in', body: 'Diwali, Pongal, Onam, Ugadi and your own busy seasons are planned ahead of time.' },
+      { title: 'You change it, we re-plan', body: 'Move a post, drop one, or ask for more of one theme. The rest of the month adjusts around your change.' },
     ],
     whatYouGet: [
       'A full month of planned slots, not a queue of one-off posts',
       'Format decided per slot — post, carousel or reel',
       'Festival and seasonal campaigns planned in advance',
       'An idea inbox for anything you want worked into next month',
-      'Drag-and-drop rescheduling that keeps the plan coherent',
+      'Drag-and-drop rescheduling that keeps the plan in order',
     ],
     mediaSlot: 'gravity-calendar',
     faqs: [
@@ -165,7 +165,7 @@ export const capabilities: Capability[] = [
     ],
     seoTitle: 'Monthly Content Planning & Calendar — Gravity',
     seoDescription:
-      'Gravity plans a full month of content against your pillars, with festivals and buying seasons mapped in, and rebuilds when you change it.',
+      'Nebulaa Gravity plans a full month of content around your themes, with festivals and buying seasons included, and re-plans when you change it.',
   },
   {
     slug: 'create',
@@ -175,10 +175,10 @@ export const capabilities: Capability[] = [
     headline: 'Drafted in your voice,',
     headlineEmphasis: 'from your own site.',
     subheadline:
-      'Every slot in the plan gets written — copy, creative and hashtags — in the voice the strategy captured from your own site. You edit finished drafts instead of writing from a blank prompt box.',
+      'Nebulaa writes every post in your plan: the copy, the visuals and the hashtags, in the voice it picked up from your own website. You edit finished drafts instead of starting from a blank page.',
     summary: 'Posts, carousels and creative drafted in your brand voice, ready to edit.',
     steps: [
-      { title: 'It writes against the plan', body: 'Each slot is drafted to its brief — the pillar, the format, the platform and the objective are already decided.' },
+      { title: 'It writes against the plan', body: 'Each slot is drafted to its brief. The theme, format, platform and goal are already decided.' },
       { title: 'Creative is generated with it', body: 'Visuals are produced alongside the copy, using your brand assets, colours and logo rather than stock templates.' },
       { title: 'You edit what needs editing', body: 'Rewrite in place, ask for another angle, or take a draft in a direction the plan did not anticipate.' },
     ],
@@ -186,7 +186,7 @@ export const capabilities: Capability[] = [
       'Copy written in your brand voice, per platform',
       'Carousels and static creative generated with the copy',
       'Hashtags and first comments where the platform rewards them',
-      'A prompt studio for when you want to direct it precisely',
+      'A prompt studio for when you want to give exact directions',
       'Drafts you can rewrite rather than regenerate from scratch',
     ],
     faqs: [
@@ -206,10 +206,10 @@ export const capabilities: Capability[] = [
     headline: 'Reels, without',
     headlineEmphasis: 'a shoot.',
     subheadline:
-      'Short-form video drives the most reach and is usually the first thing a small team stops making, because it takes the most work. Gravity generates reels without a shoot, building each one scene by scene — script, visuals, pacing and audio — from the same monthly plan.',
+      'Short videos bring the most reach, and they are usually the first thing a small team stops making. Nebulaa makes reels without a shoot. It builds each one scene by scene, with script, visuals, pacing and audio, from your monthly plan.',
     summary: 'Short-form video built scene by scene, from the same plan.',
     steps: [
-      { title: 'The script comes from the plan', body: 'A reel slot is briefed like any other — hook, middle, call to action — against a pillar rather than a trend you have to chase.' },
+      { title: 'The script comes from the plan', body: 'A reel slot is briefed like any other post: hook, middle and call to action, built on your themes instead of a trend you have to chase.' },
       { title: 'Scenes are generated', body: 'Each scene is produced and assembled in sequence, so the reel has structure rather than being one clip with text on it.' },
       { title: 'You review before it ships', body: 'Watch it, ask for a different scene or a different hook, then approve it into the schedule.' },
     ],
@@ -237,7 +237,7 @@ export const capabilities: Capability[] = [
     headline: 'A launch needs',
     headlineEmphasis: 'more than one post.',
     subheadline:
-      'A new collection, a festival offer or a store opening needs a run of content that builds toward one date, across formats and platforms. Campaigns group that whole sequence against one objective and one date, instead of a list of separately scheduled posts.',
+      'A new collection, a festival offer or a store opening needs a run of content that builds toward one date, across formats and platforms. A campaign plans that whole run around one goal and one date, instead of leaving you with a list of separate posts.',
     summary: 'Multi-post launches planned as one sequence against one objective.',
     steps: [
       { title: 'Set the objective and the date', body: 'What is launching, when it lands, and what the campaign is for — awareness, footfall, enquiries or sales.' },
@@ -268,10 +268,10 @@ export const capabilities: Capability[] = [
     headline: 'Nothing goes live',
     headlineEmphasis: 'until you say so.',
     subheadline:
-      'Gravity queues everything for review before it publishes — approve, rewrite or reject, from your phone, in the time it takes to drink a coffee. Nothing goes out that you have not seen first.',
-    summary: 'Everything queues for review. Approve, rewrite or reject from your phone.',
+      'Nebulaa queues everything for your review before it publishes. Approve, rewrite or reject from your phone in the time it takes to drink a coffee. Nothing goes out that you have not seen first.',
+    summary: 'Everything waits for your review. Approve, rewrite or reject from your phone.',
     steps: [
-      { title: 'Drafts queue for review', body: 'Everything Gravity produces lands in a queue rather than going straight out.' },
+      { title: 'Drafts queue for review', body: 'Everything we create lands in a queue rather than going straight out.' },
       { title: 'You review in a batch', body: 'A week of content takes a few minutes to go through, because you are reacting to finished drafts rather than writing them.' },
       { title: 'Approved work schedules itself', body: 'Once approved it publishes at the time chosen for that platform and audience. Rejected work goes back for a rewrite.' },
     ],
@@ -296,31 +296,31 @@ export const capabilities: Capability[] = [
     agent: 'gravity',
     name: 'Competitor tracking',
     eyebrow: 'Gravity · competitors',
-    headline: 'It watches your rivals',
-    headlineEmphasis: 'and writes the reply.',
+    headline: 'We watch your rivals',
+    headlineEmphasis: 'and draft your reply.',
     subheadline:
-      'Knowing that a competitor ran a festival offer is not useful on its own. Gravity tracks what the businesses competing for your customer are publishing and drafts the post that answers it — a piece of content to approve, not just an alert.',
-    summary: 'Tracks rival content and drafts the counter-post, not just a report.',
+      'Knowing that a competitor ran a festival offer is not much use on its own. Nebulaa tracks what the businesses competing for your customers are posting, then drafts a reply post for you to approve.',
+    summary: 'Tracks rival content and drafts a reply post for you.',
     steps: [
       { title: 'Competitors get identified', body: 'The strategy pass works out who is competing for your customer. You can add or remove any of them.' },
       { title: 'Their content gets tracked', body: 'What they post, how often, which formats they lean on, and what is actually landing for them.' },
-      { title: 'You get the counter-content', body: 'Not an alert — a drafted post that responds to the gap or the move, ready to approve.' },
+      { title: 'You get a reply post', body: 'A drafted post that responds to the gap or the move, ready for you to approve.' },
     ],
     whatYouGet: [
       'Ongoing tracking of the rivals that matter locally',
-      'Counter-content drafted, not just competitor alerts',
+      'Reply posts drafted for you, along with the alerts',
       'Format and cadence comparison against your own output',
       'Gaps worth taking — what nobody in your market is saying',
     ],
     mediaSlot: 'gravity-competitors',
     faqs: [
       { q: 'Which competitors does it track?', a: 'The ones identified from your site and market during the strategy pass, plus any you add yourself. Local rivals matter more here than national brands.' },
-      { q: 'Is this just scraping their feed?', a: 'The tracking is the input, not the output. The useful part is the content drafted in response, which is what most tools stop short of.' },
+      { q: 'Is this just scraping their feed?', a: 'Tracking is only the starting point. The useful part is the reply post we draft, which is where most tools stop short.' },
       { q: 'Will my content just copy theirs?', a: 'It is written to your pillars and voice — the point is to answer a move in your own terms, not to mirror it.' },
     ],
     seoTitle: 'Competitor Tracking & Counter-Content — Gravity',
     seoDescription:
-      'Gravity tracks what competing businesses publish and drafts the content that answers it — a post to approve, not a report to read.',
+      'Nebulaa Gravity tracks what competing businesses publish and drafts the content that answers it, a post to approve instead of a report to read.',
   },
   {
     slug: 'influencers',
@@ -330,7 +330,7 @@ export const capabilities: Capability[] = [
     headline: 'Creator collaborations,',
     headlineEmphasis: 'run properly.',
     subheadline:
-      'Gravity is the influencer collaboration management tool built for this: regional creators are the most under-used channel available to an Indian brand, and the most chaotic to manage — a spreadsheet of names, a WhatsApp group and a lot of chasing. Gravity runs the whole thing.',
+      'Regional creators are one of the least used channels open to an Indian brand, and one of the messiest to manage: a spreadsheet of names, a WhatsApp group and a lot of chasing. Nebulaa keeps the whole thing in one place.',
     summary: 'Creator lists, briefs, submissions and performance in one place.',
     steps: [
       { title: 'Build the creator list', body: 'Regional micro and nano creators whose audience actually overlaps with your buyer, with their own profiles and history.' },
@@ -357,12 +357,12 @@ export const capabilities: Capability[] = [
   {
     slug: 'unified-inbox',
     agent: 'gravity',
-    name: 'Unified inbox',
+    name: 'One inbox',
     eyebrow: 'Gravity · inbox',
     headline: 'Every comment and DM,',
     headlineEmphasis: 'in one place.',
     subheadline:
-      'Publishing is only half of social. The other half is the comments, DMs and questions that arrive afterwards — across every platform, at every hour. Gravity\'s unified social media inbox pulls them into one place and drafts the replies.',
+      'Posting is only half of social media. The other half is the comments, DMs and questions that arrive afterwards, on every platform, at every hour. Nebulaa brings them into one inbox and drafts the replies.',
     summary: 'Comments, DMs and mentions across platforms, with replies drafted.',
     steps: [
       { title: 'Everything lands in one place', body: 'Comments, direct messages and mentions from every connected platform, in a single stream.' },
@@ -393,7 +393,7 @@ export const capabilities: Capability[] = [
     headline: 'The searches you are',
     headlineEmphasis: 'not showing up for.',
     subheadline:
-      'Social gets you known; search gets you found by someone already looking. The AI SEO assistant works out which terms your customers actually use, what your competitors rank for that you do not, and what to fix.',
+      'Social media gets you known. Search gets you found by someone already looking. Nebulaa works out which words your customers search for, what your competitors show up for that you do not, and what to fix.',
     summary: 'Keywords, metadata, hashtags and search-side competitor gaps.',
     steps: [
       { title: 'Find the terms that matter', body: 'What your customers actually type, including the local and regional phrasing national tools miss.' },
@@ -424,7 +424,7 @@ export const capabilities: Capability[] = [
     headline: 'Your logo, colours and',
     headlineEmphasis: 'products, on file.',
     subheadline:
-      'Generated creative only looks like your brand if the system knows what your brand looks like. Gravity keeps your logo, palette, product photography and store imagery on file, and builds every visual from them.',
+      'Generated visuals only look like your brand if we know what your brand looks like. Nebulaa keeps your logo, colours, product photos and store images on file, and builds every visual from them.',
     summary: 'Logo, palette, product and store imagery, used in every generated visual.',
     steps: [
       { title: 'Upload once', body: 'Logo, brand colours, product shots and store or facility imagery.' },
@@ -432,7 +432,7 @@ export const capabilities: Capability[] = [
       { title: 'Inventory stays current', body: 'Add products as they launch and they become available to the content plan straight away.' },
     ],
     whatYouGet: [
-      'A brand asset library the content engine actually draws on',
+      'A brand library that every post is built from',
       'Product inventory that content can be planned around',
       'Store and environment imagery for backgrounds and context',
       'Consistent use of your logo and palette across every format',
@@ -454,7 +454,7 @@ export const capabilities: Capability[] = [
     headline: 'It gets better',
     headlineEmphasis: 'the longer it runs.',
     subheadline:
-      'Gravity\'s AI brand memory for marketing means it never starts from zero: it remembers what it wrote, what you changed, what performed and what you rejected — and the work in month six is better than the work in month one because of it.',
+      'Nebulaa remembers what it wrote, what you changed, what performed well and what you rejected. It never starts from zero, so the work in month six is better than the work in month one.',
     summary: 'Remembers what worked, what you changed, and what you rejected.',
     steps: [
       { title: 'It records what happened', body: 'What was published, what you edited before approving, and what you turned down outright.' },
@@ -475,7 +475,7 @@ export const capabilities: Capability[] = [
     ],
     seoTitle: 'AI Brand Memory — Learns Your Business | Gravity',
     seoDescription:
-      'Gravity remembers what it wrote, what you edited, what you rejected and what performed — so month six is better than month one.',
+      'Nebulaa Gravity remembers what it wrote, what you edited, what you rejected and what performed, so month six is better than month one.',
   },
   {
     slug: 'upload-schedule',
@@ -485,7 +485,7 @@ export const capabilities: Capability[] = [
     headline: 'Published at the hour',
     headlineEmphasis: 'your audience is awake.',
     subheadline:
-      'Bring your own creative when you have it, and Gravity schedules each platform and format for the time your audience is actually active, rather than whenever you happened to hit post.',
+      'Bring your own photos, videos and designs when you have them. Nebulaa schedules each platform and format for the time your audience is actually active, instead of whenever you happened to hit post.',
     summary: 'Bulk upload your own creative and schedule to peak hours per platform.',
     steps: [
       { title: 'Upload what you already have', body: 'Your own photography, video or designs, in bulk rather than one at a time.' },
@@ -516,16 +516,16 @@ export const capabilities: Capability[] = [
     headline: 'What worked,',
     headlineEmphasis: 'and what to do next.',
     subheadline:
-      'A dashboard that tells you engagement went up does not tell you what to do on Monday. Gravity reports across platforms, attributes performance to pillars and formats, and turns it into next month\'s plan.',
-    summary: 'Cross-platform performance, tied back to pillars and next month\'s plan.',
+      'A dashboard that says engagement went up does not tell you what to do on Monday. Nebulaa reports across all your platforms, shows which themes and formats worked, and uses that to plan next month.',
+    summary: 'Performance across platforms, tied back to your themes and next month\'s plan.',
     steps: [
       { title: 'Everything in one view', body: 'Performance across every connected platform, rather than five separate native dashboards.' },
-      { title: 'Attributed to the work', body: 'Which pillar, which format, which campaign — not just which post.' },
+      { title: 'Attributed to the work', body: 'Which theme, which format and which campaign, as well as which post.' },
       { title: 'Fed into next month', body: 'The findings shape the next plan automatically, and the monthly report says what changed and why.' },
     ],
     whatYouGet: [
       'Cross-platform reporting in one place',
-      'Performance by pillar, format and campaign',
+      'Performance by theme, format and campaign',
       'A monthly report written in plain language',
       'Findings that actually change the next plan',
     ],
@@ -537,7 +537,7 @@ export const capabilities: Capability[] = [
     ],
     seoTitle: 'Cross-Platform Marketing Analytics — Gravity',
     seoDescription:
-      'Performance across every connected platform, attributed to pillars, formats and campaigns, and fed into the next month\'s plan.',
+      'Performance across every connected platform, tied to your themes, formats and campaigns, and used to plan the next month.',
   },
   // ───────────────────────────── Pulsar ─────────────────────────────
   {
@@ -548,11 +548,11 @@ export const capabilities: Capability[] = [
     headline: 'The channel your customers',
     headlineEmphasis: 'actually use.',
     subheadline:
-      'In India, most enquiries arrive on WhatsApp rather than email — often at nine on a Sunday night — and whoever replies first usually gets the sale. Pulsar answers within minutes, in your voice.',
+      'In India, most enquiries arrive on WhatsApp rather than email, often at nine on a Sunday night. The business that replies first usually gets the sale. Nebulaa answers within minutes, in your voice.',
     summary: 'Replies to WhatsApp enquiries in minutes, in your voice.',
     steps: [
       { title: 'The enquiry lands', body: 'Someone messages your business number — from an ad, a post, your Google listing or a friend passing on the number.' },
-      { title: 'Pulsar replies in minutes', body: 'Not a menu tree. A reply that answers what they asked and moves the conversation toward what you need to know.' },
+      { title: 'You reply in minutes', body: 'A real reply that answers what they asked and moves toward what you need to know, instead of a menu of options.' },
       { title: 'You get the ones that matter', body: 'Budget, timeline and fit established before it reaches you, with the full conversation attached.' },
     ],
     whatYouGet: [
@@ -560,7 +560,7 @@ export const capabilities: Capability[] = [
       'Conversation rather than a keyword auto-responder',
       'Questions asked in the order a good salesperson would ask them',
       'Handover with the whole thread, not just a name and number',
-      'Official WhatsApp Business API, not a phone farm',
+      'Official WhatsApp Business API, with no risky workarounds',
     ],
     mediaSlot: 'pulsar-whatsapp',
     faqs: [
@@ -570,7 +570,7 @@ export const capabilities: Capability[] = [
     ],
     seoTitle: 'WhatsApp Enquiry Automation — Pulsar',
     seoDescription:
-      'Pulsar answers WhatsApp enquiries in minutes on the official Business API, qualifies budget, timeline and fit, and hands over the full conversation.',
+      'Nebulaa Pulsar answers WhatsApp enquiries in minutes on the official Business API, asks about budget, timeline and fit, and hands over the full conversation.',
   },
   {
     slug: 'leads',
@@ -580,7 +580,7 @@ export const capabilities: Capability[] = [
     headline: 'Your day starts at',
     headlineEmphasis: 'the top of the list.',
     subheadline:
-      'Most enquiries are not ready to buy, and finding the few that are is what eats the morning. Pulsar scores every conversation on what was actually said, so the list you open is already ordered by who is worth calling first.',
+      'Most enquiries are not ready to buy, and finding the few that are takes up your morning. Nebulaa scores every conversation on what was actually said, so the list you open is already in order of who to call first.',
     summary: 'Every conversation scored on intent, so the list is already ordered.',
     steps: [
       { title: 'Every enquiry becomes a record', body: 'Contact details, source, the full conversation and what was established during it.' },
@@ -617,7 +617,7 @@ export const capabilities: Capability[] = [
     steps: [
       { title: 'Pick who it goes to', body: 'Segment by source, score, past interest or how recently they were in touch — not just everyone in the list.' },
       { title: 'Send it', body: 'One message, personalised per recipient, sent within WhatsApp policy rather than around it.' },
-      { title: 'Replies become conversations', body: 'The point most broadcast tools stop at. Everyone who replies gets a real answer, qualified and scored like any other enquiry.' },
+      { title: 'Replies become conversations', body: 'Everyone who replies gets a real answer, asked the right questions and scored like any other enquiry.' },
     ],
     whatYouGet: [
       'Segmented sends rather than one list for everything',
@@ -643,7 +643,7 @@ export const capabilities: Capability[] = [
     headline: 'For the moments a call',
     headlineEmphasis: 'still beats a message.',
     subheadline:
-      'Most of the time a message is better — it is on the customer\'s terms and it leaves a record. But some enquiries deserve a call, and some people simply do not reply to text. Pulsar queues those calls automatically, without anyone dialling manually.',
+      'Most of the time a message is better. It is on the customer\'s terms and it leaves a record. But some enquiries deserve a call, and some people simply do not reply to text. Nebulaa queues those calls automatically, so nobody has to dial by hand.',
     summary: 'A call queue for the enquiries where a message is not enough.',
     steps: [
       { title: 'A call gets queued', body: 'Triggered by a score threshold, an unanswered message thread, or a rule you set.' },
@@ -700,12 +700,12 @@ export const capabilities: Capability[] = [
   {
     slug: 'automation',
     agent: 'pulsar',
-    name: 'Automation',
+    name: 'Follow-ups',
     eyebrow: 'Pulsar · automation',
     headline: 'Follow-up that happens',
     headlineEmphasis: 'whether you remember or not.',
     subheadline:
-      'Most lost sales are not lost to a competitor — they are lost to nobody following up on day four. Sequences handle the chasing, and a monitor shows exactly what is running, what fired and what stalled.',
+      'Most lost sales are lost because nobody followed up on day four, not because a competitor won them. Follow-up messages go out on their own, and a live screen shows what is running, what was sent and what stalled.',
     summary: 'Follow-up sequences that run themselves, with a live monitor.',
     steps: [
       { title: 'Build the sequence', body: 'What happens on day one, day three, day seven — and on which channel each step goes out.' },
@@ -767,7 +767,7 @@ export const capabilities: Capability[] = [
     headline: 'Reach people where',
     headlineEmphasis: 'they actually reply.',
     subheadline:
-      'WhatsApp carries most of the conversation in this market, but not all of it. Some buyers want email, some only see an SMS, and a dealer network often runs on both — Pulsar works all three from one thread, alongside WhatsApp rather than in place of it.',
+      'WhatsApp carries most of the conversation in this market, but not all of it. Some buyers want email, some only see an SMS, and a dealer network often runs on both. Nebulaa handles all three in one thread, alongside WhatsApp rather than in place of it.',
     summary: 'Email and SMS alongside WhatsApp, in one conversation thread.',
     steps: [
       { title: 'One contact, several channels', body: 'A person is one record, whichever channel they came in on.' },
@@ -829,7 +829,7 @@ export const capabilities: Capability[] = [
     headline: 'How fast you answer,',
     headlineEmphasis: 'and what it is worth.',
     subheadline:
-      'Response time is the number that moves sales most in this market, and almost nobody measures it. Pulsar reports it by channel, by agent and by person, alongside what those conversations turned into.',
+      'Response time is the number that moves sales most in this market, and almost nobody measures it. Nebulaa reports it by channel, by agent and by person, alongside what those conversations turned into.',
     summary: 'Response time, conversion and per-person performance.',
     steps: [
       { title: 'Every conversation is timed', body: 'From enquiry to first reply, and through to handover.' },
@@ -840,7 +840,7 @@ export const capabilities: Capability[] = [
       'Response time as a first-class metric',
       'Conversion by source and channel',
       'Per-person performance on follow-through',
-      'Where in the funnel conversations stall',
+      'Where conversations stall on the way to a sale',
     ],
     faqs: [
       { q: 'What is a good response time?', a: 'Minutes, not hours. The gap between a two-minute reply and a two-hour reply is usually larger than the gap between a good pitch and a bad one.' },
@@ -856,13 +856,13 @@ export const capabilities: Capability[] = [
   {
     slug: 'lead-sourcing',
     agent: 'orbit',
-    name: 'Lead sourcing',
+    name: 'Finding leads',
     eyebrow: 'Orbit · sourcing',
     headline: 'Real businesses,',
     headlineEmphasis: 'matched to who you sell to.',
     subheadline:
-      'Tell Orbit what you sell and who buys it — a category, a location — and it searches Google Maps and a second, independent source for the same area. One provider going quiet does not stop the list from filling.',
-    summary: 'Searches Google Maps and a second source for real businesses matching your target.',
+      'Tell us what you sell and who buys it, such as a category and a location. Nebulaa searches Google Maps and a second, independent source for the same area, so one source going quiet does not stop your list from filling.',
+    summary: 'Searches Google Maps and a second source for real businesses that match who you sell to.',
     steps: [
       { title: 'Describe the target', body: 'A business type and a location — "gyms in Chennai," "interior designers in Coimbatore." No list to upload.' },
       { title: 'It searches two sources', body: 'Google Maps and a second maps-search provider cover the same area, so gaps in one get filled by the other.' },
@@ -872,7 +872,7 @@ export const capabilities: Capability[] = [
       'Business name, category, location and public listing details',
       'Two independent sources searched per run, not one',
       'Coverage across multiple locations in a single pass',
-      'A deduplicated list, not a raw export',
+      'A list with duplicates removed, not a raw export',
     ],
     faqs: [
       { q: 'Where does the data come from?', a: 'Google Maps and Serper, a second maps-search provider. Both are queried so one running dry does not cap the list.' },
@@ -881,18 +881,18 @@ export const capabilities: Capability[] = [
     ],
     seoTitle: 'AI Lead Sourcing from Google Maps — Orbit',
     seoDescription:
-      'Orbit searches Google Maps and a second source for real businesses matching your target category and location, then deduplicates the results.',
+      'Nebulaa Orbit searches Google Maps and a second source for real businesses matching your target category and location, then removes duplicates.',
     mediaSlot: 'orbit-sourcing',
   },
   {
     slug: 'lead-qualification',
     agent: 'orbit',
-    name: 'Lead qualification',
+    name: 'Picking the right leads',
     eyebrow: 'Orbit · qualification',
     headline: 'Only the ones',
     headlineEmphasis: 'actually worth calling.',
     subheadline:
-      'A sourced list is not a qualified one. Orbit keeps a business only if there is a phone number to reach them on and a public rating that suggests they are a going concern worth pursuing — everything else is dropped before it reaches you.',
+      'A long list is not a good list. Nebulaa keeps a business only if there is a phone number to reach them on and a public rating that suggests they are a going concern worth pursuing. Everything else is dropped before it reaches you.',
     summary: 'Keeps only businesses with a real phone number and a rating of 4.2 or above.',
     steps: [
       { title: 'Phone number required', body: 'No number, no lead. A business you cannot call is not a qualified one, whatever else is on the listing.' },
@@ -917,12 +917,12 @@ export const capabilities: Capability[] = [
   {
     slug: 'email-enrichment',
     agent: 'orbit',
-    name: 'Email enrichment',
+    name: 'Finding contact emails',
     eyebrow: 'Orbit · enrichment',
     headline: 'A contact email,',
     headlineEmphasis: 'even when Google Maps has none.',
     subheadline:
-      'For any qualified lead with a website, Orbit reads the homepage and the usual contact pages and pulls out a real business email, filtering out noreply addresses, placeholder domains and the junk that scraping usually drags in.',
+      'For any good lead with a website, Nebulaa reads the homepage and the usual contact pages and picks out a real business email. It skips noreply addresses, placeholder domains and other junk.',
     summary: 'Reads a lead\'s website to find a real contact email, filtering out noreply addresses and placeholder junk.',
     steps: [
       { title: 'It visits the website', body: 'The homepage first, then the usual contact-page paths — /contact, /about and their common variants.' },
@@ -946,17 +946,17 @@ export const capabilities: Capability[] = [
   {
     slug: 'personalized-outreach',
     agent: 'orbit',
-    name: 'Personalized outreach',
+    name: 'First message',
     eyebrow: 'Orbit · outreach',
     headline: 'The first message,',
     headlineEmphasis: 'already written.',
     subheadline:
-      'Every qualified lead gets an opening message drafted around what is actually true about them — whether they have a website, what the business appears to be about — instead of a template with a name dropped in.',
-    summary: 'Drafts an opening outreach message per lead, based on their website and business context.',
+      'Every good lead gets an opening message written around what we can see about the business, such as whether it has a website and what it does, instead of a template with a name dropped in.',
+    summary: 'Drafts an opening message for each lead, based on their website and business.',
     steps: [
       { title: 'Context, not a template', body: 'Website presence and what the listing says about the business shape the message, not a fill-in-the-blank script.' },
       { title: 'One message per lead', body: 'Generated per business, not copy-pasted across the list.' },
-      { title: 'Ready to send or hand off', body: 'The draft is there for a rep to review and send, or to flow straight into Pulsar for the actual conversation.' },
+      { title: 'Ready to send or hand off', body: 'The draft is there for a salesperson to review and send, or to flow straight into Pulsar for the actual conversation.' },
     ],
     whatYouGet: [
       'A drafted opening message for every qualified lead',
@@ -975,26 +975,26 @@ export const capabilities: Capability[] = [
   {
     slug: 'crm-sync',
     agent: 'orbit',
-    name: 'CRM sync',
+    name: 'Sent to your CRM',
     eyebrow: 'Orbit · CRM',
     headline: 'Into the CRM,',
     headlineEmphasis: 'assigned and ready to work.',
     subheadline:
-      'Orbit pushes each qualified lead into your CRM as a linked Company, Contact and Pipeline record. If you run more than one rep, it assigns the lead to the next one in rotation, so nobody is idle and nobody is flooded.',
-    summary: 'Pushes qualified leads into your CRM as linked records, round-robin assigned across reps.',
+      'Nebulaa adds each good lead to your CRM (your customer records tool) as a linked Company, Contact and Pipeline record. If you have more than one salesperson, each new lead goes to the next one in turn, so nobody sits idle and nobody is flooded.',
+    summary: 'Adds good leads to your CRM as linked records, shared out in turn across your salespeople.',
     steps: [
       { title: 'Three linked records', body: 'A Company, a Contact tied to it, and a Pipeline record tied to both — so a rep sees the full picture, not a bare contact.' },
-      { title: 'Round-robin assignment', body: 'With more than one rep configured, each new lead goes to the next one in rotation automatically.' },
-      { title: 'It lands ready to call', body: 'Stage, pipeline and ownership are already set — the rep opens the CRM and starts working, not sorting.' },
+      { title: 'Shared out in turn', body: 'With more than one salesperson set up, each new lead goes to the next one in turn.' },
+      { title: 'It lands ready to call', body: 'Stage, pipeline and owner are already set. The salesperson opens the CRM and starts working instead of sorting.' },
     ],
     whatYouGet: [
       'Company, Contact and Pipeline records created together, linked',
-      'Round-robin assignment across your configured reps',
+      'Leads shared out in turn across your salespeople',
       'A consistent starting stage, so nothing sits unclassified',
     ],
     faqs: [
       { q: 'Which CRM does this work with?', a: 'Built for Zoho Bigin today. Ask if you run something else.' },
-      { q: 'What if I only have one rep?', a: 'Every lead is owned by that account — round-robin only kicks in once more than one rep is configured.' },
+      { q: 'What if I only have one rep?', a: 'Every lead goes to that one person. Sharing in turn starts once you add more than one salesperson.' },
       { q: 'Can I choose the pipeline and stage it lands in?', a: 'Yes, both are configured to match your existing CRM setup rather than assuming one.' },
     ],
     seoTitle: 'Automatic CRM Sync for Qualified Leads — Orbit',

@@ -5,9 +5,9 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import HudCard from '@/components/ui/HudCard'
 import Schema, { breadcrumbSchema } from '@/components/ui/Schema'
 
-const seoTitle = 'Nebulaa Core — The Intelligence Behind the System'
+const seoTitle = 'Nebulaa Core: How Nebulaa Learns What Works for You'
 const seoDescription =
-  'Core connects what happens across Orbit, Gravity and Pulsar — observing actions, outcomes and signals, and turning them into what runs next.'
+  'Nebulaa Core learns from your posts, leads and replies, and uses it to make your next month of marketing better. It is included, with nothing separate to buy.'
 
 export const metadata: Metadata = {
   title: seoTitle,
@@ -52,17 +52,16 @@ export default function CorePage() {
         </nav>
 
         <div className="max-w-[820px]">
-          <SectionLabel className="mb-[24px] block">Core — cross-agent intelligence</SectionLabel>
+          <SectionLabel className="mb-[24px] block">Core · how Nebulaa learns</SectionLabel>
           <h1
             className="neb-display text-[40px] md:text-[62px] mb-[26px]"
             style={{ textWrap: 'pretty' }}
           >
-            The intelligence <span className="text-gold-display">behind the system.</span>
+            How Nebulaa learns <span className="text-gold-display">what works for you.</span>
           </h1>
           <p className="text-[18px] leading-[1.65] text-muted max-w-[660px] mb-9">
-            Core connects what happens across Orbit, Gravity and Pulsar — observing actions,
-            outcomes and signals, and turning activity into learning, and learning into a better
-            next action. It comes with every engine. There is nothing separate to buy.
+            Core notices what happens after each post, message and lead, and uses it to decide what
+            Nebulaa does next. It is included with Nebulaa. There is nothing separate to buy.
           </p>
           <a
             href="#learning-loop"
@@ -79,24 +78,24 @@ export default function CorePage() {
       <section className="px-6 md:px-12 lg:px-[120px] py-[110px]">
         <div className="max-w-[720px] mb-[56px]">
           <h2 className="neb-display text-[30px] md:text-[46px]">
-            Core doesn&apos;t do the work. <span className="text-gold-display">It makes the system better at doing the work.</span>
+            Core helps <span className="text-gold-display">the rest of Nebulaa do its work better.</span>
           </h2>
         </div>
         <div className="grid sm:grid-cols-3 gap-5 max-w-[900px]">
           {[
-            { name: 'Gravity', role: 'creates.' },
-            { name: 'Orbit', role: 'finds.' },
-            { name: 'Pulsar', role: 'engages.' },
+            { name: 'Gravity', role: 'Plans and writes your posts.' },
+            { name: 'Orbit', role: 'Finds businesses to sell to.' },
+            { name: 'Pulsar', role: 'Answers your enquiries.' },
           ].map(a => (
             <HudCard key={a.name} halo="amber" className="p-7">
               <SectionLabel tone="muted" className="mb-3 block">{a.name}</SectionLabel>
-              <p className="font-heading text-[20px] font-medium">{a.name} {a.role}</p>
+              <p className="font-heading text-[20px] font-medium">{a.role}</p>
             </HudCard>
           ))}
         </div>
         <p className="text-[16px] leading-[1.68] text-muted max-w-[600px] mt-8">
-          Core observes what happens across all three, and connects it — so a pattern found in
-          Gravity&apos;s content performance can shape what Pulsar says, and what Orbit looks for next.
+          Core watches all three, so something learned from how your posts perform can shape what
+          your WhatsApp replies say and who Nebulaa looks for next.
         </p>
       </section>
 
@@ -105,9 +104,9 @@ export default function CorePage() {
       {/* From activity to signal */}
       <section className="px-6 md:px-12 lg:px-[120px] py-[110px]">
         <div className="max-w-[640px] mb-[52px]">
-          <SectionLabel className="mb-[20px] block">From activity to signal</SectionLabel>
+          <SectionLabel className="mb-[20px] block">What Core notices</SectionLabel>
           <h2 className="neb-display text-[30px] md:text-[44px]">
-            Every action in the system leaves a signal for the next one.
+            Each post, message and reply gives Nebulaa something to learn from.
           </h2>
         </div>
         <div className="flex flex-wrap gap-3">
@@ -125,9 +124,9 @@ export default function CorePage() {
       {/* From signal to learning */}
       <section className="px-6 md:px-12 lg:px-[120px] py-[110px]">
         <div className="max-w-[640px] mb-[52px]">
-          <SectionLabel className="mb-[20px] block">From signal to learning</SectionLabel>
+          <SectionLabel className="mb-[20px] block">What it learns</SectionLabel>
           <h2 className="neb-display text-[30px] md:text-[44px]">
-            <span className="text-gold-display">Signals</span>, connected across actions and outcomes.
+            <span className="text-gold-display">Four things</span> it learns from your results.
           </h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -146,14 +145,14 @@ export default function CorePage() {
       {/* From learning to the next move */}
       <section id="learning-loop" className="px-6 md:px-12 lg:px-[120px] py-[110px]">
         <div className="max-w-[640px] mb-[52px]">
-          <SectionLabel className="mb-[20px] block">From learning to the next move</SectionLabel>
+          <SectionLabel className="mb-[20px] block">How it is used</SectionLabel>
           <h2 className="neb-display text-[30px] md:text-[44px] mb-5">
-            The system uses what it learns to decide what runs next.
+            What it learns decides what Nebulaa does next.
           </h2>
         </div>
 
         <div className="flex flex-wrap items-center gap-3 max-w-[900px]">
-          {['Action', 'Outcome', 'Signal', 'Learning', 'Next action'].map((step, i, arr) => (
+          {['Post or message', 'Result', 'What we noticed', 'What we learned', 'Next step'].map((step, i, arr) => (
             <div key={step} className="flex items-center gap-3">
               <span className="hud-card rounded-full px-5 py-2.5 font-mono text-[12.5px] text-ink-2 uppercase tracking-wide">
                 {step}
@@ -169,17 +168,17 @@ export default function CorePage() {
       {/* Close */}
       <section className="px-6 md:px-12 lg:px-[120px] py-[110px] text-center">
         <h2 className="neb-display text-[28px] md:text-[42px] mb-6">
-          Core comes with <span className="text-gold-display">every engine.</span>
+          Core is <span className="text-gold-display">included with Nebulaa.</span>
         </h2>
         <p className="text-[16px] leading-[1.65] text-muted max-w-[480px] mx-auto mb-9">
-          There is no separate Core plan. Run Orbit, Gravity or Pulsar and Core is already
-          connecting what they learn.
+          There is no separate Core plan. Whichever part of Nebulaa you use, Core is already
+          learning from it.
         </p>
         <Link
           href="/product"
           className="inline-flex items-center gap-2 bg-gold text-[#1A1208] text-[15px] font-semibold px-[30px] py-[15px] rounded-full hover:brightness-105 transition"
         >
-          See all three engines <ArrowRight size={15} />
+          See what Nebulaa does <ArrowRight size={15} />
         </Link>
       </section>
     </main>

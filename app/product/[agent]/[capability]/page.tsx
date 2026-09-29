@@ -121,7 +121,7 @@ export default function CapabilityPage({
           <div>
             <SectionLabel className="mb-[20px] block">What you get</SectionLabel>
             <h2 className="neb-display text-[30px] md:text-[40px]">
-              Everything included in this module.
+              Everything that is included.
             </h2>
           </div>
           <div className="flex flex-col gap-4">
@@ -179,9 +179,9 @@ export default function CapabilityPage({
         <div className="relative">
           <h2 className="neb-display text-[30px] md:text-[46px] mb-5">
             {agent.cta ? (
-              <><span className="text-gold-display">{agent.name}</span>, running on your business. See it for yourself.</>
+              <>See <span className="text-gold-display">{agent.name}</span> running on your business.</>
             ) : (
-              <><span className="text-gold-display">Give it a URL.</span> See what it builds from your business.</>
+              <><span className="text-gold-display">Give us your website.</span> See what we build for your business.</>
             )}
           </h2>
           <p className="text-[16px] leading-[1.65] text-muted max-w-[460px] mx-auto mb-9">

@@ -8,7 +8,6 @@ import GravitySection from '@/components/sections/GravitySection'
 import OrbitSection from '@/components/sections/OrbitSection'
 import PulsarSection from '@/components/sections/PulsarSection'
 import EntryFork from '@/components/sections/EntryFork'
-import NarrativeDemo from '@/components/sections/NarrativeDemo'
 import Pricing from '@/components/sections/Pricing'
 import FAQ from '@/components/sections/FAQ'
 import Newsletter from '@/components/sections/Newsletter'
@@ -36,7 +35,6 @@ export default function Home() {
       <ClientStrip />
       <ClientGallery />
       <AgentEcosystem />
-      <NarrativeDemo />
       <EntryFork />
       {/* Gravity creates, Orbit finds, Pulsar engages — the master copy's order. */}
       <GravitySection />

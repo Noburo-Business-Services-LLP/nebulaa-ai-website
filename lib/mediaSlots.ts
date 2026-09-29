@@ -332,7 +332,7 @@ export const mediaSlots: MediaSlot[] = [
     label: 'Sample creative — jewellery',
     spec: 'A social post in the style Gravity produces for a jewellery brand. Illustrative, never captioned as a named client’s published work.',
     dimensions: '1080×1080',
-    usedOn: '/for/jewellery-retail, homepage narrative demo, proof gallery',
+    usedOn: '/for/jewellery-retail, proof gallery',
   },
   {
     id: 'creative-textile',
@@ -341,7 +341,7 @@ export const mediaSlots: MediaSlot[] = [
     label: 'Sample creative — textile',
     spec: 'A social post in the style Gravity produces for a textile retailer.',
     dimensions: '1080×1080',
-    usedOn: '/for/textile-apparel, homepage narrative demo, proof gallery',
+    usedOn: '/for/textile-apparel, proof gallery',
   },
   {
     id: 'creative-fmcg',
@@ -350,7 +350,7 @@ export const mediaSlots: MediaSlot[] = [
     label: 'Sample creative — FMCG / snacks',
     spec: 'A social post in the style Gravity produces for a food brand.',
     dimensions: '1080×1080',
-    usedOn: '/for/fmcg-food, homepage narrative demo, proof gallery',
+    usedOn: '/for/fmcg-food, proof gallery',
   },
   {
     id: 'creative-financial',
@@ -359,7 +359,7 @@ export const mediaSlots: MediaSlot[] = [
     label: 'Sample creative — financial services',
     spec: 'A social post in the style Gravity produces for a chits/financial-services brand — trust and clarity over hard-sell.',
     dimensions: '1080×1080',
-    usedOn: '/for/financial-services, homepage narrative demo',
+    usedOn: '/for/financial-services',
   },
 
   // ── BTL activation ──────────────────────────────────────────────────────
@@ -391,6 +391,38 @@ export const mediaSlots: MediaSlot[] = [
     spec: 'A reel produced through Gravity, for autoplay muted in a phone frame. "Posts, carousels and AI reels" is currently a claim with no evidence. Keep under 8MB.',
     dimensions: '1080×1920',
     usedOn: 'Homepage Gravity section, /product/gravity/reels',
+  },
+
+  // ── "What you get" homepage demo clips ──────────────────────────────────
+  // Short screen recordings, not screenshots — the point of this trio is to
+  // show the product moving, muted and looping, so a visitor sees it work
+  // in the first few seconds instead of reading three paragraphs about it.
+  {
+    id: 'demo-content',
+    file: 'demo-content.mp4',
+    kind: 'video',
+    label: 'Demo — a post going out',
+    spec: '8-12s screen recording: open Gravity, show a drafted post or reel, tap approve, see it schedule or publish. One continuous action, nothing staged.',
+    dimensions: '1080×1350, under 6MB',
+    usedOn: 'Homepage "What you get" section',
+  },
+  {
+    id: 'demo-leads',
+    file: 'demo-leads.mp4',
+    kind: 'video',
+    label: 'Demo — a lead being found',
+    spec: '8-12s screen recording: an Orbit search running, results populating, a qualified lead landing in the list. Real data, blur any real customer’s personal details.',
+    dimensions: '1080×1350, under 6MB',
+    usedOn: 'Homepage "What you get" section',
+  },
+  {
+    id: 'demo-replies',
+    file: 'demo-replies.mp4',
+    kind: 'video',
+    label: 'Demo — a reply going out',
+    spec: '8-12s screen recording: a WhatsApp enquiry arriving in Pulsar and a reply being sent, ideally the real conversation view rather than a mockup. Blur the customer’s number/name.',
+    dimensions: '1080×1350, under 6MB',
+    usedOn: 'Homepage "What you get" section',
   },
 ]
 

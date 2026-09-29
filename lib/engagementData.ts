@@ -99,7 +99,7 @@ export const engagements: Engagement[] = [
     headline: 'Awareness waiting',
     headlineEmphasis: 'when the stock arrives.',
     subheadline:
-      'A brand with a proven product in one market, going into another, often sorts distribution first and marketing second, then watches stock sit. This engagement runs demand generation ahead of the launch date, so awareness is already there.',
+      'A brand with a proven product in one market, going into another, often launches first and starts marketing second, then watches stock sit. This engagement runs demand generation ahead of the launch date, so awareness is already there.',
     scope: [
       {
         group: 'Demand generation',
@@ -116,6 +116,7 @@ export const engagements: Engagement[] = [
           'Sampling drives in priority neighbourhoods',
           'Retail activations and in-store demonstrations',
           'Local events and hyperlocal promotional activity',
+          'Delivered through our partner network',
         ],
       },
     ],
@@ -142,7 +143,7 @@ export const engagements: Engagement[] = [
     slug: 'regional-programme',
     name: 'Regional programme',
     summary: 'Organic, paid and on-ground activation run as one plan across multiple markets.',
-    forWho: 'Brands with distribution across several markets, regions or retail networks',
+    forWho: 'Brands selling across several markets, regions or retail networks',
     eyebrow: 'Engagement · regional',
     headline: 'Organic, paid and on-ground',
     headlineEmphasis: 'run as one plan.',
@@ -172,6 +173,7 @@ export const engagements: Engagement[] = [
           'Product launches, dealer events and retail activations',
           'Geo-targeted spend concentrated around priority retail clusters',
           'Dealer-specific communication and point-of-sale support',
+          'On-ground activation is delivered through our partner network',
         ],
       },
     ],
@@ -189,7 +191,7 @@ export const engagements: Engagement[] = [
     faqs: [
       { q: 'How many markets can this cover?', a: 'It scales by market. The model is the same whether it is three cities or a retail network across a state — the team and the cost scale with it.' },
       { q: 'Do you work with our existing agencies?', a: 'We can, though the reason this works is that the three pillars run together. Splitting them across vendors is usually the problem being solved.' },
-      { q: 'How is BTL measured?', a: 'Participation, samples distributed, dealer engagement, and movement in the geo-targeted campaigns running around the same clusters. It is not as clean as a click and we say so.' },
+      { q: 'How is BTL measured?', a: 'Participation, samples handed out, dealer engagement, and movement in the geo-targeted campaigns running around the same clusters. It is not as clean as a click and we say so. On-ground activation is delivered through our partner network.' },
     ],
     seoTitle: 'Regional Marketing Programme — Organic, Paid & BTL',
     seoDescription:

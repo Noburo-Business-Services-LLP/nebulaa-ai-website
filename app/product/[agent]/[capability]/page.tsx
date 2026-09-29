@@ -50,7 +50,7 @@ export default function CapabilityPage({
       />
       <Schema
         data={softwareApplicationSchema({
-          name: `${agent.name} — ${cap.name}`,
+          name: `Nebulaa ${agent.name}: ${cap.name}`,
           description: cap.seoDescription,
           url: `/product/${agent.id}/${cap.slug}`,
         })}
@@ -179,7 +179,7 @@ export default function CapabilityPage({
         <div className="relative">
           <h2 className="neb-display text-[30px] md:text-[46px] mb-5">
             {agent.cta ? (
-              <>See <span className="text-gold-display">{agent.name}</span> running on your business.</>
+              <>See <span className="text-gold-display">Nebulaa</span> running on your business.</>
             ) : (
               <><span className="text-gold-display">Give us your website.</span> See what we build for your business.</>
             )}

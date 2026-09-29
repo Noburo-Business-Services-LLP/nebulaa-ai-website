@@ -141,7 +141,7 @@ Tone: Analyst energy but founder-friendly. Data-backed. 800-1000 words.`,
     title: 'How [Company Type] Got [Specific Result] Using Nebulaa',
     emoji: '🏆',
     prompt: `Write a compelling customer case study blog post. Structure:
-- H1 with specific company type and result (e.g. "How a Bangalore SaaS Startup Got 40 Demo Calls in 30 Days Using Nebulaa's Gravity")
+- H1 with specific company type and result (e.g. "How a Bangalore SaaS Startup Got 40 Demo Calls in 30 Days Using Nebulaa")
 - Quick stats box: the key numbers at a glance
 - The before: what the company was struggling with (be specific and relatable)
 - Why they chose Nebulaa (what made them decide)

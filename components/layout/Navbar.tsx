@@ -12,7 +12,7 @@ import { waLink } from '@/lib/contact'
 
 /**
  * Four words and a button. The old menu asked a visitor to understand the
- * product's architecture (Product, Core, Channels, Services, Resources, each
+ * product's architecture (Product, How it learns, Channels, Services, Resources, each
  * with a sub-menu) before deciding whether to care. Free tools, the blog,
  * comparisons and the rest live in the footer; their URLs are unchanged.
  */

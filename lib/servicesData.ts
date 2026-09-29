@@ -41,7 +41,7 @@ export const capabilities: Capability[] = [
   { title: 'Content & Photography', body: 'Carousels, static creatives, short-form videos, explainers, copy and photography.' },
   { title: 'Films & Production', body: 'Brand films, product and facility stories, leadership and culture videos.' },
   { title: 'Digital Campaigns', body: 'Campaign creatives, landing-page content, lead-generation communication.' },
-  { title: 'BTL & On-Ground Activation', body: 'In-store activation, promoter-led events, retail and trade marketing collateral.' },
+  { title: 'BTL & On-Ground Activation', body: 'In-store activation, promoter-led events, retail and trade marketing collateral. Delivered through our partner network.' },
   { title: 'Brand Communication', body: 'Visual direction, messaging, campaign concepts and communication assets.' },
   { title: 'Reporting & Optimisation', body: 'Content performance, learnings and next-cycle recommendations.' },
 ]
@@ -147,7 +147,7 @@ export const deliverableGroups: DeliverableGroup[] = [
       {
         format: 'On-ground activation',
         volume: '10 days / month',
-        covers: 'Sampling drives, retail activations, local events and hyperlocal promotional activity, rotating across priority neighbourhoods.',
+        covers: 'Sampling drives, retail activations, local events and hyperlocal promotional activity, rotating across priority neighbourhoods. Delivered through our partner network.',
       },
     ],
   },

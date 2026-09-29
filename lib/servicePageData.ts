@@ -53,7 +53,7 @@ export const servicePages: ServicePage[] = [
     headline: 'Start building the market',
     headlineEmphasis: 'before you are on the shelf.',
     subheadline:
-      'Most brands sort distribution first and marketing second, then wonder why the stock sits. This plan starts marketing months before launch, so there is already interest waiting when the product arrives.',
+      'Most brands launch first and start marketing second, then wonder why the stock sits. This plan starts marketing months before launch, so there is already interest waiting when the product arrives.',
     howItWorks: [
       { title: 'Pick the market and the date', body: 'One city, one launch window. Everything else works backwards from it.' },
       { title: 'Build awareness first', body: 'Local content, creators and geo-targeted campaigns run in the months before anything is on a shelf.' },
@@ -76,7 +76,7 @@ export const servicePages: ServicePage[] = [
       {
         label: 'Month 3',
         title: 'Create purchase intent',
-        body: 'Performance campaigns intensify, offer communication goes out, traffic is driven to live listings, and sampling and BTL step up as distribution readiness completes.',
+        body: 'Performance campaigns intensify, offer communication goes out, traffic is driven to live listings, and sampling and BTL step up as launch approaches.',
         outcome: 'Demand is being created while availability is being put in place.',
       },
       {
@@ -93,7 +93,7 @@ export const servicePages: ServicePage[] = [
       'Sampling, retail activation and hyperlocal promotion',
       'Quick-commerce listing optimisation and discovery campaigns',
     ],
-    note: 'The timeline above is the shape of the model, not a fixed contract. A faster launch or several cities at once changes the scope and the sequence.',
+    note: 'Sampling and on-ground activation are delivered through our partner network. The timeline above is the shape of the model, not a fixed contract. A faster launch or several cities at once changes the scope and the sequence.',
     faqs: [
       { q: 'How far ahead should we start?', a: 'Three to four months before launch is where this model works. Starting a month out still helps, but you lose most of the compounding.' },
       { q: 'What if the launch date moves?', a: 'It frequently does. The sequence shifts with it, because the activity is timed to the date, whenever the date turns out to be.' },
@@ -126,11 +126,11 @@ export const servicePages: ServicePage[] = [
       'Bus-back advertising and auto-rickshaw branding for city-level presence',
       'Retail and trade marketing collateral for local partners',
     ],
-    note: 'Activation investment depends on format, city and scale, and is scoped and quoted once specific activations are confirmed.',
+    note: 'Delivered through our partner network. Activation investment depends on format, city and scale, and is scoped and quoted once specific activations are confirmed.',
     faqs: [
       { q: 'How is this different from hiring a local BTL agency?', a: 'A BTL agency runs the activation and hands you photographs. We run it alongside the digital campaign targeting the same catchment in the same week, and report both together.' },
-      { q: 'Who staffs the activations?', a: 'Promoters and staff are arranged and managed as part of the engagement.' },
-      { q: 'How do you measure something on the ground?', a: 'Participation, samples distributed, dealer engagement and the movement in the geo-targeted digital campaigns running around the same clusters. It is not as clean as a click, and we do not pretend otherwise.' },
+      { q: 'Who staffs the activations?', a: 'Activations are delivered through our partner network.' },
+      { q: 'How do you measure something on the ground?', a: 'Participation, samples handed out, dealer engagement and the movement in the geo-targeted digital campaigns running around the same clusters. It is not as clean as a click, and we do not pretend otherwise.' },
     ],
     seoTitle: 'BTL Activation, Sampling & In-Store Demos in India',
     seoDescription:

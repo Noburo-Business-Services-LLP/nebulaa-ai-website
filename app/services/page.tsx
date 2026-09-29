@@ -134,7 +134,7 @@ export default function ServicesPage() {
           </h2>
           <p className="text-[16px] leading-[1.68] text-muted">
             Market entry and BTL activation need people on the ground. No software competitor
-            offers them, because software cannot.
+            offers them, because software cannot. On-ground work is delivered through our partner network.
           </p>
         </div>
 

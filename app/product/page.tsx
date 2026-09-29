@@ -58,7 +58,7 @@ export default function ProductPage() {
             const caps = capabilitiesFor(a.id)
             return (
               <div key={a.id} className={`rounded-[26px] ${a.tint} p-7 flex flex-col`}>
-                <p className="text-[11.5px] font-bold uppercase tracking-[0.12em] text-ink-2 mb-3">{agent.name} · the {a.id === 'gravity' ? 'content' : a.id === 'orbit' ? 'lead' : 'reply'} engine</p>
+                <p className="text-[11.5px] font-bold uppercase tracking-[0.12em] text-ink-2 mb-3">{agent.name}</p>
                 <h3 className="font-heading text-[24px] leading-[1.15] mb-3">{a.title}</h3>
                 <p className="text-[15.5px] leading-[1.55] text-ink-2 mb-5">{a.line}</p>
                 <div className="flex flex-wrap gap-1.5 mb-7">

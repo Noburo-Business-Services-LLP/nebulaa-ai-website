@@ -88,7 +88,7 @@ export const capabilitiesSummary = [
   'Photography, brand films and product stories',
   'Performance marketing on Meta and Google, geo-targeted',
   'Regional influencer and creator collaborations',
-  'BTL and on-ground activation — sampling, in-store demos, retail activation',
+  'BTL and on-ground activation — sampling, in-store demos, retail activation, delivered through our partner network',
   'Quick-commerce listing optimisation and discovery campaigns',
   'Monthly reporting across organic, paid, creator and on-ground activity',
 ] as const

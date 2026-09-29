@@ -41,7 +41,7 @@ export default function ToolsTeaser() {
             variants={fadeUpVariant}
             className="font-body text-[17px] leading-[1.68] text-muted"
           >
-            Every one of them runs on the same model that writes for Gravity. No signup, no card, no drip campaign afterwards. If they&apos;re all you ever need from us, that&apos;s a perfectly good outcome.
+            Every one of them runs on the same model that writes for Nebulaa customers. No signup, no card, no drip campaign afterwards. If they&apos;re all you ever need from us, that&apos;s a perfectly good outcome.
           </motion.p>
         </div>
         <motion.div variants={fadeUpVariant} className="flex-shrink-0 pb-1.5">

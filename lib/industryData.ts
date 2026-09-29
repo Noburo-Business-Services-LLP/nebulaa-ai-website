@@ -1,7 +1,7 @@
 export interface IndustryUseCase {
   title: string
   desc: string
-  agent?: 'Gravity' | 'Pulsar' | 'Both'
+  agent?: 'Content and social' | 'Answering enquiries' | 'Both'
 }
 
 export interface IndustryClient {
@@ -53,10 +53,10 @@ export const industries: Record<string, IndustryData> = {
       'No easy way to show new collections to past customers without a mass broadcast that feels like spam',
     ],
     useCases: [
-      { title: 'Collection and occasion content', desc: 'We plan posts and reels around festivals, wedding season and new collections, in your brand\'s tone, without a brief.', agent: 'Gravity' },
-      { title: 'WhatsApp enquiry response', desc: 'We answer "do you have this in gold" and "what\'s the price" the moment it lands, and book a showroom visit for anyone serious.', agent: 'Pulsar' },
-      { title: 'Competitor watch', desc: 'We track what nearby jewellers are posting and draft the counter-content, not just a report telling you about it.', agent: 'Gravity' },
-      { title: 'Same-day dealer and retail follow-up', desc: 'Every enquiry through the day gets a same-day reply — nothing goes cold overnight.', agent: 'Pulsar' },
+      { title: 'Collection and occasion content', desc: 'We plan posts and reels around festivals, wedding season and new collections, in your brand\'s tone, without a brief.', agent: 'Content and social' },
+      { title: 'WhatsApp enquiry response', desc: 'We answer "do you have this in gold" and "what\'s the price" the moment it lands, and book a showroom visit for anyone serious.', agent: 'Answering enquiries' },
+      { title: 'Competitor watch', desc: 'We track what nearby jewellers are posting and draft the counter-content, not just a report telling you about it.', agent: 'Content and social' },
+      { title: 'Same-day dealer and retail follow-up', desc: 'Every enquiry through the day gets a same-day reply — nothing goes cold overnight.', agent: 'Answering enquiries' },
     ],
     clients: [{ name: 'New Ganthimathi Jewellery, Panruti', stage: 'active' }],
     hubBlurb: 'Craft and trust, posted consistently — enquiries answered before they cool.',
@@ -81,10 +81,10 @@ export const industries: Record<string, IndustryData> = {
       'A missed WhatsApp enquiry at one branch is a lost sale that never gets tracked',
     ],
     useCases: [
-      { title: 'Multi-branch content, one system', desc: 'We plan the month\'s content once and localise it — the same quality bar across every branch, without a separate content person per location.', agent: 'Gravity' },
-      { title: 'Regional festival planning', desc: 'Festival and season content is mapped in advance, so no branch goes quiet during the buying window that matters most to it.', agent: 'Gravity' },
-      { title: 'Enquiry follow-up, every branch', desc: 'We answer WhatsApp enquiries the same day regardless of which branch they come through, and hand over anyone ready to buy.', agent: 'Pulsar' },
-      { title: 'Competitor tracking', desc: 'We watch what other textile retailers in the region are running and keep your content a step ahead, not a step behind.', agent: 'Gravity' },
+      { title: 'Multi-branch content, one system', desc: 'We plan the month\'s content once and localise it — the same quality bar across every branch, without a separate content person per location.', agent: 'Content and social' },
+      { title: 'Regional festival planning', desc: 'Festival and season content is mapped in advance, so no branch goes quiet during the buying window that matters most to it.', agent: 'Content and social' },
+      { title: 'Enquiry follow-up, every branch', desc: 'We answer WhatsApp enquiries the same day regardless of which branch they come through, and hand over anyone ready to buy.', agent: 'Answering enquiries' },
+      { title: 'Competitor tracking', desc: 'We watch what other textile retailers in the region are running and keep your content a step ahead, not a step behind.', agent: 'Content and social' },
     ],
     clients: [{ name: 'JKR Tex', stage: 'active' }],
     hubBlurb: 'One content system for every branch — nothing goes quiet during peak season.',
@@ -109,10 +109,10 @@ export const industries: Record<string, IndustryData> = {
       'Consistency matters more here than almost anywhere else, and it\'s the first thing that slips when the team gets busy',
     ],
     useCases: [
-      { title: 'Plain-language scheme content', desc: 'We write about your products the way you\'d explain them across the counter — clear, not clever.', agent: 'Gravity' },
-      { title: 'Enquiry qualification on WhatsApp', desc: 'We answer questions about eligibility, tenure and terms immediately, and hand over anyone ready to sign up.', agent: 'Pulsar' },
-      { title: 'Consistent monthly presence', desc: 'A content plan built once a month means nothing goes quiet even when the team is heads-down on operations.', agent: 'Gravity' },
-      { title: 'Lead scoring', desc: 'Every enquiry is scored on intent, so your team\'s time goes to the people actually ready to move, not window-shoppers.', agent: 'Pulsar' },
+      { title: 'Plain-language scheme content', desc: 'We write about your products the way you\'d explain them across the counter — clear, not clever.', agent: 'Content and social' },
+      { title: 'Enquiry qualification on WhatsApp', desc: 'We answer questions about eligibility, tenure and terms immediately, and hand over anyone ready to sign up.', agent: 'Answering enquiries' },
+      { title: 'Consistent monthly presence', desc: 'A content plan built once a month means nothing goes quiet even when the team is heads-down on operations.', agent: 'Content and social' },
+      { title: 'Lead scoring', desc: 'Every enquiry is scored on intent, so your team\'s time goes to the people actually ready to move, not window-shoppers.', agent: 'Answering enquiries' },
     ],
     clients: [{ name: 'TNV Chit Funds', stage: 'active' }],
     hubBlurb: 'Plain-spoken, consistent content — and every enquiry answered accurately, fast.',
@@ -131,15 +131,15 @@ export const industries: Record<string, IndustryData> = {
     seoDescription:
       'Market-entry content and demand generation for FMCG and food brands entering a new city.',
     painPoints: [
-      'Launching in a new city with distribution sorted but zero awareness waiting for it',
+      'Launching in a new city with stock ready but zero awareness waiting for it',
       'No content system built for the run-up to a launch, only for after it',
       'Retail and quick-commerce visibility that never gets systematically pushed',
       'Sampling and BTL activity that happens once, then stops, instead of building toward a launch date',
     ],
     useCases: [
-      { title: 'Market-entry content, ahead of launch', desc: 'We build local-market content and awareness before the product is even on shelf, so demand is waiting on day one.', agent: 'Gravity' },
-      { title: 'Sampling and BTL, timed to launch', desc: 'On-ground activation builds through the weeks before launch, not as a one-off event after the fact.', agent: 'Both' },
-      { title: 'Quick-commerce visibility', desc: 'Content and campaigns drive traffic to your live listings on Zepto, Blinkit and Instamart as availability rolls out.', agent: 'Gravity' },
+      { title: 'Market-entry content, ahead of launch', desc: 'We build local-market content and awareness before the product is even on shelf, so demand is waiting on day one.', agent: 'Content and social' },
+      { title: 'Sampling and BTL, timed to launch', desc: 'On-ground activation builds through the weeks before launch, not as a one-off event after the fact. Delivered through our partner network.', agent: 'Both' },
+      { title: 'Quick-commerce visibility', desc: 'Content and campaigns drive traffic to your live listings on Zepto, Blinkit and Instamart as availability rolls out.', agent: 'Content and social' },
     ],
     clients: [{ name: 'Cuddalore Essence Mart', stage: 'active' }],
     hubBlurb: 'Demand built before launch day, not scrambled together after it.',
@@ -164,10 +164,10 @@ export const industries: Record<string, IndustryData> = {
       'Reporting across organic, paid, dealer and BTL activity lives in five different places, if it exists at all',
     ],
     useCases: [
-      { title: 'Regional content, per market', desc: 'Dedicated content adapted to each region\'s language and buying moments, published at the cadence a serious brand needs.', agent: 'Gravity' },
+      { title: 'Regional content, per market', desc: 'Dedicated content adapted to each region\'s language and buying moments, published at the cadence a serious brand needs.', agent: 'Content and social' },
       { title: 'Always-on performance media', desc: 'Meta and Google campaigns geo-targeted to each market, with regional creators adding local credibility.', agent: 'Both' },
       { title: 'Dealer and retail-cluster support', desc: 'Local promotional content and geo-targeted spend concentrated around the retail clusters where the product is actually sold.', agent: 'Both' },
-      { title: 'Festival and launch activation', desc: 'On-ground activation — sampling, dealer events, retail activations — timed to the moments that matter, not run as isolated one-offs.', agent: 'Both' },
+      { title: 'Festival and launch activation', desc: 'On-ground activation — sampling, dealer events, retail activations — timed to the moments that matter, not run as isolated one-offs. Delivered through our partner network.', agent: 'Both' },
     ],
     clients: [],
     hubBlurb: 'Organic, paid, dealer support and on-ground activation — one team, one system.',
@@ -227,9 +227,9 @@ export const industries: Record<string, IndustryData> = {
       'No easy way to keep past enquiries warm through a long decision cycle',
     ],
     useCases: [
-      { title: 'Instant enquiry qualification', desc: 'Budget, preferred location, timeline and financing status established in conversation, before anyone from your team picks up the phone.', agent: 'Pulsar' },
-      { title: 'Project and progress content', desc: 'Construction progress, layouts, amenities and locality content published consistently through a long sales cycle.', agent: 'Gravity' },
-      { title: 'Long-cycle nurture', desc: 'Property decisions take months. Sequences keep enquiries warm without your team chasing manually.', agent: 'Pulsar' },
+      { title: 'Instant enquiry qualification', desc: 'Budget, preferred location, timeline and financing status established in conversation, before anyone from your team picks up the phone.', agent: 'Answering enquiries' },
+      { title: 'Project and progress content', desc: 'Construction progress, layouts, amenities and locality content published consistently through a long sales cycle.', agent: 'Content and social' },
+      { title: 'Long-cycle nurture', desc: 'Property decisions take months. Sequences keep enquiries warm without your team chasing manually.', agent: 'Answering enquiries' },
       { title: 'Locality and geo-targeted campaigns', desc: 'Paid campaigns aimed at the catchments that actually buy in your corridor.', agent: 'Both' },
     ],
     clients: [{ name: 'Neyveli Srinivasa Properties', stage: 'active' }],
@@ -254,10 +254,10 @@ export const industries: Record<string, IndustryData> = {
       'Dealer and showroom enquiries handled differently depending on who picks up',
     ],
     useCases: [
-      { title: 'Catalogue and category content', desc: 'Product ranges, use cases and comparisons published steadily rather than only when a new line arrives.', agent: 'Gravity' },
-      { title: 'Specification and delivery questions', desc: 'The questions that actually decide a considered purchase — warranty, delivery, installation, EMI — answered immediately and consistently.', agent: 'Pulsar' },
-      { title: 'Festival and season offers', desc: 'The buying windows that matter in this category, planned and campaigned ahead of time.', agent: 'Gravity' },
-      { title: 'Showroom visit booking', desc: 'Qualified enquiries converted into a booked visit rather than a maybe.', agent: 'Pulsar' },
+      { title: 'Catalogue and category content', desc: 'Product ranges, use cases and comparisons published steadily rather than only when a new line arrives.', agent: 'Content and social' },
+      { title: 'Specification and delivery questions', desc: 'The questions that actually decide a considered purchase — warranty, delivery, installation, EMI — answered immediately and consistently.', agent: 'Answering enquiries' },
+      { title: 'Festival and season offers', desc: 'The buying windows that matter in this category, planned and campaigned ahead of time.', agent: 'Content and social' },
+      { title: 'Showroom visit booking', desc: 'Qualified enquiries converted into a booked visit rather than a maybe.', agent: 'Answering enquiries' },
     ],
     clients: [{ name: 'T.R.M Santhi', stage: 'active' }],
     hubBlurb: 'Consideration content plus the warranty and delivery answers that close the sale.',
@@ -281,10 +281,10 @@ export const industries: Record<string, IndustryData> = {
       'Showroom content that stops the moment the sales team gets busy',
     ],
     useCases: [
-      { title: 'First-reply advantage', desc: 'Variant, on-road price, availability and finance questions answered in minutes, while the buyer is still comparing.', agent: 'Pulsar' },
-      { title: 'Test drive booking', desc: 'Qualified enquiries turned into a booked test drive with the details already captured.', agent: 'Pulsar' },
-      { title: 'Showroom and model content', desc: 'New arrivals, variants, offers and customer deliveries published consistently.', agent: 'Gravity' },
-      { title: 'Service and exchange follow-up', desc: 'Sequences that keep existing customers coming back for service and exchange, without manual chasing.', agent: 'Pulsar' },
+      { title: 'First-reply advantage', desc: 'Variant, on-road price, availability and finance questions answered in minutes, while the buyer is still comparing.', agent: 'Answering enquiries' },
+      { title: 'Test drive booking', desc: 'Qualified enquiries turned into a booked test drive with the details already captured.', agent: 'Answering enquiries' },
+      { title: 'Showroom and model content', desc: 'New arrivals, variants, offers and customer deliveries published consistently.', agent: 'Content and social' },
+      { title: 'Service and exchange follow-up', desc: 'Sequences that keep existing customers coming back for service and exchange, without manual chasing.', agent: 'Answering enquiries' },
     ],
     clients: [],
     hubBlurb: 'Reply first on variant, price and finance — then book the test drive.',

@@ -64,8 +64,8 @@ export default function FactsPage() {
             </a>
           </Row>
           <Row label="The parts">
-            Nebulaa has three parts: Gravity (content and social media), Orbit (finding new customers) and
-            Pulsar (replies to enquiries). Core learns from your results and comes with all three.
+            Nebulaa does three jobs: content and social media, finding new customers, and answering
+            enquiries. It also learns from your results, and that comes with all three.
           </Row>
         </dl>
       </section>

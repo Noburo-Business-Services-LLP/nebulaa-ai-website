@@ -1,8 +1,8 @@
 /**
  * Channel pages — search entry points.
  *
- * `runBy` matters and is not decoration. Gravity publishes to Instagram,
- * Facebook, LinkedIn, X and YouTube; Pulsar handles WhatsApp, email, SMS and
+ * `runBy` matters and is not decoration. The content side publishes to Instagram,
+ * Facebook, LinkedIn, X and YouTube; the enquiry side handles WhatsApp, email, SMS and
  * voice. Google Business, Pinterest, paid media and quick-commerce are run by
  * the team as part of a managed engagement — the product does not publish to
  * them, and these pages say so rather than implying otherwise.
@@ -136,7 +136,7 @@ export const channels: Channel[] = [
     faqs: [
       { q: 'Will it sound like generic LinkedIn content?', a: 'It writes from your site and your strategy, and you edit before anything goes out. Generic posts usually come from tools with no brand context. Nebulaa starts with yours.' },
       { q: 'Company page or personal profile?', a: 'Both work. For most founder-led businesses the personal profile outperforms the company page by a wide margin.' },
-      { q: 'Does it connect and message people?', a: 'Not on LinkedIn. Outreach runs on WhatsApp, email and SMS through Pulsar, where it is both more effective and within platform rules.' },
+      { q: 'Does it connect and message people?', a: 'Not on LinkedIn. Outreach runs on WhatsApp, email and SMS through Nebulaa, where it is both more effective and within platform rules.' },
     ],
     seoTitle: 'LinkedIn Content for Founders & B2B',
     seoDescription:
@@ -185,7 +185,7 @@ export const channels: Channel[] = [
       { q: 'Do I need a YouTube channel already?', a: 'You need one, but it does not need an audience. Shorts discovery does not depend on subscriber count the way long-form does.' },
       { q: 'Is it the same video as the Instagram reel?', a: 'Usually the same cut, with the title and description written for how people search on YouTube.' },
     ],
-    seoTitle: 'YouTube Shorts Distribution for Brands',
+    seoTitle: 'YouTube Shorts for Brands',
     seoDescription:
       'Publish your reels to YouTube Shorts with titles and descriptions written for YouTube search, giving each video a second audience.',
   },
@@ -198,7 +198,7 @@ export const channels: Channel[] = [
     headline: 'For the buyers who',
     headlineEmphasis: 'still prefer it.',
     subheadline:
-      'Dealers, distributors and corporate buyers often want things in writing, even when everything else runs on WhatsApp. Nebulaa handles email in the same conversation thread as WhatsApp and SMS, so you read one history instead of three.',
+      'Dealers, wholesale buyers and corporate buyers often want things in writing, even when everything else runs on WhatsApp. Nebulaa handles email in the same conversation thread as WhatsApp and SMS, so you read one history instead of three.',
     whatWeDo: [
       'Replies and follow-up messages from your own domain',
       'One thread per person across email, WhatsApp and SMS',
@@ -356,7 +356,7 @@ export const channels: Channel[] = [
     faqs: [
       { q: 'Do you get me listed on these platforms?', a: 'Listing and commercial terms are between you and the platform. What we run is everything that makes the listing produce sales once it exists.' },
       { q: 'Which platforms?', a: 'Zepto, Blinkit and Swiggy Instamart are the ones that matter most for Indian FMCG today.' },
-      { q: 'Does this work before I have distribution?', a: 'Partly — this is why market-entry engagements start demand generation before launch, so there is interest waiting when stock arrives.' },
+      { q: 'Does this work before my stock is on the shelves?', a: 'Partly — this is why market-entry engagements start demand generation before launch, so there is interest waiting when stock arrives.' },
     ],
     seoTitle: 'Quick Commerce Growth — Zepto, Blinkit & Instamart',
     seoDescription:

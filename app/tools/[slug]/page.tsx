@@ -150,7 +150,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 Want this done for you?
               </p>
               <p className="font-body text-xs text-ink-2 mb-4">
-                Gravity does this automatically every day. No manual input needed.
+                Nebulaa does this automatically every day. No manual input needed.
               </p>
               <a
                 href="/pricing"

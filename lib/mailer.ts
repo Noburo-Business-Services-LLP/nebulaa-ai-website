@@ -52,7 +52,7 @@ export function buildNewsletterHTML(subject: string, content: string): string {
     </div>
     <div class="cta-block">
       <p style="color:#FFFFFF;font-weight:700;font-size:18px;margin:0 0 8px;">Want all of this automated?</p>
-      <p style="color:#9E9890;font-size:14px;margin:0 0 20px;">Gravity posts. Pulsar calls. You just close. 🚀</p>
+      <p style="color:#9E9890;font-size:14px;margin:0 0 20px;">We post. We follow up. You just close. 🚀</p>
       <a href="https://www.nebulaa.ai/#pricing" class="cta-btn">Start free 7-day trial →</a>
     </div>
   </div>

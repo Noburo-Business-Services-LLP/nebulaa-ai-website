@@ -8,12 +8,6 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import Schema, { breadcrumbSchema, softwareApplicationSchema } from '@/components/ui/Schema'
 import { plans } from '@/lib/orgFacts'
 
-const ROLE: Record<string, string> = {
-  orbit: 'finds businesses worth talking to',
-  gravity: 'gives people a reason to say yes',
-  pulsar: 'replies and closes the conversation',
-}
-
 export function generateStaticParams() {
   return Object.keys(agents).map(agent => ({ agent }))
 }
@@ -49,7 +43,7 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
       />
       <Schema
         data={softwareApplicationSchema({
-          name: agent.name,
+          name: `Nebulaa ${agent.name}`,
           description: agent.seoDescription,
           price: startingPlan.price,
           url: `/product/${agent.id}`,
@@ -119,7 +113,7 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
 
       {/* The rest of the pipeline */}
       <section className="px-6 md:px-12 lg:px-[120px] py-[100px]">
-        <SectionLabel tone="muted" className="mb-6 block">{agent.name} {ROLE[agent.id]}</SectionLabel>
+        <SectionLabel tone="muted" className="mb-6 block">{agent.name} · part of Nebulaa</SectionLabel>
         <h2 className="neb-display text-[26px] md:text-[34px] leading-[1.14] mb-8 max-w-[720px]">
           Two more parts of Nebulaa work alongside it.
         </h2>
@@ -131,7 +125,7 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
                 <h3 className="font-heading font-medium text-[22px] mb-3">{o.name}</h3>
                 <p className="text-[14px] leading-[1.6] text-muted mb-6">{o.subheadline}</p>
                 <span className="flex items-center gap-1.5 text-[13.5px] font-semibold text-gold-text group-hover:gap-2.5 transition-all">
-                  See {o.name} <ArrowRight size={13} />
+                  Read more <ArrowRight size={13} />
                 </span>
               </HudCard>
             </Link>

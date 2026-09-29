@@ -19,6 +19,8 @@ interface Props {
    * the slot's name only, no capture instructions.
    */
   compact?: boolean
+  /** Draws nothing until a file is uploaded, for backgrounds that bring their own fallback. Use with ratio="auto". */
+  bare?: boolean
 }
 
 /**
@@ -27,7 +29,7 @@ interface Props {
  * belongs there. Media always fills the box and is cropped to the ratio, so a
  * row of mixed uploads still lines up.
  */
-export default function MediaSlot({ id, className = '', ratio = '16 / 10', priority, compact = false }: Props) {
+export default function MediaSlot({ id, className = '', ratio = '16 / 10', priority, compact = false, bare = false }: Props) {
   const slot = getSlot(id)
   // null = not checked yet, so a filled slot never flashes its placeholder.
   const [filled, setFilled] = useState<boolean | null>(null)
@@ -46,15 +48,16 @@ export default function MediaSlot({ id, className = '', ratio = '16 / 10', prior
   if (!slot) return null
 
   const box = `relative w-full overflow-hidden rounded-[inherit] ${className}`
+  const boxStyle = ratio === 'auto' ? undefined : { aspectRatio: ratio }
 
-  if (filled === null) {
-    return <div className={box} style={{ aspectRatio: ratio }} aria-hidden="true" />
+  if (filled === null || (bare && !filled)) {
+    return <div className={box} style={boxStyle} aria-hidden="true" />
   }
 
   if (filled) {
     const src = mediaUrl(slot.file)
     return (
-      <div className={box} style={{ aspectRatio: ratio }}>
+      <div className={box} style={boxStyle}>
         {slot.kind === 'video' ? (
           <video
             src={src}
@@ -84,7 +87,7 @@ export default function MediaSlot({ id, className = '', ratio = '16 / 10', prior
   return (
     <div
       className={`${box} flex items-center justify-center text-center border border-dashed border-rule-2 bg-gradient-to-br from-peach via-surface-2 to-sky`}
-      style={{ aspectRatio: ratio }}
+      style={boxStyle}
       data-media-slot={slot.id}
     >
       {compact ? (

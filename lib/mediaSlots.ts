@@ -431,9 +431,9 @@ export const mediaSlots: MediaSlot[] = [
     file: 'hero-video.mp4',
     kind: 'video',
     label: 'Hero video',
-    spec: 'A real reel or your best ad, 15-20 seconds, plays muted in a phone frame at the top of the homepage. The hotel owner ad works well here.',
-    dimensions: '1080×1920, under 8MB',
-    usedOn: 'Homepage hero',
+    spec: 'A wide, looping background video behind the homepage headline, 15-25 seconds, no sound. A montage of real client reels, a hotel or shop shot in warm light, or your best ad cut to landscape. Keep the left half calmer, since the headline sits there.',
+    dimensions: '1920×1080 (16:9), under 10MB',
+    usedOn: 'Homepage hero background'
   },
   {
     id: 'how-share',

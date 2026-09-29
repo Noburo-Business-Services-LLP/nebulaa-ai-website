@@ -43,10 +43,10 @@ const COLUMNS = [
   },
 ]
 
-/** A navy chapter at the foot of every page, like the brochures' last panel. */
+/** A warm, light footer that matches the page above it. */
 export default function Footer() {
   return (
-    <footer className="dark bg-ground text-ink pt-[72px] pb-28 md:pb-12 px-5 md:px-12 lg:px-[120px]">
+    <footer className="bg-surface-2 text-ink border-t border-rule pt-[64px] pb-28 md:pb-12 px-5 md:px-12 lg:px-[120px]">
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 justify-between">
         <div className="max-w-[340px]">
           <Wordmark className="mb-5" />

@@ -355,6 +355,7 @@ body {
   border-radius: 3px;
 }
 .dark .neb-display .text-gold-display { color: var(--ground); }
+.dark .script-accent { color: var(--sun); }
 .script-accent {
   font-family: 'Kaushan Script', 'Brush Script MT', cursive;
   text-transform: none;

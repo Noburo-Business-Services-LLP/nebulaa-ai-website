@@ -9,7 +9,6 @@ import SharedMemory from '@/components/sections/SharedMemory'
 import GravitySection from '@/components/sections/GravitySection'
 import OrbitSection from '@/components/sections/OrbitSection'
 import PulsarSection from '@/components/sections/PulsarSection'
-import MadeByGravity from '@/components/sections/MadeByGravity'
 import EntryFork from '@/components/sections/EntryFork'
 import NarrativeDemo from '@/components/sections/NarrativeDemo'
 import Pricing from '@/components/sections/Pricing'
@@ -47,7 +46,6 @@ export default function Home() {
       <GravitySection />
       <OrbitSection />
       <PulsarSection />
-      <MadeByGravity />
       <Pricing />
       <FAQ />
       <Newsletter />

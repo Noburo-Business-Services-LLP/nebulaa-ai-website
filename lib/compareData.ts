@@ -100,7 +100,7 @@ export const compareData: Record<string, CompareData> = {
     seoTitle: 'Nebulaa vs Hootsuite: Automation Compared',
     seoDescription: 'Hootsuite manages social media. Nebulaa generates, schedules and publishes your content, and follows up with your leads.',
     competitorDescription: 'Hootsuite is one of the oldest and largest social media management platforms, used by enterprises and agencies to manage multiple accounts and teams.',
-    nebulaaStrengths: ['Creates content (no team needed)', 'Runs lead outreach automatically', 'Purpose-built for founders', 'Lower price point for individuals'],
+    nebulaaStrengths: ['Creates content (no team needed)', 'Runs lead outreach automatically', 'Built for owner-led businesses', 'Lower price point for individuals'],
     competitorStrengths: ['Best-in-class team workflows', 'Enterprise-grade security', 'Deep analytics and reporting', 'Agency-friendly with client management'],
     tableRows: [
       { feature: 'Social scheduling', nebulaa: '✅', competitor: '✅' },

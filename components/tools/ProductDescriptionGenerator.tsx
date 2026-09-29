@@ -37,7 +37,7 @@ export default function ProductDescriptionGenerator() {
   return (
     <GenericTool
       fields={[
-        { key: 'product', label: 'Product / service name', type: 'text', placeholder: 'e.g. Nebulaa Gravity' },
+        { key: 'product', label: 'Product / service name', type: 'text', placeholder: 'e.g. Nebulaa' },
         { key: 'audience', label: 'Who is it for?', type: 'text', placeholder: "e.g. 'B2B founders with 5-50 person teams'" },
         { key: 'problem', label: 'What problem does it solve?', type: 'textarea', placeholder: "e.g. 'spending 10+ hours a week creating LinkedIn content manually'", rows: 2 },
         { key: 'benefit', label: 'Key benefit / outcome', type: 'text', placeholder: "e.g. 'get consistent social media presence without the manual effort'" },

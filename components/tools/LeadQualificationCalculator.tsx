@@ -292,7 +292,7 @@ export default function LeadQualificationCalculator() {
 
             <div className="px-5 py-3 bg-gold/5 border-t border-rule">
               <p className="font-body text-xs text-muted">
-                💡 Pulsar by Nebulaa automatically qualifies your leads and routes hot ones to you in real-time.{' '}
+                💡 Nebulaa automatically qualifies your leads and routes hot ones to you in real-time.{' '}
                 <a href="/pricing" className="text-gold-text hover:underline">Try it free →</a>
               </p>
             </div>

@@ -331,7 +331,7 @@ export default function FollowUpEmailGenerator() {
 
             <div className="px-1">
               <p className="font-body text-xs text-muted">
-                💡 Pulsar by Nebulaa sends this entire sequence automatically — triggered by your CRM, timed perfectly.{' '}
+                💡 Nebulaa sends this entire sequence automatically — triggered by your CRM, timed perfectly.{' '}
                 <a href="/pricing" className="text-gold-text hover:underline">Automate your follow-ups →</a>
               </p>
             </div>

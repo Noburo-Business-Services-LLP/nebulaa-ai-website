@@ -57,7 +57,7 @@ export default function TestimonialRequestGenerator() {
     <GenericTool
       fields={[
         { key: 'customerName', label: 'Customer name', type: 'text', placeholder: 'e.g. Priya Sharma' },
-        { key: 'product', label: 'Product / service', type: 'text', placeholder: 'e.g. Nebulaa Gravity' },
+        { key: 'product', label: 'Product / service', type: 'text', placeholder: 'e.g. Nebulaa' },
         { key: 'audience', label: 'Type of customer', type: 'text', placeholder: "e.g. 'B2B founders' or 'SaaS startup teams'" },
         { key: 'senderName', label: 'Your name', type: 'text', placeholder: 'e.g. Rohan' },
       ]}

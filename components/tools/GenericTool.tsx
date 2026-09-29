@@ -129,7 +129,7 @@ export default function GenericTool({ fields, templates, outputLabel, buttonLabe
               <div className="px-5 py-3 bg-gold/5 border-t border-rule">
                 <p className="font-body text-xs text-muted">
                   💡 {tip}{' '}
-                  <a href="/pricing" className="text-gold-text hover:underline">Try Gravity →</a>
+                  <a href="/pricing" className="text-gold-text hover:underline">Try Nebulaa →</a>
                 </p>
               </div>
             )}

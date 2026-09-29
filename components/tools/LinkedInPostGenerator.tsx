@@ -95,7 +95,7 @@ You're a founder with 3 hats, 12-hour days, and real revenue pressure.
 What actually works:
 → Ignore the playbooks. Study what YOUR competitors are doing
 → Talk to 5 customers before writing a single post
-→ Distribution > content. Always.
+→ Say something specific. Always.
 
 ${topic} doesn't have to be complicated. It just has to be consistent.
 
@@ -292,7 +292,7 @@ export default function LinkedInPostGenerator() {
             <div className="px-5 py-3 bg-gold/5 border-t border-rule">
               <p className="font-body text-xs text-muted">
                 💡 Tip: Customize the post with your personal experience for 3x more engagement. Want this automated daily?{' '}
-                <a href="/pricing" className="text-gold-text hover:underline">Try Gravity →</a>
+                <a href="/pricing" className="text-gold-text hover:underline">Try Nebulaa →</a>
               </p>
             </div>
           </motion.div>

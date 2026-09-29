@@ -97,7 +97,7 @@ export default function LTVCalculator() {
             <div className="bg-gold/5 rounded-2xl p-4 border border-gold/20">
               <p className="font-body text-xs text-muted">
                 💡 Increasing retention by just 5% can increase LTV by 25-95%. Focus on keeping customers longer, not just acquiring new ones.{' '}
-                <a href="/pricing" className="text-gold-text hover:underline">Try Gravity →</a>
+                <a href="/pricing" className="text-gold-text hover:underline">Try Nebulaa →</a>
               </p>
             </div>
           </motion.div>

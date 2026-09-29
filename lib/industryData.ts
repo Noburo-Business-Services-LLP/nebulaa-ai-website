@@ -45,7 +45,7 @@ export const industries: Record<string, IndustryData> = {
       'A jewellery buyer isn\'t comparing catalogues, they\'re comparing trust. We keep a steady stream of craft, collections and occasions in front of them; we answer the WhatsApp enquiry before they walk into a rival showroom.',
     seoTitle: 'AI Marketing for Jewellery & Retail Stores',
     seoDescription:
-      'Content and WhatsApp follow-up built for jewellery and retail brands — trusted by Gandhimathi Jewellers.',
+      'Content and WhatsApp follow-up built for jewellery and retail brands — trusted by New Ganthimathi Jewellery.',
     painPoints: [
       'A festival or wedding-season collection launch with no content plan behind it',
       'A WhatsApp enquiry about a piece that goes unanswered until the customer has already visited another showroom',

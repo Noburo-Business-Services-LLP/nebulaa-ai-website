@@ -56,7 +56,7 @@ export const process: ProcessStage[] = [
 
 export const clients: ServiceClient[] = [
   {
-    name: 'Gandhimathi Jewellers',
+    name: 'New Ganthimathi Jewellery',
     stage: 'active',
     blurb: 'Always-on organic content — posts, carousels and short-form video, every month.',
   },

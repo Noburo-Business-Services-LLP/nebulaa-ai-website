@@ -282,7 +282,7 @@ export const mediaSlots: MediaSlot[] = [
     id: 'logo-gandhimathi',
     file: 'logo-gandhimathi.svg',
     kind: 'logo',
-    label: 'Gandhimathi Jewellers logo',
+    label: 'New Ganthimathi Jewellery logo',
     spec: 'SVG preferred, else 512px PNG on transparent. Needs display permission.',
     dimensions: 'SVG or 512px',
     usedOn: 'Client strip, /for/jewellery-retail',

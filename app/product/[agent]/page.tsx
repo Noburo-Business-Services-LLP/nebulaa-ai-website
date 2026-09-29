@@ -6,7 +6,7 @@ import { agents, capabilitiesFor, type AgentId } from '@/lib/productData'
 import HudCard from '@/components/ui/HudCard'
 import SectionLabel from '@/components/ui/SectionLabel'
 import Schema, { breadcrumbSchema, softwareApplicationSchema } from '@/components/ui/Schema'
-import { products } from '@/lib/orgFacts'
+import { plans } from '@/lib/orgFacts'
 
 const ROLE: Record<string, string> = {
   orbit: 'finds and qualifies who is worth talking to',
@@ -35,7 +35,9 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
   const caps = capabilitiesFor(agent.id)
   const others = (Object.keys(agents) as AgentId[]).filter(id => id !== agent.id).map(id => agents[id])
 
-  const priced = products.find(p => p.name === agent.name)
+  // Engines aren't sold individually anymore — every plan includes all three,
+  // so the schema price is the cheapest way in, not a per-agent price.
+  const startingPlan = plans[0]
 
   return (
     <main className="text-ink min-h-screen">
@@ -49,7 +51,7 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
         data={softwareApplicationSchema({
           name: agent.name,
           description: agent.seoDescription,
-          price: priced?.price,
+          price: startingPlan.price,
           url: `/product/${agent.id}`,
         })}
       />

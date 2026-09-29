@@ -29,36 +29,54 @@ export const org = {
  */
 export const ANNUAL_DISCOUNT = 0.1
 
-export const products = [
+/**
+ * Self-serve pricing, as of the 2026-09 pricing change: two credit-based
+ * plans instead of one price per engine. A credit covers one unit of work
+ * across content, leads or outreach — a drafted post, a sourced-and-
+ * qualified lead, a WhatsApp reply — so the plan you're on is about volume,
+ * not which engine you're allowed to use; every plan runs all three.
+ * Running low before the month resets is a top-up, not a plan change.
+ *
+ * Website-only for now — the credit meter itself isn't wired into the
+ * product yet, so treat these as the announced price, not (yet) an
+ * enforced one.
+ */
+export const plans = [
   {
-    name: 'Orbit',
-    role: 'AI lead generation engine',
-    price: 15000,
+    id: 'starter',
+    name: 'Starter',
+    credits: 60,
+    price: 999,
     description:
-      'Finds real businesses matching your target, keeps only phone-reachable leads rated 4.2+, enriches contact emails from their website, drafts a personalized opening message, and pushes qualified leads into your CRM.',
+      'Content posted, leads coming in, enquiries answered — everything running from the first day, sized for one person getting started.',
+    features: [
+      '60 credits a month, shared across content, leads and outreach',
+      'A full month of content planned and posted',
+      'Leads sourced and qualified from your target market',
+      'WhatsApp, email and SMS enquiries answered automatically',
+      '1 team member',
+    ],
   },
   {
-    name: 'Gravity',
-    role: 'AI content & social media engine',
-    price: 15000,
+    id: 'professional',
+    name: 'Professional',
+    credits: 200,
+    price: 1999,
     description:
-      'Reads a website and builds a marketing strategy from it, plans the month, drafts posts, carousels and reels, tracks competitors, runs campaigns and creator collaborations, and handles the social inbox.',
-  },
-  {
-    name: 'Pulsar',
-    role: 'AI outreach engine',
-    price: 15000,
-    description:
-      'Answers enquiries on WhatsApp, email and SMS within minutes, qualifies budget, timeline and fit, scores every lead, and runs broadcasts, automation and voice calling.',
-  },
-  {
-    name: 'All three engines',
-    role: 'Content, lead generation and engagement on one core',
-    price: 30000,
-    description:
-      'Gravity, Orbit and Pulsar on one account, sharing the same business context and the same learning loop through Nebulaa Core.',
+      'The same system at real volume — more content, more leads, more of the team working from it.',
+    features: [
+      '200 credits a month, shared across content, leads and outreach',
+      'Everything in Starter',
+      'Higher lead volume, with priority qualification',
+      'Voice calling for your highest-intent leads',
+      'Up to 5 team members',
+    ],
   },
 ] as const
+
+/** Buying more credits mid-month, rather than waiting for the plan to reset. */
+export const creditTopUp =
+  'Credits run low before the month resets, top up any time from inside the app — nothing pauses while you wait for the next cycle.'
 
 /** Stated plainly because it is a question every buyer asks. */
 export const servicePricingPolicy =
@@ -110,12 +128,12 @@ export function organizationSchema() {
       addressCountry: org.country,
     },
     areaServed: { '@type': 'Country', name: 'India' },
-    makesOffer: products.map(p => ({
+    makesOffer: plans.map(p => ({
       '@type': 'Offer',
-      name: p.name,
+      name: `Nebulaa ${p.name}`,
       price: String(p.price),
       priceCurrency: 'INR',
-      itemOffered: { '@type': 'SoftwareApplication', name: p.name, description: p.description },
+      itemOffered: { '@type': 'SoftwareApplication', name: `Nebulaa ${p.name}`, description: p.description },
     })),
   }
 }

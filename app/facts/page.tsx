@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
   org,
-  products,
+  plans,
   servicePricingPolicy,
   capabilitiesSummary,
   publishingChannels,
@@ -80,16 +80,18 @@ export default function FactsPage() {
               <tr className="border-b border-rule">
                 <th className="neb-label font-normal text-left px-6 py-3.5">Plan</th>
                 <th className="neb-label font-normal text-left px-6 py-3.5">Price / month</th>
+                <th className="neb-label font-normal text-left px-6 py-3.5">Credits / month</th>
                 <th className="neb-label font-normal text-left px-6 py-3.5">What it is</th>
               </tr>
             </thead>
             <tbody>
-              {products.map(p => (
-                <tr key={p.name} className="border-b border-rule last:border-b-0 align-top">
+              {plans.map(p => (
+                <tr key={p.id} className="border-b border-rule last:border-b-0 align-top">
                   <td className="px-6 py-4 text-ink font-medium whitespace-nowrap">{p.name}</td>
                   <td className="px-6 py-4 text-ink-2 tabular-nums whitespace-nowrap">
                     ₹{p.price.toLocaleString('en-IN')}
                   </td>
+                  <td className="px-6 py-4 text-ink-2 tabular-nums whitespace-nowrap">{p.credits}</td>
                   <td className="px-6 py-4 text-muted text-[14px] leading-[1.6]">{p.description}</td>
                 </tr>
               ))}

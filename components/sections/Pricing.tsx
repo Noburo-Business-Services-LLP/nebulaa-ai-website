@@ -2,131 +2,10 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Linkedin, Instagram, Twitter, Mail, MessageSquare, Check, MapPin, Building2 } from 'lucide-react'
+import { Check, Zap } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
-import StatusIndicator from '@/components/ui/StatusIndicator'
-import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
 import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animations'
-import { ANNUAL_DISCOUNT } from '@/lib/orgFacts'
-
-const gravityChannels = [Linkedin, Instagram, Twitter]
-const pulsarChannels = [WhatsAppIcon, Mail, MessageSquare]
-const orbitChannels = [MapPin, Building2]
-
-// One line per agent this replaces, not just the content/response half of
-// it — the total is compared against the three-agent bundle (see priceFor
-// calls below), so leaving out lead sourcing entirely would understate
-// what "doing it yourself" actually costs and overstate the multiple.
-const replaces = [
-  { item: 'A marketing hire', cost: '₹30,000–50,000/mo' },
-  { item: 'A designer for creatives', cost: '₹12,000–20,000/mo' },
-  { item: 'Scheduling & content tools', cost: '₹3,000–5,000/mo' },
-  { item: 'An SDR to source leads', cost: '₹25,000–40,000/mo' },
-  { item: 'WhatsApp Business API / CRM', cost: '₹5,000–10,000/mo' },
-  { item: 'Someone to answer leads fast', cost: '₹8,000–12,000/mo' },
-  { item: 'Weeks spent interviewing', cost: '4–6 weeks, before they start' },
-]
-
-// The other half of the same comparison — asserting a total without
-// itemising our side is only doing half the arithmetic for the reader.
-// One line per agent, matching the three roles `replaces` covers above.
-const included = [
-  'Strategy and ICP, built from your URL',
-  'A month of content planned and drafted',
-  'Posts, carousels and AI reels',
-  'Competitor tracking and counter-content',
-  'Leads sourced, qualified and CRM-ready',
-  'WhatsApp, email and SMS handled',
-  'Live on Thursday, not in six weeks',
-]
-
-interface Plan {
-  name: string
-  label: string
-  tagline: string
-  monthly: number
-  description: string
-  channels: React.ElementType[]
-  features: string[]
-  cta: string
-  highlight: boolean
-}
-
-const plans: Plan[] = [
-  {
-    name: 'Gravity',
-    label: 'Gravity',
-    tagline: 'AI Marketing Agent',
-    monthly: 15000,
-    description: 'A strategy, then a month of content to run it.',
-    channels: gravityChannels,
-    features: [
-      'Marketing strategy & ICP, built in',
-      'Monthly content plan, auto-generated',
-      'Posts, carousels & AI reels',
-      'Competitor tracking → counter-content',
-      'Learns your brand over time',
-      'LinkedIn, Instagram & X',
-      '7-day free trial',
-    ],
-    cta: 'Start with Gravity',
-    highlight: false,
-  },
-  {
-    name: 'Orbit',
-    label: 'Orbit',
-    tagline: 'AI Lead Sourcing Agent',
-    monthly: 15000,
-    description: 'Real businesses, qualified and ready to work.',
-    channels: orbitChannels,
-    features: [
-      'Sources leads from Google Maps + a second source',
-      'Keeps only phone-reachable, rated 4.2+',
-      'Enriches contact emails from their website',
-      'Drafts the first outreach message',
-      'Pushes qualified leads into your CRM',
-      'Round-robin assignment across reps',
-      '7-day free trial',
-    ],
-    cta: 'Start with Orbit',
-    highlight: false,
-  },
-  {
-    name: 'Pulsar',
-    label: 'Pulsar',
-    tagline: 'AI Outreach Agent',
-    monthly: 15000,
-    description: 'Every enquiry, answered.',
-    channels: pulsarChannels,
-    features: [
-      'WhatsApp, email & SMS',
-      'Lead scoring',
-      'Unlimited contacts',
-      'CRM-ready exports',
-      '7-day free trial',
-    ],
-    cta: 'Start with Pulsar',
-    highlight: false,
-  },
-  {
-    name: 'All Three Agents',
-    label: 'All three engines · best value',
-    tagline: 'Sourcing + Marketing + Outreach',
-    monthly: 30000,
-    description: 'The whole loop — leads found, content made, customers engaged. Cheaper than buying separately.',
-    channels: [...orbitChannels, ...gravityChannels, ...pulsarChannels],
-    features: [
-      'Orbit, Gravity and Pulsar on one account',
-      'One shared brand memory across all three',
-      'Leads sourced, qualified and handed to outreach',
-      'Content planned, drafted and published',
-      'WhatsApp, email & SMS outreach',
-      'Priority onboarding',
-    ],
-    cta: 'Start with all three →',
-    highlight: true,
-  },
-]
+import { ANNUAL_DISCOUNT, plans, creditTopUp } from '@/lib/orgFacts'
 
 function priceFor(monthly: number, annual: boolean) {
   if (!annual) return { display: monthly, suffix: '/month' }
@@ -144,83 +23,19 @@ export default function Pricing() {
         initial="hidden"
         whileInView="visible"
         viewport={viewportOptions}
-        className="max-w-[620px] mb-[46px]"
+        className="max-w-[620px] mb-[54px]"
       >
         <motion.div variants={fadeUpVariant}><SectionLabel className="mb-[22px] block">Pricing</SectionLabel></motion.div>
         <motion.h2 variants={fadeUpVariant} className="neb-display text-[34px] md:text-[50px] mb-5">
-          <span className="text-gold-display">Nebulaa</span> costs less than a hire and moves faster than an agency.
+          Two plans, <span className="text-gold-display">priced to make starting easy.</span>
         </motion.h2>
         <motion.p variants={fadeUpVariant} className="font-body text-[17px] leading-[1.68] text-muted">
-          A marketing executive costs ₹30,000–50,000 a month, plus tools and roughly six weeks to hire. Nebulaa is set up and running within a week.
+          Every plan runs your content, your leads and your WhatsApp replies from day one — the only
+          difference is how much volume you get each month. {creditTopUp}
         </motion.p>
       </motion.div>
 
-      {/* Side-by-side cost comparison — the total leads, the itemised
-          arithmetic backs it up below for anyone who wants to check it,
-          instead of making that arithmetic the first thing a reader has
-          to wade through. */}
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={viewportOptions}
-        transition={{ duration: 0.6 }}
-        className="mb-[62px]"
-      >
-        <div className="flex items-center justify-center gap-3 mb-6">
-          <span className="h-px flex-1 bg-rule max-w-[100px]" />
-          <span className="font-mono text-[12px] text-gold-text tracking-wide whitespace-nowrap">
-            ~{Math.round(83000 / priceFor(30000, annual).display)}× cheaper than hiring it out
-          </span>
-          <span className="h-px flex-1 bg-rule max-w-[100px]" />
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-5 items-stretch">
-          {/* The manual stack */}
-          <div className="hud-card rounded-[20px] overflow-hidden flex flex-col">
-            <div className="px-6 md:px-8 pt-7 pb-6 border-b border-rule">
-              <div className="flex items-center justify-between mb-4">
-                <span className="neb-label">Doing it yourself</span>
-                <StatusIndicator tone="idle" label="Manual stack" pulse={false} />
-              </div>
-              <span className="font-digital text-[34px] md:text-[40px] text-muted tabular-nums leading-none">
-                ₹83,000–137,000<span className="text-[18px] md:text-[22px]">+/mo</span>
-              </span>
-            </div>
-            <div className="px-6 md:px-8 py-2 flex-1">
-              {replaces.map(row => (
-                <div key={row.item} className="flex items-center justify-between gap-4 py-3.5 border-b border-rule last:border-b-0">
-                  <span className="font-body text-[13.5px] text-faint">{row.item}</span>
-                  <span className="font-mono text-[12px] text-faint text-right tabular-nums whitespace-nowrap">{row.cost}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Nebulaa */}
-          <div className="rounded-[20px] overflow-hidden flex flex-col bg-gold/[0.05] border border-gold/[0.22] shadow-[inset_0_1px_0_0_rgba(255,214,150,0.07),0_18px_60px_rgba(245,166,35,0.07)]">
-            <div className="px-6 md:px-8 pt-7 pb-6 border-b border-gold/[0.18]">
-              <div className="flex items-center justify-between mb-4">
-                <span className="neb-label neb-label-gold">With Nebulaa</span>
-                <StatusIndicator tone="active" label="Nebulaa" />
-              </div>
-              <span className="font-digital text-[34px] md:text-[40px] text-gold-text tabular-nums leading-none">
-                ₹{priceFor(30000, annual).display.toLocaleString('en-IN')}<span className="text-[18px] md:text-[22px]">/mo</span>
-              </span>
-            </div>
-            <div className="px-6 md:px-8 py-2 flex-1">
-              {included.map(item => (
-                <div key={item} className="flex items-center gap-3 py-3.5 border-b border-gold/[0.14] last:border-b-0">
-                  <Check size={15} className="text-gold-text flex-shrink-0" />
-                  <span className="font-body text-[13.5px] text-ink-2">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Monthly / annual toggle — sits right above the plans it controls,
-          after the reader has already seen why the price is worth it. */}
+      {/* Monthly / annual toggle */}
       <motion.div
         variants={fadeUpVariant}
         initial="hidden"
@@ -253,33 +68,28 @@ export default function Pricing() {
         </span>
       </motion.div>
 
-      {/* 4 cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
+      {/* 2 cards */}
+      <div className="grid sm:grid-cols-2 gap-6 max-w-[760px]">
         {plans.map((plan, i) => {
-          const { display, suffix } = priceFor(plan.monthly, annual)
-          const individualTotal = plans
-            .slice(0, 3)
-            .reduce((sum, p) => sum + priceFor(p.monthly, annual).display, 0)
-          const savings = individualTotal - display
+          const { display, suffix } = priceFor(plan.price, annual)
+          const highlight = plan.id === 'professional'
           return (
             <motion.div
-              key={plan.name}
+              key={plan.id}
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportOptions}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className={`relative bg-surface rounded-[20px] p-6 md:p-8 ${
-                plan.highlight
+                highlight
                   ? 'border border-gold/[0.22] shadow-[inset_0_1px_0_0_rgba(255,214,150,0.07),0_18px_60px_rgba(245,166,35,0.07)]'
                   : 'border border-rule'
               }`}
             >
-              {/* Header */}
-              <SectionLabel tone={plan.highlight ? 'gold' : 'muted'} className="mb-5 block">
-                {plan.label}
+              <SectionLabel tone={highlight ? 'gold' : 'muted'} className="mb-5 block">
+                {plan.name}{highlight ? ' · most popular' : ''}
               </SectionLabel>
 
-              {/* Price */}
               <div className="flex items-baseline gap-2 mb-1">
                 <span className="font-digital text-[38px] tracking-[-0.02em] leading-none">₹{display.toLocaleString('en-IN')}</span>
               </div>
@@ -291,43 +101,41 @@ export default function Pricing() {
               )}
               <p className="font-body text-[14.5px] leading-[1.6] text-muted mb-5">{plan.description}</p>
 
-              <div className="flex items-center gap-3 mb-[30px]">
-                {plan.channels.map((Icon, ci) => (
-                  <span key={ci} className="w-7 h-7 rounded-full bg-surface-2 border border-rule flex items-center justify-center text-muted">
-                    <Icon size={13.5} />
-                  </span>
-                ))}
+              <div className="inline-flex items-center gap-2 mb-[30px] bg-gold-wash rounded-full px-3.5 py-1.5">
+                <Zap size={13} className="text-gold-text" />
+                <span className="font-body text-[13px] font-semibold text-gold-text">{plan.credits} credits / month</span>
               </div>
 
               <hr className="border-t border-rule mb-[26px]" />
 
-              {/* Features */}
               <div className="flex flex-col gap-[13px] mb-9">
                 {plan.features.map(f => (
-                  <div key={f} className="font-body text-[14.5px] text-ink-2">{f}</div>
-                ))}
-                {plan.highlight && savings > 0 && (
-                  <div className="font-body text-[14.5px] text-gold-text">
-                    Save ₹{savings.toLocaleString('en-IN')}/month vs separate
+                  <div key={f} className="flex items-start gap-2.5 font-body text-[14.5px] text-ink-2">
+                    <Check size={15} className="text-gold-text flex-shrink-0 mt-[3px]" />
+                    <span>{f}</span>
                   </div>
-                )}
+                ))}
               </div>
 
-              {/* CTA */}
               <a
                 href="#"
                 className={`w-full text-center font-body font-semibold text-[14.5px] rounded-full py-[15px] block transition-all hover:scale-[1.02] active:scale-[0.98] ${
-                  plan.highlight
+                  highlight
                     ? 'bg-gold text-[#1A1208] shadow-[0_6px_22px_rgba(245,166,35,0.22)]'
                     : 'border border-rule-2 text-ink-2 hover:border-gold hover:text-gold-text'
                 }`}
               >
-                {plan.cta}
+                Start with {plan.name}
               </a>
             </motion.div>
           )
         })}
       </div>
+
+      <p className="font-body text-[13.5px] text-faint mt-8 max-w-[600px]">
+        Managed engagements — where our team runs it for you instead — are scoped and quoted separately.
+        <a href="/services" className="text-gold-text hover:underline ml-1">See managed services →</a>
+      </p>
     </section>
   )
 }

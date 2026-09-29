@@ -7,7 +7,7 @@ import FAQ from '@/components/sections/FAQ'
 
 const seoTitle = 'Nebulaa Pricing — Choose Your Operating Layer'
 const seoDescription =
-  'Gravity, Orbit and Pulsar are ₹15,000/month each, or all three on one core for ₹30,000/month. Annual billing saves 10%.'
+  'Nebulaa self-serve pricing starts at ₹999/month with 60 credits across content, leads and outreach. Annual billing saves 10%.'
 
 export const metadata: Metadata = {
   title: seoTitle,
@@ -20,9 +20,9 @@ const models = [
   {
     label: 'The software',
     title: 'You run it',
-    body: 'Orbit, Gravity and Pulsar, self-serve. Set up in an afternoon, approve from your phone, and cancel any month you decide it is not worth the cost.',
+    body: 'Content, leads and outreach, self-serve. Set up in an afternoon, approve from your phone, and cancel any month you decide it is not worth the cost.',
     points: [
-      'Priced openly — from ₹15,000/month',
+      'Priced openly — from ₹999/month',
       '7-day free trial, no card',
       'Live the same week',
       'Cancel anytime',

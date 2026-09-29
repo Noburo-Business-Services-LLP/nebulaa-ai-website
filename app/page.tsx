@@ -4,8 +4,6 @@ import ClientStrip from '@/components/sections/ClientStrip'
 import ClientGallery from '@/components/sections/ClientGallery'
 import GenerationTicker from '@/components/ui/GenerationTicker'
 import AgentEcosystem from '@/components/sections/AgentEcosystem'
-import ThreeThings from '@/components/sections/ThreeThings'
-import SharedMemory from '@/components/sections/SharedMemory'
 import GravitySection from '@/components/sections/GravitySection'
 import OrbitSection from '@/components/sections/OrbitSection'
 import PulsarSection from '@/components/sections/PulsarSection'
@@ -38,10 +36,8 @@ export default function Home() {
       <ClientStrip />
       <ClientGallery />
       <AgentEcosystem />
-      <ThreeThings />
-      <SharedMemory />
-      <EntryFork />
       <NarrativeDemo />
+      <EntryFork />
       {/* Gravity creates, Orbit finds, Pulsar engages — the master copy's order. */}
       <GravitySection />
       <OrbitSection />

@@ -50,7 +50,7 @@ export default function NarrativeDemo() {
   const run = demoRuns[active]
 
   return (
-    <section className="py-[130px] px-6 md:px-12 lg:px-[120px]">
+    <section id="how-it-works" className="py-[130px] px-6 md:px-12 lg:px-[120px]">
       <div className="max-w-[680px] mb-[46px]">
         <SectionLabel className="mb-[22px] block">One run, start to finish</SectionLabel>
         <h2 className="neb-display text-[34px] md:text-[50px] mb-5">

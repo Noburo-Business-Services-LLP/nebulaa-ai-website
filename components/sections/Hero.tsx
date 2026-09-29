@@ -40,7 +40,7 @@ export default function Hero() {
         <div className="lg:col-span-7">
           <motion.div variants={fadeUpVariant} className="mb-7">
             <div className="inline-flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] backdrop-blur-md">
-              <span className="neb-label">Nebulaa // Business operating system</span>
+              <span className="neb-label">For jewellers, textile brands, hotels and lenders</span>
               <span className="text-white/15">|</span>
               <StatusIndicator tone="active" label="Online" />
             </div>
@@ -59,8 +59,9 @@ export default function Hero() {
             variants={fadeUpVariant}
             className="text-[17px] sm:text-[18px] leading-[1.65] text-ink-2 max-w-[560px] mb-9"
           >
-            Nebulaa reads your website to understand your business, then runs the right combination
-            of content, lead generation and outreach for you — and gets better at it every week.
+            If someone searches for you today and finds nothing new, or messages you and waits days
+            for a reply, they&apos;ve probably already called the next name on the list. Nebulaa posts,
+            finds leads and answers enquiries for you, automatically, so that never happens.
           </motion.p>
 
           <motion.form
@@ -89,10 +90,10 @@ export default function Hero() {
 
           <motion.div variants={fadeUpVariant} className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <a
-              href="#gravity"
+              href="#how-it-works"
               className="inline-flex items-center gap-2 text-[13.5px] text-ink-2 hover:text-gold-text transition-colors"
             >
-              Watch the system work
+              See how it works
               <ArrowDown size={14} />
             </a>
             <span className="neb-label">7-day trial · No card · Live in 24h</span>

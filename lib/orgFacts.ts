@@ -18,7 +18,7 @@ export const org = {
   region: 'Tamil Nadu',
   country: 'IN',
   description:
-    'Nebulaa is a Chennai-based AI operating system for business. It runs three engines on one core — Gravity for content and social media, Orbit for lead generation and Pulsar for outreach, with Nebulaa Core learning from actions, outcomes and signals across all three — and runs managed marketing engagements for brands across South India.',
+    'Nebulaa is a Chennai-based marketing company for Indian businesses. Its app plans and posts your content, finds new customers and answers WhatsApp, email and SMS enquiries, from ₹999 a month. Its team also runs managed marketing for brands across South India.',
   founded: '2025',
 } as const
 

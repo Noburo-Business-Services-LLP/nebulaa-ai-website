@@ -38,7 +38,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ uploadUrl })
   }
 
-  // Local dev path — write the body directly.
+  // Local dev path — write the body directly. The first request carries no
+  // file (so production never has to receive a video); locally, ask for it.
+  const contentLength = Number(req.headers.get('content-length') || '0')
+  if (contentLength === 0) return NextResponse.json({ uploadUrl: null, needsBody: true })
   const buffer = Buffer.from(await req.arrayBuffer())
   if (buffer.byteLength > MAX_LOCAL_UPLOAD_BYTES) {
     return NextResponse.json({ error: 'File too large for local dev upload (8MB limit)' }, { status: 413 })

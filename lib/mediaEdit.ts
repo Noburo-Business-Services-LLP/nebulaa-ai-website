@@ -73,26 +73,30 @@ export function useEditMode(): { editing: boolean; secret: string | null } {
  * MediaSlot on the page to look again.
  */
 export async function uploadMedia(file: File, key: string, secret: string): Promise<void> {
-  const initRes = await fetch('/api/admin/media', {
-    method: 'POST',
-    headers: {
-      'x-admin-secret': secret,
-      'x-media-key': key,
-      'Content-Type': file.type || 'application/octet-stream',
-    },
-    body: file,
-  })
+  const contentType = file.type || 'application/octet-stream'
+  const headers = { 'x-admin-secret': secret, 'x-media-key': key, 'Content-Type': contentType }
+
+  // Step 1: ask for an upload link. No file goes in this request, so a large
+  // video never has to pass through the server (which caps out near 6MB).
+  const initRes = await fetch('/api/admin/media', { method: 'POST', headers })
   if (initRes.status === 401) throw new Error('Admin password not accepted. Sign in again at /admin/media.')
-  const initData = await initRes.json()
-  if (initData.error) throw new Error(initData.error)
+  const initData = await initRes.json().catch(() => ({}))
+  if (!initRes.ok || initData.error) throw new Error(initData.error || `Could not start the upload (error ${initRes.status})`)
 
   if (initData.uploadUrl) {
-    const putRes = await fetch(initData.uploadUrl, {
-      method: 'PUT',
-      headers: { 'Content-Type': file.type || 'application/octet-stream' },
-      body: file,
-    })
-    if (!putRes.ok) throw new Error('Upload to storage failed')
+    // Step 2 (live site): the file goes straight from this browser to storage.
+    let putRes: Response
+    try {
+      putRes = await fetch(initData.uploadUrl, { method: 'PUT', headers: { 'Content-Type': contentType }, body: file })
+    } catch {
+      throw new Error('The file could not reach storage. Check your connection and try again.')
+    }
+    if (!putRes.ok) throw new Error(`Storage refused the file (error ${putRes.status}).`)
+  } else if (initData.needsBody) {
+    // Local development only: there is no storage bucket, so the server writes the file.
+    const localRes = await fetch('/api/admin/media', { method: 'POST', headers, body: file })
+    const localData = await localRes.json().catch(() => ({}))
+    if (!localRes.ok || localData.error) throw new Error(localData.error || `Upload failed (error ${localRes.status})`)
   }
 
   bust.set(key, Date.now())

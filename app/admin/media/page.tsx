@@ -8,6 +8,7 @@ import { SLOT_GROUPS, EDIT_PAGES, slotsInGroup, slotPage } from '@/lib/slotPages
 import { buildGalleryKey, parseGalleryKeys, type GalleryItem } from '@/lib/gallery'
 import { adminFetch, AuthGate, useAdminAuth } from '@/lib/adminClient'
 import { invalidateMediaManifest } from '@/lib/mediaManifestClient'
+import { uploadMedia } from '@/lib/mediaEdit'
 
 interface MediaObject {
   key: string
@@ -17,39 +18,7 @@ interface MediaObject {
 }
 
 
-/**
- * Uploads a file for one slot: asks the API for a presigned S3 URL (or, in
- * local dev, has the API write the bytes directly — see the route), PUTs
- * the file, then tells the shared manifest cache to refetch so every
- * MediaSlot on the site picks up the change without a reload.
- */
-async function uploadSlotFile(file: File, key: string, secret: string) {
-  const initRes = await fetch('/api/admin/media', {
-    method: 'POST',
-    headers: {
-      'x-admin-secret': secret,
-      'x-media-key': key,
-      'Content-Type': file.type || 'application/octet-stream',
-    },
-    body: file,
-  })
-  const initData = await initRes.json()
-  if (initData.error) throw new Error(initData.error)
-
-  if (initData.uploadUrl) {
-    // Production path: the POST above only minted the URL, the actual bytes
-    // go straight to S3 from here.
-    const putRes = await fetch(initData.uploadUrl, {
-      method: 'PUT',
-      headers: { 'Content-Type': file.type || 'application/octet-stream' },
-      body: file,
-    })
-    if (!putRes.ok) throw new Error('Upload to storage failed')
-  }
-  // Local dev path: the POST already wrote the file — nothing further to do.
-
-  invalidateMediaManifest()
-}
+const uploadSlotFile = uploadMedia
 
 function SlotRow({
   slot,

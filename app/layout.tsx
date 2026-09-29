@@ -10,18 +10,18 @@ import { analyticsConfig, hasGTM } from '@/lib/analytics/config'
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.nebulaa.ai'),
   title: {
-    default: 'Nebulaa — The AI Operating System for Business',
+    default: 'Nebulaa: Marketing for Indian Businesses',
     template: '%s | Nebulaa',
   },
   description:
-    'Nebulaa runs Gravity, Orbit and Pulsar on one core — understanding your business, executing the work, and learning from what happens next.',
+    'Nebulaa keeps your page active, finds new customers and answers every WhatsApp enquiry within minutes. From ₹999 a month, or let our team run it for you.',
   keywords: [
-    'AI operating system for business',
-    'autonomous AI agents',
-    'AI content engine',
-    'AI lead generation engine',
-    'AI outreach engine',
-    'cross-agent intelligence',
+    'marketing for Indian businesses',
+    'social media marketing India',
+    'WhatsApp marketing',
+    'WhatsApp enquiry replies',
+    'lead generation for small business',
+    'AI marketing for small business',
   ],
   alternates: {
     canonical: '/',
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: 'Nebulaa — The AI Operating System for Business',
+    title: 'Nebulaa: Marketing for Indian Businesses',
     description:
-      'Give us a URL. Nebulaa understands the business, activates the engines, executes the work and learns from what happens.',
+      'Give us your website address. Nebulaa plans and posts your content, finds new customers and replies to WhatsApp enquiries.',
     url: 'https://www.nebulaa.ai',
     siteName: 'Nebulaa',
     locale: 'en_IN',
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@nebulaaai',
-    title: 'Nebulaa — The AI Operating System for Business',
-    description: 'Gravity creates. Orbit finds. Pulsar engages. Core learns.',
+    title: 'Nebulaa: Marketing for Indian Businesses',
+    description: 'Posts, new customers and WhatsApp replies for your business, from ₹999 a month.',
   },
 }
 

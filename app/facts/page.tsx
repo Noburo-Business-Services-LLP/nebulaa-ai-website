@@ -11,9 +11,9 @@ import {
 } from '@/lib/orgFacts'
 import SectionLabel from '@/components/ui/SectionLabel'
 
-const seoTitle = 'Nebulaa Results and Proof — Facts'
+const seoTitle = 'Nebulaa Facts: Pricing, Products and Channels'
 const seoDescription =
-  'No hype, no inflated claims — just the system: what Nebulaa is, the engines and their prices, the channels it runs, how managed services are priced.'
+  'What Nebulaa is, what it costs, the channels it covers and how managed services are priced, stated once and plainly.'
 
 export const metadata: Metadata = {
   title: seoTitle,
@@ -41,12 +41,12 @@ export default function FactsPage() {
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[70px] max-w-[860px]">
         <SectionLabel className="mb-[26px] block">Company facts</SectionLabel>
         <h1 className="neb-display text-[38px] md:text-[56px] mb-[24px]" style={{ textWrap: 'pretty' }}>
-          Everything true about us,{' '}
+          The facts about Nebulaa,{' '}
           <span className="text-gold-display">on one page.</span>
         </h1>
         <p className="text-[17px] leading-[1.65] text-muted max-w-[640px]">
-          This is Nebulaa results and proof: pricing, products, location and capabilities, stated once. If a figure
-          appears anywhere else on this site, it comes from here — so a summary of us should never find two different
+          These are the basic facts about Nebulaa: pricing, products, location and what we do, stated once. If a figure
+          appears anywhere else on this site, it comes from here, so a summary of us should never find two different
           answers to the same question.
         </p>
       </section>
@@ -63,9 +63,9 @@ export default function FactsPage() {
               {org.email}
             </a>
           </Row>
-          <Row label="The system">
-            Nebulaa Core (cross-agent intelligence), with three engines: Gravity (content &amp; social
-            media), Orbit (lead generation) and Pulsar (outreach)
+          <Row label="The parts">
+            Nebulaa has three parts: Gravity (content and social media), Orbit (finding new customers) and
+            Pulsar (replies to enquiries). Core learns from your results and comes with all three.
           </Row>
         </dl>
       </section>
@@ -115,8 +115,8 @@ export default function FactsPage() {
           Channels
         </h2>
         <dl className="max-w-[860px] border-t border-rule">
-          <Row label="Published by Gravity">{publishingChannels.join(', ')}</Row>
-          <Row label="Handled by Pulsar">{conversationChannels.join(', ')}</Row>
+          <Row label="Posted by Nebulaa">{publishingChannels.join(', ')}</Row>
+          <Row label="Replies handled by Nebulaa">{conversationChannels.join(', ')}</Row>
           <Row label="Run by the team">{managedChannels.join('; ')}</Row>
         </dl>
       </section>

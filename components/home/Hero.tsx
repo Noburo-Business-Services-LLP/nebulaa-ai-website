@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
 import MediaSlot from '@/components/ui/MediaSlot'
+import SlotEditChip from '@/components/ui/SlotEditChip'
 import { trackCTAClick } from '@/lib/analytics/track'
 import { waLink } from '@/lib/contact'
 
@@ -23,6 +24,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA]/95 via-[#FBF5EA]/70 to-[#FBF5EA]/5" />
       </div>
 
+      <SlotEditChip id="hero-video" className="absolute top-[100px] right-4 md:right-8" />
       <div className="relative flex-1 flex items-center pt-[120px] md:pt-[130px] pb-12 px-5 md:px-12 lg:px-[120px]">
         <div className="max-w-[760px]">
           <motion.span

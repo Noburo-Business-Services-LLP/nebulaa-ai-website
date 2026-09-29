@@ -11,7 +11,7 @@
  * before every build.
  */
 
-export type SlotKind = 'screenshot' | 'logo' | 'creative' | 'photo' | 'video'
+export type SlotKind = 'screenshot' | 'creative' | 'photo' | 'video'
 
 export interface MediaSlot {
   id: string
@@ -64,15 +64,6 @@ export const mediaSlots: MediaSlot[] = [
     spec: 'The campaign view. Currently unmarketed entirely — no page mentions campaigns exist.',
     dimensions: '2880×1800',
     usedOn: '/product/gravity/campaigns',
-  },
-  {
-    id: 'gravity-reels',
-    file: 'gravity-reels.png',
-    kind: 'screenshot',
-    label: 'Content and social — reel generator',
-    spec: 'Reel generation in progress or a finished reel with its scenes.',
-    dimensions: '2880×1800',
-    usedOn: '/product/gravity/reels, /channels/reels-shorts',
   },
   {
     id: 'gravity-inbox',
@@ -277,52 +268,6 @@ export const mediaSlots: MediaSlot[] = [
     usedOn: '/product/pulsar/analytics',
   },
 
-  // ── Client logos ────────────────────────────────────────────────────────
-  {
-    id: 'logo-gandhimathi',
-    file: 'logo-gandhimathi.svg',
-    kind: 'logo',
-    label: 'New Ganthimathi Jewellery logo',
-    spec: 'SVG preferred, else 512px PNG on transparent. Needs display permission.',
-    dimensions: 'SVG or 512px',
-    usedOn: 'Client strip, /for/jewellery-retail',
-  },
-  {
-    id: 'logo-jkrtex',
-    file: 'logo-jkrtex.svg',
-    kind: 'logo',
-    label: 'JKR Tex logo',
-    spec: 'SVG preferred, else 512px PNG on transparent.',
-    dimensions: 'SVG or 512px',
-    usedOn: 'Client strip, /for/textile-apparel',
-  },
-  {
-    id: 'logo-tnvchits',
-    file: 'logo-tnvchits.svg',
-    kind: 'logo',
-    label: 'TNV Chits logo',
-    spec: 'SVG preferred, else 512px PNG on transparent.',
-    dimensions: 'SVG or 512px',
-    usedOn: 'Client strip, /for/financial-services',
-  },
-  {
-    id: 'logo-rajarams',
-    file: 'logo-rajarams.svg',
-    kind: 'logo',
-    label: "Rajaram's logo",
-    spec: 'SVG preferred, else 512px PNG on transparent.',
-    dimensions: 'SVG or 512px',
-    usedOn: 'Client strip, /for/fmcg-food',
-  },
-  {
-    id: 'logo-nellaikuttam',
-    file: 'logo-nellaikuttam.svg',
-    kind: 'logo',
-    label: 'Nellai Kuttam Snacks logo',
-    spec: 'SVG preferred, else 512px PNG on transparent.',
-    dimensions: 'SVG or 512px',
-    usedOn: 'Client strip, /for/fmcg-food',
-  },
 
   // ── Sample creative, per vertical ───────────────────────────────────────
   {

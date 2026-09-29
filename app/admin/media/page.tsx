@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, Check, Upload, Trash2, ExternalLink, UploadCloud, X } from 'lucide-react'
-import { mediaSlots, type SlotKind } from '@/lib/mediaSlots'
+import { ArrowLeft, Check, Upload, Trash2, ExternalLink, UploadCloud, X, PencilRuler } from 'lucide-react'
+import { mediaSlots } from '@/lib/mediaSlots'
+import { SLOT_GROUPS, EDIT_PAGES, slotsInGroup, slotPage } from '@/lib/slotPages'
 import { buildGalleryKey, parseGalleryKeys, type GalleryItem } from '@/lib/gallery'
 import { adminFetch, AuthGate, useAdminAuth } from '@/lib/adminClient'
 import { invalidateMediaManifest } from '@/lib/mediaManifestClient'
@@ -15,13 +16,6 @@ interface MediaObject {
   lastModified: string
 }
 
-const GROUPS: { kind: SlotKind; title: string; note: string }[] = [
-  { kind: 'screenshot', title: 'Product screenshots', note: 'Captured from the Gravity and Pulsar apps at 2x.' },
-  { kind: 'logo', title: 'Client logos', note: 'SVG preferred. Each needs display permission before it goes live.' },
-  { kind: 'creative', title: 'Sample creative', note: 'Illustrative of what Gravity produces — never captioned as a named client’s published work.' },
-  { kind: 'photo', title: 'Activation photography', note: 'Documentary realism, Indian tier-2 retail.' },
-  { kind: 'video', title: 'Video', note: 'Autoplayed muted in a phone frame. Keep under 8MB.' },
-]
 
 /**
  * Uploads a file for one slot: asks the API for a presigned S3 URL (or, in
@@ -124,7 +118,7 @@ function SlotRow({
           File <code className="text-ink-2">{slot.file}</code>
         </span>
         <span>{slot.dimensions}</span>
-        <span>Used on {slot.usedOn}</span>
+        <a href={`${slotPage(slot)}?edit=1`} className="font-semibold text-gold-text underline underline-offset-2">Upload on the live page →</a>
         {present && <span>{(present.size / 1024).toFixed(0)} KB</span>}
       </div>
 
@@ -439,12 +433,13 @@ function MediaManager({ secret }: { secret: string }) {
   }
 
   const byKey = new Map(objects.map(o => [o.key, o]))
-  const filled = mediaSlots.filter(s => byKey.has(s.file)).length
+  const startSlots = SLOT_GROUPS.filter(g => g.start).flatMap(g => slotsInGroup(g.key))
+  const filled = startSlots.filter(s => byKey.has(s.file)).length
 
   return (
     <div>
       <h1 className="neb-display text-[34px] md:text-[46px] mb-4">
-        {filled} of {mediaSlots.length} slots filled.
+        {filled} of {startSlots.length} main slots filled.
       </h1>
       <p className="text-[15px] leading-[1.65] text-muted max-w-[68ch] mb-8">
         Upload replaces the live asset immediately — no deploy needed. Files go straight to storage from
@@ -453,19 +448,48 @@ function MediaManager({ secret }: { secret: string }) {
 
       <BulkSlotDrop secret={secret} onChanged={refresh} />
 
+      <section className="rounded-[18px] border border-gold/40 bg-gold/[0.06] p-6 mb-12">
+        <h2 className="font-heading text-[22px] mb-1.5 flex items-center gap-2"><PencilRuler size={20} /> Upload on the live pages</h2>
+        <p className="text-[14.5px] leading-[1.6] text-ink-2 max-w-[70ch] mb-4">
+          Open a real page in edit mode: every empty photo or video spot becomes a dashed box you can click or drop a file on, and you see it in place straight away. Best way to work.
+        </p>
+        <div className="flex flex-wrap gap-2.5">
+          {EDIT_PAGES.map(p => (
+            <a key={p.path} href={`${p.path}?edit=1`} className="rounded-full bg-gold px-4 py-2 text-[13.5px] font-bold text-[#1A1208] hover:brightness-105 transition">
+              {p.label}
+            </a>
+          ))}
+        </div>
+      </section>
+
       <div className="flex flex-col gap-12">
-        {GROUPS.map(group => {
-          const slots = mediaSlots.filter(s => s.kind === group.kind)
+        {SLOT_GROUPS.map(group => {
+          const slots = slotsInGroup(group.key)
           if (slots.length === 0) return null
+          const done = slots.filter(sl => byKey.has(sl.file)).length
+          const rows = (
+            <div className="flex flex-col gap-3">
+              {slots.map(slot => (
+                <SlotRow key={slot.id} slot={slot} present={byKey.get(slot.file)} secret={secret} onChanged={refresh} />
+              ))}
+            </div>
+          )
           return (
-            <section key={group.kind}>
-              <h2 className="font-heading font-medium text-[24px] mb-1.5">{group.title}</h2>
-              <p className="text-[14px] text-muted mb-6 max-w-[70ch]">{group.note}</p>
-              <div className="flex flex-col gap-3">
-                {slots.map(slot => (
-                  <SlotRow key={slot.id} slot={slot} present={byKey.get(slot.file)} secret={secret} onChanged={refresh} />
-                ))}
+            <section key={group.key}>
+              <div className="flex flex-wrap items-baseline gap-3 mb-1.5">
+                <h2 className="font-heading font-medium text-[24px]">{group.title}</h2>
+                <span className="text-[12px] font-bold uppercase tracking-[0.08em] text-faint">{done} of {slots.length} added</span>
+                <span className={`text-[11px] font-bold uppercase tracking-[0.08em] rounded-full px-2.5 py-0.5 ${group.start ? 'bg-gold text-[#1A1208]' : 'bg-surface-2 text-muted'}`}>
+                  {group.start ? 'Start here' : 'Optional'}
+                </span>
               </div>
+              <p className="text-[14px] text-muted mb-6 max-w-[70ch]">{group.note}</p>
+              {group.start ? rows : (
+                <details>
+                  <summary className="cursor-pointer text-[14px] font-semibold text-gold-text mb-4">Show the {slots.length} slots</summary>
+                  {rows}
+                </details>
+              )}
             </section>
           )
         })}

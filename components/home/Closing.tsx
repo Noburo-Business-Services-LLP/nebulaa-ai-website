@@ -3,6 +3,7 @@
 import Button from '@/components/ui/Button'
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
 import MediaSlot from '@/components/ui/MediaSlot'
+import SlotEditChip from '@/components/ui/SlotEditChip'
 import { trackCTAClick } from '@/lib/analytics/track'
 import { waLink } from '@/lib/contact'
 
@@ -20,6 +21,7 @@ export default function Closing() {
           <MediaSlot id="closing-photo" ratio="auto" bare className="!h-full !rounded-none" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#FFF3E0]/92 via-[#FFF3E0]/60 to-transparent" />
         </div>
+        <SlotEditChip id="closing-photo" className="absolute top-4 right-4" />
         <div className="relative py-14 md:py-20 px-7 md:px-14 max-w-[820px]">
           <h2 className="neb-display text-[40px] md:text-[68px] mb-5">
             Let&apos;s talk about

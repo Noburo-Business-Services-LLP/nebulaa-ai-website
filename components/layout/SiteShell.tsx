@@ -3,6 +3,7 @@ import { usePathname } from 'next/navigation'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import WhatsAppBar from './WhatsAppBar'
+import EditBar from './EditBar'
 
 // Pages that manage their own layout (no global navbar/footer)
 const NO_SHELL_PREFIXES = ['/admin']
@@ -20,6 +21,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
       {children}
       <Footer />
       <WhatsAppBar />
+      <EditBar />
     </>
   )
 }

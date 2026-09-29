@@ -7,6 +7,7 @@ import { industryIcons, postTypes } from '@/lib/industryVisuals'
 import Reveal from '@/components/ui/Reveal'
 import Marquee from '@/components/ui/Marquee'
 import FloatingIcons from '@/components/ui/FloatingIcons'
+import SlotEditChip from '@/components/ui/SlotEditChip'
 import { waLink } from '@/lib/contact'
 import SectionLabel from '@/components/ui/SectionLabel'
 import MediaSlot from '@/components/ui/MediaSlot'
@@ -67,6 +68,7 @@ export default function IndustryPage({ params }: { params: { industry: string } 
           <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA]/95 via-[#FBF5EA]/70 to-[#FBF5EA]/5" />
         </div>
         <FloatingIcons icons={industryIcons[data.slug]} className="hidden lg:block absolute right-[4%] top-[110px] bottom-10 w-[34%] max-w-[440px]" />
+        <SlotEditChip id={meta.photoSlot} className="absolute top-[100px] right-4 md:right-8" />
         <div className="relative px-5 md:px-12 lg:px-[120px] pt-[130px] pb-14 md:pb-16 max-w-[900px]">
           <SectionLabel className="mb-5 block">{data.eyebrow}</SectionLabel>
           <h1 className="neb-display text-[42px] sm:text-[60px] lg:text-[80px] mb-6">

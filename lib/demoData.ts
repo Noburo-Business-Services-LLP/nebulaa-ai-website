@@ -29,6 +29,8 @@ export interface DemoRun {
     day: string
     copy: string
   }
+  /** Illustrative sample creative for this sector — see lib/mediaSlots.ts. */
+  creativeSlot: string
   reply: {
     inbound: string
     outbound: string
@@ -62,6 +64,7 @@ export const demoRuns: DemoRun[] = [
       copy:
         'Most of our customers don’t compare us to other jewellers. They compare us to the shop their mother trusted for thirty years. That’s the bar.',
     },
+    creativeSlot: 'creative-jewellery',
     reply: {
       inbound: 'Saw your bridal collection post — do you have something in antique gold?',
       outbound: 'We do — the antique bridal range is in-store now. Is this for a wedding, and roughly when?',
@@ -97,6 +100,7 @@ export const demoRuns: DemoRun[] = [
       copy:
         'New Kanchipuram arrivals landed at the Gandhipuram branch this morning. Forty-two designs, and the ones that go first are always the quiet ones.',
     },
+    creativeSlot: 'creative-textile',
     reply: {
       inbound: 'Is the new silk collection available at the Erode branch?',
       outbound: 'It is — arrived there yesterday. Are you looking for wedding or festival wear?',
@@ -132,6 +136,7 @@ export const demoRuns: DemoRun[] = [
       copy:
         'The recipe hasn’t changed since 1954. The packaging has, four times. Ask anyone who grew up on it which one they’d have kept.',
     },
+    creativeSlot: 'creative-fmcg',
     reply: {
       inbound: 'Where can I buy this in Bengaluru?',
       outbound: 'We’re on Blinkit and Instamart in Indiranagar and Koramangala from this week. Which area are you in?',
@@ -167,6 +172,7 @@ export const demoRuns: DemoRun[] = [
       copy:
         'A chit is not an investment scheme and we will not describe it as one. It is a way to save with a group and access that money when your turn comes. Here is exactly how the bidding works.',
     },
+    creativeSlot: 'creative-financial',
     reply: {
       inbound: 'What is the minimum monthly amount and how long is the tenure?',
       outbound: 'Schemes start at ₹2,000 a month, with tenures from 20 to 40 months. Are you saving toward something specific?',

@@ -115,6 +115,7 @@ export const industries: Record<string, IndustryData> = {
     clients: [{ name: 'TNV Chits', stage: 'active' }],
     hubBlurb: 'Plain-spoken, consistent content — and every enquiry answered accurately, fast.',
     hubImage: 'finance',
+    creativeSlot: 'creative-financial',
   },
   'fmcg-food': {
     slug: 'fmcg-food',

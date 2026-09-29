@@ -332,7 +332,7 @@ export const mediaSlots: MediaSlot[] = [
     label: 'Sample creative — jewellery',
     spec: 'A social post in the style Gravity produces for a jewellery brand. Illustrative, never captioned as a named client’s published work.',
     dimensions: '1080×1080',
-    usedOn: '/for/jewellery-retail, proof gallery',
+    usedOn: '/for/jewellery-retail, homepage narrative demo, proof gallery',
   },
   {
     id: 'creative-textile',
@@ -341,7 +341,7 @@ export const mediaSlots: MediaSlot[] = [
     label: 'Sample creative — textile',
     spec: 'A social post in the style Gravity produces for a textile retailer.',
     dimensions: '1080×1080',
-    usedOn: '/for/textile-apparel, proof gallery',
+    usedOn: '/for/textile-apparel, homepage narrative demo, proof gallery',
   },
   {
     id: 'creative-fmcg',
@@ -350,7 +350,16 @@ export const mediaSlots: MediaSlot[] = [
     label: 'Sample creative — FMCG / snacks',
     spec: 'A social post in the style Gravity produces for a food brand.',
     dimensions: '1080×1080',
-    usedOn: '/for/fmcg-food, proof gallery',
+    usedOn: '/for/fmcg-food, homepage narrative demo, proof gallery',
+  },
+  {
+    id: 'creative-financial',
+    file: 'creative-financial.jpg',
+    kind: 'creative',
+    label: 'Sample creative — financial services',
+    spec: 'A social post in the style Gravity produces for a chits/financial-services brand — trust and clarity over hard-sell.',
+    dimensions: '1080×1080',
+    usedOn: '/for/financial-services, homepage narrative demo',
   },
 
   // ── BTL activation ──────────────────────────────────────────────────────

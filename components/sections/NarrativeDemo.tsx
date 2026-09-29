@@ -7,6 +7,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import HudCard from '@/components/ui/HudCard'
 import StatusIndicator from '@/components/ui/StatusIndicator'
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
+import MediaSlot from '@/components/ui/MediaSlot'
 import { demoRuns, demoStages } from '@/lib/demoData'
 import { viewportOptions } from '@/lib/animations'
 
@@ -161,11 +162,14 @@ export default function NarrativeDemo() {
 
               {/* 04 — a drafted post */}
               <Stage index={3} label={demoStages[3].label}>
-                <div className={`${PANEL} p-5`}>
-                  <div className="text-[12px] uppercase tracking-[0.08em] text-faint mb-3">
-                    {run.post.platform}
+                <div className="grid sm:grid-cols-[240px_minmax(0,1fr)] gap-5">
+                  <MediaSlot id={run.creativeSlot} ratio="1 / 1" />
+                  <div className={`${PANEL} p-5`}>
+                    <div className="text-[12px] uppercase tracking-[0.08em] text-faint mb-3">
+                      {run.post.platform}
+                    </div>
+                    <p className="text-[14.5px] leading-[1.62] text-ink-2">{run.post.copy}</p>
                   </div>
-                  <p className="text-[14.5px] leading-[1.62] text-ink-2">{run.post.copy}</p>
                 </div>
               </Stage>
 

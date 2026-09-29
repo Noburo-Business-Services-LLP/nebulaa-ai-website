@@ -42,7 +42,7 @@ export default function ToolsPage() {
       {/* Search affordance — visual only, wiring is out of scope */}
       <div className="px-6 md:px-12 lg:px-[120px] pb-[60px]">
         <div className="bg-surface border border-rule-2 rounded-[14px] px-[22px] py-[17px] flex items-center gap-[13px] max-w-[620px]">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="2" strokeLinecap="round">
+          <svg className="text-muted" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
             <circle cx="11" cy="11" r="7"></circle>
             <path d="M20 20l-3.5-3.5"></path>
           </svg>

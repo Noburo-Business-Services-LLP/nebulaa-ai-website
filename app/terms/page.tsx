@@ -47,7 +47,7 @@ function Numbered({ items }: { items: string[] }) {
     <ol className="space-y-2 list-none">
       {items.map((item, i) => (
         <li key={i} className="flex items-start gap-3">
-          <span className="flex-shrink-0 w-5 h-5 rounded-full bg-white/5 border border-rule text-[10px] font-bold text-muted flex items-center justify-center mt-0.5">
+          <span className="flex-shrink-0 w-5 h-5 rounded-full bg-surface-2 border border-rule text-[10px] font-bold text-muted flex items-center justify-center mt-0.5">
             {i + 1}
           </span>
           <span>{item}</span>

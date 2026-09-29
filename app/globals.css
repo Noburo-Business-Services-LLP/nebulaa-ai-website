@@ -362,7 +362,7 @@ body {
   font-weight: 400;
   font-stretch: normal;
   letter-spacing: 0;
-  color: #E58F00;
+  color: #D07A00;
 }
 
 @keyframes neb-scan-sweep {
@@ -391,7 +391,7 @@ body {
   letter-spacing: -0.01em;
 }
 .prose-nebulaa p { color: var(--ink-2); line-height: 1.75; }
-.prose-nebulaa a { color: #F5A623; text-decoration: underline; }
+.prose-nebulaa a:not([class*="bg-"]) { color: var(--gold-text); text-decoration: underline; }
 .prose-nebulaa blockquote {
   border-left: 4px solid #F5A623;
   padding-left: 1rem;

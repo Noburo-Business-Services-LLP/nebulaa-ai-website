@@ -8,8 +8,6 @@ import MediaSlot from '@/components/ui/MediaSlot'
 import { trackCTAClick } from '@/lib/analytics/track'
 import { waLink } from '@/lib/contact'
 
-const CLIENTS = ['Gandhimathi Jewellers', 'JKR Tex', 'TNV Chits']
-
 /**
  * A full-width video hero with the headline laid over it. The gradient
  * underneath is the fallback: a soft sunrise glow, so the section
@@ -18,7 +16,7 @@ const CLIENTS = ['Gandhimathi Jewellers', 'JKR Tex', 'TNV Chits']
  */
 export default function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-ground text-ink min-h-[640px] md:min-h-[720px] flex flex-col">
+    <section className="relative isolate overflow-hidden bg-ground text-ink min-h-[600px] md:min-h-[680px] flex flex-col">
       <div className="absolute inset-0 -z-20 bg-[radial-gradient(60%_80%_at_92%_8%,rgba(255,203,46,0.55)_0%,rgba(255,203,46,0)_62%),radial-gradient(55%_70%_at_100%_100%,rgba(238,99,48,0.26)_0%,rgba(238,99,48,0)_66%),linear-gradient(180deg,#FBF5EA_0%,#FFEBD6_100%)]" aria-hidden="true" />
       <div className="absolute inset-0 -z-10" aria-hidden="true">
         <MediaSlot id="hero-video" ratio="auto" bare priority className="!h-full !rounded-none" />
@@ -75,14 +73,6 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative px-5 md:px-12 lg:px-[120px] pb-8">
-        <div className="flex flex-wrap items-center gap-x-7 gap-y-2 pt-5 border-t border-rule">
-          <span className="neb-label">Working with</span>
-          {CLIENTS.map(c => (
-            <span key={c} className="font-heading text-[15px] text-ink">{c}</span>
-          ))}
-        </div>
-      </div>
     </section>
   )
 }

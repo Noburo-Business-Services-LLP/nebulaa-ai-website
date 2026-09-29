@@ -3,6 +3,10 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowRight, ArrowDown, MessageCircleQuestion, CalendarCheck, MessageCircle, Star, Camera, Handshake } from 'lucide-react'
 import { getIndustryData, industries, industryMeta } from '@/lib/industryData'
+import { industryIcons, postTypes } from '@/lib/industryVisuals'
+import Reveal from '@/components/ui/Reveal'
+import Marquee from '@/components/ui/Marquee'
+import FloatingIcons from '@/components/ui/FloatingIcons'
 import { waLink } from '@/lib/contact'
 import SectionLabel from '@/components/ui/SectionLabel'
 import MediaSlot from '@/components/ui/MediaSlot'
@@ -62,6 +66,7 @@ export default function IndustryPage({ params }: { params: { industry: string } 
           <MediaSlot id={meta.photoSlot} ratio="auto" bare priority className="!h-full !rounded-none" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA]/95 via-[#FBF5EA]/70 to-[#FBF5EA]/5" />
         </div>
+        <FloatingIcons icons={industryIcons[data.slug]} className="hidden md:block absolute right-[4%] top-[110px] bottom-10 w-[36%] max-w-[460px]" />
         <div className="relative px-5 md:px-12 lg:px-[120px] pt-[130px] pb-14 md:pb-16 max-w-[900px]">
           <SectionLabel className="mb-5 block">{data.eyebrow}</SectionLabel>
           <h1 className="neb-display text-[42px] sm:text-[60px] lg:text-[80px] mb-6">
@@ -102,12 +107,14 @@ export default function IndustryPage({ params }: { params: { industry: string } 
         </h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {data.painPoints.map((pain, i) => (
-            <div key={i} className={`rounded-[22px] ${PASTELS[i % 4]} p-6 flex items-start gap-4`}>
-              <span className="flex-shrink-0 w-10 h-10 rounded-full bg-surface flex items-center justify-center">
-                <MessageCircleQuestion size={19} className="text-ink" />
-              </span>
-              <p className="text-[16px] leading-[1.55] font-medium text-ink pt-1.5">{pain}</p>
-            </div>
+            <Reveal key={i} delay={(i % 2) * 0.08}>
+              <div className={`group h-full rounded-[22px] ${PASTELS[i % 4]} p-6 flex items-start gap-4 transition-transform duration-300 hover:-translate-y-1`}>
+                <span className="neb-wiggle flex-shrink-0 w-11 h-11 rounded-full bg-surface flex items-center justify-center shadow-sm">
+                  <MessageCircleQuestion size={20} className="text-ink" />
+                </span>
+                <p className="text-[16px] leading-[1.55] font-medium text-ink pt-2">{pain}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -122,18 +129,33 @@ export default function IndustryPage({ params }: { params: { industry: string } 
           {data.useCases.map((uc, i) => {
             const Icon = USE_ICONS[i % USE_ICONS.length]
             return (
-              <div key={i} className="rounded-[22px] bg-surface border border-rule p-6 flex items-start gap-4">
-                <span className={`flex-shrink-0 w-11 h-11 rounded-full ${PASTELS[i % 4]} flex items-center justify-center`}>
-                  <Icon size={20} className="text-ink" />
-                </span>
-                <div>
-                  <h3 className="font-heading text-[18px] leading-[1.25] mb-1.5">{uc.title}</h3>
-                  <p className="text-[15px] leading-[1.55] text-ink-2">{uc.desc}</p>
+              <Reveal key={i} delay={(i % 2) * 0.08}>
+                <div className="group h-full rounded-[22px] bg-surface border border-rule p-6 flex items-start gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(20,32,58,0.1)]">
+                  <span className={`neb-wiggle flex-shrink-0 w-12 h-12 rounded-2xl ${PASTELS[i % 4]} flex items-center justify-center`}>
+                    <Icon size={22} className="text-ink" />
+                  </span>
+                  <div>
+                    <h3 className="font-heading text-[18px] leading-[1.25] mb-1.5">{uc.title}</h3>
+                    <p className="text-[15px] leading-[1.55] text-ink-2">{uc.desc}</p>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             )
           })}
         </div>
+      </section>
+
+      {/* What we post: a running strip */}
+      <section className="py-12 md:py-14 border-y border-rule overflow-hidden">
+        <p className="neb-label text-center mb-6">What we post for you</p>
+        <Marquee speed={38}>
+          {postTypes.map(t => (
+            <span key={t.label} className={`flex-shrink-0 inline-flex items-center gap-2.5 rounded-full ${t.tint} pl-3 pr-5 py-2.5 text-[14.5px] font-bold text-ink`}>
+              <span className="w-8 h-8 rounded-full bg-surface flex items-center justify-center"><t.icon size={16} /></span>
+              {t.label}
+            </span>
+          ))}
+        </Marquee>
       </section>
 
       {/* Journey, where the industry has one */}
@@ -145,8 +167,8 @@ export default function IndustryPage({ params }: { params: { industry: string } 
           </h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
             {data.journey.map((step, i) => (
-              <div key={step.title} className="relative">
-                <div className={`h-full rounded-[20px] ${JOURNEY_TINTS[i]} p-5`}>
+              <Reveal key={step.title} delay={i * 0.07} className="relative">
+                <div className={`group h-full rounded-[20px] ${JOURNEY_TINTS[i]} p-5 transition-transform duration-300 hover:-translate-y-1`}>
                   <span className="inline-flex w-8 h-8 rounded-full bg-ink text-ground text-[14px] font-extrabold items-center justify-center mb-3">{i + 1}</span>
                   <h3 className="font-heading text-[16.5px] leading-[1.25] mb-1.5">{step.title}</h3>
                   <p className="text-[13.5px] leading-[1.5] text-ink-2">{step.body}</p>
@@ -154,7 +176,7 @@ export default function IndustryPage({ params }: { params: { industry: string } 
                 {i < data.journey!.length - 1 && (
                   <ArrowDown size={18} className="sm:hidden mx-auto mt-2 text-coral" aria-hidden="true" />
                 )}
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>

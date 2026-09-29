@@ -6,6 +6,7 @@ import { waLink } from '@/lib/contact'
 import SectionLabel from '@/components/ui/SectionLabel'
 import Button from '@/components/ui/Button'
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
+import ClientMarquee from '@/components/home/ClientMarquee'
 import WorkWall from '@/components/home/WorkWall'
 
 const seoTitle = 'Our Work: Real Posts, Reels and Client Projects'
@@ -33,6 +34,7 @@ export default function WorkHubPage() {
         </p>
       </section>
 
+      <ClientMarquee title="Businesses we work with" />
       <WorkWall />
 
       <section className="px-5 md:px-12 lg:px-[120px] py-[72px] md:py-[96px] bg-surface-2">

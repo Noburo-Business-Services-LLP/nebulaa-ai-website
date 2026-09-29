@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/home/Hero'
+import ClientMarquee from '@/components/home/ClientMarquee'
 import WorkWall from '@/components/home/WorkWall'
 import WhatYouGet from '@/components/home/WhatYouGet'
 import HowItWorks from '@/components/home/HowItWorks'
@@ -29,6 +30,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <ClientMarquee />
       <WorkWall />
       <WhatYouGet />
       <HowItWorks />

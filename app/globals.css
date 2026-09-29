@@ -430,3 +430,22 @@ body {
     rgb(var(--ground-rgb) / 0.40) 100%
   );
 }
+
+
+/* ─── Running strips and gentle motion ─────────────────────────────────── */
+@keyframes neb-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.neb-marquee { display: flex; width: max-content; animation: neb-marquee var(--marquee-speed, 45s) linear infinite; }
+.neb-marquee-wrap:hover .neb-marquee { animation-play-state: paused; }
+.neb-marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+}
+@keyframes neb-bob { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(2deg); } }
+.neb-bob { animation: neb-bob 5.5s ease-in-out infinite; }
+@keyframes neb-wiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-10deg) scale(1.08); } 75% { transform: rotate(10deg) scale(1.08); } }
+.group:hover .neb-wiggle { animation: neb-wiggle 0.6s ease-in-out; }
+@media (prefers-reduced-motion: reduce) {
+  .neb-marquee, .neb-bob { animation: none; }
+  .neb-marquee { flex-wrap: wrap; width: auto; justify-content: center; }
+  .neb-marquee > [aria-hidden="true"] { display: none; }
+}

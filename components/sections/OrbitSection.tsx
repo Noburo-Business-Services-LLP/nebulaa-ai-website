@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { motion, useReducedMotion } from 'framer-motion'
-import { Crosshair, Search, Sparkles, Filter, Send, ArrowRight } from 'lucide-react'
+import { Search, Filter, Send, ArrowRight } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
 import HudCard from '@/components/ui/HudCard'
 import StatusIndicator from '@/components/ui/StatusIndicator'
@@ -11,11 +11,9 @@ import MediaSlot from '@/components/ui/MediaSlot'
 import { fadeUpVariant, staggerContainer, viewportOptions } from '@/lib/animations'
 
 const bullets = [
-  { icon: Search, text: 'Finds real businesses matching who you actually sell to' },
-  { icon: Sparkles, text: 'Enriches a contact email even when the listing never gives one' },
-  { icon: Filter, text: 'Keeps only the phone-reachable, credible ones — not a scraped list' },
-  { icon: Send, text: 'Drafts the opening message with the context it just gathered' },
-  { icon: Crosshair, text: 'Pushes qualified leads into your CRM, assigned and ready to work' },
+  { icon: Search, text: 'Finds real, nearby businesses matching who you sell to' },
+  { icon: Filter, text: 'Drops the ones not worth calling — no scraped lists' },
+  { icon: Send, text: 'Drafts the first message, ready for a rep to send' },
 ]
 
 /**
@@ -119,11 +117,16 @@ export default function OrbitSection() {
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}
+            className="font-body text-[16px] leading-[1.6] text-gold-text/80 italic mb-[10px]"
+          >
+            Like having someone go door to door finding customers for you.
+          </motion.p>
+          <motion.p
+            variants={fadeUpVariant}
             className="font-body text-[17px] leading-[1.68] text-muted max-w-[480px] mb-[34px]"
           >
-            It turns your ideal customer profile into a prospecting engine, finding real businesses
-            that match, verifying and qualifying them, drafting outreach that reads naturally, and
-            handing the warm ones off the moment they&apos;re ready to talk.
+            It searches for businesses matching who you sell to, checks they&apos;re worth calling,
+            and hands off the ones ready to talk.
           </motion.p>
 
           <motion.div variants={fadeUpVariant} className="flex flex-col gap-4 mb-9">

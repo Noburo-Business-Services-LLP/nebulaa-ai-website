@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import {
-  Target, CalendarCheck, Radar, TrendingUp, CircleCheck,
+  CalendarCheck, Radar, CircleCheck,
   Linkedin, Instagram, Twitter, Clapperboard, Image as ImageIcon, Layers, Inbox,
 } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
@@ -13,11 +13,9 @@ import MediaSlot from '@/components/ui/MediaSlot'
 import { fadeUpVariant, slideInLeft, staggerContainer, viewportOptions } from '@/lib/animations'
 
 const bullets = [
-  { icon: Target, text: 'Builds your marketing strategy first — ICP, channels, what to say' },
-  { icon: CalendarCheck, text: 'Plans the month, then executes it — posts, carousels, reels' },
-  { icon: Radar, text: 'Monitors competitors and drafts a response post automatically' },
-  { icon: TrendingUp, text: 'Gets sharper over time — it remembers what worked' },
-  { icon: CircleCheck, text: 'Nothing publishes until you tap approve' },
+  { icon: CalendarCheck, text: 'A month of posts, carousels and reels, ready in advance' },
+  { icon: Radar, text: 'Keeps an eye on nearby competitors and reacts to them' },
+  { icon: CircleCheck, text: 'Nothing goes out until you tap approve' },
 ]
 
 const channels = [
@@ -106,9 +104,15 @@ export default function GravitySection() {
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}
+            className="font-body text-[16px] leading-[1.6] text-gold-text/80 italic mb-[10px]"
+          >
+            Think of it as never running out of things to post.
+          </motion.p>
+          <motion.p
+            variants={fadeUpVariant}
             className="font-body text-[17px] leading-[1.68] text-muted max-w-[480px] mb-[34px]"
           >
-            It starts by learning your business: your customers, your channels, and what actually works for you. Then it plans the month and drafts the posts, carousels and reels to fill it, while tracking competitors so your content stays current. You approve before anything publishes.
+            It learns your business, plans the month and drafts everything in it. You approve before anything goes out.
           </motion.p>
           <motion.div variants={fadeUpVariant} className="flex flex-col gap-4">
             {bullets.map(({ icon: Icon, text }) => (

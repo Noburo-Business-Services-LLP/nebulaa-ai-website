@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
-import { MessageSquareText, ClipboardCheck, ListOrdered, Phone, Mail, MessageSquare, PhoneCall } from 'lucide-react'
+import { MessageSquareText, ClipboardCheck, ListOrdered, Mail, MessageSquare, PhoneCall } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
 import HudCard from '@/components/ui/HudCard'
 import StatusIndicator from '@/components/ui/StatusIndicator'
@@ -11,10 +11,9 @@ import MediaSlot from '@/components/ui/MediaSlot'
 import { fadeUpVariant, slideInRight, staggerContainer, viewportOptions } from '@/lib/animations'
 
 const bullets = [
-  { icon: MessageSquareText, text: "WhatsApp, email and SMS — written the way you'd write them" },
-  { icon: ClipboardCheck, text: 'Budget, timeline and fit settled before it reaches you' },
-  { icon: ListOrdered, text: 'Every lead scored, so your day starts at the top of the list' },
-  { icon: Phone, text: 'Voice calling where it earns its place' },
+  { icon: MessageSquareText, text: 'WhatsApp, email and SMS, answered in your tone' },
+  { icon: ClipboardCheck, text: 'Asks what you would ask before it reaches you' },
+  { icon: ListOrdered, text: 'The most promising enquiries land at the top of your day' },
 ]
 
 const channels = [
@@ -94,9 +93,16 @@ export default function PulsarSection() {
           </motion.h2>
           <motion.p
             variants={fadeUpVariant}
+            className="font-body text-[16px] leading-[1.6] text-gold-text/80 italic mb-[10px]"
+          >
+            Like a staff member who never sleeps and never misses a message.
+          </motion.p>
+          <motion.p
+            variants={fadeUpVariant}
             className="font-body text-[17px] leading-[1.68] text-muted max-w-[480px] mb-[34px]"
           >
-            Enquiries arrive while you are busy with other things, and by the time you are free, the lead has often gone elsewhere. It replies within minutes, asks the qualifying questions you would ask, and brings only the qualified leads to you.
+            Enquiries arrive while you&apos;re busy, and by the time you&apos;re free the lead has often
+            gone elsewhere. It replies in minutes instead, and only brings you the ones worth your time.
           </motion.p>
           <motion.div variants={fadeUpVariant} className="flex flex-col gap-4">
             {bullets.map(({ icon: Icon, text }) => (

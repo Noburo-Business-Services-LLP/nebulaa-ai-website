@@ -1,14 +1,17 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ShieldCheck, Brain } from 'lucide-react'
 import { agents, capabilitiesFor } from '@/lib/productData'
+import { waLink } from '@/lib/contact'
 import SectionLabel from '@/components/ui/SectionLabel'
-import HudCard from '@/components/ui/HudCard'
-import { BrainCircuit } from 'lucide-react'
+import Button from '@/components/ui/Button'
+import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
+import HowItWorks from '@/components/home/HowItWorks'
+import Fork from '@/components/home/Fork'
 
-const seoTitle = 'AI Marketing Automation Platform'
+const seoTitle = 'How Nebulaa Works'
 const seoDescription =
-  'Three engines on one core. Gravity creates, Orbit finds, Pulsar engages, and Core learns from every action, outcome and signal across the system.'
+  'Share your website and Nebulaa plans your posts, finds new customers and answers your WhatsApp enquiries. You approve everything on your phone.'
 
 export const metadata: Metadata = {
   title: seoTitle,
@@ -16,113 +19,81 @@ export const metadata: Metadata = {
   openGraph: { title: seoTitle, description: seoDescription },
 }
 
-export default function ProductPage() {
-  const list = [agents.orbit, agents.gravity, agents.pulsar]
+const AREAS = [
+  { id: 'gravity' as const, title: 'Content and social media', line: 'A month of posts, carousels and reels, planned and written for you.', tint: 'bg-peach' },
+  { id: 'orbit' as const, title: 'Finding new customers', line: 'Nearby businesses who might buy from you, found and checked before you call.', tint: 'bg-sky' },
+  { id: 'pulsar' as const, title: 'Answering enquiries', line: 'WhatsApp, email and SMS replied to in minutes, at any hour.', tint: 'bg-mint' },
+]
 
+export default function ProductPage() {
   return (
     <main className="text-ink min-h-screen">
-      <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[90px] max-w-[880px]">
-        <SectionLabel className="mb-[26px] block">The product</SectionLabel>
-        <h1 className="neb-display text-[40px] md:text-[62px] mb-[26px]" style={{ textWrap: 'pretty' }}>
-          Three engines.{' '}
-          <span className="text-gold-display">One core underneath.</span>
+      <section className="px-5 md:px-12 lg:px-[120px] pt-[130px] pb-14 max-w-[960px]">
+        <SectionLabel className="mb-5 block">How it works</SectionLabel>
+        <h1 className="neb-display text-[44px] md:text-[80px] mb-6">
+          Give us your website. <span className="text-gold-display">We handle the rest.</span>
         </h1>
-        <p className="text-[18px] leading-[1.65] text-muted max-w-[640px]">
-          Nebulaa is an AI marketing automation platform built from three agents on one shared core. Orbit finds
-          and qualifies who is worth talking to, Gravity produces the marketing that reaches them, and Pulsar
-          replies to their messages within minutes. All three read and write to the same brand memory, so
-          information one agent captures is available to the other two immediately.
+        <p className="text-[18px] md:text-[20px] leading-[1.55] text-ink-2 max-w-[600px] mb-8">
+          Nebulaa plans your posts, finds new customers and answers your enquiries. You approve everything
+          on your phone, and nothing goes out without your yes.
         </p>
+        <div className="flex flex-wrap gap-3">
+          <Button href={waLink()} variant="whatsapp" size="lg">
+            <WhatsAppIcon size={18} /> WhatsApp us
+          </Button>
+          <Button href="/pricing" variant="secondary" size="lg">See the plans <ArrowRight size={16} /></Button>
+        </div>
       </section>
 
-      {/* Core — the connecting layer, not a fourth priced card */}
-      <section className="px-6 md:px-12 lg:px-[120px] pb-[80px]">
-        <HudCard halo="amber" className="p-8 md:p-10 max-w-[900px]">
-          <div className="flex items-start gap-5">
-            <span className="w-11 h-11 rounded-full bg-gold-wash flex items-center justify-center flex-shrink-0">
-              <BrainCircuit size={20} className="text-gold-text" />
-            </span>
-            <div>
-              <SectionLabel tone="muted" className="mb-2.5 block">Core — cross-agent intelligence</SectionLabel>
-              <p className="font-heading text-[19px] md:text-[21px] font-medium mb-2.5">
-                What connects all three, underneath.
-              </p>
-              <p className="text-[14.5px] leading-[1.65] text-muted max-w-[560px] mb-4">
-                Core observes actions, outcomes and signals across Orbit, Gravity and Pulsar, and
-                turns them into what runs next. It comes with every agent — there is nothing
-                separate to buy.
-              </p>
-              <Link
-                href="/product/core"
-                className="inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-gold-text hover:gap-2.5 transition-all"
-              >
-                See how Core works <ArrowRight size={13} />
-              </Link>
-            </div>
-          </div>
-        </HudCard>
-      </section>
+      <HowItWorks />
 
-      <section className="px-6 md:px-12 lg:px-[120px] pb-[110px]">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {list.map(agent => {
-            const caps = capabilitiesFor(agent.id)
+      <section className="px-5 md:px-12 lg:px-[120px] py-[72px] md:py-[96px]">
+        <SectionLabel className="mb-4 block">What is inside</SectionLabel>
+        <h2 className="neb-display text-[34px] md:text-[52px] mb-10 max-w-[760px]">
+          Three jobs, <span className="text-gold-display">done for you.</span>
+        </h2>
+        <div className="grid md:grid-cols-3 gap-5">
+          {AREAS.map(a => {
+            const agent = agents[a.id]
+            const caps = capabilitiesFor(a.id)
             return (
-              <div key={agent.id} className="hud-card rounded-[20px] px-7 md:px-[42px] pt-[44px] pb-10">
-                <SectionLabel className="mb-[20px] block">{agent.tagline}</SectionLabel>
-                <h2 className="neb-display text-[32px] md:text-[38px] leading-[1.1] mb-4">
-                  {agent.name}
-                </h2>
-                <p className="text-[15.5px] leading-[1.68] text-muted mb-7">{agent.subheadline}</p>
-
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {caps.slice(0, 8).map(c => (
-                    <span
-                      key={c.slug}
-                      className="text-[12.5px] text-ink-2 border border-rule rounded-full px-[13px] py-[5px]"
-                    >
-                      {c.name}
-                    </span>
+              <div key={a.id} className={`rounded-[26px] ${a.tint} p-7 flex flex-col`}>
+                <p className="text-[11.5px] font-bold uppercase tracking-[0.12em] text-ink-2 mb-3">{agent.name} · the {a.id === 'gravity' ? 'content' : a.id === 'orbit' ? 'lead' : 'reply'} engine</p>
+                <h3 className="font-heading text-[24px] leading-[1.15] mb-3">{a.title}</h3>
+                <p className="text-[15.5px] leading-[1.55] text-ink-2 mb-5">{a.line}</p>
+                <div className="flex flex-wrap gap-1.5 mb-7">
+                  {caps.slice(0, 6).map(c => (
+                    <span key={c.slug} className="text-[12px] font-semibold bg-surface/70 rounded-full px-3 py-1">{c.name}</span>
                   ))}
-                  {caps.length > 8 && (
-                    <span className="text-[12.5px] text-faint px-[13px] py-[5px]">
-                      +{caps.length - 8} more
-                    </span>
-                  )}
+                  {caps.length > 6 && <span className="text-[12px] text-ink-2 px-2 py-1">+{caps.length - 6} more</span>}
                 </div>
-
-                <div className="flex flex-wrap items-center gap-4">
-                  <Link
-                    href={`/product/${agent.id}`}
-                    className="inline-flex items-center gap-2 bg-gold text-[#1A1208] text-[14.5px] font-semibold px-[26px] py-[13px] rounded-full hover:brightness-105 transition"
-                  >
-                    Explore {agent.name} <ArrowRight size={15} />
-                  </Link>
-                  <span className="text-[14px] text-muted">{agent.price}</span>
-                </div>
+                <Link href={`/product/${a.id}`} className="mt-auto inline-flex items-center gap-2 text-[14.5px] font-bold hover:gap-3 transition-all">
+                  See what it does <ArrowRight size={15} />
+                </Link>
               </div>
             )
           })}
         </div>
+
+        <div className="mt-6 grid md:grid-cols-2 gap-5">
+          <div className="rounded-[22px] border border-rule bg-surface p-6 flex items-start gap-4">
+            <span className="flex-shrink-0 w-11 h-11 rounded-full bg-gold-wash flex items-center justify-center"><ShieldCheck size={20} className="text-ink" /></span>
+            <div>
+              <h3 className="font-heading text-[18px] mb-1">You stay in control</h3>
+              <p className="text-[15px] leading-[1.55] text-ink-2">Every post and reply waits for your approval, or runs on rules you set. Nothing surprises you.</p>
+            </div>
+          </div>
+          <Link href="/product/core" className="rounded-[22px] border border-rule bg-surface p-6 flex items-start gap-4 hover:border-gold transition-colors">
+            <span className="flex-shrink-0 w-11 h-11 rounded-full bg-gold-wash flex items-center justify-center"><Brain size={20} className="text-ink" /></span>
+            <div>
+              <h3 className="font-heading text-[18px] mb-1">It gets better every week</h3>
+              <p className="text-[15px] leading-[1.55] text-ink-2">What worked and what didn&apos;t feeds the next month&apos;s plan. See how it learns →</p>
+            </div>
+          </Link>
+        </div>
       </section>
 
-      <hr className="border-t border-rule" />
-
-      <section className="px-6 md:px-12 lg:px-[120px] py-[100px] text-center">
-        <h2 className="neb-display text-[28px] md:text-[42px] mb-5">
-          Or have our team <span className="text-gold-display">run all three for you.</span>
-        </h2>
-        <p className="text-[16px] leading-[1.65] text-muted max-w-[520px] mx-auto mb-9">
-          Same agents underneath, with our team planning, producing and reporting on top of them —
-          including the on-ground work software cannot do.
-        </p>
-        <Link
-          href="/services"
-          className="inline-flex items-center gap-2 border border-rule-2 text-ink-2 text-[15px] font-semibold px-[28px] py-[14px] rounded-full hover:border-gold hover:text-gold-text transition-colors"
-        >
-          See managed services <ArrowRight size={15} />
-        </Link>
-      </section>
+      <Fork />
     </main>
   )
 }

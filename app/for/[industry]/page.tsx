@@ -56,12 +56,11 @@ export default function IndustryPage({ params }: { params: { industry: string } 
       />
 
       {/* Hero: a photo of the industry behind the headline, on a sunset fallback */}
-      <section className="dark relative isolate overflow-hidden bg-ground text-ink min-h-[560px] md:min-h-[620px] flex flex-col justify-end">
-        <div className="absolute inset-0 -z-20 bg-[radial-gradient(90%_70%_at_85%_100%,#EE6330_0%,rgba(238,99,48,0)_60%),radial-gradient(70%_60%_at_100%_0%,#F5A623_0%,rgba(245,166,35,0)_55%),linear-gradient(160deg,#14203A_0%,#1F2A55_55%,#4A2F4F_100%)]" aria-hidden="true" />
+      <section className="relative isolate overflow-hidden bg-ground text-ink min-h-[540px] md:min-h-[600px] flex flex-col justify-end">
+        <div className="absolute inset-0 -z-20 bg-[radial-gradient(60%_80%_at_92%_8%,rgba(255,203,46,0.55)_0%,rgba(255,203,46,0)_62%),radial-gradient(55%_70%_at_100%_100%,rgba(238,99,48,0.26)_0%,rgba(238,99,48,0)_66%),linear-gradient(180deg,#FBF5EA_0%,#FFEBD6_100%)]" aria-hidden="true" />
         <div className="absolute inset-0 -z-10" aria-hidden="true">
           <MediaSlot id={meta.photoSlot} ratio="auto" bare priority className="!h-full !rounded-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#14203A]/90 via-[#14203A]/55 to-[#14203A]/10" />
-          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#14203A]/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA]/95 via-[#FBF5EA]/70 to-[#FBF5EA]/5" />
         </div>
         <div className="relative px-5 md:px-12 lg:px-[120px] pt-[130px] pb-14 md:pb-16 max-w-[900px]">
           <SectionLabel className="mb-5 block">{data.eyebrow}</SectionLabel>
@@ -206,8 +205,8 @@ export default function IndustryPage({ params }: { params: { industry: string } 
 
       {/* Close */}
       <section className="px-5 md:px-12 lg:px-[120px] pb-16 md:pb-24">
-        <div className="dark relative isolate overflow-hidden rounded-[32px] md:rounded-[40px] bg-ground text-ink">
-          <div className="absolute inset-0 -z-10 bg-[radial-gradient(80%_90%_at_95%_100%,#EE6330_0%,rgba(238,99,48,0)_62%),radial-gradient(60%_60%_at_70%_0%,#F5A623_0%,rgba(245,166,35,0)_55%),linear-gradient(150deg,#14203A_0%,#2A2C5C_60%,#5B3252_100%)]" aria-hidden="true" />
+        <div className="relative isolate overflow-hidden rounded-[32px] md:rounded-[40px] bg-ground text-ink border border-rule">
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(60%_90%_at_95%_0%,rgba(255,203,46,0.6)_0%,rgba(255,203,46,0)_62%),radial-gradient(60%_80%_at_100%_100%,rgba(238,99,48,0.3)_0%,rgba(238,99,48,0)_66%),linear-gradient(160deg,#FFF3E0_0%,#FFE2C4_100%)]" aria-hidden="true" />
           <div className="relative py-12 md:py-16 px-7 md:px-14 max-w-[780px]">
             <h2 className="neb-display text-[36px] md:text-[60px] mb-5">
               Let&apos;s talk about

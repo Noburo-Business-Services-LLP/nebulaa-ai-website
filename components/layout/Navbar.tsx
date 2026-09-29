@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, Menu, X } from 'lucide-react'
 import Wordmark from '@/components/ui/Wordmark'
@@ -39,10 +38,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [industriesOpen, setIndustriesOpen] = useState(false)
-  // The homepage and industry pages open on a dark hero, so the bar wears cream text until you scroll past it.
-  const pathname = usePathname()
-  const hasDarkHero = pathname === '/' || /^\/for\/[^/]+$/.test(pathname)
-  const overHero = hasDarkHero && !scrolled
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -57,9 +52,7 @@ export default function Navbar() {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          overHero
-            ? 'dark bg-transparent'
-            : scrolled
+          scrolled
             ? 'bg-ground/95 backdrop-blur-md border-b border-rule'
             : 'bg-ground/80 backdrop-blur-sm'
         }`}

@@ -13,7 +13,9 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import MediaSlot from '@/components/ui/MediaSlot'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import TrackedLink from '@/components/ui/TrackedLink'
+import Button from '@/components/ui/Button'
+import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
+import { waLink } from '@/lib/contact'
 import { servicePages } from '@/lib/servicePageData'
 import StatCounter from '@/components/ui/StatCounter'
 
@@ -45,15 +47,16 @@ export default function ServicesPage() {
         <h1 className="neb-display text-[42px] md:text-[68px] mb-[30px]" style={{ textWrap: 'pretty' }}>
           <span className="text-gold-display">One team</span> runs your entire marketing function.
         </h1>
-        <p className="text-[18.5px] leading-[1.65] text-muted max-w-[620px] mb-10">
-          Our AI marketing services cover strategy, content, production, campaigns and on-ground activation — handled by one team, under one plan, with one person accountable for all of it. We&apos;re already running this for Gandhimathi Jewellers, JKR Tex and TNV Chits.
+        <p className="text-[18.5px] leading-[1.6] text-ink-2 max-w-[620px] mb-9">
+          Strategy, content, shoots, campaigns and on-ground work, all handled by one team under one plan,
+          with one person accountable for all of it. We already do this for Gandhimathi Jewellers, JKR Tex and TNV Chits.
         </p>
-        <a
-          href="#contact"
-          className="inline-block bg-gold text-[#1A1208] text-[15px] font-semibold px-[30px] py-[15px] rounded-full shadow-[0_6px_26px_rgba(245,166,35,0.24)] hover:brightness-105 transition"
-        >
-          Book a 20-min call
-        </a>
+        <div className="flex flex-wrap gap-3">
+          <Button href={waLink('Hi, I would like the Nebulaa team to run my marketing.')} variant="whatsapp" size="lg">
+            <WhatsAppIcon size={18} /> WhatsApp us
+          </Button>
+          <Button href="#contact" variant="secondary" size="lg">How a call works</Button>
+        </div>
       </section>
 
       {/* Working with */}
@@ -263,18 +266,14 @@ export default function ServicesPage() {
         />
         <div className="relative">
           <h2 className="neb-display text-[36px] md:text-[56px] mb-6">
-            Book a call and we&apos;ll send a written scope within <span className="text-gold-display">two working days.</span>
+            Message us and we&apos;ll send a written scope within <span className="text-gold-display">two working days.</span>
           </h2>
           <p className="text-[17px] leading-[1.65] text-muted max-w-[480px] mx-auto mb-10">
             Twenty minutes, no deck, no pitch. If we&apos;re the wrong fit we&apos;ll say so on the call and point you somewhere better.
           </p>
-          <TrackedLink
-            source="services_page"
-            href={`mailto:hello@nebulaa.ai?subject=${encodeURIComponent("Managed services — let's talk")}`}
-            className="inline-block bg-gold text-[#1A1208] text-[15px] font-semibold px-[34px] py-4 rounded-full shadow-[0_6px_26px_rgba(245,166,35,0.24)] hover:brightness-105 transition"
-          >
-            Book a 20-min call
-          </TrackedLink>
+          <Button href={waLink('Hi, I would like the Nebulaa team to run my marketing.')} variant="whatsapp" size="lg">
+            <WhatsAppIcon size={18} /> WhatsApp us to book
+          </Button>
         </div>
       </section>
     </main>

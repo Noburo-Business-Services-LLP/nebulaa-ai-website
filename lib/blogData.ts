@@ -16,7 +16,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'gtm-experiment-linkedin-daily-posting-30-days',
     title: 'GTM Experiment #1: We Posted on LinkedIn Every Day for 30 Days. Here\'s the Data.',
-    excerpt: 'A Bangalore SaaS founder ran a 30-day LinkedIn experiment using Gravity. Here\'s exactly what happened — the good, the bad, and the unexpected DMs.',
+    excerpt: 'A Bangalore SaaS founder ran a 30-day LinkedIn experiment with Nebulaa. Here\'s exactly what happened — the good, the bad, and the unexpected DMs.',
     tags: ['GTM Experiments', 'Case Study', 'LinkedIn'],
     readTime: '6 min read',
     date: 'March 15, 2026',
@@ -25,8 +25,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'gtm-experiment-cold-calling-100-leads',
-    title: 'GTM Experiment #2: We Had Pulsar Call 100 Leads in One Week. 14 Booked Demos.',
-    excerpt: 'A D2C founder gave Pulsar 100 cold leads from a trade show. One week later: 14 demo calls booked, 3 paying customers. Here\'s the full breakdown.',
+    title: 'GTM Experiment #2: We Had Nebulaa Call 100 Leads in One Week. 14 Booked Demos.',
+    excerpt: 'A D2C founder gave Nebulaa 100 cold leads from a trade show. One week later: 14 demo calls booked, 3 paying customers. Here\'s the full breakdown.',
     tags: ['GTM Experiments', 'Case Study', 'Outreach'],
     readTime: '7 min read',
     date: 'March 12, 2026',
@@ -36,7 +36,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'saas-founder-40-leads-on-a-flight',
     title: 'How a SaaS Founder in Bangalore Got 40 Warm Leads While on a Flight',
-    excerpt: 'We walked through exactly how Pulsar was set up, what script it used, and how 40 leads were pre-qualified without a single call made by the founder.',
+    excerpt: 'We walked through exactly how Nebulaa was set up, what script it used, and how 40 leads were pre-qualified without a single call made by the founder.',
     tags: ['Case Study', 'Outreach'],
     readTime: '5 min read',
     date: 'March 10, 2026',
@@ -55,8 +55,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'linkedin-strategy-gravity-runs-for-you',
-    title: 'The 7-Step LinkedIn Strategy That Gravity Runs For You (That Would Take You 8 Hours/Week)',
-    excerpt: 'The 7-step LinkedIn content strategy Gravity runs for you — from brand voice ingestion to post scheduling — and why it outperforms manual posting every time.',
+    title: 'The 7-Step LinkedIn Strategy That Nebulaa Runs For You (That Would Take You 8 Hours/Week)',
+    excerpt: 'The 7-step LinkedIn content strategy Nebulaa runs for you — from brand voice ingestion to post scheduling — and why it outperforms manual posting every time.',
     tags: ['Product Features', 'LinkedIn', 'Content Strategy'],
     readTime: '7 min read',
     date: 'March 5, 2026',

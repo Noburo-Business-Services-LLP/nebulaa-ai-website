@@ -6,11 +6,11 @@ import SectionLabel from '@/components/ui/SectionLabel'
 export const metadata: Metadata = {
   title: 'Free AI Marketing Tools — No Login Required',
   description:
-    'Need a hook? Generate one. LinkedIn post generator, cold email generator, hashtag generator, lead qualification calculator and more. No login required.',
+    'Generate a hook, a LinkedIn post, a cold email or hashtags for free. Includes a lead qualification calculator and more. No login required.',
   keywords: ['free marketing tools', 'founder tools', 'linkedin post generator', 'cold email generator', 'hashtag generator'],
   openGraph: {
     title: 'Free AI Marketing Tools — No Login Required',
-    description: 'One tool is useful. A system is different. Generate posts, emails and hooks instantly — no login required.',
+    description: 'Generate posts, emails and hooks instantly. No login required.',
     type: 'website',
   },
 }
@@ -29,12 +29,12 @@ export default function ToolsPage() {
         <div className="relative">
           <SectionLabel className="mb-[26px] block">Free tools · no signup</SectionLabel>
           <h1 className="neb-display text-[42px] md:text-[64px] mb-7" style={{ textWrap: 'pretty' }}>
-            Every free tool we&apos;ve got,
+            All our free tools,
             <br />
-            <span className="text-gold-display">one page, no catch.</span>
+            <span className="text-gold-display">on one page.</span>
           </h1>
           <p className="text-[17px] md:text-[18px] leading-[1.65] text-muted max-w-[600px]">
-            These free AI marketing tools run on the same model that writes for Gravity. There is no signup, no card and no follow-up afterward. Use them once and never come back if that is all you need — but if you find yourself opening four of them every Monday, that is roughly the job Gravity does automatically.
+            These free AI marketing tools run on the same AI model that writes for Nebulaa. There is no signup, no card and no follow-up afterward. If you find yourself opening four of them every Monday, that is roughly the job Nebulaa does for you automatically.
           </p>
         </div>
       </section>
@@ -46,7 +46,7 @@ export default function ToolsPage() {
             <circle cx="11" cy="11" r="7"></circle>
             <path d="M20 20l-3.5-3.5"></path>
           </svg>
-          <span className="text-[15px] text-faint">Search tools — &ldquo;cold email&rdquo;, &ldquo;ICP&rdquo;, &ldquo;CAC&rdquo;&hellip;</span>
+          <span className="text-[15px] text-faint">Search tools, such as &ldquo;cold email&rdquo; or &ldquo;hashtags&rdquo;&hellip;</span>
         </div>
       </div>
 
@@ -85,10 +85,10 @@ export default function ToolsPage() {
           <div>
             <SectionLabel className="mb-[22px] block">When one tool stops being enough</SectionLabel>
             <h2 className="neb-display text-[32px] md:text-[42px] mb-5">
-              Each tool does one thing. <span className="text-gold-display">Gravity plans, drafts and publishes the whole month.</span>
+              <span className="text-gold-display">Nebulaa plans, drafts and publishes your whole month.</span>
             </h2>
             <p className="text-[15.5px] md:text-base leading-[1.68] text-muted max-w-[520px]">
-              A standalone tool has no memory between sessions. Gravity keeps your brand voice, your customers and your content calendar across every session, and runs on its own schedule rather than waiting to be opened.
+              A single tool forgets you between visits. Nebulaa keeps your brand voice, your customers and your content calendar, and works on its own schedule instead of waiting to be opened.
             </p>
           </div>
           <div className="flex flex-col gap-[13px]">
@@ -102,7 +102,7 @@ export default function ToolsPage() {
               href="/#gravity"
               className="border border-rule-2 text-ink-2 text-[15px] font-medium py-[15px] rounded-full text-center hover:border-rule-2 transition"
             >
-              See what Gravity does
+              See what Nebulaa does
             </a>
           </div>
         </div>

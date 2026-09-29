@@ -47,15 +47,15 @@ export const engagements: Engagement[] = [
     summary: 'A consistent monthly presence for a brand that already has customers.',
     forWho: 'Established local and regional brands with an existing customer base',
     eyebrow: 'Engagement · always-on',
-    headline: 'The month gets made',
-    headlineEmphasis: 'whether you have time or not.',
+    headline: 'Your content gets made',
+    headlineEmphasis: 'even in your busy weeks.',
     subheadline:
-      'An established business with real customers goes quiet online for weeks at a time because everyone is busy running it. This is the most common engagement shape, and the least dramatic — we take the content off the team entirely and keep it moving.',
+      'An established business with real customers goes quiet online for weeks at a time because everyone is busy running it. This is the most common kind of engagement. We take the content off your team entirely and keep it moving.',
     scope: [
       {
         group: 'Every month',
         items: [
-          'A month of content planned against agreed pillars',
+          'A month of content planned around agreed content themes',
           'Posts, carousels and short-form video drafted and produced',
           'Festival and season campaigns mapped ahead of the window',
           'Publishing across your connected channels, at the right hours',
@@ -66,12 +66,12 @@ export const engagements: Engagement[] = [
         items: [
           'Comments, DMs and enquiries answered rather than accumulating',
           'Competitor tracking, with content that answers what they run',
-          'A monthly call in plain language — what worked, what did not, why',
+          'A monthly call in plain language: what worked, what did not, why',
         ],
       },
     ],
     rhythm: [
-      { label: 'Week 1', body: 'Strategy and pillars agreed, channels connected, brand assets collected.' },
+      { label: 'Week 1', body: 'Strategy and content themes agreed, channels connected, brand assets collected.' },
       { label: 'Week 2', body: 'The first month is planned and drafted, and you review it as a batch.' },
       { label: 'Ongoing', body: 'Content ships continuously; you approve. One review call a month.' },
     ],
@@ -120,10 +120,10 @@ export const engagements: Engagement[] = [
       },
     ],
     rhythm: [
-      { label: 'Month 1', body: 'Build the market — campaigns begin, audience forms, creators identified, retail clusters agreed.' },
-      { label: 'Month 2', body: 'Build product interest — creator collaborations go live, sampling starts in priority areas.' },
-      { label: 'Month 3', body: 'Create purchase intent — performance intensifies, BTL steps up as launch approaches.' },
-      { label: 'Month 4', body: 'Launch and convert — visible across digital, listings promoted, activation supporting on the ground.' },
+      { label: 'Month 1', body: 'Build the market: campaigns begin, audience forms, creators identified, retail clusters agreed.' },
+      { label: 'Month 2', body: 'Build product interest: creator collaborations go live, sampling starts in priority areas.' },
+      { label: 'Month 3', body: 'Create purchase intent: performance campaigns intensify, BTL steps up as launch approaches.' },
+      { label: 'Month 4', body: 'Launch and convert: visible across digital, listings promoted, activation supporting on the ground.' },
     ],
     whatChanges: [
       'The brand is already familiar in the market by the time it is on shelf',
@@ -136,21 +136,21 @@ export const engagements: Engagement[] = [
     ],
     seoTitle: 'Market Entry Engagement for New City Launches',
     seoDescription:
-      'A four-month engagement building demand before launch — local content, creators, geo-targeted campaigns, sampling and quick commerce.',
+      'A four-month engagement building demand before launch: local content, creators, geo-targeted campaigns, sampling and quick commerce.',
   },
   {
     slug: 'regional-programme',
     name: 'Regional programme',
-    summary: 'Organic, paid and on-ground activation run as one system across multiple markets.',
+    summary: 'Organic, paid and on-ground activation run as one plan across multiple markets.',
     forWho: 'Brands with distribution across several markets, regions or retail networks',
     eyebrow: 'Engagement · regional',
-    headline: 'Three pillars,',
-    headlineEmphasis: 'one execution system.',
+    headline: 'Organic, paid and on-ground',
+    headlineEmphasis: 'run as one plan.',
     subheadline:
-      'A brand present across several markets or a retail network often runs organic content, paid media and on-ground activation through different vendors who never speak to each other. This is the largest engagement shape we run — the three run as one system instead.',
+      'A brand present across several markets or a retail network often runs organic content, paid media and on-ground activation through different vendors who never speak to each other. This is the largest kind of engagement we run. The three run as one plan instead.',
     scope: [
       {
-        group: 'Pillar one — organic',
+        group: 'Part one: organic',
         items: [
           'Dedicated regional pages or market-specific content where it makes sense',
           'Daily content tuned to each market, in local language where relevant',
@@ -158,15 +158,15 @@ export const engagements: Engagement[] = [
         ],
       },
       {
-        group: 'Pillar two — performance',
+        group: 'Part two: performance',
         items: [
-          'Always-on Meta campaigns — awareness, engagement, retargeting',
+          'Always-on Meta campaigns for awareness, engagement and retargeting',
           'Google search and demand generation with regional targeting',
           'Micro and nano regional creators chosen for local credibility',
         ],
       },
       {
-        group: 'Pillar three — BTL and retail',
+        group: 'Part three: BTL and retail',
         items: [
           'Festival and seasonal activation across regional occasions',
           'Product launches, dealer events and retail activations',
@@ -178,7 +178,7 @@ export const engagements: Engagement[] = [
     rhythm: [
       { label: 'Phase 1', body: 'Understand objectives, set market priorities, agree the content calendar, begin organic and digital promotion.' },
       { label: 'Phase 2', body: 'Manage paid and creator campaigns, execute BTL where scheduled, optimise in real time.' },
-      { label: 'Continuous', body: 'Monitor, learn, optimise, execute again — with every layer tracked on its own terms.' },
+      { label: 'Continuous', body: 'Monitor, learn, improve and run again, with every layer tracked on its own terms.' },
     ],
     whatChanges: [
       'Consumer communication connects to where the product is actually sold',
@@ -193,7 +193,7 @@ export const engagements: Engagement[] = [
     ],
     seoTitle: 'Regional Marketing Programme — Organic, Paid & BTL',
     seoDescription:
-      'Organic content, performance media and on-ground retail activation run as one system across multiple markets, reported together.',
+      'Organic content, performance media and on-ground retail activation run as one plan across multiple markets, reported together.',
   },
 ]
 

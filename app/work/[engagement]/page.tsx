@@ -106,7 +106,7 @@ export default function EngagementPage({ params }: { params: { engagement: strin
         <div className="max-w-[640px] mb-[46px]">
           <SectionLabel className="mb-[20px] block">How it runs</SectionLabel>
           <h2 className="neb-display text-[30px] md:text-[42px]">
-            The rhythm of it.
+            How the work is paced.
           </h2>
         </div>
         <div className="flex flex-col gap-px bg-rule border border-rule rounded-[18px] overflow-hidden">

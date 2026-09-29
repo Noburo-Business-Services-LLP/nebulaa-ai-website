@@ -4,9 +4,9 @@ import { ArrowRight } from 'lucide-react'
 import { resources } from '@/lib/resourceData'
 import SectionLabel from '@/components/ui/SectionLabel'
 
-const seoTitle = 'AI Marketing Resources — Operating Knowledge'
+const seoTitle = 'Free AI Marketing Resources for Indian Businesses'
 const seoDescription =
-  'Templates and playbooks to move from planning to action: festival calendar, market entry playbook, BTL checklist, content calendar. One email unlocks all.'
+  'Free templates and playbooks: festival calendar, market entry playbook, BTL checklist and content calendar. One email unlocks all.'
 
 export const metadata: Metadata = {
   title: seoTitle,
@@ -22,12 +22,12 @@ export default function ResourcesHubPage() {
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[80px] max-w-[860px]">
         <SectionLabel className="mb-[26px] block">Free downloads</SectionLabel>
         <h1 className="neb-display text-[40px] md:text-[60px] mb-[26px]" style={{ textWrap: 'pretty' }}>
-          The things we use,{' '}
-          <span className="text-gold-display">handed over.</span>
+          Free templates and checklists{' '}
+          <span className="text-gold-display">from our own work.</span>
         </h1>
         <p className="text-[17.5px] leading-[1.65] text-muted max-w-[640px]">
           These AI marketing resources are built for Indian businesses and tuned to how the year actually
-          runs here. One email unlocks the set — no drip sequence afterwards. {ready} available now, the rest in
+          runs here. One email unlocks the whole set, and no emails follow. {ready} available now, the rest in
           preparation.
         </p>
       </section>

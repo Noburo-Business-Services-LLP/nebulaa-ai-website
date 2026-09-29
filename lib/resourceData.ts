@@ -36,7 +36,7 @@ export const resources: Resource[] = [
     title: 'Indian Festival Marketing Calendar',
     subtitle: 'Every major festival, with the lead time each one needs.',
     description:
-      'The festivals that move sales in India, mapped by month with the planning window each requires. Diwali content started in the last week of October has already missed. This is the calendar we plan client content against.',
+      'The festivals that move sales in India, mapped by month with the planning window each requires. Diwali content started in the last week of October has already missed the window. This is the calendar we plan client content against.',
     useItTo: 'Plan festival campaigns weeks ahead instead of the night before.',
     format: 'CSV + PDF',
     file: 'nebulaa-festival-marketing-calendar.csv',
@@ -51,7 +51,7 @@ export const resources: Resource[] = [
     title: 'New Market Entry Playbook',
     subtitle: 'The four-month model for launching in a new city.',
     description:
-      'How to build demand in a market before your product is on the shelf — what to run each month, in what order, and what to have ready by launch week. The model we use on live market-entry engagements, written so you can run it yourself.',
+      'How to build demand in a market before your product is on the shelf: what to run each month, in what order, and what to have ready by launch week. The model we use on live market-entry engagements, written so you can run it yourself.',
     useItTo: 'Stop launching into a market that has never heard of you.',
     format: 'PDF',
     file: 'nebulaa-market-entry-playbook.md',
@@ -66,7 +66,7 @@ export const resources: Resource[] = [
     title: 'BTL Activation Checklist',
     subtitle: 'What actually has to happen before a sampling day.',
     description:
-      'Permissions, staffing, stock, materials, measurement — the operational checklist for running an on-ground activation. Written from running them, which is why it includes the things that go wrong rather than only the things that should happen.',
+      'The operational checklist for running an on-ground activation: permissions, staffing, stock, materials and measurement. Written from running them, which is why it includes the things that go wrong rather than only the things that should happen.',
     useItTo: 'Run an activation without discovering a gap on the morning.',
     format: 'PDF',
     file: 'nebulaa-btl-activation-checklist.md',
@@ -95,7 +95,7 @@ export const resources: Resource[] = [
     title: 'Monthly Content Calendar Template',
     subtitle: 'A month laid out, with the format already decided.',
     description:
-      'A working calendar with columns for date, platform, format, pillar, hook and status — pre-filled with a sample month so you are not starting from an empty grid. The structure Gravity plans against.',
+      'A working calendar with columns for date, platform, format, pillar, hook and status — pre-filled with a sample month so you are not starting from an empty grid. The structure Nebulaa plans against.',
     useItTo: 'Stop deciding what to post on the morning you post it.',
     format: 'CSV',
     file: 'nebulaa-content-calendar-template.csv',

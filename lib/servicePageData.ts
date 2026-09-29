@@ -47,13 +47,13 @@ export const servicePages: ServicePage[] = [
   {
     slug: 'market-entry',
     name: 'Market entry',
-    summary: 'Demand built in the months before launch, not scrambled after it.',
+    summary: 'Build demand in the months before launch, so interest is waiting when your product arrives.',
     flagship: true,
     eyebrow: 'Service · market entry',
     headline: 'Start building the market',
     headlineEmphasis: 'before you are on the shelf.',
     subheadline:
-      'Most brands sort distribution first and marketing second, then wonder why the stock sits. This model runs the sequence backwards: demand generation starts months before launch, so there is already interest waiting when the product arrives.',
+      'Most brands sort distribution first and marketing second, then wonder why the stock sits. This plan starts marketing months before launch, so there is already interest waiting when the product arrives.',
     howItWorks: [
       { title: 'Pick the market and the date', body: 'One city, one launch window. Everything else works backwards from it.' },
       { title: 'Build awareness first', body: 'Local content, creators and geo-targeted campaigns run in the months before anything is on a shelf.' },
@@ -96,12 +96,12 @@ export const servicePages: ServicePage[] = [
     note: 'The timeline above is the shape of the model, not a fixed contract. A faster launch or several cities at once changes the scope and the sequence.',
     faqs: [
       { q: 'How far ahead should we start?', a: 'Three to four months before launch is where this model works. Starting a month out still helps, but you lose most of the compounding.' },
-      { q: 'What if the launch date moves?', a: 'It frequently does. The sequence shifts with it — the point is that activity is timed to the date, whenever the date turns out to be.' },
+      { q: 'What if the launch date moves?', a: 'It frequently does. The sequence shifts with it, because the activity is timed to the date, whenever the date turns out to be.' },
       { q: 'Can you do more than one city?', a: 'Yes, and the model repeats per market. Costs and team scale with the number of cities, which is part of what gets scoped.' },
     ],
     seoTitle: 'New Market Entry Marketing — FMCG Brands',
     seoDescription:
-      'Demand generation before launch — local content, creators, geo-targeted campaigns, sampling and quick-commerce discovery, timed to launch.',
+      'Demand generation before launch: local content, creators, geo-targeted campaigns, sampling and quick-commerce discovery, timed to launch.',
   },
   {
     slug: 'btl-activation',
@@ -112,7 +112,7 @@ export const servicePages: ServicePage[] = [
     headline: 'The part that happens',
     headlineEmphasis: 'off the screen.',
     subheadline:
-      'Someone has to stand in the aisle and hand your product to a customer. No software does that — which is why almost every AI marketing tool competing with us cannot offer it, and why it still works.',
+      'Someone has to stand in the aisle and hand your product to a customer. No software does that, so almost every AI marketing tool that competes with us cannot offer it, and it still works.',
     howItWorks: [
       { title: 'Pick the catchments', body: 'The neighbourhoods, stores and clusters where your product is actually available and your buyer actually shops.' },
       { title: 'Run a monthly cycle', body: 'Activation days rotate across priority areas rather than firing once and stopping.' },
@@ -141,21 +141,21 @@ export const servicePages: ServicePage[] = [
     name: 'Performance marketing',
     summary: 'Always-on Meta and Google, aimed at real catchments.',
     eyebrow: 'Service · paid media',
-    headline: 'Paid pointed at where',
+    headline: 'Ads aimed at where',
     headlineEmphasis: 'you actually sell.',
     subheadline:
       'National targeting wastes most of the budget for a regional brand. We run always-on Meta and Google campaigns geo-targeted around the specific markets, neighbourhoods and retail clusters where your product is actually available.',
     howItWorks: [
       { title: 'Map the catchments', body: 'Where the product is stocked, where the buyer lives, and which clusters are worth concentrating spend around.' },
-      { title: 'Run always-on', body: 'Awareness, consideration and retargeting running continuously rather than in campaign bursts.' },
+      { title: 'Run always-on', body: 'Ads that reach new people, keep them interested and bring back past visitors, running continuously rather than in bursts.' },
       { title: 'Optimise on real signal', body: 'Spend moves toward the areas and creatives producing enquiries, reviewed every cycle.' },
     ],
     whatWeRun: [
-      'Meta campaigns — awareness, consideration, retargeting and promotions',
+      'Meta campaigns for awareness, consideration, retargeting and promotions',
       'Google search and demand-generation with regional targeting',
       'Local-intent search around retail catchments',
       'Creative produced alongside the organic plan rather than separately',
-      'Monthly reporting on CTR, CPC, CPM and what converted',
+      'Monthly reporting on click rate (CTR), cost per click (CPC), cost per 1,000 views (CPM) and what converted',
     ],
     note: 'Media spend is billed at actuals and never marked up. The retainer covers running the campaigns, not a percentage of your budget.',
     faqs: [
@@ -203,14 +203,14 @@ export const servicePages: ServicePage[] = [
     name: 'Content & production',
     summary: 'Photography, film, carousels and short-form, produced in-house.',
     eyebrow: 'Service · production',
-    headline: 'Somebody still has to',
-    headlineEmphasis: 'make the thing.',
+    headline: 'Some things still need',
+    headlineEmphasis: 'a real shoot.',
     subheadline:
-      'Generated creative cannot cover a product shoot, a facility film or a founder interview. Our team produces the assets that need producing, and Gravity handles the volume around them.',
+      'Generated visuals cannot replace a product shoot, a facility film or a founder interview. Our team produces the assets that need real production, and Nebulaa handles the volume of posts around them.',
     howItWorks: [
       { title: 'Work out what needs shooting', body: 'What genuinely requires a camera, versus what can be produced without one.' },
       { title: 'Produce it', body: 'Product and facility photography, brand films, leadership and culture video, shot to a plan rather than ad hoc.' },
-      { title: 'Feed the system', body: 'Everything produced becomes a brand asset the content engine draws on for months afterwards.' },
+      { title: 'Reuse it everywhere', body: 'Everything we produce is saved as a brand asset that Nebulaa uses in your posts for months afterwards.' },
     ],
     whatWeRun: [
       'Product and catalogue photography',
@@ -222,16 +222,16 @@ export const servicePages: ServicePage[] = [
     faqs: [
       { q: 'Do I need a shoot at all?', a: 'Less often than you would think, and more often than a pure software vendor will admit. A jewellery brand needs real product photography; a services business frequently does not.' },
       { q: 'Who owns the footage?', a: 'You do — raw and edited. It stays yours if we stop working together.' },
-      { q: 'How often do you shoot?', a: 'Typically a periodic shoot that stocks the content engine for months, rather than a monthly production cycle.' },
+      { q: 'How often do you shoot?', a: 'Typically a periodic shoot that gives you enough material for months, rather than a monthly production cycle.' },
     ],
     seoTitle: 'Content Production, Photography & Brand Films',
     seoDescription:
-      'Product photography, brand films, facility stories and short-form video produced in-house, feeding a content engine that runs on them for months.',
+      'Product photography, brand films, facility stories and short-form video produced in-house, giving you material for months of posts.',
   },
   {
     slug: 'strategy',
     name: 'Marketing strategy',
-    summary: 'Positioning, pillars and channel planning before anything gets made.',
+    summary: 'Positioning, content themes and channel planning before anything gets made.',
     eyebrow: 'Service · strategy',
     headline: 'Deciding what to say',
     headlineEmphasis: 'before saying it everywhere.',
@@ -240,23 +240,23 @@ export const servicePages: ServicePage[] = [
     howItWorks: [
       { title: 'Understand the business', body: 'How you actually sell today, who buys, what the objection is, and where growth is expected to come from.' },
       { title: 'Set the positioning', body: 'What you stand for, said in a way a customer would recognise rather than an internal statement.' },
-      { title: 'Plan the channels', body: 'Content pillars, campaign themes, audiences and channel priorities — with the ones not worth running named as such.' },
+      { title: 'Plan the channels', body: 'Content themes, campaign ideas, audiences and channel priorities, with the ones not worth running named as such.' },
     ],
     whatWeRun: [
       'Positioning and messaging',
-      'Audience definition and content pillars',
+      'Audience definition and content themes',
       'Channel planning, including channels to skip',
       'Campaign themes mapped to the commercial calendar',
       'Visual direction and communication assets',
     ],
     faqs: [
       { q: 'Is this a separate paid engagement?', a: 'It is the first phase of a managed engagement rather than a standalone deliverable, because a strategy nobody executes is not worth much.' },
-      { q: 'How is this different from what Gravity does automatically?', a: 'Gravity builds a working strategy from your website in about a minute, and for a lot of businesses that is genuinely enough. This is for when the positioning itself is the open question.' },
+      { q: 'How is this different from what Nebulaa does automatically?', a: 'Nebulaa builds a working strategy from your website in about a minute, and for a lot of businesses that is genuinely enough. This is for when the positioning itself is the open question.' },
       { q: 'How long does it take?', a: 'Typically the first few weeks of an engagement, running in parallel with early content rather than blocking it.' },
     ],
     seoTitle: 'Marketing Strategy & Positioning for Indian Brands',
     seoDescription:
-      'Positioning, audience definition, content pillars and channel planning — including which channels are not worth your money.',
+      'Positioning, audience definition, content themes and channel planning, including which channels are not worth your money.',
   },
   {
     slug: 'reporting',
@@ -266,15 +266,15 @@ export const servicePages: ServicePage[] = [
     headline: 'Four questions,',
     headlineEmphasis: 'answered every month.',
     subheadline:
-      'Every month we answer the same four questions in plain language: what worked, what did not, why, and what changes next cycle. It is a written review, not a screenshot of a dashboard with the good numbers circled.',
+      'Every month we answer the same four questions in plain language: what worked, what did not, why, and what changes next cycle. It is a written review that includes the numbers that did not go well.',
     howItWorks: [
       { title: 'Everything is tracked on its own terms', body: 'Organic reach and engagement, paid CTR, CPC and conversions, creator cost efficiency, and BTL participation. Different work, different measures.' },
-      { title: 'It gets written up, not exported', body: 'A monthly report in plain language, not a PDF of charts you have to interpret.' },
+      { title: 'It gets written up, not exported', body: 'A monthly report in plain language, so you do not have to interpret a PDF of charts.' },
       { title: 'It changes the next cycle', body: 'The findings alter the next month\'s plan, and the report says explicitly what is changing and why.' },
     ],
     whatWeRun: [
-      'Organic performance — reach, engagement, follower movement',
-      'Paid performance — CTR, CPC, CPM and conversions',
+      'Organic performance: reach, engagement and follower movement',
+      'Paid performance: CTR, CPC, CPM and conversions',
       'Creator performance and cost efficiency',
       'BTL participation and dealer engagement',
       'A monthly review call, in plain language',
@@ -286,7 +286,7 @@ export const servicePages: ServicePage[] = [
     ],
     seoTitle: 'Monthly Marketing Reporting & Review',
     seoDescription:
-      'Every month: what worked, what did not, why, and what changes next cycle — across organic, paid, creator and on-ground activity.',
+      'Every month: what worked, what did not, why, and what changes next cycle, across organic, paid, creator and on-ground activity.',
   },
 ]
 

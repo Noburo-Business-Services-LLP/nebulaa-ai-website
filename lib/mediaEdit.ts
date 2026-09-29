@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { invalidateMediaManifest } from '@/lib/mediaManifestClient'
+import { rememberUpload, rememberRemoval } from '@/lib/mediaManifestClient'
 
 /**
  * Edit mode: with the admin password entered in this tab and ?edit=1 on any
@@ -100,7 +100,7 @@ export async function uploadMedia(file: File, key: string, secret: string): Prom
   }
 
   bust.set(key, Date.now())
-  invalidateMediaManifest()
+  rememberUpload(key)
   window.dispatchEvent(new Event(MEDIA_UPDATED_EVENT))
 }
 
@@ -111,6 +111,6 @@ export async function deleteMedia(key: string, secret: string): Promise<void> {
     body: JSON.stringify({ key }),
   })
   if (!res.ok) throw new Error('Could not remove the file')
-  invalidateMediaManifest()
+  rememberRemoval(key)
   window.dispatchEvent(new Event(MEDIA_UPDATED_EVENT))
 }

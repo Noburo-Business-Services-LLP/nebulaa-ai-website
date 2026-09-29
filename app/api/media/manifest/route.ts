@@ -12,6 +12,6 @@ export async function GET() {
   const objects = await listMedia()
   return NextResponse.json(
     { keys: objects.map(o => o.key) },
-    { headers: { 'Cache-Control': 'public, max-age=30, stale-while-revalidate=120' } },
+    { headers: { 'Cache-Control': 'public, max-age=0, s-maxage=10, stale-while-revalidate=10' } },
   )
 }

@@ -1,7 +1,6 @@
 'use client'
 
 import type { ReactNode } from 'react'
-import { soundEngine } from '@/lib/soundEngine'
 import StatusIndicator, { type StatusTone } from '@/components/ui/StatusIndicator'
 
 interface Props {
@@ -34,7 +33,6 @@ export default function HudCard({
   children,
   className = '',
   halo = 'amber',
-  sound = true,
   label,
   status,
   flush = false,
@@ -45,7 +43,6 @@ export default function HudCard({
   return (
     <div
       className={`hud-card rounded-[18px] relative overflow-hidden ${haloClass} ${className}`}
-      onMouseEnter={sound ? () => soundEngine.playHudHover() : undefined}
     >
       <div className="relative z-10">
         {hasHeader && (

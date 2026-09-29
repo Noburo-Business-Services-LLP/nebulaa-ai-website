@@ -1,71 +1,79 @@
-/* Playfair Display (headings) + Inter (body) — matches the Gravity product's own design system. Loaded via <link> in app/layout.tsx <head>. */
+/* Archivo (headlines) + Kaushan Script (accent) + Plus Jakarta Sans (body). Loaded via <link> in app/layout.tsx <head>. */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ─── Semantic theme tokens ───────────────────────────────────────────────
-   Light is the default. `.dark` on <html> flips the same token set, so every
-   component styles through tokens and never needs a `dark:` variant.
+   Light and warm is the site. Paper ground, navy ink, Nebulaa gold, with a
+   sunset coral and a WhatsApp green for two specific jobs.
 
-   One rule that must not be broken: --gold is the brand fill (#F5A623). It
-   fails text contrast on a light ground (~2.1:1), so gold *text* uses
-   --gold-text, which resolves darker in light mode and back to brand gold
-   in dark mode.
+   `.dark` is NOT a site theme any more. It is the navy-band recipe: put
+   className="dark" on a <section> and every token inside flips to navy
+   ground / cream ink, so a dark chapter needs no extra colour classes.
+
+   --gold is the brand fill (#F5A623). It fails text contrast on paper, so
+   gold *text* uses --gold-text (darker); big display accents use
+   --gold-display.
    ───────────────────────────────────────────────────────────────────────── */
 :root {
-  --ground:      #FAF9F6;
-  --surface:     #FFFFFF;
-  --surface-2:   #F2F0EA;
-  --ink:         #17171A;
-  --ink-2:       #44433F;
-  --muted:       #78756D;
-  --faint:       #9C998F;
-  --rule:        #E3DFD6;
-  --rule-2:      #CFC9BC;
+  --ground:      #FBF5EA;
+  --surface:     #FFFDF8;
+  --surface-2:   #F3E8D4;
+  --ink:         #14203A;
+  --ink-2:       #33405C;
+  --muted:       #6D6250;
+  --faint:       #8F836E;
+  --rule:        #E5D8BF;
+  --rule-2:      #D4C4A4;
   --gold:        #F5A623;
-  /* 4.79:1 on the light ground — passes AA for body text */
-  --gold-text:   #96650A;
-  /* 3.63:1 — passes AA for large text only (>=24px); headings use this */
-  --gold-display:#B0770F;
-  --gold-wash:   rgba(245, 166, 35, 0.10);
+  --gold-text:   #9A5B00;
+  --gold-display:#D07A00;
+  --gold-wash:   rgba(245, 166, 35, 0.16);
 
-  /* ground as raw channels, so gradients can fade it to transparent */
-  --ground-rgb:  250 249 246;
-  /* hero particle field */
-  --particle:     rgba(23, 23, 26, 0.14);
-  --particle-hot: rgba(168, 114, 12, 0.55);
-  --label:        var(--muted);
+  --sun:         #FFCB2E;
+  --coral:       #EE6330;
+  --coral-text:  #C4471A;
+  --wa:          #1FA855;
+  --wa-dark:     #178A45;
+  --peach:       #FFE3D0;
+  --mint:        #DDF2E6;
+  --sky:         #DCEBFA;
+  --lav:         #ECE6FB;
 
-  /* Operating-system surfaces */
-  --grid-line:    rgba(23, 23, 26, 0.045);
-  --panel:        rgba(255, 255, 255, 0.72);
-  --panel-border: rgba(23, 23, 26, 0.10);
+  --ground-rgb:  251 245 234;
+  --particle:     rgba(20, 32, 58, 0.14);
+  --particle-hot: rgba(208, 122, 0, 0.55);
+  --label:        var(--coral-text);
+
+  --grid-line:    rgba(20, 32, 58, 0.04);
+  --panel:        #FFFDF8;
+  --panel-border: #E5D8BF;
+  --card-shadow:  0 1px 2px rgba(20, 32, 58, 0.05), 0 12px 32px rgba(20, 32, 58, 0.07);
 }
 
 .dark {
-  --ground:      #030305;
-  --surface:     #08080E;
-  --surface-2:   #101018;
-  --ink:         #FFFFFF;
-  --ink-2:       #CBD2E1;
-  --muted:       #828896;
-  --faint:       #515664;
-  --rule:        rgba(255, 255, 255, 0.08);
-  --rule-2:      rgba(255, 255, 255, 0.16);
+  --ground:      #14203A;
+  --surface:     #1C2A48;
+  --surface-2:   #22325A;
+  --ink:         #FBF5EA;
+  --ink-2:       #DAD3C3;
+  --muted:       #ADA594;
+  --faint:       #8B8676;
+  --rule:        rgba(251, 245, 234, 0.14);
+  --rule-2:      rgba(251, 245, 234, 0.26);
   --gold:        #F5A623;
-  --gold-text:   #F5A623;
-  --gold-display:#F5A623;
-  --gold-wash:   rgba(245, 166, 35, 0.12);
+  --gold-text:   #FFCB2E;
+  --gold-display:#FFCB2E;
+  --gold-wash:   rgba(255, 203, 46, 0.14);
 
-  --ground-rgb:  3 3 5;
-  --particle:     rgba(255, 255, 255, 0.20);
-  --particle-hot: rgba(255, 214, 150, 0.95);
-  --label:        rgba(255, 255, 255, 0.55);
+  --coral-text:  #FF9A6B;
+  --ground-rgb:  20 32 58;
+  --label:        #FFCB2E;
 
-  --grid-line:    rgba(255, 255, 255, 0.032);
-  --panel:        rgba(10, 10, 16, 0.62);
-  --panel-border: rgba(255, 255, 255, 0.09);
+  --panel:        #1C2A48;
+  --panel-border: rgba(251, 245, 234, 0.14);
+  --card-shadow:  0 1px 2px rgba(0, 0, 0, 0.2), 0 12px 32px rgba(0, 0, 0, 0.25);
 }
 
 /* ─── Reset & base ────────────────────────── */
@@ -81,24 +89,19 @@ html {
 body {
   background: var(--ground);
   color: var(--ink);
-  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-.dark ::-webkit-scrollbar-track { background: #111110; }
-.dark .glass-card {
-  background: rgba(26,24,21,0.9);
-  border: 1px solid rgba(255,255,255,0.08);
-}
 
 /* ─── Gold text selection ─────────────────── */
 ::selection { background: #F5A623; color: #0A0A0A; }
 
 /* ─── Custom scrollbar ────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #FAFAF8; }
+::-webkit-scrollbar-track { background: var(--ground); }
 ::-webkit-scrollbar-thumb { background: #F5A623; border-radius: 2px; }
 
 /* ─── Scroll progress bar ─────────────────── */
@@ -167,64 +170,28 @@ body {
 
 /* ─── Heading font utility ───────────────── */
 .font-heading {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  letter-spacing: -0.02em;
-  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+  letter-spacing: -0.015em;
+  font-weight: 700;
 }
 
-/* ─── Sci-Fi HUD & Halo Utilities (Google Language Explorer & KPIT style) ─── */
+/* ─── Cards ─────────────────────────────────────────────────────────────────
+   .hud-card keeps its old name so ~130 pages pick up the new look without an
+   edit: it is now a plain warm card. No blur, no glow, no corner halo.
+   ───────────────────────────────────────────────────────────────────────── */
 .hud-card {
-  background: rgba(8, 8, 14, 0.78);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  box-shadow: var(--card-shadow);
 }
-
-.halo-amber {
-  position: relative;
-}
-.halo-amber::before {
-  content: '';
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  width: 140px;
-  height: 140px;
-  background: radial-gradient(circle, rgba(245, 166, 35, 0.35) 0%, rgba(245, 166, 35, 0) 70%);
-  filter: blur(24px);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.halo-cyan {
-  position: relative;
-}
-.halo-cyan::before {
-  content: '';
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  width: 140px;
-  height: 140px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.30) 0%, rgba(56, 189, 248, 0) 70%);
-  filter: blur(24px);
-  pointer-events: none;
-  z-index: 0;
-}
+.halo-amber, .halo-cyan { position: relative; }
 
 .hud-pill {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: var(--surface);
+  border: 1px solid var(--rule-2);
   transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.hud-pill:hover {
-  background: rgba(255, 255, 255, 0.09);
-  border-color: rgba(245, 166, 35, 0.4);
-  box-shadow: 0 0 16px rgba(245, 166, 35, 0.2);
-}
+.hud-pill:hover { border-color: var(--gold); }
 
 /* ─── SVG underline animation ────────────── */
 .svg-underline {
@@ -239,25 +206,27 @@ body {
 /* ─── Nebulaa design-system primitives ───── */
 /* Label recipe, lifted from the Gravity app's .gravity-label */
 .neb-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--label);
 }
-.neb-label-gold { color: var(--gold-text); }
+.neb-label-gold { color: var(--coral-text); }
 /* Product mockups stay dark in both themes — labels inside them need fixed light ink */
-.neb-label-on-dark { color: rgba(255,255,255,0.45); }
+.neb-label-on-dark { color: rgba(251,245,234,0.6); }
 
 /* Particle field — the dot-matrix motif the Gravity app uses while generating */
 .neb-field {
+  display: none;
   position: absolute;
   inset: 0;
   background-image: radial-gradient(circle, var(--particle) 1.1px, transparent 1.1px);
   background-size: 16px 16px;
 }
 .neb-field-hot {
+  display: none;
   position: absolute;
   inset: 0;
   background-image: radial-gradient(circle, var(--particle-hot) 1.4px, transparent 1.4px);
@@ -277,6 +246,7 @@ body {
   50%      { -webkit-mask-position: 56% 54%; mask-position: 56% 54%; -webkit-mask-size: 70% 66%; mask-size: 70% 66%; }
 }
 .neb-halo {
+  display: none;
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at 50% 50%, rgba(245,166,35,0.20) 0%, rgba(245,166,35,0) 58%);
@@ -289,6 +259,7 @@ body {
 
 /* Ambient top-right gold wash, lifted from the app shell */
 .neb-glow-wash {
+  display: none;
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -301,6 +272,7 @@ body {
    at the edges so it never terminates in a hard line.
    ───────────────────────────────────────────────────────────────────────── */
 .neb-grid {
+  display: none;
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -317,6 +289,7 @@ body {
    Amber behaves as energy, never as decoration — hence the very low alpha.
    ───────────────────────────────────────────────────────────────────────── */
 .neb-ambient {
+  display: none;
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -362,12 +335,33 @@ body {
    tracked. Used for section statements, not for body prose.
    ───────────────────────────────────────────────────────────────────────── */
 .neb-display {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-family: 'Archivo', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  font-stretch: 72%;
   text-transform: uppercase;
-  font-weight: 500;
-  line-height: 1.04;
+  font-weight: 850;
+  line-height: 0.98;
   letter-spacing: 0.005em;
   text-wrap: balance;
+}
+/* The accent phrase in any headline becomes a hand-drawn highlighter swash,
+   so every page's existing gold spans pick up the new look for free. */
+.neb-display .text-gold-display {
+  color: var(--ink);
+  background: linear-gradient(transparent 52%, var(--sun) 52%, var(--sun) 92%, transparent 92%);
+  padding: 0 0.1em;
+  margin: 0 -0.05em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  border-radius: 3px;
+}
+.dark .neb-display .text-gold-display { color: var(--ground); }
+.script-accent {
+  font-family: 'Kaushan Script', 'Brush Script MT', cursive;
+  text-transform: none;
+  font-weight: 400;
+  font-stretch: normal;
+  letter-spacing: 0;
+  color: var(--gold-display);
 }
 
 @keyframes neb-scan-sweep {
@@ -389,26 +383,28 @@ body {
 .prose-nebulaa h1,
 .prose-nebulaa h2,
 .prose-nebulaa h3 {
-  font-family: 'Playfair Display', Georgia, serif;
-  color: #F5F4F1;
-  letter-spacing: -0.02em;
+  font-family: 'Archivo', 'Arial Narrow', Arial, sans-serif;
+  font-stretch: 75%;
+  text-transform: uppercase;
+  color: var(--ink);
+  letter-spacing: -0.01em;
 }
-.prose-nebulaa p { color: #F5F4F1; line-height: 1.75; }
+.prose-nebulaa p { color: var(--ink-2); line-height: 1.75; }
 .prose-nebulaa a { color: #F5A623; text-decoration: underline; }
 .prose-nebulaa blockquote {
   border-left: 4px solid #F5A623;
   padding-left: 1rem;
   font-style: italic;
-  color: rgba(255,255,255,0.55);
+  color: var(--muted);
 }
 .prose-nebulaa code {
-  background: #151515;
+  background: var(--surface-2);
   border-radius: 0.375rem;
   padding: 0.125rem 0.375rem;
   font-size: 0.875em;
 }
 .prose-nebulaa pre {
-  background: #151515;
+  background: var(--surface-2);
   border-radius: 0.75rem;
   padding: 1rem;
   overflow-x: auto;

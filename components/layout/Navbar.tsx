@@ -2,272 +2,174 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { motion, AnimatePresence, useScroll } from 'framer-motion'
-import { ChevronDown, Menu, X, Radar, MessageSquareText, Orbit, BrainCircuit, Wrench, ScrollText, Building2, Scale, Layers, Briefcase, Download } from 'lucide-react'
-import SoundToggle from '@/components/ui/SoundToggle'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ChevronDown, Menu, X } from 'lucide-react'
 import Wordmark from '@/components/ui/Wordmark'
-import StatusIndicator from '@/components/ui/StatusIndicator'
+import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
 import Button from '@/components/ui/Button'
 import { trackCTAClick } from '@/lib/analytics/track'
+import { waLink } from '@/lib/contact'
 
-const GOLD_DOT_STYLE = {
-  background:
-    'radial-gradient(circle at 34% 32%, #FFD48A 0%, #F5A623 46%, #A4650B 100%)',
-}
-
-const PRODUCT_LINKS = [
-  { name: 'Overview', desc: 'Everything Nebulaa runs for you, in one place', href: '/product', icon: Layers },
-  { name: 'Content & social', desc: 'Strategy, posts, campaigns and inbox — Gravity', href: '/product/gravity', icon: Radar },
-  { name: 'Leads & prospecting', desc: 'Sourced, qualified and synced to your CRM — Orbit', href: '/product/orbit', icon: Orbit },
-  { name: 'Conversations & outreach', desc: 'WhatsApp, voice and follow-up, automated — Pulsar', href: '/product/pulsar', icon: MessageSquareText },
-  { name: 'How it learns', desc: 'The intelligence connecting all three — Core', href: '/product/core', icon: BrainCircuit },
+/**
+ * Four words and a button. The old menu asked a visitor to understand the
+ * product's architecture (Product, Core, Channels, Services, Resources, each
+ * with a sub-menu) before deciding whether to care. Free tools, the blog,
+ * comparisons and the rest live in the footer; their URLs are unchanged.
+ */
+const INDUSTRY_LINKS = [
+  { name: 'Hotels & stays', href: '/for/hospitality' },
+  { name: 'Jewellery & retail', href: '/for/jewellery-retail' },
+  { name: 'Textiles & apparel', href: '/for/textile-apparel' },
+  { name: 'Food & FMCG', href: '/for/fmcg-food' },
+  { name: 'Financial services', href: '/for/financial-services' },
+  { name: 'Real estate', href: '/for/real-estate' },
+  { name: 'Furniture & appliances', href: '/for/furniture-appliances' },
+  { name: 'Automobiles', href: '/for/automobiles' },
+  { name: 'Industrial & B2B', href: '/for/industrial-b2b' },
 ]
 
-const RESOURCES_LINKS = [
-  { name: 'Free tools', desc: '30 free generators and calculators, no signup', href: '/tools', icon: Wrench },
-  { name: 'Downloads', desc: 'Festival calendar, playbooks and templates', href: '/resources', icon: Download },
-  { name: 'Engagements', desc: 'The three shapes of managed work, and what each includes', href: '/work', icon: Briefcase },
-  { name: 'By industry', desc: 'How Gravity and Pulsar run per vertical', href: '/for', icon: Building2 },
-  { name: 'Compare', desc: 'Nebulaa vs Buffer, Hootsuite, Jasper and more', href: '/compare', icon: Scale },
-  { name: 'Nebulaa Labs', desc: 'Experiments, systems, signals — what we try and what changes', href: '/blog', icon: ScrollText },
-]
-
-const MOBILE_LINKS = [
-  { label: 'Product', href: '/product' },
-  { label: 'Content & social', href: '/product/gravity' },
-  { label: 'Leads & prospecting', href: '/product/orbit' },
-  { label: 'Conversations & outreach', href: '/product/pulsar' },
-  { label: 'How it learns', href: '/product/core' },
-  { label: 'Channels', href: '/channels' },
-  { label: 'Services', href: '/services' },
-  { label: 'Free tools', href: '/tools' },
-  { label: 'Downloads', href: '/resources' },
-  { label: 'Engagements', href: '/work' },
-  { label: 'By industry', href: '/for' },
-  { label: 'Compare', href: '/compare' },
+const LINKS = [
+  { label: 'How it works', href: '/product' },
+  { label: 'Our work', href: '/work' },
   { label: 'Pricing', href: '/pricing' },
-  { label: 'Nebulaa Labs', href: '/blog' },
 ]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [productDropdownOpen, setProductDropdownOpen] = useState(false)
-  const [resourcesDropdownOpen, setResourcesDropdownOpen] = useState(false)
-  const { scrollY } = useScroll()
+  const [industriesOpen, setIndustriesOpen] = useState(false)
 
   useEffect(() => {
-    const unsub = scrollY.on('change', v => setScrolled(v > 60))
-    return unsub
-  }, [scrollY])
+    const onScroll = () => setScrolled(window.scrollY > 12)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const wa = waLink()
 
   return (
     <>
-      <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 border-b border-rule transition-all duration-300 ${
-          scrolled ? 'bg-ground/95 backdrop-blur-lg' : 'bg-ground/80 backdrop-blur-sm'
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? 'bg-ground/95 backdrop-blur-md border-b border-rule' : 'bg-ground/80 backdrop-blur-sm'
         }`}
-        initial={{ y: -64 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="flex items-center justify-between py-7 px-6 md:px-12 lg:px-[120px]">
-          {/* Logo */}
-          <Link href="/" className="flex-shrink-0" aria-label="Nebulaa — home">
+        <div className="flex items-center justify-between py-4 px-5 md:px-12 lg:px-[120px] gap-6">
+          <Link href="/" className="flex-shrink-0" aria-label="Nebulaa home">
             <Wordmark className="hover:opacity-80 transition-opacity" />
           </Link>
 
-          {/* Center links — desktop */}
-          <div className="hidden md:flex items-center gap-7 lg:gap-[38px] ml-8 lg:ml-12">
-            {/* Product dropdown */}
+          <div className="hidden md:flex items-center gap-8 lg:gap-9 ml-4 mr-auto">
+            <Link href="/product" className="font-body text-[14.5px] font-semibold text-ink-2 hover:text-ink transition-colors whitespace-nowrap">
+              How it works
+            </Link>
+
             <div
               className="relative"
-              onMouseEnter={() => setProductDropdownOpen(true)}
-              onMouseLeave={() => setProductDropdownOpen(false)}
+              onMouseEnter={() => setIndustriesOpen(true)}
+              onMouseLeave={() => setIndustriesOpen(false)}
             >
               <button
-                className="flex items-center gap-1 font-body text-sm text-muted hover:text-ink transition-colors"
-                aria-expanded={productDropdownOpen}
+                className="flex items-center gap-1 font-body text-[14.5px] font-semibold text-ink-2 hover:text-ink transition-colors whitespace-nowrap"
+                aria-expanded={industriesOpen}
+                onClick={() => setIndustriesOpen(o => !o)}
               >
-                Product
-                <ChevronDown
-                  size={14}
-                  className={`transition-transform duration-200 ${productDropdownOpen ? 'rotate-180' : ''}`}
-                />
+                For your business
+                <ChevronDown size={14} className={`transition-transform duration-200 ${industriesOpen ? 'rotate-180' : ''}`} />
               </button>
               <AnimatePresence>
-                {productDropdownOpen && (
+                {industriesOpen && (
                   <motion.div
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 6 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 mt-2 w-64 bg-surface border border-rule-2 rounded-2xl overflow-hidden p-2"
+                    className="absolute top-full left-0 pt-2 w-64"
                   >
-                    {PRODUCT_LINKS.map(item => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-surface-2 border-l-2 border-transparent hover:border-l-gold transition-all group"
-                      >
-                        <span className="w-8 h-8 rounded-lg bg-gold-wash flex items-center justify-center flex-shrink-0">
-                          <item.icon size={15} className="text-gold-text" />
-                        </span>
-                        <div>
-                          <p className="font-body font-semibold text-sm text-ink group-hover:text-gold-text transition-colors">
-                            {item.name}
-                          </p>
-                          <p className="font-body text-xs text-faint mt-0.5">{item.desc}</p>
-                        </div>
-                      </Link>
-                    ))}
+                    <div className="bg-surface border border-rule rounded-2xl p-2 shadow-[0_18px_48px_rgba(20,32,58,0.14)]">
+                      {INDUSTRY_LINKS.map(item => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block px-3.5 py-2.5 rounded-xl font-body text-[14px] font-medium text-ink-2 hover:bg-gold-wash hover:text-ink transition-colors"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            <Link
-              href="/channels"
-              className="relative font-body text-sm text-muted hover:text-ink transition-colors group"
-            >
-              Channels
-              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-gold group-hover:w-full transition-all duration-300" />
-            </Link>
-
-            <Link
-              href="/services"
-              className="relative font-body text-sm text-muted hover:text-ink transition-colors group"
-            >
-              Services
-              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-gold group-hover:w-full transition-all duration-300" />
-            </Link>
-
-            <a
-              href="/pricing"
-              className="relative font-body text-sm text-muted hover:text-ink transition-colors group"
-            >
-              Pricing
-              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-gold group-hover:w-full transition-all duration-300" />
-            </a>
-
-            {/* Resources dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setResourcesDropdownOpen(true)}
-              onMouseLeave={() => setResourcesDropdownOpen(false)}
-            >
-              <button
-                className="flex items-center gap-1 font-body text-sm text-muted hover:text-ink transition-colors"
-                aria-expanded={resourcesDropdownOpen}
-              >
-                Resources
-                <ChevronDown
-                  size={14}
-                  className={`transition-transform duration-200 ${resourcesDropdownOpen ? 'rotate-180' : ''}`}
-                />
-              </button>
-              <AnimatePresence>
-                {resourcesDropdownOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 6 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute top-full right-0 mt-2 w-72 bg-surface border border-rule-2 rounded-2xl overflow-hidden p-2"
-                  >
-                    {RESOURCES_LINKS.map(item => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-surface-2 border-l-2 border-transparent hover:border-l-gold transition-all group"
-                      >
-                        <span className="w-8 h-8 rounded-lg bg-gold-wash flex items-center justify-center flex-shrink-0">
-                          <item.icon size={15} className="text-gold-text" />
-                        </span>
-                        <div>
-                          <p className="font-body font-semibold text-sm text-ink group-hover:text-gold-text transition-colors">
-                            {item.name}
-                          </p>
-                          <p className="font-body text-xs text-faint mt-0.5">{item.desc}</p>
-                        </div>
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+            {LINKS.slice(1).map(l => (
+              <Link key={l.href} href={l.href} className="font-body text-[14.5px] font-semibold text-ink-2 hover:text-ink transition-colors whitespace-nowrap">
+                {l.label}
+              </Link>
+            ))}
           </div>
 
-          {/* Right CTAs — desktop */}
-          <div className="hidden md:flex items-center gap-3.5">
-            <span className="hidden lg:inline-flex whitespace-nowrap">
-              <StatusIndicator tone="active" label="System online" />
-            </span>
-            <SoundToggle />
-            <a href="#" className="font-body text-sm text-muted hover:text-ink transition-colors">
-              Sign in
-            </a>
+          <div className="hidden md:flex items-center gap-3">
             <Button
-              href="/pricing"
+              href={wa}
+              variant="whatsapp"
               size="sm"
-              onClick={() => trackCTAClick('start_free', 'navbar_desktop')}
+              onClick={() => trackCTAClick('whatsapp', 'navbar_desktop')}
             >
+              <WhatsAppIcon size={15} /> WhatsApp us
+            </Button>
+            <Button href="/pricing" variant="secondary" size="sm" onClick={() => trackCTAClick('start_free', 'navbar_desktop')}>
               Start free
             </Button>
           </div>
 
-          {/* Mobile hamburger & sound */}
-          <div className="md:hidden flex items-center gap-2">
-            <SoundToggle className="py-1 px-2.5" />
-            <button
-              className="text-ink p-1"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-            >
-              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-            </button>
-          </div>
+          <button
+            className="md:hidden text-ink p-1"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-      </motion.nav>
+      </nav>
 
-      {/* Mobile overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-ground pt-16 px-6 flex flex-col overflow-y-auto"
+            exit={{ opacity: 0, y: -12 }}
+            className="fixed inset-0 z-40 bg-ground pt-20 px-5 flex flex-col overflow-y-auto"
           >
-            <nav className="flex flex-col gap-5 pt-8">
-              {MOBILE_LINKS.map((link, i) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.06 }}
-                  className="flex items-center gap-3 font-heading text-2xl text-ink hover:text-gold-text transition-colors"
+            <nav className="flex flex-col gap-1 pt-4">
+              {[...LINKS.slice(0, 1), ...LINKS.slice(1)].map(l => (
+                <Link
+                  key={l.href}
+                  href={l.href}
                   onClick={() => setMobileOpen(false)}
+                  className="font-heading text-[26px] text-ink py-2.5 border-b border-rule"
                 >
-                  <span className="w-4 h-4 rounded-full flex-shrink-0" style={GOLD_DOT_STYLE} />
-                  {link.label}
-                </motion.a>
+                  {l.label}
+                </Link>
+              ))}
+              <p className="neb-label mt-6 mb-2">For your business</p>
+              {INDUSTRY_LINKS.map(item => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="font-body text-[17px] font-medium text-ink-2 py-2"
+                >
+                  {item.name}
+                </Link>
               ))}
             </nav>
-            <div className="mt-auto pb-10 pt-8 flex flex-col gap-3 border-t border-rule-2">
-              <a
-                href="#"
-                className="font-body text-sm text-muted border border-rule-2 rounded-full px-5 py-3.5 text-center hover:border-gold hover:text-ink transition-all"
-                onClick={() => setMobileOpen(false)}
-              >
-                Sign in
-              </a>
-              <Button
-                href="/pricing"
-                block
-                onClick={() => { setMobileOpen(false); trackCTAClick('start_free', 'navbar_mobile') }}
-              >
+            <div className="mt-auto pb-24 pt-8 flex flex-col gap-3">
+              <Button href={wa} variant="whatsapp" block onClick={() => { setMobileOpen(false); trackCTAClick('whatsapp', 'navbar_mobile') }}>
+                <WhatsAppIcon size={16} /> WhatsApp us
+              </Button>
+              <Button href="/pricing" variant="secondary" block onClick={() => setMobileOpen(false)}>
                 Start free
               </Button>
             </div>

@@ -22,6 +22,15 @@ const config: Config = {
         rule:       'var(--rule)',
         'rule-2':   'var(--rule-2)',
         gold:       'var(--gold)',
+        sun:        'var(--sun)',
+        coral:      'var(--coral)',
+        'coral-text':'var(--coral-text)',
+        wa:         'var(--wa)',
+        'wa-dark':  'var(--wa-dark)',
+        peach:      'var(--peach)',
+        mint:       'var(--mint)',
+        sky:        'var(--sky)',
+        lav:        'var(--lav)',
         'gold-text':'var(--gold-text)',
         'gold-display':'var(--gold-display)',
         'gold-wash':'var(--gold-wash)',
@@ -47,12 +56,14 @@ const config: Config = {
         },
       },
       fontFamily: {
-        heading: ['Space Grotesk', 'system-ui', 'sans-serif'],
-        body:    ['Inter', 'system-ui', 'sans-serif'],
-        sans:    ['Inter', 'system-ui', 'sans-serif'],
-        // Telemetry, labels, stats, metadata — the "machine" voice
-        mono:    ['IBM Plex Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-        digital: ['Rajdhani', 'ui-monospace', 'monospace'],
+        heading: ['Plus Jakarta Sans', 'Segoe UI', 'system-ui', 'sans-serif'],
+        body:    ['Plus Jakarta Sans', 'Segoe UI', 'system-ui', 'sans-serif'],
+        sans:    ['Plus Jakarta Sans', 'Segoe UI', 'system-ui', 'sans-serif'],
+        // Small labels and figures: same family as body, no code-style face
+        mono:    ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        // Prices and big numbers: the heavy condensed headline face
+        digital: ['Archivo', 'Arial Narrow', 'Arial', 'sans-serif'],
+        script:  ['Kaushan Script', 'Brush Script MT', 'cursive'],
       },
       fontSize: {
         'display-xl': ['80px', { lineHeight: '0.95', letterSpacing: '-0.03em' }],

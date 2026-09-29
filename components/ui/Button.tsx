@@ -19,16 +19,19 @@ import { soundEngine } from '@/lib/soundEngine'
  * restraint. Pass `silent` for buttons inside an already-noisy interaction.
  */
 
-type Variant = 'primary' | 'secondary' | 'ghost'
+type Variant = 'primary' | 'secondary' | 'ghost' | 'whatsapp'
 type Size = 'sm' | 'md' | 'lg'
 
 const VARIANT: Record<Variant, string> = {
   // Amber as energy: the one action the page wants.
   primary:
-    'bg-gold text-[#1A1208] font-semibold shadow-[0_4px_20px_rgba(245,166,35,0.22)] hover:brightness-110 active:scale-[0.98]',
+    'bg-gold text-[#14203A] font-bold shadow-[0_6px_18px_rgba(245,166,35,0.35)] hover:brightness-105 active:scale-[0.98]',
+  // Green is reserved for WhatsApp, so the way to talk to us is always findable.
+  whatsapp:
+    'bg-wa text-white font-bold shadow-[0_6px_18px_rgba(31,168,85,0.32)] hover:bg-wa-dark active:scale-[0.98]',
   // The considered alternative — present, not competing.
   secondary:
-    'border border-rule-2 text-ink-2 font-medium hover:border-gold hover:text-gold-text',
+    'border-[1.5px] border-ink text-ink font-semibold hover:bg-ink hover:text-ground',
   // Tertiary, for dense interfaces where a filled button would shout.
   ghost: 'text-ink-2 font-medium hover:text-gold-text',
 }

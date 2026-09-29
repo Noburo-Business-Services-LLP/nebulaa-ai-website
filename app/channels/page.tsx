@@ -6,7 +6,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 
 const seoTitle = 'WhatsApp Marketing Automation & Every Channel'
 const seoDescription =
-  'Your channels are execution surfaces connected to one business context: WhatsApp, Instagram, Facebook, LinkedIn, X, YouTube, email, SMS, voice and more.'
+  'WhatsApp, Instagram, Facebook, LinkedIn, X, YouTube, email, SMS, voice and more: which channels Nebulaa runs for you and which our team handles.'
 
 export const metadata: Metadata = {
   title: seoTitle,
@@ -17,18 +17,18 @@ export const metadata: Metadata = {
 const GROUPS: { runBy: RunBy; title: string; note: string }[] = [
   {
     runBy: 'gravity',
-    title: 'Published by Gravity',
-    note: 'The product plans and publishes to these directly, from one monthly content plan.',
+    title: 'Posted by Nebulaa',
+    note: 'Nebulaa plans and posts to these for you, from one monthly content plan.',
   },
   {
     runBy: 'pulsar',
-    title: 'Handled by Pulsar',
-    note: 'Conversation channels. Every enquiry answered, qualified and scored, in one thread per person.',
+    title: 'Replies handled by Nebulaa',
+    note: 'These are conversation channels. Every enquiry is answered, checked for fit and scored, in one thread per person.',
   },
   {
     runBy: 'services',
     title: 'Run by our team',
-    note: 'Part of a managed engagement rather than the self-serve product — these need a person, not just software.',
+    note: 'These are part of a managed engagement rather than the self-serve product. They need a person, not just software.',
   },
 ]
 
@@ -38,12 +38,12 @@ export default function ChannelsHubPage() {
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[90px] max-w-[860px]">
         <SectionLabel className="mb-[26px] block">Channels</SectionLabel>
         <h1 className="neb-display text-[40px] md:text-[60px] mb-[26px]" style={{ textWrap: 'pretty' }}>
-          Every channel we run.{' '}
-          <span className="text-gold-display">And who runs it.</span>
+          Every channel we cover,{' '}
+          <span className="text-gold-display">and who runs each one.</span>
         </h1>
         <p className="text-[17.5px] leading-[1.65] text-muted max-w-[640px]">
-          From WhatsApp marketing automation to every other channel you use — some of these the product publishes
-          to on its own, some need our team. The difference matters when you are deciding what to buy, so it is marked on every one rather than blurred together.
+          This covers WhatsApp marketing automation and every other channel you use. Nebulaa posts to some of them
+          itself, and our team runs the rest. The difference matters when you are deciding what to buy, so it is marked on every channel.
         </p>
       </section>
 

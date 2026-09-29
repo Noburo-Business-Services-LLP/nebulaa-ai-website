@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
-import { industries } from '@/lib/industryData'
+import { ArrowUpRight } from 'lucide-react'
+import { industries, industryMeta } from '@/lib/industryData'
 import SectionLabel from '@/components/ui/SectionLabel'
+import MediaSlot from '@/components/ui/MediaSlot'
 
-const seoTitle = 'AI Marketing by Industry'
+const seoTitle = 'Marketing for Your Kind of Business'
 const seoDescription =
-  'How Gravity, Orbit and Pulsar operate inside your industry — jewellery, textile, financial services, FMCG, industrial & B2B, and more.'
+  'Hotels, jewellers, textile shops, food brands, financial services, real estate, furniture and more: see what Nebulaa does for the way you sell.'
 
 export const metadata: Metadata = {
   title: seoTitle,
@@ -19,35 +20,32 @@ export default function IndustriesHubPage() {
 
   return (
     <main className="text-ink min-h-screen">
-      <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[90px] max-w-[820px]">
-        <SectionLabel className="mb-[26px] block">By industry</SectionLabel>
-        <h1 className="neb-display text-[38px] md:text-[58px] mb-[26px]">
-          Every industry sells <span className="text-gold-display">differently.</span>
+      <section className="px-5 md:px-12 lg:px-[120px] pt-[130px] pb-12 max-w-[900px]">
+        <SectionLabel className="mb-5 block">For your business</SectionLabel>
+        <h1 className="neb-display text-[42px] md:text-[72px] mb-5">
+          Every business sells <span className="text-gold-display">differently.</span>
         </h1>
-        <p className="text-[17px] leading-[1.65] text-muted max-w-[620px]">
-          A jewellery brand sells on trust built over decades. A snack brand entering a new city needs
-          demand waiting before launch. Gravity and Pulsar adapt to how your business actually sells —
-          here&apos;s what that looks like for each industry we run today.
+        <p className="text-[18px] leading-[1.6] text-ink-2 max-w-[600px]">
+          A jewellery shop sells on trust built over decades. A hotel sells on the picture in a guest&apos;s
+          head. Pick your kind of business to see what we do for it.
         </p>
       </section>
 
-      <section className="px-6 md:px-12 lg:px-[120px] pb-[130px]">
-        <div className="grid sm:grid-cols-2 gap-5">
-          {list.map((ind) => (
+      <section className="px-5 md:px-12 lg:px-[120px] pb-[96px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {list.map(ind => (
             <Link
               key={ind.slug}
               href={`/for/${ind.slug}`}
-              className="group block hud-card rounded-[20px] px-[30px] pt-[32px] pb-[30px] hover:border-gold/30 transition-colors"
+              className="group block rounded-[24px] overflow-hidden border border-rule bg-surface shadow-[0_10px_28px_rgba(20,32,58,0.07)]"
             >
-              <SectionLabel tone="muted" className="mb-4 block">{ind.name}</SectionLabel>
-              <p className="text-[15px] leading-[1.6] text-muted mb-5">{ind.hubBlurb}</p>
-              <div className="flex items-center justify-between">
-                <span className="text-[12.5px] text-faint">
-                  {ind.clients.length > 0 ? ind.clients.map(c => c.name).join(', ') : 'Sector capability'}
-                </span>
-                <span className="flex items-center gap-1.5 text-[13.5px] font-semibold text-gold-text group-hover:gap-2.5 transition-all">
-                  Explore <ArrowRight size={14} />
-                </span>
+              <MediaSlot id={industryMeta[ind.slug].photoSlot} ratio="3 / 2" compact />
+              <div className="p-5">
+                <h2 className="font-heading text-[19px] mb-1.5 flex items-center justify-between gap-2">
+                  {ind.name}
+                  <ArrowUpRight size={18} className="flex-shrink-0 text-coral-text transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </h2>
+                <p className="text-[14px] leading-[1.55] text-ink-2">{ind.hubBlurb}</p>
               </div>
             </Link>
           ))}

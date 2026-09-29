@@ -5,7 +5,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import Pricing from '@/components/sections/Pricing'
 import FAQ from '@/components/sections/FAQ'
 
-const seoTitle = 'Nebulaa Pricing — Choose Your Operating Layer'
+const seoTitle = 'Pricing: Start for ₹999 a Month'
 const seoDescription =
   'Nebulaa self-serve pricing starts at ₹999/month with 60 credits across content, leads and outreach. Annual billing saves 10%.'
 
@@ -50,13 +50,12 @@ export default function PricingPage() {
     <main className="text-ink min-h-screen">
       <section className="px-6 md:px-12 lg:px-[120px] pt-[140px] pb-[80px] max-w-[860px]">
         <SectionLabel className="mb-[26px] block">Pricing</SectionLabel>
-        <h1 className="neb-display text-[40px] md:text-[60px] mb-[26px]" style={{ textWrap: 'pretty' }}>
-          Two ways to buy Nebulaa:{' '}
-          <span className="text-gold-display">software you run yourself, or a team that runs it for you.</span>
+        <h1 className="neb-display text-[42px] md:text-[72px] mb-[26px]" style={{ textWrap: 'pretty' }}>
+          Simple prices. <span className="text-gold-display">Start for ₹999.</span>
         </h1>
-        <p className="text-[17.5px] leading-[1.65] text-muted max-w-[620px]">
-          Nebulaa pricing is simple either way: run the software yourself, or have our team run the whole
-          marketing function for you. The agents are the same either way — the difference is whose evening it takes.
+        <p className="text-[18px] leading-[1.6] text-ink-2 max-w-[600px]">
+          Run it yourself from your phone, or let our team run your marketing for you. Pick whichever
+          fits, and change your mind any month.
         </p>
       </section>
 

@@ -39,8 +39,10 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [industriesOpen, setIndustriesOpen] = useState(false)
-  // The homepage opens on a dark video hero, so the bar wears cream text until you scroll past it.
-  const overHero = usePathname() === '/' && !scrolled
+  // The homepage and industry pages open on a dark hero, so the bar wears cream text until you scroll past it.
+  const pathname = usePathname()
+  const hasDarkHero = pathname === '/' || /^\/for\/[^/]+$/.test(pathname)
+  const overHero = hasDarkHero && !scrolled
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)

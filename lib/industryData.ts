@@ -1,7 +1,7 @@
 export interface IndustryUseCase {
   title: string
   desc: string
-  agent: 'Gravity' | 'Pulsar' | 'Both'
+  agent?: 'Gravity' | 'Pulsar' | 'Both'
 }
 
 export interface IndustryClient {
@@ -25,6 +25,8 @@ export interface IndustryData {
   hubImage: string
   /** Optional media slot id for illustrative sample creative. */
   creativeSlot?: string
+  /** Optional step-by-step buyer journey, shown as photo-style cards joined by arrows. */
+  journey?: { title: string; body: string }[]
 }
 
 /**
@@ -40,7 +42,7 @@ export const industries: Record<string, IndustryData> = {
     headline: 'The shop their mother trusted for',
     headlineEmphasis: 'thirty years — online, too.',
     subheadline:
-      'A jewellery buyer isn\'t comparing catalogues, they\'re comparing trust. Gravity keeps a steady stream of craft, collections and occasions in front of them; Pulsar answers the WhatsApp enquiry before they walk into a rival showroom.',
+      'A jewellery buyer isn\'t comparing catalogues, they\'re comparing trust. We keep a steady stream of craft, collections and occasions in front of them; we answer the WhatsApp enquiry before they walk into a rival showroom.',
     seoTitle: 'AI Marketing for Jewellery & Retail Stores',
     seoDescription:
       'Content and WhatsApp follow-up built for jewellery and retail brands — trusted by Gandhimathi Jewellers.',
@@ -51,9 +53,9 @@ export const industries: Record<string, IndustryData> = {
       'No easy way to show new collections to past customers without a mass broadcast that feels like spam',
     ],
     useCases: [
-      { title: 'Collection and occasion content', desc: 'Gravity plans posts and reels around festivals, wedding season and new collections, in your brand\'s tone, without a brief.', agent: 'Gravity' },
-      { title: 'WhatsApp enquiry response', desc: 'Pulsar answers "do you have this in gold" and "what\'s the price" the moment it lands, and books a showroom visit for anyone serious.', agent: 'Pulsar' },
-      { title: 'Competitor watch', desc: 'Gravity tracks what nearby jewellers are posting and drafts the counter-content, not just a report telling you about it.', agent: 'Gravity' },
+      { title: 'Collection and occasion content', desc: 'We plan posts and reels around festivals, wedding season and new collections, in your brand\'s tone, without a brief.', agent: 'Gravity' },
+      { title: 'WhatsApp enquiry response', desc: 'We answer "do you have this in gold" and "what\'s the price" the moment it lands, and book a showroom visit for anyone serious.', agent: 'Pulsar' },
+      { title: 'Competitor watch', desc: 'We track what nearby jewellers are posting and draft the counter-content, not just a report telling you about it.', agent: 'Gravity' },
       { title: 'Same-day dealer and retail follow-up', desc: 'Every enquiry through the day gets a same-day reply — nothing goes cold overnight.', agent: 'Pulsar' },
     ],
     clients: [{ name: 'Gandhimathi Jewellers', stage: 'active' }],
@@ -68,7 +70,7 @@ export const industries: Record<string, IndustryData> = {
     headline: 'Six branches, one voice,',
     headlineEmphasis: 'every single day.',
     subheadline:
-      'A retailer with more than one branch can\'t run content the way a single shop does — every branch, every collection, every regional festival. Gravity plans the month once and adapts it across branches; Pulsar catches every enquiry across every location.',
+      'A retailer with more than one branch can\'t run content the way a single shop does — every branch, every collection, every regional festival. We plan the month once and adapt it across branches; we catch every enquiry across every location.',
     seoTitle: 'AI Marketing for Textile & Apparel Retailers',
     seoDescription:
       'Multi-branch content and WhatsApp follow-up for textile and apparel retailers — trusted by JKR Tex.',
@@ -79,10 +81,10 @@ export const industries: Record<string, IndustryData> = {
       'A missed WhatsApp enquiry at one branch is a lost sale that never gets tracked',
     ],
     useCases: [
-      { title: 'Multi-branch content, one system', desc: 'Gravity plans the month\'s content once and localises it — the same quality bar across every branch, without a separate content person per location.', agent: 'Gravity' },
+      { title: 'Multi-branch content, one system', desc: 'We plan the month\'s content once and localise it — the same quality bar across every branch, without a separate content person per location.', agent: 'Gravity' },
       { title: 'Regional festival planning', desc: 'Festival and season content is mapped in advance, so no branch goes quiet during the buying window that matters most to it.', agent: 'Gravity' },
-      { title: 'Enquiry follow-up, every branch', desc: 'Pulsar answers WhatsApp enquiries the same day regardless of which branch they come through, and hands over anyone ready to buy.', agent: 'Pulsar' },
-      { title: 'Competitor tracking', desc: 'Gravity watches what other textile retailers in the region are running and keeps your content a step ahead, not a step behind.', agent: 'Gravity' },
+      { title: 'Enquiry follow-up, every branch', desc: 'We answer WhatsApp enquiries the same day regardless of which branch they come through, and hand over anyone ready to buy.', agent: 'Pulsar' },
+      { title: 'Competitor tracking', desc: 'We watch what other textile retailers in the region are running and keep your content a step ahead, not a step behind.', agent: 'Gravity' },
     ],
     clients: [{ name: 'JKR Tex', stage: 'active' }],
     hubBlurb: 'One content system for every branch — nothing goes quiet during peak season.',
@@ -96,7 +98,7 @@ export const industries: Record<string, IndustryData> = {
     headline: 'Trust is the product.',
     headlineEmphasis: 'Content has to earn it.',
     subheadline:
-      'Chits, lending and financial products sell on trust and clear communication, not hype. Gravity keeps your presence steady and plain-spoken; Pulsar answers "how does this work" the moment someone asks.',
+      'Chits, lending and financial products sell on trust and clear communication, not hype. We keep your presence steady and plain-spoken; we answer "how does this work" the moment someone asks.',
     seoTitle: 'AI Marketing for Financial Services Brands',
     seoDescription:
       'Steady, trust-first content and WhatsApp follow-up for financial services brands — trusted by TNV Chits.',
@@ -107,8 +109,8 @@ export const industries: Record<string, IndustryData> = {
       'Consistency matters more here than almost anywhere else, and it\'s the first thing that slips when the team gets busy',
     ],
     useCases: [
-      { title: 'Plain-language scheme content', desc: 'Gravity writes about your products the way you\'d explain them across the counter — clear, not clever.', agent: 'Gravity' },
-      { title: 'Enquiry qualification on WhatsApp', desc: 'Pulsar answers questions about eligibility, tenure and terms immediately, and hands over anyone ready to sign up.', agent: 'Pulsar' },
+      { title: 'Plain-language scheme content', desc: 'We write about your products the way you\'d explain them across the counter — clear, not clever.', agent: 'Gravity' },
+      { title: 'Enquiry qualification on WhatsApp', desc: 'We answer questions about eligibility, tenure and terms immediately, and hand over anyone ready to sign up.', agent: 'Pulsar' },
       { title: 'Consistent monthly presence', desc: 'A content plan built once a month means nothing goes quiet even when the team is heads-down on operations.', agent: 'Gravity' },
       { title: 'Lead scoring', desc: 'Every enquiry is scored on intent, so your team\'s time goes to the people actually ready to move, not window-shoppers.', agent: 'Pulsar' },
     ],
@@ -124,7 +126,7 @@ export const industries: Record<string, IndustryData> = {
     headline: 'Awareness has to exist',
     headlineEmphasis: 'before the product hits the shelf.',
     subheadline:
-      'A new-market launch only works if demand is already waiting when you arrive. Gravity builds local awareness and content ahead of time; Pulsar and our team run the retail activation that gets you seen once you are on shelf.',
+      'A new-market launch only works if demand is already waiting when you arrive. We build local awareness and content ahead of time, and our team runs the retail activation that gets you seen once you are on shelf.',
     seoTitle: 'AI Marketing for FMCG & Food Brands',
     seoDescription:
       'Market-entry content and demand generation for FMCG and food brands entering a new city.',
@@ -135,7 +137,7 @@ export const industries: Record<string, IndustryData> = {
       'Sampling and BTL activity that happens once, then stops, instead of building toward a launch date',
     ],
     useCases: [
-      { title: 'Market-entry content, ahead of launch', desc: 'Gravity builds local-market content and awareness before the product is even on shelf, so demand is waiting on day one.', agent: 'Gravity' },
+      { title: 'Market-entry content, ahead of launch', desc: 'We build local-market content and awareness before the product is even on shelf, so demand is waiting on day one.', agent: 'Gravity' },
       { title: 'Sampling and BTL, timed to launch', desc: 'On-ground activation builds through the weeks before launch, not as a one-off event after the fact.', agent: 'Both' },
       { title: 'Quick-commerce visibility', desc: 'Content and campaigns drive traffic to your live listings on Zepto, Blinkit and Instamart as availability rolls out.', agent: 'Gravity' },
     ],
@@ -173,31 +175,40 @@ export const industries: Record<string, IndustryData> = {
   },
   'hospitality': {
     slug: 'hospitality',
-    name: 'Hospitality',
-    eyebrow: 'For hotels, resorts & restaurants',
-    headline: 'They book the place',
-    headlineEmphasis: 'they can already picture.',
+    name: 'Hotels & stays',
+    eyebrow: 'For hotels, resorts, homestays and restaurants',
+    headline: "A guest doesn't book a room.",
+    headlineEmphasis: 'They buy an experience.',
     subheadline:
-      'Hotels and restaurants sell on atmosphere, and on the enquiry answered while someone is still deciding. Gravity keeps the rooms, the food and the season in front of people; Pulsar answers the availability question before they check the next place.',
-    seoTitle: 'AI Marketing for Hotels & Restaurants',
+      'We plan and post a month of photos and reels that show your property at its best, and answer every WhatsApp enquiry within minutes, so the guest books with you and not the next place they check.',
+    seoTitle: 'Marketing for Hotels, Resorts and Homestays',
     seoDescription:
-      'Content and enquiry handling for hotels, resorts and restaurants — seasonal campaigns and WhatsApp enquiries answered before booking elsewhere.',
+      'More bookings for hotels, resorts and homestays: a month of posts and reels planned for you, and every WhatsApp enquiry answered within minutes.',
     painPoints: [
-      'An enquiry about availability that sits unanswered while the guest books somewhere else',
-      'Seasonal demand that needs campaigns planned months ahead, not the week before',
-      'Reviews that go unanswered, which future guests read more carefully than any ad',
-      'Food and property photography that never makes it out of the phone it was shot on',
+      'An enquiry about availability sits unanswered while the guest books somewhere else',
+      'Seasonal demand needs planning months ahead, not the week before',
+      'Reviews go unanswered, and future guests read them more carefully than any ad',
+      'Good photos of the rooms and the food never leave the phone they were shot on',
     ],
     useCases: [
-      { title: 'Season and occasion campaigns', desc: 'Holiday seasons, long weekends and festival periods planned well ahead, when people are actually deciding where to go.', agent: 'Gravity' },
-      { title: 'Availability enquiries answered fast', desc: 'Pulsar answers dates, rates and availability questions immediately, and hands over anyone ready to book.', agent: 'Pulsar' },
-      { title: 'Review and listing management', desc: 'Google Business kept current and reviews answered — the surface future guests actually read before choosing.', agent: 'Both' },
-      { title: 'Atmosphere content', desc: 'Rooms, food and the experience itself, published consistently rather than whenever someone remembers to post.', agent: 'Gravity' },
+      { title: 'Season and festival campaigns', desc: 'Holidays, long weekends and festival periods planned well ahead, when people are actually deciding where to go.' },
+      { title: 'Availability answered fast', desc: 'Dates, rates and room questions get a reply in minutes, and anyone ready to book is passed to you.' },
+      { title: 'Reviews and your Google listing', desc: 'Your listing kept current and reviews answered, the place guests look before they choose.' },
+      { title: 'Photos and reels of your property', desc: 'Rooms, food and the view, posted steadily instead of whenever someone remembers.' },
+    ],
+    journey: [
+      { title: 'They find you', body: 'On Google and Instagram, searching for a stay.' },
+      { title: 'They picture it', body: 'Your photos and reels make them imagine the trip.' },
+      { title: 'They trust you', body: 'Reviews and real photos remove the doubt.' },
+      { title: 'They message you', body: 'A WhatsApp enquiry, answered in minutes.' },
+      { title: 'They book and stay', body: 'The enquiry becomes a booking.' },
+      { title: 'They come back', body: 'Good posts and replies bring them back.' },
     ],
     clients: [],
-    hubBlurb: 'Seasonal demand planned ahead, and enquiries answered while they are still deciding.',
+    hubBlurb: 'Seasonal demand planned ahead, and every enquiry answered while the guest is still deciding.',
     hubImage: 'hospitality',
   },
+
   'real-estate': {
     slug: 'real-estate',
     name: 'Real Estate',
@@ -205,7 +216,7 @@ export const industries: Record<string, IndustryData> = {
     headline: 'The enquiry is worth',
     headlineEmphasis: 'too much to leave waiting.',
     subheadline:
-      'One property enquiry can be worth more than a year of most businesses\' customers, which makes a slow reply extraordinarily expensive. Pulsar qualifies budget, location and timeline the moment an enquiry lands; Gravity keeps the projects visible in between.',
+      'One property enquiry can be worth more than a year of most businesses\' customers, which makes a slow reply extraordinarily expensive. We qualify budget, location and timeline the moment an enquiry lands; we keep the projects visible in between.',
     seoTitle: 'AI Marketing for Real Estate & Builders',
     seoDescription:
       'Project content and instant enquiry qualification for builders and property businesses — budget, location and timeline established before your team calls.',
@@ -232,7 +243,7 @@ export const industries: Record<string, IndustryData> = {
     headline: 'A considered purchase',
     headlineEmphasis: 'needs more than one post.',
     subheadline:
-      'Furniture and appliances are considered purchases nobody buys from a single ad. Buyers research, compare, ask about warranty and delivery, then visit. Gravity carries the consideration content; Pulsar answers the questions that decide it.',
+      'Furniture and appliances are considered purchases nobody buys from a single ad. Buyers research, compare, ask about warranty and delivery, then visit. We carry the consideration content; we answer the questions that decide it.',
     seoTitle: 'AI Marketing for Furniture & Appliance Retailers',
     seoDescription:
       'Consideration-stage content and enquiry handling for furniture and appliance retailers — specifications, warranty and delivery questions answered fast.',
@@ -282,4 +293,17 @@ export const industries: Record<string, IndustryData> = {
 }
 export function getIndustryData(slug: string): IndustryData | null {
   return industries[slug] ?? null
+}
+
+/** Photo slot behind each industry's hero and tile, and the message the WhatsApp button pre-types. */
+export const industryMeta: Record<string, { photoSlot: string; waMessage: string; person: string }> = {
+  'hospitality': { photoSlot: 'industry-hospitality', person: 'hotel', waMessage: 'Hi, I run a hotel and want more bookings.' },
+  'jewellery-retail': { photoSlot: 'industry-jewellery', person: 'jewellery shop', waMessage: 'Hi, I run a jewellery shop and want more customers.' },
+  'textile-apparel': { photoSlot: 'industry-textile', person: 'textile business', waMessage: 'Hi, I run a textile business and want more customers.' },
+  'financial-services': { photoSlot: 'industry-financial', person: 'financial services business', waMessage: 'Hi, I run a financial services business and want more enquiries.' },
+  'fmcg-food': { photoSlot: 'industry-food', person: 'food business', waMessage: 'Hi, I run a food business and want to reach more customers.' },
+  'real-estate': { photoSlot: 'industry-realestate', person: 'real estate business', waMessage: 'Hi, I sell property and want more enquiries.' },
+  'furniture-appliances': { photoSlot: 'industry-furniture', person: 'furniture or appliance store', waMessage: 'Hi, I run a furniture store and want more showroom visits.' },
+  'automobiles': { photoSlot: 'industry-automobiles', person: 'dealership', waMessage: 'Hi, I run a dealership and want more test drives.' },
+  'industrial-b2b': { photoSlot: 'industry-industrial', person: 'business', waMessage: 'Hi, I run a B2B business and want more leads.' },
 }

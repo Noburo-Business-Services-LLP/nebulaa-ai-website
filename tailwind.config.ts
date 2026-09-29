@@ -1,5 +1,17 @@
 import type { Config } from 'tailwindcss'
 
+/**
+ * Theme colours are CSS variables (so `.dark` bands can flip them), and a bare
+ * var() can't take a Tailwind opacity suffix like bg-ink/60. This wraps each
+ * one so /NN works, mixing the variable with transparent.
+ */
+const token = (name: string) =>
+  (({ opacityValue }: { opacityValue?: string }) =>
+    // Tailwind passes a var(--tw-*-opacity) string when no /NN is used; only mix for a real number.
+    opacityValue === undefined || opacityValue === '1' || !/^[\d.]+$/.test(opacityValue)
+      ? `var(${name})`
+      : `color-mix(in srgb, var(${name}) ${Math.round(Number(opacityValue) * 100)}%, transparent)`) as unknown as string
+
 const config: Config = {
   content: [
     './app/**/*.{ts,tsx,mdx}',
@@ -12,25 +24,25 @@ const config: Config = {
       colors: {
         // Semantic theme tokens — defined in globals.css, flipped by `.dark`.
         // Use these for anything that must respond to the theme.
-        ground:     'var(--ground)',
-        surface:    'var(--surface)',
+        ground:     token('--ground'),
+        surface:    token('--surface'),
         'surface-2':'var(--surface-2)',
-        ink:        'var(--ink)',
-        'ink-2':    'var(--ink-2)',
-        muted:      'var(--muted)',
-        faint:      'var(--faint)',
-        rule:       'var(--rule)',
-        'rule-2':   'var(--rule-2)',
-        gold:       'var(--gold)',
-        sun:        'var(--sun)',
-        coral:      'var(--coral)',
+        ink:        token('--ink'),
+        'ink-2':    token('--ink-2'),
+        muted:      token('--muted'),
+        faint:      token('--faint'),
+        rule:       token('--rule'),
+        'rule-2':   token('--rule-2'),
+        gold:       token('--gold'),
+        sun:        token('--sun'),
+        coral:      token('--coral'),
         'coral-text':'var(--coral-text)',
-        wa:         'var(--wa)',
-        'wa-dark':  'var(--wa-dark)',
-        peach:      'var(--peach)',
-        mint:       'var(--mint)',
-        sky:        'var(--sky)',
-        lav:        'var(--lav)',
+        wa:         token('--wa'),
+        'wa-dark':  token('--wa-dark'),
+        peach:      token('--peach'),
+        mint:       token('--mint'),
+        sky:        token('--sky'),
+        lav:        token('--lav'),
         'gold-text':'var(--gold-text)',
         'gold-display':'var(--gold-display)',
         'gold-wash':'var(--gold-wash)',

@@ -5,6 +5,9 @@ import { ArrowRight, Check } from 'lucide-react'
 import { capabilities, getCapability, capabilitiesFor, agents, type AgentId } from '@/lib/productData'
 import SectionLabel from '@/components/ui/SectionLabel'
 import MediaSlot from '@/components/ui/MediaSlot'
+import Reveal from '@/components/ui/Reveal'
+import FloatingIcons from '@/components/ui/FloatingIcons'
+import { capabilityIcon, TINTS } from '@/lib/capabilityIcons'
 import FaqList from '@/components/ui/FaqList'
 import Schema, { breadcrumbSchema, softwareApplicationSchema } from '@/components/ui/Schema'
 
@@ -56,7 +59,8 @@ export default function CapabilityPage({
         })}
       />
       {/* Hero */}
-      <section className="px-6 md:px-12 lg:px-[120px] pt-[130px] pb-[80px]">
+      <section className="relative overflow-hidden px-6 md:px-12 lg:px-[120px] pt-[130px] pb-[80px]">
+        <FloatingIcons icons={[capabilityIcon(cap.slug), ...capabilitiesFor(agent.id).filter(c => c.slug !== cap.slug).slice(0, 5).map(c => capabilityIcon(c.slug))]} className="hidden lg:block absolute right-[4%] top-[110px] bottom-6 w-[30%] max-w-[400px]" />
         <nav className="flex items-center gap-2 text-[12.5px] text-faint mb-8">
           <Link href="/product" className="hover:text-gold-text">Product</Link>
           <span>/</span>
@@ -102,13 +106,15 @@ export default function CapabilityPage({
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {cap.steps.map((step, i) => (
-            <div key={step.title} className="border-t border-gold/30 pt-6">
-              <div className="font-heading text-[22px] text-gold-text mb-3 tabular-nums">
-                {String(i + 1).padStart(2, '0')}
+            <Reveal key={step.title} delay={i * 0.09}>
+              <div className={`group h-full rounded-[22px] ${TINTS[i % 3]} p-6 transition-transform duration-300 hover:-translate-y-1`}>
+                <span className="neb-wiggle mb-4 inline-flex w-10 h-10 items-center justify-center rounded-full bg-ink text-ground text-[15px] font-extrabold">
+                  {i + 1}
+                </span>
+                <h3 className="font-heading font-medium text-[19px] mb-2.5">{step.title}</h3>
+                <p className="text-[14.5px] leading-[1.6] text-ink-2">{step.body}</p>
               </div>
-              <h3 className="font-heading font-medium text-[19px] mb-2.5">{step.title}</h3>
-              <p className="text-[14.5px] leading-[1.65] text-muted">{step.body}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>

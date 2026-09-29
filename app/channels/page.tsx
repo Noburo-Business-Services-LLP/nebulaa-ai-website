@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { channels, type RunBy } from '@/lib/channelData'
 import SectionLabel from '@/components/ui/SectionLabel'
+import Reveal from '@/components/ui/Reveal'
+import { capabilityIcon, TINTS } from '@/lib/capabilityIcons'
 
 const seoTitle = 'WhatsApp Marketing Automation & Every Channel'
 const seoDescription =
@@ -60,21 +62,26 @@ export default function ChannelsHubPage() {
               </div>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                {list.map(ch => (
-                  <Link
-                    key={ch.slug}
-                    href={`/channels/${ch.slug}`}
-                    className="group block hud-card rounded-[18px] px-[28px] pt-[28px] pb-7 hover:border-gold/30 transition-colors"
-                  >
-                    <div className="flex items-baseline justify-between gap-3 mb-2.5">
-                      <h3 className="font-heading font-medium text-[20px]">{ch.name}</h3>
-                    </div>
-                    <p className="text-[13.5px] leading-[1.6] text-muted mb-5">{ch.summary}</p>
-                    <span className="flex items-center gap-1.5 text-[13px] font-semibold text-gold-text group-hover:gap-2.5 transition-all">
-                      Read <ArrowRight size={13} />
-                    </span>
-                  </Link>
-                ))}
+                {list.map((ch, i) => {
+                  const Icon = capabilityIcon(ch.slug)
+                  return (
+                    <Reveal key={ch.slug} delay={(i % 3) * 0.07}>
+                      <Link
+                        href={`/channels/${ch.slug}`}
+                        className="group block h-full hud-card rounded-[22px] px-[26px] pt-[26px] pb-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(20,32,58,0.1)]"
+                      >
+                        <span className={`neb-wiggle mb-5 flex w-14 h-14 items-center justify-center rounded-2xl ${TINTS[i % 4]}`}>
+                          <Icon size={26} className="text-ink" strokeWidth={1.8} />
+                        </span>
+                        <h3 className="font-heading font-medium text-[20px] mb-2.5">{ch.name}</h3>
+                        <p className="text-[14px] leading-[1.6] text-ink-2 mb-5">{ch.summary}</p>
+                        <span className="flex items-center gap-1.5 text-[13px] font-bold text-coral-text group-hover:gap-2.5 transition-all">
+                          Read <ArrowRight size={13} />
+                        </span>
+                      </Link>
+                    </Reveal>
+                  )
+                })}
               </div>
             </div>
           )

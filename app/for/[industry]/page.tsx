@@ -66,7 +66,7 @@ export default function IndustryPage({ params }: { params: { industry: string } 
           <MediaSlot id={meta.photoSlot} ratio="auto" bare priority className="!h-full !rounded-none" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA]/95 via-[#FBF5EA]/70 to-[#FBF5EA]/5" />
         </div>
-        <FloatingIcons icons={industryIcons[data.slug]} className="hidden md:block absolute right-[4%] top-[110px] bottom-10 w-[36%] max-w-[460px]" />
+        <FloatingIcons icons={industryIcons[data.slug]} className="hidden lg:block absolute right-[4%] top-[110px] bottom-10 w-[34%] max-w-[440px]" />
         <div className="relative px-5 md:px-12 lg:px-[120px] pt-[130px] pb-14 md:pb-16 max-w-[900px]">
           <SectionLabel className="mb-5 block">{data.eyebrow}</SectionLabel>
           <h1 className="neb-display text-[42px] sm:text-[60px] lg:text-[80px] mb-6">

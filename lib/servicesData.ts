@@ -23,15 +23,15 @@ export interface Differentiator {
 export const differentiators: Differentiator[] = [
   {
     title: 'A single team runs everything',
-    body: 'The same team handles strategy, content, production, campaigns and on-ground activation, under one plan with one person accountable for all of it. You brief one group instead of coordinating five vendors.',
+    body: 'One team, one plan, one person accountable. You brief one group, not five vendors.',
   },
   {
     title: 'AI runs the volume, people run the judgment',
-    body: 'Our team uses AI systems for content, scheduling and paid promotions, so organic content, ads and outreach run from the same plan instead of three separate efforts.',
+    body: 'AI handles the volume of posts, scheduling and ads. People handle the thinking.',
   },
   {
     title: 'Built around how you sell',
-    body: 'We build the plan around how your business actually sells, and report on what is working instead of leaving you to guess.',
+    body: 'The plan follows how your business sells, and we show you what is working.',
   },
 ]
 

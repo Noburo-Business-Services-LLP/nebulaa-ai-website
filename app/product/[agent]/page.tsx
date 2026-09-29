@@ -7,6 +7,9 @@ import HudCard from '@/components/ui/HudCard'
 import SectionLabel from '@/components/ui/SectionLabel'
 import Schema, { breadcrumbSchema, softwareApplicationSchema } from '@/components/ui/Schema'
 import { plans } from '@/lib/orgFacts'
+import { capabilityIcon, TINTS } from '@/lib/capabilityIcons'
+import Reveal from '@/components/ui/Reveal'
+import FloatingIcons from '@/components/ui/FloatingIcons'
 
 export function generateStaticParams() {
   return Object.keys(agents).map(agent => ({ agent }))
@@ -49,7 +52,8 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
           url: `/product/${agent.id}`,
         })}
       />
-      <section className="px-6 md:px-12 lg:px-[120px] pt-[130px] pb-[80px]">
+      <section className="relative px-6 md:px-12 lg:px-[120px] pt-[130px] pb-[80px] overflow-hidden">
+        <FloatingIcons icons={caps.slice(0, 6).map(c => capabilityIcon(c.slug))} className="hidden lg:block absolute right-[4%] top-[110px] bottom-6 w-[32%] max-w-[420px]" />
         <nav className="flex items-center gap-2 text-[12.5px] text-faint mb-8">
           <Link href="/product" className="hover:text-gold-text">Product</Link>
           <span>/</span>
@@ -93,19 +97,26 @@ export default function AgentPage({ params }: { params: { agent: string } }) {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {caps.map(cap => (
-            <Link
-              key={cap.slug}
-              href={`/product/${agent.id}/${cap.slug}`}
-              className="group block hud-card rounded-[18px] px-[28px] pt-[30px] pb-7 hover:border-gold/30 transition-colors"
-            >
-              <h3 className="font-heading font-medium text-[20px] mb-2.5">{cap.name}</h3>
-              <p className="text-[13.5px] leading-[1.6] text-muted mb-5">{cap.summary}</p>
-              <span className="flex items-center gap-1.5 text-[13px] font-semibold text-gold-text group-hover:gap-2.5 transition-all">
-                Read <ArrowRight size={13} />
-              </span>
-            </Link>
-          ))}
+          {caps.map((cap, i) => {
+            const Icon = capabilityIcon(cap.slug)
+            return (
+              <Reveal key={cap.slug} delay={(i % 3) * 0.07}>
+                <Link
+                  href={`/product/${agent.id}/${cap.slug}`}
+                  className="group block h-full hud-card rounded-[22px] px-[26px] pt-[26px] pb-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(20,32,58,0.1)]"
+                >
+                  <span className={`neb-wiggle mb-5 flex w-14 h-14 items-center justify-center rounded-2xl ${TINTS[i % 4]}`}>
+                    <Icon size={26} className="text-ink" strokeWidth={1.8} />
+                  </span>
+                  <h3 className="font-heading font-medium text-[20px] mb-2.5">{cap.name}</h3>
+                  <p className="text-[14px] leading-[1.6] text-ink-2 mb-5">{cap.summary}</p>
+                  <span className="flex items-center gap-1.5 text-[13px] font-bold text-coral-text group-hover:gap-2.5 transition-all">
+                    Read <ArrowRight size={13} />
+                  </span>
+                </Link>
+              </Reveal>
+            )
+          })}
         </div>
       </section>
 

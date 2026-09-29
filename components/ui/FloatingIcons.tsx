@@ -12,7 +12,7 @@ const SPOTS = [
 /** Six soft icon bubbles that drift up and down, filling the empty side of a hero. */
 export default function FloatingIcons({ icons, className = '' }: { icons: LucideIcon[]; className?: string }) {
   return (
-    <div className={`relative ${className}`} aria-hidden="true">
+    <div className={className} aria-hidden="true">
       {SPOTS.map((s, i) => {
         const Icon = icons[i % icons.length]
         return (

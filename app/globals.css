@@ -449,3 +449,8 @@ body {
   .neb-marquee { flex-wrap: wrap; width: auto; justify-content: center; }
   .neb-marquee > [aria-hidden="true"] { display: none; }
 }
+@keyframes neb-travel { 0% { left: 0; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { left: calc(100% - 11px); opacity: 0; } }
+.neb-travel { animation: neb-travel 2.4s ease-in-out infinite; }
+@keyframes neb-ring { 0% { transform: scale(0.6); opacity: 0.9; } 100% { transform: scale(1.35); opacity: 0; } }
+.neb-ring { animation: neb-ring 2.6s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) { .neb-travel, .neb-ring { animation: none; } }

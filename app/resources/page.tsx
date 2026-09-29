@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { resources } from '@/lib/resourceData'
+import Reveal from '@/components/ui/Reveal'
+import { capabilityIcon, TINTS } from '@/lib/capabilityIcons'
 import SectionLabel from '@/components/ui/SectionLabel'
 
 const seoTitle = 'Free AI Marketing Resources for Indian Businesses'
@@ -34,15 +36,20 @@ export default function ResourcesHubPage() {
 
       <section className="px-6 md:px-12 lg:px-[120px] pb-[120px]">
         <div className="grid md:grid-cols-2 gap-5">
-          {resources.map(r => (
+          {resources.map((r, ri) => {
+            const RIcon = capabilityIcon(r.slug)
+            return (
+            <Reveal key={r.slug} delay={(ri % 2) * 0.08}>
             <Link
-              key={r.slug}
               href={`/resources/${r.slug}`}
-              className={`group flex flex-col justify-between bg-surface border rounded-[20px] px-[30px] pt-[32px] pb-8 transition-colors ${
-                r.flagship ? 'border-gold/25 hover:border-gold/50' : 'border-rule hover:border-gold/30'
+              className={`group flex h-full flex-col justify-between bg-surface border rounded-[24px] px-[30px] pt-[30px] pb-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(20,32,58,0.1)] ${
+                r.flagship ? 'border-gold/40' : 'border-rule'
               }`}
             >
               <div>
+                <span className={`neb-wiggle mb-5 flex w-14 h-14 items-center justify-center rounded-2xl ${TINTS[ri % 4]}`}>
+                  <RIcon size={26} className="text-ink" strokeWidth={1.8} />
+                </span>
                 <div className="flex flex-wrap items-center gap-2.5 mb-3.5">
                   <span className="neb-label">{r.format}</span>
                   {!r.file && (
@@ -66,7 +73,9 @@ export default function ResourcesHubPage() {
                 </span>
               </div>
             </Link>
-          ))}
+            </Reveal>
+            )
+          })}
         </div>
       </section>
     </main>

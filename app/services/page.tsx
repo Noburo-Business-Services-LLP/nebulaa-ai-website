@@ -1,19 +1,22 @@
 import type { Metadata } from 'next'
-import { Users, Cpu, Sparkles, Target, Layers, Camera, Film, Megaphone, MapPin, Palette, BarChart3 } from 'lucide-react'
+import { Target, Layers, Camera, Film, Megaphone, MapPin, Palette, BarChart3 } from 'lucide-react'
 import {
   differentiators,
   capabilities,
   process,
-  clients,
   deliverableStats,
   deliverableGroups,
   servicesPageMeta,
 } from '@/lib/servicesData'
 import SectionLabel from '@/components/ui/SectionLabel'
+import ClientMarquee from '@/components/home/ClientMarquee'
+import { TeamIllustration, MachineAndPersonIllustration, TargetIllustration } from '@/components/ui/Illustrations'
 import MediaSlot from '@/components/ui/MediaSlot'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import Button from '@/components/ui/Button'
+import Reveal from '@/components/ui/Reveal'
+import { capabilityIcon, TINTS } from '@/lib/capabilityIcons'
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
 import { waLink } from '@/lib/contact'
 import { servicePages } from '@/lib/servicePageData'
@@ -24,8 +27,6 @@ export const metadata: Metadata = {
   description: servicesPageMeta.seoDescription,
   openGraph: { title: servicesPageMeta.seoTitle, description: servicesPageMeta.seoDescription },
 }
-
-const differentiatorIcons = [Users, Cpu, Sparkles]
 
 const capabilityIcons: Record<string, typeof Target> = {
   'Marketing Strategy': Target,
@@ -49,7 +50,7 @@ export default function ServicesPage() {
         </h1>
         <p className="text-[18.5px] leading-[1.6] text-ink-2 max-w-[620px] mb-9">
           Strategy, content, shoots, campaigns and on-ground work, all handled by one team under one plan,
-          with one person accountable for all of it. We already do this for Gandhimathi Jewellers, JKR Tex and TNV Chits.
+          with one person accountable for all of it. We already do this for nine businesses across Tamil Nadu, from jewellers and textile shops to hotels and chit funds.
         </p>
         <div className="flex flex-wrap gap-3">
           <Button href={waLink('Hi, I would like the Nebulaa team to run my marketing.')} variant="whatsapp" size="lg">
@@ -59,39 +60,22 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Working with */}
-      <div className="border-y border-rule py-12 px-6 md:px-12 lg:px-[120px] flex items-center gap-11 flex-wrap">
-        <SectionLabel tone="muted" className="flex-shrink-0">
-          Working with
-        </SectionLabel>
-        <div className="flex items-center gap-9 flex-wrap">
-          {clients.map((client) => (
-            <span
-              key={client.name}
-              className={`font-heading text-xl ${client.stage === 'proposal' ? 'text-faint' : 'text-ink-2'}`}
-            >
-              {client.name}
-              {client.stage === 'proposal' && (
-                <span className="font-body text-[11px] tracking-[0.08em] uppercase"> · in progress</span>
-              )}
-            </span>
-          ))}
-        </div>
-      </div>
+      <ClientMarquee title="Businesses we run marketing for" />
 
-      {/* Differentiators */}
-      <section className="px-6 md:px-12 lg:px-[120px] py-[110px]">
+      {/* Why us: three cards with a moving picture each */}
+      <section className="px-6 md:px-12 lg:px-[120px] py-[90px]">
         <div className="grid md:grid-cols-3 gap-6">
           {differentiators.map((d, i) => {
-            const Icon = differentiatorIcons[i]
+            const Art = [TeamIllustration, MachineAndPersonIllustration, TargetIllustration][i]
+            const tint = ['bg-peach', 'bg-sky', 'bg-mint'][i]
             return (
-              <div key={d.title} className="hud-card rounded-[18px] px-[34px] pt-[38px] pb-10">
-                <span className="inline-flex w-10 h-10 rounded-full bg-gold-wash items-center justify-center mb-5">
-                  <Icon size={18} className="text-gold-text" />
-                </span>
-                <h3 className="font-heading font-medium text-2xl mb-3.5">{d.title}</h3>
-                <p className="text-[15px] leading-[1.68] text-muted">{d.body}</p>
-              </div>
+              <Reveal key={d.title} delay={i * 0.1}>
+                <div className={`group h-full rounded-[28px] ${tint} px-7 pt-8 pb-9 transition-transform duration-300 hover:-translate-y-1.5`}>
+                  <Art />
+                  <h3 className="font-heading text-[24px] leading-[1.18] mt-5 mb-2.5">{d.title}</h3>
+                  <p className="text-[16px] leading-[1.5] text-ink-2">{d.body}</p>
+                </div>
+              </Reveal>
             )
           })}
         </div>
@@ -108,16 +92,18 @@ export default function ServicesPage() {
           </h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {capabilities.map((c) => {
+          {capabilities.map((c, ci) => {
             const Icon = capabilityIcons[c.title]
             return (
-              <div key={c.title} className="hud-card rounded-[16px] px-[26px] pt-[30px] pb-8">
-                <span className="inline-flex w-9 h-9 rounded-full bg-gold-wash items-center justify-center mb-4">
-                  <Icon size={16} className="text-gold-text" />
-                </span>
-                <h3 className="font-heading font-medium text-lg mb-2.5">{c.title}</h3>
-                <p className="text-[13.5px] leading-[1.6] text-muted">{c.body}</p>
-              </div>
+              <Reveal key={c.title} delay={(ci % 4) * 0.06}>
+                <div className="group h-full hud-card rounded-[22px] px-[24px] pt-[24px] pb-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(20,32,58,0.1)]">
+                  <span className={`neb-wiggle mb-4 flex w-14 h-14 items-center justify-center rounded-2xl ${TINTS[ci % 4]}`}>
+                    <Icon size={26} className="text-ink" strokeWidth={1.8} />
+                  </span>
+                  <h3 className="font-heading font-medium text-[18px] mb-2">{c.title}</h3>
+                  <p className="text-[14px] leading-[1.55] text-ink-2">{c.body}</p>
+                </div>
+              </Reveal>
             )
           })}
         </div>
@@ -139,16 +125,21 @@ export default function ServicesPage() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {servicePages.map(svc => (
+          {servicePages.map((svc, si) => {
+            const SvcIcon = capabilityIcon(svc.slug)
+            return (
+            <Reveal key={svc.slug} delay={(si % 4) * 0.06}>
             <Link
-              key={svc.slug}
               href={`/services/${svc.slug}`}
-              className={`group block rounded-[16px] px-[26px] pt-[28px] pb-7 border transition-colors ${
+              className={`group block h-full rounded-[22px] px-[26px] pt-[26px] pb-7 border transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(20,32,58,0.1)] ${
                 svc.flagship
-                  ? 'bg-surface border-gold/25 hover:border-gold/50'
-                  : 'bg-surface border-rule hover:border-gold/30'
+                  ? 'bg-surface border-gold/40'
+                  : 'bg-surface border-rule'
               }`}
             >
+              <span className={`neb-wiggle mb-4 flex w-12 h-12 items-center justify-center rounded-2xl ${TINTS[si % 4]}`}>
+                <SvcIcon size={22} className="text-ink" strokeWidth={1.8} />
+              </span>
               {svc.flagship && (
                 <span className="inline-block text-[10px] font-semibold uppercase tracking-[0.08em] text-gold-text bg-gold-wash rounded-full px-2 py-0.5 mb-3">
                   On the ground
@@ -156,11 +147,13 @@ export default function ServicesPage() {
               )}
               <h3 className="font-heading font-medium text-[19px] mb-2.5">{svc.name}</h3>
               <p className="text-[13.5px] leading-[1.6] text-muted mb-5">{svc.summary}</p>
-              <span className="flex items-center gap-1.5 text-[13px] font-semibold text-gold-text group-hover:gap-2.5 transition-all">
+              <span className="flex items-center gap-1.5 text-[13px] font-bold text-coral-text group-hover:gap-2.5 transition-all">
                 Read <ArrowRight size={13} />
               </span>
             </Link>
-          ))}
+            </Reveal>
+            )
+          })}
         </div>
       </section>
 
@@ -248,13 +241,21 @@ export default function ServicesPage() {
           </h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
-          {process.map((p) => (
-            <div key={p.step} className="border-t border-gold/30 pt-6">
-              <div className="font-heading text-2xl text-gold-text mb-3">{p.step}</div>
-              <h3 className="font-heading font-medium text-lg mb-2">{p.title}</h3>
-              <p className="text-[13.5px] leading-[1.6] text-muted">{p.body}</p>
-            </div>
-          ))}
+          {process.map((p, pi) => {
+            const PIcon = [Target, Palette, Camera, Megaphone, BarChart3][pi] ?? Target
+            return (
+              <Reveal key={p.step} delay={pi * 0.08}>
+                <div className={`group h-full rounded-[22px] ${TINTS[pi % 4]} p-5 transition-transform duration-300 hover:-translate-y-1`}>
+                  <span className="neb-wiggle mb-4 flex w-12 h-12 items-center justify-center rounded-2xl bg-surface">
+                    <PIcon size={22} className="text-ink" strokeWidth={1.8} />
+                  </span>
+                  <div className="text-[11px] font-extrabold tracking-[0.14em] text-ink-2 mb-1">STEP {p.step}</div>
+                  <h3 className="font-heading text-[19px] mb-1.5">{p.title}</h3>
+                  <p className="text-[14px] leading-[1.5] text-ink-2">{p.body}</p>
+                </div>
+              </Reveal>
+            )
+          })}
         </div>
       </section>
 
